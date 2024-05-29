@@ -29,7 +29,7 @@
             </span>
         </div>
     </a>
-    <a class="nav-link label-1" href="{{url('student-list')}}">
+    <a class="nav-link label-1" href="{{url('/students')}}">
         <div class="d-flex align-items-center">
             <span class="nav-link-icon">
                 <!-- Icon for Student List -->

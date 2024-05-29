@@ -9294,9 +9294,9 @@
                     '<td><a href="' + developer.linkedin + '" target="_blank">LinkedIn</a></td>' +
                     '<td><a href="' + developer.portfolio + '" target="_blank">Portfolio</a></td>' +
                     '<td>' + developer.mobile_number + '</td>' +
-                    '<td>' +
+                    '<td style="display:flex">' +
                     '<button type="button" class="btn btn-success btn-sm accept-btn" data-email="' + developer.personal_email + '" data-name="' + developer.user_name + '">Accept</button>' +
-                    '<button type="button" class="btn btn-danger btn-sm reject-btn" data-email="' + developer.personal_email + '">Reject</button>' +
+                    '<button type="button" class="btn btn-danger btn-sm reject-btn" data-email="' + developer.personal_email + '" style="margin-left:10px;">Reject</button>' +
                     
 
                     '</td>' +
@@ -9617,7 +9617,7 @@
                 template</a>
         </div>
     </div><a class="card setting-toggle" href="#settings-offcanvas" data-bs-toggle="offcanvas">
-        <div class="card-body d-flex align-items-center px-2 py-1">
+        <!-- <div class="card-body d-flex align-items-center px-2 py-1">
             <div class="position-relative rounded-start" style="height:34px;width:28px">
                 <div class="settings-popover"><span class="ripple"><span
                             class="fa-spin position-absolute all-0 d-flex flex-center"><span
@@ -9628,7 +9628,7 @@
                                         fill="#2A7BE4"></path>
                                 </svg></span></span></span></div>
             </div><small class="text-uppercase text-700 fw-bold py-2 pe-2 ps-1 rounded-end">customize</small>
-        </div>
+        </div> -->
     </a>
 
     <!-- ===============================================-->

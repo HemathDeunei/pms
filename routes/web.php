@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\StudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +45,9 @@ Route::get('/homepage',[LoginController::class,'login']);
 Route::get('/admin_home_page',[AdminController::class,'show_admin']);
 Route::get('/developers-list',[AdminController::class,'developer_list']);
 Route::get('/admin/fetch-developers',[AdminController::class,'fetchDevelopers']);
+Route::get('/get_students', [AdminController::class, 'getStudents']);
+Route::post('/accept_student', [AdminController::class, 'accept']);
+Route::post('/reject_student', [AdminController::class, 'reject']);
 
 Route::post('/accept_developer', [AdminController::class, 'acceptDeveloper']);
 Route::post('/reject_developer', [AdminController::class, 'rejectDeveloper']);
@@ -54,3 +58,9 @@ Route::post('/reject_developer', [AdminController::class, 'rejectDeveloper']);
 Route::get('/developer_register',[DeveloperController::class,'developer_register'])->name('developer_register');
 Route::post('/add-developer',[DeveloperController::class,'add_developer'])->name('add-developer');
 
+
+//student page
+Route::get('/students',[StudentController::class,'show_student']);
+Route::get('student',[StudentController::class,'student_register'])->name('student');
+Route::post('/add_student',[StudentController::class,'store_student'])->name('/add_student');
+Route::get('/student/fetch-students',[StudentController::class,'fetchstudent']);

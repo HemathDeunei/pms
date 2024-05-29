@@ -107,9 +107,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
-                    </li>
+                
                     <li class="nav-item">
                         <a class="nav-link" href="/login">Login</a>
                     </li>
@@ -119,8 +117,8 @@
                             Register
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{route('developer_register')}}">Developer</a>
-                            <a class="dropdown-item" href="/register/teacher">Student</a>
+                            <a class="dropdown-item" href="{{route('developer_register')}}">MEMBER</a>
+                            <a class="dropdown-item" href="{{route('student')}}">Student</a>
                         </div>
                     </li>
                 </ul>

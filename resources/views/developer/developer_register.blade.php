@@ -5,11 +5,26 @@
     <title>Developer Registration</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <style>
+        .slider_section{
+            display: none;
+        }
+        .about_section{
+            display: none;
+        }
+        .bg-light{
+            display: none;
+        }
+        h2{
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
+@include('home.index')
     <div class="container mt-5">
-        <h2>Developer Registration</h2>
+        <h2>MEMBER REGISTRATION</h2>
 
         <!-- Success and error message containers -->
         <div id="success-message" class="alert alert-success d-none"></div>
