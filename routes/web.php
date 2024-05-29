@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DeveloperController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
@@ -55,8 +56,9 @@ Route::post('/reject_developer', [AdminController::class, 'rejectDeveloper']);
 
 
 //developer page
-Route::get('/developer_register',[DeveloperController::class,'developer_register'])->name('developer_register');
-Route::post('/add-developer',[DeveloperController::class,'add_developer'])->name('add-developer');
+Route::get('/developer_register',[MemberController::class,'developer_register'])->name('developer_register');
+Route::post('/add-developer',[MemberController::class,'add_developer'])->name('add-developer');
+Route::get('/developers-list',[MemberController::class,'developer_list'])->name('member-list');
 
 
 //student page
@@ -64,3 +66,7 @@ Route::get('/students',[StudentController::class,'show_student']);
 Route::get('student',[StudentController::class,'student_register'])->name('student');
 Route::post('/add_student',[StudentController::class,'store_student'])->name('/add_student');
 Route::get('/student/fetch-students',[StudentController::class,'fetchstudent']);
+
+
+//project 
+// Route::get('/project_register',[ProjectController::class,'project_register']);

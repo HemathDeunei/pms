@@ -14,7 +14,7 @@ class LoginController extends Controller
             if($usertype=="admin"){
                 return view('admin.adminhome');
             }elseif($usertype=="developer"){
-                return view('developer.developerhome');
+                return view('member.developerhome');
             }elseif($usertype=="student"){
                 return view('student.studenthome');
             }

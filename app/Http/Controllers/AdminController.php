@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Developer;
+use App\Models\Member;
 use App\Models\User;
 use App\Models\Student;
 use Illuminate\Support\Facades\Hash;
@@ -29,7 +29,7 @@ class AdminController extends Controller
 
     public function fetchDevelopers()
     {
-        $developers = Developer::all(); // Fetch all developers from the database
+        $developers = Member::all(); // Fetch all developers from the database
         return response()->json($developers);
     }
 
@@ -41,12 +41,12 @@ class AdminController extends Controller
         ]);
 
         // Find the developer record by personal_email
-        $developer = Developer::where('personal_email', $validatedData['email'])->first();
+        $developer = Member::where('personal_email', $validatedData['email'])->first();
 
         if ($developer) {
             // Create new user with developer's personal_mail as email, name, and password
             $user = new User();
-            $user->name = $developer->user_names; // Set user's name from developer's record
+            $user->name = $developer->user_name; // Set user's name from developer's record
             $user->email = $developer->personal_email; // Set user's email from developer's personal_email
             $user->password = Hash::make($developer->password); // Hash the password
             $user->usertype = 'developer'; // Set user's type to 'developer'
@@ -70,7 +70,7 @@ class AdminController extends Controller
         ]);
 
         // Find the developer record by email
-        $developer = Developer::where('personal_email', $request->email)->first();
+        $developer = Member::where('personal_email', $request->email)->first();
 
         if ($developer) {
             // Update developer status to "rejected"
