@@ -62,4 +62,8 @@ class MemberController extends Controller
             ]);
         }
     }
+
+    public function member_list(){
+        return view('member.member-list');
+    }
 }

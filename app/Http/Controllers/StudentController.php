@@ -60,4 +60,8 @@ class StudentController extends Controller
         }
 
     }
+
+    public function student_list(){
+        return view('student.student-list');
+    }
 }

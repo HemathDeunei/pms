@@ -39,10 +39,10 @@
                 <div class="navbar-vertical-content">
                     <ul class="navbar-nav flex-column" id="navbarVerticalNav">
                         <!-- the home content in sie bar page here -->
-                        @include('home.sibebar_home')
+                        @include('home.sidebar_home')
                         <!--end of the home content in sie bar page here -->
                         <!-- the apps content in side bar page here -->
-                        @include('home.sibebar_apps')
+                        @include('home.sidebar_apps')
                         <!--end of the apps content in side bar page here -->
                         @include('home.sidebar_page')
                        @include('home.sidebar_modules')
