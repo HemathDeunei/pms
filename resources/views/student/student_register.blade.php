@@ -9,36 +9,47 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.1.0/css/bootstrap.min.css" rel="stylesheet">
+
     <style>
-        .slider_section, .about_section, .bg-light {
+        .slider_section,
+        .about_section,
+        .bg-light {
             display: none;
         }
+
         .ftco-section {
             overflow: hidden;
         }
+
         .card {
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
         }
+
         .card-header {
-            background-color:white;
+            background-color: white;
             color: black;
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
             border-bottom: 0px;
         }
+
         .btn-primary {
             /* background-color: #007bff; */
             border-color: #007bff;
         }
+
         .form-control:focus {
             border-color: #007bff;
             box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
         }
+
         .form-group label {
             font-weight: bold;
         }
-        body{
+
+        body {
             overflow: hidden;
         }
     </style>
@@ -49,73 +60,96 @@
 <body>
     <section class="ftco-section">
         <div class="container">
-            <div class="row justify-content-center">
+        <div class="row justify-content-center">
                 <div class="col-md-12 col-lg-10">
-                    <div class="card p-4 p-md-5">
-                        <div class="card-header text-center">
-                            <h3 class="mb-4">STUDENT REGISTRATION</h3>
+                    <form id="developer-form" method="POST" action="{{ url('add-developer') }}"
+                        class="row g-3 mb-6">
+                        <div class="col-sm-6 col-md-4">
+                            <div class="form-floating">
+                                <input class="form-control" id="floatingInputGrid" type="text"
+                                    placeholder="Project title" required>
+                                <label for="floatingInputGrid">Reg no</label>
+                            </div>
                         </div>
-                        <div class="card-body">
-                            <form id="studentForm" method="POST" action="{{ route('/add_student') }}" class="signup-form">
-                                @csrf
-                                <div class="form-row">
-                                    <div class="form-group col-md-6 mb-3">
-                                        <label class="label" for="regno">Registration Number</label>
-                                        <input id="regno" type="text" class="form-control" name="regno" required>
-                                    </div>
-                                    <div class="form-group col-md-6 mb-3">
-                                        <label class="label" for="name">Name</label>
-                                        <input id="name" type="text" class="form-control" name="name" required>
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-6 mb-3">
-                                        <label class="label" for="email">Email</label>
-                                        <input id="email" type="email" class="form-control" name="email" required>
-                                    </div>
-                                    <div class="form-group col-md-6 mb-3">
-                                        <label class="label" for="password">Password</label>
-                                        <input id="password" type="password" class="form-control" name="password" required>
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-6 mb-3">
-                                        <label class="label" for="title">Project Title</label>
-                                        <input id="title" type="text" class="form-control" name="project_title" required>
-                                    </div>
-                                    <div class="form-group col-md-6 mb-3">
-                                        <label class="label" for="description">Project Description</label>
-                                        <textarea id="description" class="form-control" name="project_description" rows="1" required></textarea>
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-6 mb-3">
-                                        <label class="label" for="mentor_name">Mentor Name</label>
-                                        <input id="mentor_name" type="text" class="form-control" name="mentor_name" required>
-                                    </div>
-                                    <div class="form-group col-md-6 mb-3">
-                                        <label class="label" for="mentor_number">Mentor Number</label>
-                                        <input id="mentor_number" type="text" class="form-control" name="mentor_number" required>
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-6 mb-3">
-                                        <label class="label" for="student_mobile">Student Mobile Number</label>
-                                        <input id="student_mobile" type="text" class="form-control" name="student_mobile" required>
-                                    </div>
-                                    <div class="form-group col-md-6 mb-3">
-                                        <label class="label" for="batch_year">Batch/Year</label>
-                                        <input id="batch_year" type="text" class="form-control" name="batch_year" required>
-                                    </div>
-                                </div>
-                                <div class="form-group text-center">
-                                    <button type="submit" class="btn btn-primary rounded submit px-4 mt-3"><i class="fa fa-paper-plane"></i> Register</button>
-                                </div>
-                            </form>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="form-floating">
+                                <input class="form-control" id="floatingInputGrid1" type="text" placeholder="Name"
+                                    required>
+                                <label for="floatingInputGrid1">Name</label>
+                            </div>
                         </div>
-                    </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="form-floating">
+                                <input class="form-control" id="floatingInputGrid2" type="email" placeholder="Email"
+                                    required>
+                                <label for="floatingInputGrid2">Email</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="form-floating">
+                                <input class="form-control" id="floatingInputGrid3" type="password"
+                                    placeholder="Password" required>
+                                <label for="floatingInputGrid3">Password</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="form-floating">
+                                <input class="form-control" id="floatingInputGrid9" type="text"
+                                    placeholder="Department" required>
+                                <label for="floatingInputGrid9">Department</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="form-floating">
+                                <input class="form-control" id="floatingInputGrid9" type="text"
+                                    placeholder="Batch/Year" required>
+                                <label for="floatingInputGrid9">Batch/Year</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-12">
+                            <div class="form-floating">
+                                <input class="form-control" id="floatingInputGrid4" type="text"
+                                    placeholder="Project Title" required>
+                                <label for="floatingInputGrid4">Project Title</label>
+                            </div>
+                        </div>
+                        <div class="form-floating">
+                            <textarea class="form-control" id="floatingProjectOverview" placeholder="Leave a comment here"
+                                style="height: 224px;"></textarea>
+                            <label for="floatingProjectOverview">Project Description</label>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="form-floating">
+                                <input class="form-control" id="floatingInputGrid6" type="text" placeholder="Mentor Name"
+                                    required>
+                                <label for="floatingInputGrid6">Mentor Name</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="form-floating">
+                                <input class="form-control" id="floatingInputGrid7" type="text" placeholder="Mentor Number"
+                                    required>
+                                <label for="floatingInputGrid7">Mentor Number</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="form-floating">
+                                <input class="form-control" id="floatingInputGrid8" type="text" placeholder="Student Number"
+                                    required>
+                                <label for="floatingInputGrid8">Student Number</label>
+                            </div>
+                        </div>
+                        <!-- End of Floating form field -->
+                        <div class="col-12 gy-6">
+                            <div class="row g-3 justify-content-end">
+                                <div class="col-auto"><button type="button" class="btn btn-phoenix-primary px-5">Cancel</button>
+                                </div>
+                                <div class="col-auto"><button type="submit" class="btn btn-primary px-5 px-sm-15">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-            </div>
         </div>
     </section>
 
@@ -123,51 +157,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        $(document).ready(function () {
-            $(function () {
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
-                });
-            });
-
-            $('#studentForm').on('submit', function (e) {
-                e.preventDefault();
-
-                var data = {
-                    'regno': $('#regno').val(),
-                    'name': $('#name').val(),
-                    'email': $('#email').val(),
-                    'password': $('#password').val(),
-                    'project_title': $('#title').val(),
-                    'project_description': $('#description').val(),
-                    'mentor_name': $('#mentor_name').val(),
-                    'mentor_number': $('#mentor_number').val(),
-                    'student_mobile': $('#student_mobile').val(),
-                    'batch_year': $('#batch_year').val()
-                };
-
-                $.ajax({
-                    type: "POST",
-                    url: "{{ route('/add_student') }}",
-                    data: data,
-                    dataType: "json",
-                    success: function (response) {
-                        if (response.status === 200) {
-                            alert(response.message);
-                            $('#studentForm')[0].reset();
-                        } else {
-                            alert(response.message);
-                        }
-                    },
-                    error: function (xhr, status, error) {
-                        alert('An error occurred. Please try again.');
-                        console.error(xhr.responseText);
-                    }
-                });
-            });
-        });
+        // JavaScript code for form submission using AJAX
     </script>
 </body>
 

@@ -9,15 +9,30 @@ use App\Models\Member;
 class MemberController extends Controller
 {
     //
-    public function developer_register()
+    public function member_register()
     {
-        return view('member.developer_register');
+        return view('member.member_register');
     }
 
-    public function developer_list(){
-        return view('admin.developer-list');
-    }
-    public function add_developer(Request $request)
+    public function member_list()
+    {
+        $members = Member::all();
+        if(request()->expectsJson()){
+            return response()->json([
+                'success'=>true,
+                'messgae'=>'categroy fetched ',
+                'members'=>$members,
+            ]);
+        }
+            else{
+                return view('member.member-list',compact('members'));
+            }
+        
+        }
+        // return response()->json($members);
+        // return view('member.member-list',compact('members'));
+    
+    public function add_member(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'bio_id' => 'required|max:191',
@@ -26,12 +41,13 @@ class MemberController extends Controller
             'personal_email' => 'required|email|max:191',
             'official_email' => 'required|email|max:191',
             'employee_id' => 'required|max:191',
-            'tech_stack' => 'required|max:191',
             'experience' => 'required|max:191',
             'linkedin' => 'required|max:191',
             'portfolio' => 'required|max:191',
             'mobile_number' => 'required|max:191',
-            'designation' => 'required|max:191', // Add the designation field validation rule
+            'tech_stack' => 'required|max:191',
+            'designation' => 'required|max:191',
+            'date_of_joining' => 'required|date',
         ]);
 
         if ($validator->fails()) {
@@ -47,12 +63,14 @@ class MemberController extends Controller
             $developer->personal_email = $request->input('personal_email');
             $developer->official_email = $request->input('official_email');
             $developer->employee_id = $request->input('employee_id');
-            $developer->tech_stack = $request->input('tech_stack');
             $developer->experience = $request->input('experience');
             $developer->linkedin = $request->input('linkedin');
             $developer->portfolio = $request->input('portfolio');
             $developer->mobile_number = $request->input('mobile_number');
-            $developer->designation = $request->input('designation'); // Get the designation field value
+            $developer->tech_stack = $request->input('tech_stack');
+            $developer->designation = $request->input('designation');
+            $developer->date_of_joining = $request->input('date_of_joining');
+             // Get the designation field value
             $developer->save();
 
             // Redirect back to the developer registration page with a success message
@@ -63,7 +81,4 @@ class MemberController extends Controller
         }
     }
 
-    public function member_list(){
-        return view('member.member-list');
-    }
 }

@@ -4680,69 +4680,87 @@
             </div>
             <div class="modal-body">
                 <div class="card-body">
-                    <form id="developer-form" method="POST" action="{{ url('add-developer') }}">
-                        @csrf
-                        <div class="form-row">
-                            <div class="form-group col-md-4">
-                                <label for="bio_id">Bio ID:</label>
-                                <input type="text" class="form-control" id="bio_id" name="bio_id" required>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label for="user_name">User Name:</label>
-                                <input type="text" class="form-control" id="user_name" name="user_name" required>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label for="personal_email">Personal Email:</label>
-                                <input type="email" class="form-control" id="personal_email" name="personal_email" required>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-4">
-                                <label for="official_email">Official Email:</label>
-                                <input type="email" class="form-control" id="official_email" name="official_email" required>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label for="employee_id">Employee ID:</label>
-                                <input type="text" class="form-control" id="employee_id" name="employee_id" required>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label for="tech_stack">Tech Stack:</label>
-                                <input type="text" class="form-control" id="tech_stack" name="tech_stack" required>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-4">
-                                <label for="experience">Experience:</label>
-                                <input type="text" class="form-control" id="experience" name="experience" required>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label for="linkedin">LinkedIn:</label>
-                                <input type="text" class="form-control" id="linkedin" name="linkedin" required>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label for="portfolio">Portfolio:</label>
-                                <input type="text" class="form-control" id="portfolio" name="portfolio" required>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-4">
-                                <label for="mobile_number">Mobile Number:</label>
-                                <input type="text" class="form-control" id="mobile_number" name="mobile_number" required>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label for="password">Password:</label>
-                                <input type="password" class="form-control" id="password" name="password" required>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label for="designation">Designation:</label>
-                                <input type="text" class="form-control" id="designation" name="designation" required>
-                            </div>
-                        </div>
+                <form id="developer-form" method="POST" action="{{ url('add-developer') }}" class="row g-3">
+                <div class="form-row mb-4">
+                <div class="col-sm-6 col-md-4">
+                    <div class="form-floating">
+                        <input class="form-control" id="floatingInputGrid2" name="bio_id" type="text" placeholder="Bioid" required>
+                        <label for="floatingInputGrid2">Bio Id</label>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <div class="form-floating">
+                        <input class="form-control" id="floatingInputGrid1" name="name" type="text" placeholder="Name" required>
+                        <label for="floatingInputGrid1">Name</label>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <div class="form-floating">
+                        <input class="form-control" id="floatingInputGrid3" name="email" type="email" placeholder="Email" required>
+                        <label for="floatingInputGrid3">Email</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row mb-4">
+                <div class="col-sm-6 col-md-4">
+                    <div class="form-floating">
+                        <input class="form-control" id="floatingInputGrid4" name="password" type="password" placeholder="Password" required>
+                        <label for="floatingInputGrid4">Password</label>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <div class="form-floating">
+                        <input class="form-control" id="floatingInputGrid5" name="department" type="text" placeholder="Department" required>
+                        <label for="floatingInputGrid5">Department</label>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <div class="form-floating">
+                        <input class="form-control" id="floatingInputGrid6" name="batchYear" type="text" placeholder="Batch/Year" required>
+                        <label for="floatingInputGrid6">Batch/Year</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row mb-4">
+                <div class="col-sm-6 col-md-12 mb-4">
+                    <div class="form-floating">
+                        <input class="form-control" id="floatingInputGrid7" name="projectTitle" type="text" placeholder="Project Title" required>
+                        <label for="floatingInputGrid7">Project Title</label>
+                    </div>
+                </div>
+                <div class="col-12 gy-3">
+                    <div class="form-floating">
+                        <textarea class="form-control" id="floatingProjectOverview" name="projectDescription" placeholder="Project Description" style="height: 224px;" required></textarea>
+                        <label for="floatingProjectOverview">Project Description</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row mb-4">
+                <div class="col-sm-6 col-md-4">
+                    <div class="form-floating">
+                        <input class="form-control" id="floatingInputGrid8" name="mentorName" type="text" placeholder="Mentor Name" required>
+                        <label for="floatingInputGrid8">Mentor Name</label>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <div class="form-floating">
+                        <input class="form-control" id="floatingInputGrid9" name="mentorNumber" type="text" placeholder="Mentor Number" required>
+                        <label for="floatingInputGrid9">Mentor Number</label>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <div class="form-floating">
+                        <input class="form-control" id="floatingInputGrid10" name="studentNumber" type="text" placeholder="Student Number" required>
+                        <label for="floatingInputGrid10">Student Number</label>
+                    </div>
+                </div>
+            </div>
 
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-primary mt-4"><i class="fas fa-paper-plane"></i> Submit</button>
-                        </div>
-                    </form>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary mt-4"><i class="fas fa-paper-plane"></i>
+                    Submit</button>
+            </div>
+</form>
                 </div>
             </div>
         </div>

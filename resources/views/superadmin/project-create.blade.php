@@ -4615,7 +4615,7 @@
               
               
               <div class="col-12 gy-3">
-                <div class="form-floating"><textarea class="form-control" id="floatingProjectOverview" placeholder="Leave a comment here" style="height: 224px;"></textarea><label for="floatingProjectOverview">project overview</label></div>
+                <div class="form-floating"><textarea class="form-control" id="floatingProjectOverview" placeholder="Leave a comment here" style="height: 224px;"></textarea><label for="floatingProjectOverview">project description</label></div>
               </div>
               
               

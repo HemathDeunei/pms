@@ -63,10 +63,10 @@ Route::post('/reject_developer', [AdminController::class, 'rejectDeveloper']);
 
 
 //developer page
-Route::get('/developer_register',[MemberController::class,'developer_register'])->name('developer_register');
-Route::post('/add-developer',[MemberController::class,'add_developer'])->name('add-developer');
-Route::get('/developers-list',[MemberController::class,'developer_list'])->name('member-list');
+Route::get('/member_register',[MemberController::class,'member_register'])->name('member_register');
+Route::post('/add-member',[MemberController::class,'add_member'])->name('add_member');
 Route::get('/member-list',[MemberController::class,'member_list'])->name('member-list');
+// Route::get('/member-list',[MemberController::class,'member_list'])->name('member-list');
 
 
 //student page

@@ -55,6 +55,12 @@
             userLinkRTL.setAttribute('disabled', true);
         }
     </script>
+    <style>
+         label{
+            text-align: left !important;
+    width: 100%;
+        }
+    </style>
 </head>
 
 <body>
@@ -7945,8 +7951,8 @@
                                                         </div>
                                                         <div class="modal-body">
                                                             <!-- Insert Form Here -->
-                                                            <div class="row">
-                                                                <div class="col-xl-9">
+                                                            <div >
+                                                                <div class="col-xl-12">
                                                                     <form class="row g-3 mb-6">
                                                                         <div class="col-sm-6 col-md-8">
                                                                             <div class="form-floating">
@@ -8108,101 +8114,7 @@
                                                                                     for="floatingInputBudget">Budget</label>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="col-12 gy-6">
-                                                                            <div class="choices"
-                                                                                data-type="select-multiple"
-                                                                                role="combobox" aria-autocomplete="list"
-                                                                                aria-haspopup="true"
-                                                                                aria-expanded="false">
-                                                                                <div class="choices__inner">
-                                                                                    <select
-                                                                                        class="form-select choices__input"
-                                                                                        id="organizerMultiple"
-                                                                                        data-choices="data-choices"
-                                                                                        multiple
-                                                                                        data-options="{&quot;removeItemButton&quot;:true,&quot;placeholder&quot;:true}"
-                                                                                        hidden tabindex="-1"
-                                                                                        data-choice="active"></select>
-                                                                                    <div
-                                                                                        class="choices__list choices__list--multiple">
-                                                                                    </div>
-                                                                                    <input type="text"
-                                                                                        class="choices__input choices__input--cloned"
-                                                                                        autocomplete="off"
-                                                                                        autocapitalize="off"
-                                                                                        spellcheck="false"
-                                                                                        role="textbox"
-                                                                                        aria-autocomplete="list"
-                                                                                        aria-label="Add tags"
-                                                                                        placeholder="Add tags"
-                                                                                        style="min-width: 9ch; width: 1ch;">
-                                                                                </div>
-                                                                                <div class="choices__list choices__list--dropdown"
-                                                                                    aria-expanded="false">
-                                                                                    <div class="choices__list"
-                                                                                        aria-multiselectable="true"
-                                                                                        role="listbox">
-                                                                                        <div id="choices--organizerMultiple-item-choice-2"
-                                                                                            class="choices__item choices__item--choice choices__item--selectable is-highlighted"
-                                                                                            role="option" data-choice
-                                                                                            data-id="2"
-                                                                                            data-value="Biology"
-                                                                                            data-select-text
-                                                                                            data-choice-selectable
-                                                                                            aria-selected="true">Biology
-                                                                                        </div>
-                                                                                        <div id="choices--organizerMultiple-item-choice-3"
-                                                                                            class="choices__item choices__item--choice choices__item--selectable"
-                                                                                            role="option" data-choice
-                                                                                            data-id="3"
-                                                                                            data-value="Brainlessness"
-                                                                                            data-select-text
-                                                                                            data-choice-selectable>
-                                                                                            Brainlessness</div>
-                                                                                        <div id="choices--organizerMultiple-item-choice-4"
-                                                                                            class="choices__item choices__item--choice choices__item--selectable"
-                                                                                            role="option" data-choice
-                                                                                            data-id="4"
-                                                                                            data-value="Jerry"
-                                                                                            data-select-text
-                                                                                            data-choice-selectable>Jerry
-                                                                                        </div>
-                                                                                        <div id="choices--organizerMultiple-item-choice-5"
-                                                                                            class="choices__item choices__item--choice choices__item--selectable"
-                                                                                            role="option" data-choice
-                                                                                            data-id="5"
-                                                                                            data-value="Neurology"
-                                                                                            data-select-text
-                                                                                            data-choice-selectable>
-                                                                                            Neurology</div>
-                                                                                        <div id="choices--organizerMultiple-item-choice-6"
-                                                                                            class="choices__item choices__item--choice choices__item--selectable"
-                                                                                            role="option" data-choice
-                                                                                            data-id="6"
-                                                                                            data-value="Not_the_mouse"
-                                                                                            data-select-text
-                                                                                            data-choice-selectable>
-                                                                                            Not_the_mouse</div>
-                                                                                        <div id="choices--organizerMultiple-item-choice-7"
-                                                                                            class="choices__item choices__item--choice choices__item--selectable"
-                                                                                            role="option" data-choice
-                                                                                            data-id="7"
-                                                                                            data-value="Rick"
-                                                                                            data-select-text
-                                                                                            data-choice-selectable>Rick
-                                                                                        </div>
-                                                                                        <div id="choices--organizerMultiple-item-choice-8"
-                                                                                            class="choices__item choices__item--choice choices__item--selectable"
-                                                                                            role="option" data-choice
-                                                                                            data-id="8"
-                                                                                            data-value="Stupidity"
-                                                                                            data-select-text
-                                                                                            data-choice-selectable>
-                                                                                            Stupidity</div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
+                                                                        
                                                                         <div class="col-12 gy-6">
                                                                             <div class="row g-3 justify-content-end">
                                                                                 <div class="col-auto">

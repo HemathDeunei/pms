@@ -12,7 +12,7 @@ class LoginController extends Controller
         if(Auth::id()){
             $usertype=Auth()->user()->usertype;
             if($usertype=="admin"){
-                return view('admin.adminhome');
+                return view('superadmin.home');
             }elseif($usertype=="developer"){
                 return view('member.developerhome');
             }elseif($usertype=="student"){
