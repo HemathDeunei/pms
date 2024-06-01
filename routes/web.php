@@ -66,7 +66,8 @@ Route::post('/reject_developer', [AdminController::class, 'rejectDeveloper']);
 Route::get('/member_register',[MemberController::class,'member_register'])->name('member_register');
 Route::post('/add-member',[MemberController::class,'add_member'])->name('add_member');
 Route::get('/member-list',[MemberController::class,'member_list'])->name('member-list');
-// Route::get('/member-list',[MemberController::class,'member_list'])->name('member-list');
+Route::get('/get-member/{id}', [MemberController::class, 'getMember']);
+Route::post('/update-member/{id}', [MemberController::class, 'updateMember']);
 
 
 //student page

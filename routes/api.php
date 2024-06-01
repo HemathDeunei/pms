@@ -30,3 +30,5 @@ Route::get('/student/fetch-students',[StudentController::class,'fetchstudent']);
 
 
 Route::get('/member-list',[MemberController::class,'member_list'])->name('member-list');
+Route::get('/get-member/{id}', [MemberController::class, 'getMember']);
+Route::post('/update-member/{id}', [MemberController::class, 'updateMember']);

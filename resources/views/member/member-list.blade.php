@@ -8,6 +8,9 @@
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
   <!-- ===============================================-->
   <!--    Document Title-->
   <!-- ===============================================-->
@@ -6245,72 +6248,284 @@
             </div>
           </div>
           <div class="col-auto">
-            <div class="d-flex align-items-center"><button class="btn btn-link text-900 me-4 px-0"><span
-                  class="fa-solid fa-file-export fs--1 me-2"></span>Export</button><button class="btn btn-primary"><span
-                  class="fas fa-plus me-2"></span>Add member</button></div>
+            <div class="d-flex align-items-center">
+              <button class="btn btn-link text-900 me-4 px-0"><a href="{{route('member_register')}}">
+                  <span class="fa-solid fa-file-export fs--1 me-2"></span>Export</button><button
+                class="btn btn-primary"><span class="fas fa-plus me-2"></span>Add member</button>
+            </div>
+
+            </a>
           </div>
         </div>
         <div class="mx-n4 mx-lg-n6 px-4 px-lg-6 mb-9 bg-white border-y border-300 mt-2 position-relative top-1">
           <div class="table-responsive scrollbar ms-n1 ps-1">
-          <table id="members-table">
-          <thead>
-            <tr>              
-                <th class="sort align-middle" scope="col" data-sort="bio_id" style="width:15%; min-width:200px;">Bio ID</th>
-                <th class="sort align-middle" scope="col" data-sort="employee_id" style="width:15%; min-width:200px;">Employee ID</th>
-                <th class="sort align-middle" scope="col" data-sort="user_name" style="width:15%; min-width:200px;">User Name</th>
-                <th class="sort align-middle" scope="col" data-sort="personal_email" style="width:15%; min-width:200px;">Personal Email</th>
-                <th class="sort align-middle" scope="col" data-sort="mobile_number" style="width:20%; min-width:200px;">Mobile Number</th>
-                <th class="sort align-middle" scope="col" data-sort="date_of_joining" style="width:19%; min-width:200px;">Date of Joining</th>
-                <th></th>
-            </tr>
-        </thead>
-    <tbody id="members-table-body">
-        <!-- Member data will be inserted here dynamically -->
-    </tbody>
-</table>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-    $(document).ready(function() {
-        // Setup CSRF token for AJAX requests
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
+            <table id="members-table">
+              <thead>
+                <tr>
+                  <th class="sort align-middle" scope="col" data-sort="bio_id" style="width:15%; min-width:87px;">Bio
+                    ID</th>
+                  <th class="sort align-middle" scope="col" data-sort="employee_id" style="width:15%; min-width:200px;">
+                    Employee ID</th>
+                  <th class="sort align-middle" scope="col" data-sort="user_name" style="width:15%; min-width:200px;">
+                    User Name</th>
+                  <th class="sort align-middle" scope="col" data-sort="personal_email"
+                    style="width:15%; min-width:200px;">Personal Email</th>
+                  <th class="sort align-middle" scope="col" data-sort="mobile_number"
+                    style="width:20%; min-width:200px;">Mobile Number</th>
+                  <th class="sort align-middle" scope="col" data-sort="date_of_joining"
+                    style="width:19%; min-width:200px;">Date of Joining</th>
+                  <th class="sort align-middle" scope="col" data-sort="action">Action</th>
+                </tr>
+              </thead>
+              <tbody id="members-table-body">
+                <!-- Member data will be inserted here dynamically -->
+              </tbody>
+            </table>
+            <!-- edit model form -->
+            <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">Update Member</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <form method="POST" id="member-form" action="{{ url('/add-member') }}">
+                      @csrf
+                      <div class="form-row mb-4">
+                        <div class="col-sm-6 col-md-4">
+                          <div class="form-floating">
+                            <input class="form-control" id="bio_id" name="bio_id" type="text" placeholder="Bio ID"
+                              required>
+                            <label for="bio_id">Bio ID</label>
+                          </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                          <div class="form-floating">
+                            <input class="form-control" id="user_name" name="user_name" type="text"
+                              placeholder="User Name" required>
+                            <label for="user_name">User Name</label>
+                          </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                          <div class="form-floating">
+                            <input class="form-control" id="password" name="password" type="password"
+                              placeholder="Password" required>
+                            <label for="password">Password</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-row mb-4">
+                        <div class="col-sm-6 col-md-4">
+                          <div class="form-floating">
+                            <input class="form-control" id="personal_email" name="personal_email" type="email"
+                              placeholder="Personal Email" required>
+                            <label for="personal_email">Personal Email</label>
+                          </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                          <div class="form-floating">
+                            <input class="form-control" id="official_email" name="official_email" type="email"
+                              placeholder="Official Email" required>
+                            <label for="official_email">Official Email</label>
+                          </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                          <div class="form-floating">
+                            <input class="form-control" id="employee_id" name="employee_id" type="text"
+                              placeholder="Employee ID" required>
+                            <label for="employee_id">Employee ID</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-row mb-4">
+                        <div class="col-sm-6 col-md-4">
+                          <div class="form-floating">
+                            <input class="form-control" id="experience" name="experience" type="text"
+                              placeholder="Experience" required>
+                            <label for="experience">Experience</label>
+                          </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                          <div class="form-floating">
+                            <input class="form-control" id="linkedin" name="linkedin" type="text" placeholder="LinkedIn"
+                              required>
+                            <label for="linkedin">LinkedIn</label>
+                          </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                          <div class="form-floating">
+                            <input class="form-control" id="portfolio" name="portfolio" type="text"
+                              placeholder="Portfolio" required>
+                            <label for="portfolio">Portfolio</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-row mb-4">
+                        <div class="col-sm-6 col-md-4">
+                          <div class="form-floating">
+                            <input class="form-control" id="mobile_number" name="mobile_number" type="text"
+                              placeholder="Mobile Number" required>
+                            <label for="mobile_number">Mobile Number</label>
+                          </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                          <div class="form-floating">
+                            <input class="form-control" id="tech_stack" name="tech_stack" type="text"
+                              placeholder="Tech Stack" required>
+                            <label for="tech_stack">Tech Stack</label>
+                          </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                          <div class="form-floating">
+                            <input class="form-control" id="designation" name="designation" type="text"
+                              placeholder="Designation" required>
+                            <label for="designation">Designation</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-row mb-4">
+                        <div class="col-sm-6 col-md-4">
+                          <div class="form-floating">
+                            <input class="form-control" id="date_of_joining" name="date_of_joining" type="date"
+                              placeholder="Date of Joining" required>
+                            <label for="date_of_joining">Date of Joining</label>
+                          </div>
+                        </div>
+                      </div>
 
-        $.ajax({
-            type: "GET",
-            url: "/member-list",
-            dataType: "json",
-            success: function(response) {
-                console.log("AJAX response:", response);
-                var tableBody = $('#members-table-body');
-                tableBody.empty(); // Clear existing rows
-                
-                if (response.members && response.members.length) {
-                    response.members.forEach(function(member) {
+                      <div class="text-center">
+                        <button type="submit" class="btn btn-primary mt-4"><i class="fas fa-paper-plane"></i>
+                          Update</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end of edit model form -->
+            <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+              integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+            <script>
+              $(document).ready(function () {
+                // Setup CSRF token for AJAX requests
+                $.ajaxSetup({
+                  headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                  }
+                });
+
+                $.ajax({
+                  type: "GET",
+                  url: "/member-list",
+                  dataType: "json",
+                  success: function (response) {
+                    console.log("AJAX response:", response);
+                    var tableBody = $('#members-table-body');
+                    tableBody.empty(); // Clear existing rows
+
+                    if (response.members && response.members.length) {
+                      response.members.forEach(function (member) {
                         var data = `<tr>
                             <td>${member.bio_id}</td>
-                            <td>${member.employye_id}</td>
+                            <td>${member.employee_id}</td>
                             <td>${member.user_name}</td>
                             <td>${member.personal_email}</td>
                             <td>${member.mobile_number}</td>
                             <td>${member.date_of_joining}</td>
+                            <td class="align-middle text-end white-space-nowrap pe-0 action">
+                      <div class="font-sans-serif btn-reveal-trigger position-static"><button class="btn btn-sm dropdown-toggle dropdown-caret-none transition-none btn-reveal fs--2" type="button" data-bs-toggle="dropdown" data-boundary="window" aria-haspopup="true" aria-expanded="false" data-bs-reference="parent"><svg class="svg-inline--fa fa-ellipsis fs--2" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="ellipsis" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M120 256C120 286.9 94.93 312 64 312C33.07 312 8 286.9 8 256C8 225.1 33.07 200 64 200C94.93 200 120 225.1 120 256zM280 256C280 286.9 254.9 312 224 312C193.1 312 168 286.9 168 256C168 225.1 193.1 200 224 200C254.9 200 280 225.1 280 256zM328 256C328 225.1 353.1 200 384 200C414.9 200 440 225.1 440 256C440 286.9 414.9 312 384 312C353.1 312 328 286.9 328 256z"></path></svg><!-- <span class="fas fa-ellipsis-h fs--2"></span> Font Awesome fontawesome.com --></button>
+                        <div class="dropdown-menu dropdown-menu-end py-2"><a class="dropdown-item" href="#!">Accept</a><a class="dropdown-item" href="#!">Reject</a>
+                          <div class="dropdown-divider"></div><a class="dropdown-item text-danger editbtn" href="#!" data-bs-toggle="modal" data-bs-target="#editModal" data-id="${member.bio_id}">Edit</a>
+
+
+                        </div>
+                      </div>
+                    </td>
                         </tr>`;
                         tableBody.append(data);
-                    });
+                      });
+                    }
+                  },
+                  error: function (xhr, status, error) {
+                    console.error("AJAX error:", xhr.responseText);
+                  }
+                });
+                // edit ajax code
+                $(document).on('click', '.editbtn', function (e) {
+                  e.preventDefault();
+                  var id = $(this).data('id'); // Retrieve the value of data-id attribute
+
+                  // Perform AJAX request to fetch data for the given ID
+                  $.ajax({
+                    type: "GET",
+                    url: "/get-member/" + id, // Replace "/get-member/" with your actual endpoint
+                    success: function (response) {
+                      if (response.status == 200) {
+                        // If data is successfully fetched, populate the edit form
+                        var member = response.member;
+                        $('#bio_id').val(member.bio_id);
+                        $('#user_name').val(member.user_name);
+                        $('#password').val(member.password);
+                        $('#personal_email').val(member.personal_email);
+                        $('#official_email').val(member.official_email);
+                        $('#employee_id').val(member.employee_id);
+                        $('#experience').val(member.experience);
+                        $('#linkedin').val(member.linkedin);
+                        $('#portfolio').val(member.portfolio);
+                        $('#mobile_number').val(member.mobile_number);
+                        $('#tech_stack').val(member.tech_stack);
+                        $('#designation').val(member.designation);
+                        $('#date_of_joining').val(member.date_of_joining);
+
+                        // Populate other form fields similarly
+                      } else {
+                        console.log("Error: " + response.message); // Log error message
+                      }
+                    },
+                    error: function (xhr, status, error) {
+                      console.error("AJAX Request Error:", error); // Log AJAX error
+                    }
+                  });
+                });
+
+                // update code 
+                $('#member-form').on('submit', function(e) {
+        e.preventDefault(); // Prevent the default form submission
+
+        // Serialize the form data
+        var formData = $(this).serialize() + '&_token={{ csrf_token() }}';
+
+        // Send AJAX request to update member data
+        $.ajax({
+            type: "POST",
+            url: "/update-member/" + $('#bio_id').val(), // Use the bio_id as the member ID
+            data: formData,
+            success: function(response) {
+                if (response.status == 'success') {
+                    console.log("Member data updated successfully!");
+                    // Optionally, you can perform actions after successful update
+                } else {
+                    console.log("Error: " + response.message);
+                    // Optionally, handle errors or display error messages
                 }
             },
             error: function(xhr, status, error) {
-                console.error("AJAX error:", xhr.responseText);
+                console.error("AJAX Request Error:", error);
+                // Optionally, handle AJAX errors
             }
         });
     });
-</script>
+
+              });
+            </script>
 
 
           </div>
-          
+
 
           <div class="row align-items-center justify-content-between py-2 pe-0 fs--1">
             <div class="col-auto d-flex">
@@ -6578,7 +6793,7 @@
   <script src="../template/vendors/dayjs/dayjs.min.js"></script>
   <script src="../template/assets/js/phoenix.js"></script>
   <script src="../template/vendors/list.js/list.min.js"></script>
- 
+
 </body>
 
 </html>
