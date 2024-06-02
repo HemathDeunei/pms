@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -56,9 +57,9 @@
         }
     </script>
     <style>
-         label{
+        label {
             text-align: left !important;
-    width: 100%;
+            width: 100%;
         }
     </style>
 </head>
@@ -7778,7 +7779,7 @@
             <nav class="mb-2" aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0">
                     <li class="breadcrumb-item"><a href="#!">Project</a></li>
-                    <li class="breadcrumb-item"><a href="#!">Project List</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('project_store')}}">Project List</a></li>
                     <li class="breadcrumb-item active">Default</li>
                 </ol>
             </nav>
@@ -7893,51 +7894,12 @@
                             </thead>
                             <tbody class="list" id="project-list-table-body">
 
-                                <tr class="position-static">
-                                    <td class="align-middle time white-space-nowrap ps-0 projectName py-4"><a
-                                            class="fw-bold fs-0" href="{{route('project-details')}}">Water resistant
-                                            mosquito killer gun</a></td>
-                                    <td class="align-middle white-space-nowrap assigness ps-3 py-4">
-                                        <p class="mb-0 fs--1 text-900">NA</p>
 
 
-                                        </a>
 
-                                    </td>
-                                    <td class="align-middle white-space-nowrap start ps-3 py-4">
-                                        <p class="mb-0 fs--1 text-900">NA</p>
-                                    </td>
-                                    <td class="align-middle white-space-nowrap deadline ps-3 py-4">
-                                        <p class="mb-0 fs--1 text-900">NA</p>
-                                    </td>
-                                    <td class="align-middle white-space-nowrap task ps-3 py-4">
-                                        <p class="fw-bo text-900 fs--1 mb-0">NA</p>
-                                    </td>
-                                    <td class="align-middle white-space-nowrap ps-3 projectprogress">
-                                        <p class="text-800 fs--2 mb-0">NA</p>
-                                        <!-- <div class="progress" style="height:3px;">
-                        <div class="progress-bar bg-success" style="width: 66.3677130044843%" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div> -->
-                                    </td>
-                                    <td class="align-middle white-space-nowrap text-end statuses"><span
-                                            class="badge badge-phoenix fs--2 badge-phoenix-warning">NOT ASSIGNED</span>
-                                    </td>
-                                    <td class="align-middle text-end white-space-nowrap pe-0 action">
-                                        <div class="font-sans-serif btn-reveal-trigger position-static"><button
-                                                class="btn btn-sm dropdown-toggle dropdown-caret-none transition-none btn-reveal fs--2"
-                                                type="button" data-bs-toggle="dropdown" data-boundary="window"
-                                                aria-haspopup="true" aria-expanded="false"
-                                                data-bs-reference="parent"><span
-                                                    class="fas fa-ellipsis-h fs--2"></span></button>
-                                            <div class="dropdown-menu dropdown-menu-end py-2">
-                                                <a class="dropdown-item" href="#!">Accept</a>
-                                                <a class="dropdown-item" href="#!">Reject</a>
-                                                <div class="dropdown-divider"></div>
-                                                <a class="dropdown-item text-danger" href="#" id="editButton">Edit</a>
-                                            </div>
-
-                                            <!-- Modal -->
-                                            <div class="modal fade" id="editModal" tabindex="-1"
+                            </tbody>
+                        </table>
+                        <div class="modal fade" id="editModal" tabindex="-1"
                                                 aria-labelledby="editModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog modal-lg">
                                                     <div class="modal-content">
@@ -8147,13 +8109,121 @@
                                                 });
                                             </script>
                                         </div>
-                                    </td>
-                                </tr>
 
-
-                            </tbody>
-                        </table>
                     </div>
+                    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                    <script>
+    $(document).ready(function () {
+        // Setup CSRF token for AJAX requests
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        // Fetch and display the project list
+        $.ajax({
+            type: "GET",
+            url: "/project-list",
+            dataType: "json",
+            success: function (response) {
+                console.log("AJAX response:", response);
+                var tableBody = $('#project-list-table-body');
+                tableBody.empty(); // Clear existing rows
+
+                if (response.projects && response.projects.length) {
+                    response.projects.forEach(function (project) {
+                        var data = `
+                            <tr>
+                                <td>${project.project_title}</td>
+                                <td>${project.assignies}</td>
+                                <td>${project.start_date}</td>
+                                <td>${project.deadline}</td>
+                                <td>${project.task}</td>
+                                <td>${project.progress}</td>
+                                <td>${project.status}</td>
+                                <td class="align-middle text-end white-space-nowrap pe-0 action">
+                                    <div class="font-sans-serif btn-reveal-trigger position-static">
+                                        <button class="btn btn-sm dropdown-toggle dropdown-caret-none transition-none btn-reveal fs--2" type="button" data-bs-toggle="dropdown" data-boundary="window" aria-haspopup="true" aria-expanded="false" data-bs-reference="parent">
+                                            <svg class="svg-inline--fa fa-ellipsis fs--2" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="ellipsis" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                                                <path fill="currentColor" d="M120 256C120 286.9 94.93 312 64 312C33.07 312 8 286.9 8 256C8 225.1 33.07 200 64 200C94.93 200 120 225.1 120 256zM280 256C280 286.9 254.9 312 224 312C193.1 312 168 286.9 168 256C168 225.1 193.1 200 224 200C254.9 200 280 225.1 280 256zM328 256C328 225.1 353.1 200 384 200C414.9 200 440 225.1 440 256C440 286.9 414.9 312 384 312C353.1 312 328 286.9 328 256z"></path>
+                                            </svg>
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-end py-2">
+                                            <a class="accept-btn dropdown-item" href="#!" data-id="${project.project_title}">Accept</a>
+                                            <a class="reject-btn dropdown-item" href="#!" data-id="${project.project_title}">Reject</a>
+                                        </div>
+                                        
+                                    </div>
+                                </td>
+                            </tr>`;
+                        tableBody.append(data);
+                    });
+                }
+            },
+            error: function (xhr, status, error) {
+                console.error("AJAX error:", xhr.responseText);
+            }
+        });
+
+        // Handle click event on accept button
+        $(document).on('click', '.accept-btn', function (e) {
+            e.preventDefault();
+
+            var project_title = $(this).data('id'); // Get project title from data attribute
+
+            $.ajax({
+                type: "POST",
+                url: "{{ route('project_accept') }}", // Define the route for accepting the project
+                data: {
+                    'project_title': project_title
+                },
+                dataType: "json",
+                success: function (response) {
+                    if (response.success) {
+                        alert(response.message);
+                        // Optionally, update the UI to reflect the status change
+                        // e.g., change the button text, disable the button, etc.
+                    } else {
+                        alert('Error: ' + (response.message || 'Unable to accept project'));
+                    }
+                },
+                error: function (xhr, status, error) {
+                    alert('An error occurred. Please try again.');
+                    console.error(xhr.responseText);
+                }
+            });
+        });
+
+        // Handle click event on reject button
+        $(document).on('click', '.reject-btn', function (e) {
+            e.preventDefault();
+
+            var projectTitle = $(this).data('id'); // Get the project title from data-id attribute
+
+            // Make AJAX request to reject the project
+            $.ajax({
+                url: '/reject-project',
+                method: 'POST',
+                data: {
+                    project_title: projectTitle
+                },
+                success: function (response) {
+                    console.log(response);
+                    alert('Project rejected successfully');
+                    // Optionally, you can perform additional actions after rejecting the project
+                },
+                error: function (xhr, status, error) {
+                    console.error(xhr.responseText);
+                    alert('Error: ' + xhr.responseText);
+                }
+            });
+        });
+
+    });
+</script>
+
                     <div
                         class="d-flex flex-wrap align-items-center justify-content-between py-3 pe-0 fs--1 border-bottom border-200">
                         <div class="d-flex">

@@ -58,88 +58,89 @@
 </head>
 
 <body>
-    <section class="ftco-section">
+<section class="ftco-section">
         <div class="container">
-        <div class="row justify-content-center">
+            <div class="row justify-content-center">
                 <div class="col-md-12 col-lg-10">
-                    <form id="developer-form" method="POST" action="{{ url('add-developer') }}"
-                        class="row g-3 mb-6">
-                        <div class="col-sm-6 col-md-4">
+                    <form id="developer-form" class="row g-3 mb-6" method="POST" action="{{ route('add_student') }}">
+                    @csrf
+                    <div class="col-sm-6 col-md-4">
                             <div class="form-floating">
-                                <input class="form-control" id="floatingInputGrid" type="text"
-                                    placeholder="Project title" required>
-                                <label for="floatingInputGrid">Reg no</label>
+                                <input class="form-control" id="regno" type="text" name="regno" placeholder="Register No" required>
+                                <label for="regno">Register No</label>
                             </div>
+                            <div id="regno-error" class="error"></div> <!-- Error placeholder -->
                         </div>
                         <div class="col-sm-6 col-md-4">
                             <div class="form-floating">
-                                <input class="form-control" id="floatingInputGrid1" type="text" placeholder="Name"
-                                    required>
-                                <label for="floatingInputGrid1">Name</label>
+                                <input class="form-control" id="name" type="text" name="name" placeholder="Name" required>
+                                <label for="name">Name</label>
                             </div>
+                            <div id="name-error" class="error"></div> <!-- Error placeholder -->
                         </div>
                         <div class="col-sm-6 col-md-4">
                             <div class="form-floating">
-                                <input class="form-control" id="floatingInputGrid2" type="email" placeholder="Email"
-                                    required>
-                                <label for="floatingInputGrid2">Email</label>
+                                <input class="form-control" id="email" type="email" name="email" placeholder="Email" required>
+                                <label for="email">Email</label>
                             </div>
+                            <div id="email-error" class="error"></div> <!-- Error placeholder -->
                         </div>
                         <div class="col-sm-6 col-md-4">
                             <div class="form-floating">
-                                <input class="form-control" id="floatingInputGrid3" type="password"
-                                    placeholder="Password" required>
-                                <label for="floatingInputGrid3">Password</label>
+                                <input class="form-control" id="password" type="password" name="password" placeholder="Password" required>
+                                <label for="password">Password</label>
                             </div>
+                            <div id="password-error" class="error"></div> <!-- Error placeholder -->
                         </div>
                         <div class="col-sm-6 col-md-4">
                             <div class="form-floating">
-                                <input class="form-control" id="floatingInputGrid9" type="text"
-                                    placeholder="Department" required>
-                                <label for="floatingInputGrid9">Department</label>
+                                <input class="form-control" id="department" type="text" name="department" placeholder="Department" required>
+                                <label for="department">Department</label>
                             </div>
+                            <div id="department-error" class="error"></div> <!-- Error placeholder -->
                         </div>
                         <div class="col-sm-6 col-md-4">
                             <div class="form-floating">
-                                <input class="form-control" id="floatingInputGrid9" type="text"
-                                    placeholder="Batch/Year" required>
-                                <label for="floatingInputGrid9">Batch/Year</label>
+                                <input class="form-control" id="batch_year" type="text" name="batch_year" placeholder="Batch/Year" required>
+                                <label for="batch_year">Batch/Year</label>
                             </div>
+                            <div id="batch_year-error" class="error"></div> <!-- Error placeholder -->
                         </div>
                         <div class="col-sm-6 col-md-12">
                             <div class="form-floating">
-                                <input class="form-control" id="floatingInputGrid4" type="text"
-                                    placeholder="Project Title" required>
-                                <label for="floatingInputGrid4">Project Title</label>
+                                <input class="form-control" id="project_title" type="text" name="project_title" placeholder="Project Title" required>
+                                <label for="project_title">Project Title</label>
                             </div>
+                            <div id="project_title-error" class="error"></div> <!-- Error placeholder -->
                         </div>
-                        <div class="form-floating">
-                            <textarea class="form-control" id="floatingProjectOverview" placeholder="Leave a comment here"
-                                style="height: 224px;"></textarea>
-                            <label for="floatingProjectOverview">Project Description</label>
+                        <div class="form-floating col-sm-12 col-md-12">
+                            <textarea class="form-control" id="project_description" name="project_description" placeholder="Leave a comment here" style="height: 224px;" required></textarea>
+                            <label for="project_description">Project Description</label>
+                            <div id="project_description-error" class="error"></div> <!-- Error placeholder -->
                         </div>
                         <div class="col-sm-6 col-md-4">
                             <div class="form-floating">
-                                <input class="form-control" id="floatingInputGrid6" type="text" placeholder="Mentor Name"
-                                    required>
-                                <label for="floatingInputGrid6">Mentor Name</label>
+                                <input class="form-control" id="mentor_name" type="text" name="mentor_name" placeholder="Mentor Name" required>
+                                <label for="mentor_name">Mentor Name</label>
                             </div>
+                            <div id="mentor_name-error" class="error"></div> <!-- Error placeholder -->
                         </div>
                         <div class="col-sm-6 col-md-4">
                             <div class="form-floating">
-                                <input class="form-control" id="floatingInputGrid7" type="text" placeholder="Mentor Number"
-                                    required>
-                                <label for="floatingInputGrid7">Mentor Number</label>
+                                <input class="form-control" id="mentor_number" type="text" name="mentor_number" placeholder="Mentor Number" required>
+                                <label for="mentor_number">Mentor Number</label>
                             </div>
+                            <div id="mentor_number-error" class="error"></div> <!-- Error placeholder -->
                         </div>
                         <div class="col-sm-6 col-md-4">
                             <div class="form-floating">
-                                <input class="form-control" id="floatingInputGrid8" type="text" placeholder="Student Number"
-                                    required>
-                                <label for="floatingInputGrid8">Student Number</label>
+                                <input class="form-control" id="student_mobile" type="text" name="student_mobile" placeholder="Student Mobile" required>
+                                <label for="student_mobile">Student Mobile</label>
                             </div>
+                            <div id="student_mobile-error" class="error"></div> <!-- Error placeholder -->
                         </div>
-                        <!-- End of Floating form field -->
+                        
+                        <!-- Submit button -->
                         <div class="col-12 gy-6">
                             <div class="row g-3 justify-content-end">
                                 <div class="col-auto"><button type="button" class="btn btn-phoenix-primary px-5">Cancel</button>
@@ -150,6 +151,7 @@
                         </div>
                     </form>
                 </div>
+            </div>
         </div>
     </section>
 
@@ -157,8 +159,49 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        // JavaScript code for form submission using AJAX
-    </script>
+    $(document).ready(function () {
+    $('#developer-form').on('submit', function (e) {
+        e.preventDefault();
+
+        var data = {
+            '_token': $('meta[name="csrf-token"]').attr('content'), // Retrieve CSRF token from meta tag
+            'regno': $('#regno').val(),
+            'name': $('#name').val(),
+            'email': $('#email').val(),
+            'password': $('#password').val(),
+            'project_title': $('#project_title').val(),
+            'project_description': $('#project_description').val(),
+            'mentor_name': $('#mentor_name').val(),
+            'mentor_number': $('#mentor_number').val(),
+            'student_mobile': $('#student_mobile').val(),
+            'batch_year': $('#batch_year').val(),
+            'department': $('#department').val() // Include department value
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "{{ route('add_student') }}",
+            data: data,
+            dataType: "json",
+            success: function (response) {
+                if (response.status === 200) {
+                    alert('Student added successfully');
+                    $('#developer-form')[0].reset(); // Reset the form
+                    location.reload(); // Reload the page
+                } else {
+                    alert('Error: ' + response.message);
+                }
+            },
+            error: function (xhr, status, error) {
+                alert('An error occurred. Please try again.');
+                console.error(xhr.responseText);
+            }
+        });
+    });
+});
+
+</script>
+
 </body>
 
 </html>

@@ -13,10 +13,14 @@ class LoginController extends Controller
             $usertype=Auth()->user()->usertype;
             if($usertype=="admin"){
                 return view('superadmin.home');
-            }elseif($usertype=="developer"){
-                return view('member.developerhome');
+            }elseif($usertype=="tl"){
+                return view('tl.tlhome');
+            }elseif($usertype=="member"){
+                return view('member.memberhome');
             }elseif($usertype=="student"){
-                return view('student.studenthome');
+                return view('member.developerhome');
+            }elseif($usertype=="faculty"){
+                return view('faculty.facultyhome');
             }
 
             else{

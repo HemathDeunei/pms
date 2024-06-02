@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Validator;
 use App\Models\Member;
+use App\Models\User;
 
 class MemberController extends Controller
 {
@@ -150,4 +151,69 @@ class MemberController extends Controller
     }
 }
 
+public function accept(Request $request)
+{
+    // Validate request
+    $request->validate([
+        'personal_email' => 'required|email:users,email',
+        'user_type' => 'required|in:tl,member' // Validate user type
+    ]);
+
+    // Find the member record by email
+    $member = Member::where('personal_email', $request->personal_email)->first();
+
+    if ($member) {
+        // Retrieve necessary data from member record
+        $password = $member->password;
+        $userName = $member->user_name;
+
+        // Create new user with member's name, personal email, and password
+        $user = new User();
+        $user->name = $userName; // Set user's name from member's record
+        $user->email = $member->personal_email;
+        $user->password = bcrypt($password); // Encrypt the password
+        $user->usertype = $request->user_type; // Set user's type
+        $user->save();
+
+        // Update member status to "accepted"
+        $member->status = 'accepted'; // Update status to 'accepted'
+        $member->save();
+
+        // Customize the success message based on user type
+        $message = ($request->user_type == 'tl') ? 'TL added and stored successfully' : 'Member added and stored successfully';
+
+        return response()->json(['message' => $message], 200);
+    } else {
+        return response()->json(['message' => 'Member not found'], 404);
+    }
+}
+public function reject(Request $request)
+{
+    // Validate request
+    $request->validate([
+        'personal_email' => 'required|email|exists:members,personal_email',
+    ]);
+
+    // Find the member record by email
+    $member = Member::where('personal_email', $request->personal_email)->first();
+
+    if ($member) {
+        // Update member status to "rejected"
+        $member->status = 'rejected'; // Update status to 'rejected'
+        $member->save();
+
+        // Find the user associated with the rejected member
+        $user = User::where('email', $request->personal_email)->first();
+
+        if ($user) {
+            // Update user status to "rejected"
+            $user->status = 'rejected';
+            $user->save();
+        }
+
+        return response()->json(['message' => 'Member rejected successfully'], 200);
+    } else {
+        return response()->json(['message' => 'Member not found'], 404);
+    }
+}
 }

@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -62,6 +63,19 @@
     .col-form-label {
       width: 100%;
       text-align: left;
+    }
+
+    thead,
+    tbody,
+    tfoot,
+    tr,
+    td,
+    th {
+      padding: 10px;
+      border-bottom: 1px solid #c5c0c0;
+    }
+
+
     }
   </style>
 </head>
@@ -6273,7 +6287,7 @@
                   <th class="sort align-middle" scope="col" data-sort="mobile_number"
                     style="width:20%; min-width:200px;">Mobile Number</th>
                   <th class="sort align-middle" scope="col" data-sort="date_of_joining"
-                    style="width:19%; min-width:200px;">Date of Joining</th>
+                    style="width:19%; min-width:120px;">Date of Joining</th>
                   <th class="sort align-middle" scope="col" data-sort="action">Action</th>
                 </tr>
               </thead>
@@ -6404,6 +6418,7 @@
               </div>
             </div>
             <!-- end of edit model form -->
+            <script src="script.js"></script>
             <script src="https://kit.fontawesome.com/a076d05399.js"></script>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -6418,6 +6433,7 @@
                   }
                 });
 
+                // Fetch and display the member list
                 $.ajax({
                   type: "GET",
                   url: "/member-list",
@@ -6430,22 +6446,29 @@
                     if (response.members && response.members.length) {
                       response.members.forEach(function (member) {
                         var data = `<tr>
-                            <td>${member.bio_id}</td>
-                            <td>${member.employee_id}</td>
-                            <td>${member.user_name}</td>
-                            <td>${member.personal_email}</td>
-                            <td>${member.mobile_number}</td>
-                            <td>${member.date_of_joining}</td>
-                            <td class="align-middle text-end white-space-nowrap pe-0 action">
-                      <div class="font-sans-serif btn-reveal-trigger position-static"><button class="btn btn-sm dropdown-toggle dropdown-caret-none transition-none btn-reveal fs--2" type="button" data-bs-toggle="dropdown" data-boundary="window" aria-haspopup="true" aria-expanded="false" data-bs-reference="parent"><svg class="svg-inline--fa fa-ellipsis fs--2" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="ellipsis" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M120 256C120 286.9 94.93 312 64 312C33.07 312 8 286.9 8 256C8 225.1 33.07 200 64 200C94.93 200 120 225.1 120 256zM280 256C280 286.9 254.9 312 224 312C193.1 312 168 286.9 168 256C168 225.1 193.1 200 224 200C254.9 200 280 225.1 280 256zM328 256C328 225.1 353.1 200 384 200C414.9 200 440 225.1 440 256C440 286.9 414.9 312 384 312C353.1 312 328 286.9 328 256z"></path></svg><!-- <span class="fas fa-ellipsis-h fs--2"></span> Font Awesome fontawesome.com --></button>
-                        <div class="dropdown-menu dropdown-menu-end py-2"><a class="dropdown-item" href="#!">Accept</a><a class="dropdown-item" href="#!">Reject</a>
-                          <div class="dropdown-divider"></div><a class="dropdown-item text-danger editbtn" href="#!" data-bs-toggle="modal" data-bs-target="#editModal" data-id="${member.bio_id}">Edit</a>
-
-
-                        </div>
-                      </div>
-                    </td>
-                        </tr>`;
+                        <td>${member.bio_id}</td>
+                        <td>${member.employee_id}</td>
+                        <td >${member.user_name}</td>
+                        <td>${member.personal_email}</td>
+                        <td>${member.mobile_number}</td>
+                        <td>${member.date_of_joining}</td>
+                        <td class="align-middle text-end white-space-nowrap pe-0 action">
+                            <div class="font-sans-serif btn-reveal-trigger position-static">
+                                <button class="btn btn-sm dropdown-toggle dropdown-caret-none transition-none btn-reveal fs--2" type="button" data-bs-toggle="dropdown" data-boundary="window" aria-haspopup="true" aria-expanded="false" data-bs-reference="parent">
+                                    <svg class="svg-inline--fa fa-ellipsis fs--2" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="ellipsis" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                                        <path fill="currentColor" d="M120 256C120 286.9 94.93 312 64 312C33.07 312 8 286.9 8 256C8 225.1 33.07 200 64 200C94.93 200 120 225.1 120 256zM280 256C280 286.9 254.9 312 224 312C193.1 312 168 286.9 168 256C168 225.1 193.1 200 224 200C254.9 200 280 225.1 280 256zM328 256C328 225.1 353.1 200 384 200C414.9 200 440 225.1 440 256C440 286.9 414.9 312 384 312C353.1 312 328 286.9 328 256z"></path>
+                                    </svg>
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-end py-2">
+    <a class="accept-btn dropdown-item" href="#!" data-personal_email="${member.personal_email}" data-user_type="tl">Accept as TL</a>
+    <a class="accept-btn dropdown-item" href="#!" data-personal_email="${member.personal_email}" data-user_type="member">Accept as Member</a>
+    <a class="reject-btn dropdown-item" href="#!" data-personal_email="${member.personal_email}">Reject</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item text-danger editbtn" href="#!" data-bs-toggle="modal" data-bs-target="#editModal" data-id="${member.bio_id}">Edit</a>
+</div>
+                            </div>
+                        </td>
+                    </tr>`;
                         tableBody.append(data);
                       });
                     }
@@ -6454,7 +6477,62 @@
                     console.error("AJAX error:", xhr.responseText);
                   }
                 });
-                // edit ajax code
+
+                // Handle accept button click
+                $(document).on('click', '.accept-btn', function (event) {
+                  event.preventDefault();
+
+                  let personalEmail = $(this).data('personal_email');
+                  let userType = $(this).data('user_type');
+                  let csrfToken = $('meta[name="csrf-token"]').attr('content');
+
+                  $.ajax({
+                    url: '/accept',
+                    type: 'POST',
+                    data: {
+                      personal_email: personalEmail,
+                      user_type: userType
+                    },
+                    headers: {
+                      'X-CSRF-TOKEN': csrfToken
+                    },
+                    success: function (response) {
+                      alert(response.message);
+                      console.log(response);
+                    },
+                    error: function (xhr) {
+                      let response = xhr.responseJSON;
+                      alert(response.message || 'Error accepting the request');
+                      console.log(xhr);
+                    }
+                  });
+                });
+
+                // Handle reject button click
+                $(document).on('click', '.reject-btn', function (event) {
+                  event.preventDefault();
+
+                  let personalEmail = $(this).data('personal_email');
+
+                  $.ajax({
+                    url: '/reject',
+                    type: 'POST',
+                    data: {
+                      personal_email: personalEmail
+                    },
+                    success: function (response) {
+                      alert(response.message);
+                      console.log(response);
+                    },
+                    error: function (xhr) {
+                      let response = xhr.responseJSON;
+                      alert(response.message || 'Error rejecting the request');
+                      console.log(xhr);
+                    }
+                  });
+                });
+
+                // Handle edit button click
                 $(document).on('click', '.editbtn', function (e) {
                   e.preventDefault();
                   var id = $(this).data('id'); // Retrieve the value of data-id attribute
@@ -6462,7 +6540,7 @@
                   // Perform AJAX request to fetch data for the given ID
                   $.ajax({
                     type: "GET",
-                    url: "/get-member/" + id, // Replace "/get-member/" with your actual endpoint
+                    url: "/get-member/" + id,
                     success: function (response) {
                       if (response.status == 200) {
                         // If data is successfully fetched, populate the edit form
@@ -6480,8 +6558,6 @@
                         $('#tech_stack').val(member.tech_stack);
                         $('#designation').val(member.designation);
                         $('#date_of_joining').val(member.date_of_joining);
-
-                        // Populate other form fields similarly
                       } else {
                         console.log("Error: " + response.message); // Log error message
                       }
@@ -6492,35 +6568,35 @@
                   });
                 });
 
-                // update code 
-                $('#member-form').on('submit', function(e) {
-        e.preventDefault(); // Prevent the default form submission
+                // Handle form submission for updating member
+                $('#member-form').on('submit', function (e) {
+                  e.preventDefault(); // Prevent the default form submission
 
-        // Serialize the form data
-        var formData = $(this).serialize() + '&_token={{ csrf_token() }}';
+                  // Serialize the form data
+                  var formData = $(this).serialize() + '&_token={{ csrf_token() }}';
 
-        // Send AJAX request to update member data
-        $.ajax({
-            type: "POST",
-            url: "/update-member/" + $('#bio_id').val(), // Use the bio_id as the member ID
-            data: formData,
-            success: function(response) {
-                if (response.status == 'success') {
-                    console.log("Member data updated successfully!");
-                    // Optionally, you can perform actions after successful update
-                } else {
-                    console.log("Error: " + response.message);
-                    // Optionally, handle errors or display error messages
-                }
-            },
-            error: function(xhr, status, error) {
-                console.error("AJAX Request Error:", error);
-                // Optionally, handle AJAX errors
-            }
-        });
-    });
-
+                  // Send AJAX request to update member data
+                  $.ajax({
+                    type: "POST",
+                    url: "/update-member/" + $('#bio_id').val(), // Use the bio_id as the member ID
+                    data: formData,
+                    success: function (response) {
+                      if (response.status == 'success') {
+                        console.log("Member data updated successfully!");
+                        // Optionally, you can perform actions after successful update
+                      } else {
+                        console.log("Error: " + response.message);
+                        // Optionally, handle errors or display error messages
+                      }
+                    },
+                    error: function (xhr, status, error) {
+                      console.error("AJAX Request Error:", error);
+                      // Optionally, handle AJAX errors
+                    }
+                  });
+                });
               });
+
             </script>
 
 
@@ -6763,36 +6839,24 @@
         href="https://themes.getbootstrap.com/product/phoenix-admin-dashboard-webapp-template/" target="_blank">Purchase
         template</a>
     </div>
-  </div><a class="card setting-toggle" href="#settings-offcanvas" data-bs-toggle="offcanvas">
-    <div class="card-body d-flex align-items-center px-2 py-1">
-      <div class="position-relative rounded-start" style="height:34px;width:28px">
-        <div class="settings-popover"><span class="ripple"><span
-              class="fa-spin position-absolute all-0 d-flex flex-center"><span
-                class="icon-spin position-absolute all-0 d-flex flex-center"><svg width="20" height="20"
-                  viewBox="0 0 20 20" fill="#ffffff" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M19.7369 12.3941L19.1989 12.1065C18.4459 11.7041 18.0843 10.8487 18.0843 9.99495C18.0843 9.14118 18.4459 8.28582 19.1989 7.88336L19.7369 7.59581C19.9474 7.47484 20.0316 7.23291 19.9474 7.03131C19.4842 5.57973 18.6843 4.28943 17.6738 3.20075C17.5053 3.03946 17.2527 2.99914 17.0422 3.12011L16.393 3.46714C15.6883 3.84379 14.8377 3.74529 14.1476 3.3427C14.0988 3.31422 14.0496 3.28621 14.0002 3.25868C13.2568 2.84453 12.7055 2.10629 12.7055 1.25525V0.70081C12.7055 0.499202 12.5371 0.297594 12.2845 0.257272C10.7266 -0.105622 9.16879 -0.0653007 7.69516 0.257272C7.44254 0.297594 7.31623 0.499202 7.31623 0.70081V1.23474C7.31623 2.09575 6.74999 2.8362 5.99824 3.25599C5.95774 3.27861 5.91747 3.30159 5.87744 3.32493C5.15643 3.74527 4.26453 3.85902 3.53534 3.45302L2.93743 3.12011C2.72691 2.99914 2.47429 3.03946 2.30587 3.20075C1.29538 4.28943 0.495411 5.57973 0.0322686 7.03131C-0.051939 7.23291 0.0322686 7.47484 0.242788 7.59581L0.784376 7.8853C1.54166 8.29007 1.92694 9.13627 1.92694 9.99495C1.92694 10.8536 1.54166 11.6998 0.784375 12.1046L0.242788 12.3941C0.0322686 12.515 -0.051939 12.757 0.0322686 12.9586C0.495411 14.4102 1.29538 15.7005 2.30587 16.7891C2.47429 16.9504 2.72691 16.9907 2.93743 16.8698L3.58669 16.5227C4.29133 16.1461 5.14131 16.2457 5.8331 16.6455C5.88713 16.6767 5.94159 16.7074 5.99648 16.7375C6.75162 17.1511 7.31623 17.8941 7.31623 18.7552V19.2891C7.31623 19.4425 7.41373 19.5959 7.55309 19.696C7.64066 19.7589 7.74815 19.7843 7.85406 19.8046C9.35884 20.0925 10.8609 20.0456 12.2845 19.7729C12.5371 19.6923 12.7055 19.4907 12.7055 19.2891V18.7346C12.7055 17.8836 13.2568 17.1454 14.0002 16.7312C14.0496 16.7037 14.0988 16.6757 14.1476 16.6472C14.8377 16.2446 15.6883 16.1461 16.393 16.5227L17.0422 16.8698C17.2527 16.9907 17.5053 16.9504 17.6738 16.7891C18.7264 15.7005 19.4842 14.4102 19.9895 12.9586C20.0316 12.757 19.9474 12.515 19.7369 12.3941ZM10.0109 13.2005C8.1162 13.2005 6.64257 11.7893 6.64257 9.97478C6.64257 8.20063 8.1162 6.74905 10.0109 6.74905C11.8634 6.74905 13.3792 8.20063 13.3792 9.97478C13.3792 11.7893 11.8634 13.2005 10.0109 13.2005Z"
-                    fill="#2A7BE4"></path>
-                </svg></span></span></span></div>
-      </div><small class="text-uppercase text-700 fw-bold py-2 pe-2 ps-1 rounded-end">customize</small>
-    </div>
-  </a>
 
-  <!-- ===============================================-->
-  <!--    JavaScripts-->
-  <!-- ===============================================-->
-  <script src="../template/vendors/popper/popper.min.js"></script>
-  <script src="../template/vendors/bootstrap/bootstrap.min.js"></script>
-  <script src="../template/vendors/anchorjs/anchor.min.js"></script>
-  <script src="../template/vendors/is/is.min.js"></script>
-  <script src="../template/vendors/fontawesome/all.min.js"></script>
-  <script src="../template/vendors/lodash/lodash.min.js"></script>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
-  <script src="../template/vendors/list.js/list.min.js"></script>
-  <script src="../template/vendors/feather-icons/feather.min.js"></script>
-  <script src="../template/vendors/dayjs/dayjs.min.js"></script>
-  <script src="../template/assets/js/phoenix.js"></script>
-  <script src="../template/vendors/list.js/list.min.js"></script>
+    </a>
+
+    <!-- ===============================================-->
+    <!--    JavaScripts-->
+    <!-- ===============================================-->
+    <script src="../template/vendors/popper/popper.min.js"></script>
+    <script src="../template/vendors/bootstrap/bootstrap.min.js"></script>
+    <script src="../template/vendors/anchorjs/anchor.min.js"></script>
+    <script src="../template/vendors/is/is.min.js"></script>
+    <script src="../template/vendors/fontawesome/all.min.js"></script>
+    <script src="../template/vendors/lodash/lodash.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+    <script src="../template/vendors/list.js/list.min.js"></script>
+    <script src="../template/vendors/feather-icons/feather.min.js"></script>
+    <script src="../template/vendors/dayjs/dayjs.min.js"></script>
+    <script src="../template/assets/js/phoenix.js"></script>
+    <script src="../template/vendors/list.js/list.min.js"></script>
 
 </body>
 
