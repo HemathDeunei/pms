@@ -2586,14 +2586,23 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <form method="post" action="{{ route('logout') }}">
-                            @csrf
-                            <!-- Add any additional form fields if needed -->
+    <form method="post" action="{{ route('logout') }}">
+        @csrf
+        <!-- Add any additional form fields if needed -->
 
-                            <!-- <input type="submit" value="logout" class="btn btn-primary"> -->
-                            <button type="submit" class="btn btn-primary">LOGOUT</button>
-                        </form>
-                    </li>
+        <!-- Check if the user is authenticated and display the user type -->
+        @if (Auth::check())
+            <button type="submit" class="btn btn-primary">
+                LOGOUT ({{ Auth::user()->usertype }})
+            </button>
+        @else
+            <!-- Optionally, you can handle the case when no user is logged in -->
+            <button type="submit" class="btn btn-primary" disabled>
+                LOGOUT
+            </button>
+        @endif
+    </form>
+</li>
                 </ul>
             </div>
         </nav>

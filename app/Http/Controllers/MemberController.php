@@ -112,6 +112,7 @@ class MemberController extends Controller
         'tech_stack' => 'required|max:191',
         'designation' => 'required|max:191',
         'date_of_joining' => 'required|date',
+        'team'=>'required|max:191',
     ]);
 
     if ($validator->fails()) {
@@ -136,6 +137,7 @@ class MemberController extends Controller
             $member->tech_stack = $request->input('tech_stack');
             $member->designation = $request->input('designation');
             $member->date_of_joining = $request->input('date_of_joining');
+            $member->team = $request->input('team');
             $member->save(); // Save the updated member
 
             return response()->json([

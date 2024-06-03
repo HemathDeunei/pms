@@ -45,8 +45,8 @@
                         @include('home.sidebar_apps')
                         <!--end of the apps content in side bar page here -->
                         @include('home.sidebar_page')
-                       @include('home.sidebar_modules')
-                       @include('home.sidebar_documentation')
+                        @include('home.sidebar_modules')
+                        @include('home.sidebar_documentation')
                     </ul>
                 </div>
             </div>
@@ -618,8 +618,17 @@
                             @csrf
                             <!-- Add any additional form fields if needed -->
 
-                            <!-- <input type="submit" value="logout" class="btn btn-primary"> -->
-                            <button type="submit" class="btn btn-primary">LOGOUT</button>
+                            <!-- Check if the user is authenticated and display the user type -->
+                            @if (Auth::check())
+                                <button type="submit" class="btn btn-primary">
+                                    LOGOUT ({{ Auth::user()->usertype }})
+                                </button>
+                            @else
+                                <!-- Optionally, you can handle the case when no user is logged in -->
+                                <button type="submit" class="btn btn-primary" disabled>
+                                    LOGOUT
+                                </button>
+                            @endif
                         </form>
                     </li>
                 </ul>
@@ -1065,6 +1074,11 @@
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
                                             data-feather="share-2"></span>Social feed</div>
                                 </a></li>
+                            
+                                <li class="nav-item"><a class="nav-link" href="apps/social/feed.html" data-bs-toggle="" aria-expanded="false">
+                                                <div class="d-flex align-items-center"><span class="nav-link-text">Social feed</span></div>
+                                            </a><!-- more inner pages-->
+                                        </li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown"><a class="nav-link dropdown-toggle lh-1" href="#!" role="button"

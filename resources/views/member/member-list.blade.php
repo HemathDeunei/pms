@@ -6406,6 +6406,12 @@
                             <label for="date_of_joining">Date of Joining</label>
                           </div>
                         </div>
+                        <div class="col-sm-6 col-md-4">
+                          <div class="form-floating">
+                            <input class="form-control" id="team" name="team" type="text" placeholder="Team" required>
+                            <label for="team">Team</label>
+                          </div>
+                        </div>
                       </div>
 
                       <div class="text-center">
@@ -6558,6 +6564,7 @@
                         $('#tech_stack').val(member.tech_stack);
                         $('#designation').val(member.designation);
                         $('#date_of_joining').val(member.date_of_joining);
+                        $('#team').val(member.team);
                       } else {
                         console.log("Error: " + response.message); // Log error message
                       }

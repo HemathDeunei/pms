@@ -607,9 +607,9 @@
                     <li class="nav-item dropdown"><a class="nav-link lh-1 pe-0" id="navbarDropdownUser" href="#!"
                             role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true"
                             aria-expanded="false">
-                            <!-- <div class="avatar avatar-l ">
-                  <img class="rounded-circle " src="../../assets/img/team/40x40/57.webp" alt="" />
-                </div> -->
+                            <div class="avatar avatar-l ">
+                                <img class="rounded-circle " src="../../assets/img/team/40x40/57.webp" alt="" />
+                            </div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end navbar-dropdown-caret py-0 dropdown-profile shadow border border-300"
                             aria-labelledby="navbarDropdownUser">
@@ -664,6 +664,24 @@
                             </div>
                         </div>
                     </li>
+                    <li class="nav-item">
+    <form method="post" action="{{ route('logout') }}">
+        @csrf
+        <!-- Add any additional form fields if needed -->
+
+        <!-- Check if the user is authenticated and display the user type -->
+        @if (Auth::check())
+            <button type="submit" class="btn btn-primary">
+                LOGOUT ({{ Auth::user()->usertype }})
+            </button>
+        @else
+            <!-- Optionally, you can handle the case when no user is logged in -->
+            <button type="submit" class="btn btn-primary" disabled>
+                LOGOUT
+            </button>
+        @endif
+    </form>
+</li>
                 </ul>
             </div>
         </nav>
@@ -6042,6 +6060,24 @@
                         </div>
                     </div>
                 </li>
+                <li class="nav-item">
+                    <form method="post" action="{{ route('logout') }}">
+                        @csrf
+                        <!-- Add any additional form fields if needed -->
+
+                        <!-- Check if the user is authenticated and display the user type -->
+                        @if (Auth::check())
+                            <button type="submit" class="btn btn-primary">
+                                LOGOUT ({{ Auth::user()->usertype }})
+                            </button>
+                        @else
+                            <!-- Optionally, you can handle the case when no user is logged in -->
+                            <button type="submit" class="btn btn-primary" disabled>
+                                LOGOUT
+                            </button>
+                        @endif
+                    </form>
+                </li>
             </ul>
         </nav>
         <nav class="navbar navbar-top fixed-top navbar-expand-lg" id="dualNav" style="display:none;">
@@ -6637,6 +6673,7 @@
                                 </div>
                             </div>
                         </li>
+
                     </ul>
                 </div>
                 <div class="collapse navbar-collapse navbar-top-collapse justify-content-center" id="navbarTopCollapse">
@@ -7899,242 +7936,221 @@
 
                             </tbody>
                         </table>
-                        <div class="modal fade" id="editModal" tabindex="-1"
-                                                aria-labelledby="editModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog modal-lg">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="editModalLabel">Edit Project
-                                                            </h5>
-                                                            <button type="button" class="close" data-dismiss="modal"
-                                                                aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
+                        <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="editModalLabel">Edit Project
+                                        </h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <!-- Insert Form Here -->
+                                        <div>
+                                            <div class="col-xl-12">
+                                                <form class="row g-3 mb-6">
+                                                    <div class="col-sm-6 col-md-8">
+                                                        <div class="form-floating">
+                                                            <input class="form-control" id="floatingInputGrid"
+                                                                type="text" placeholder="Project title">
+                                                            <label for="floatingInputGrid">Project
+                                                                title</label>
                                                         </div>
-                                                        <div class="modal-body">
-                                                            <!-- Insert Form Here -->
-                                                            <div >
-                                                                <div class="col-xl-12">
-                                                                    <form class="row g-3 mb-6">
-                                                                        <div class="col-sm-6 col-md-8">
-                                                                            <div class="form-floating">
-                                                                                <input class="form-control"
-                                                                                    id="floatingInputGrid" type="text"
-                                                                                    placeholder="Project title">
-                                                                                <label for="floatingInputGrid">Project
-                                                                                    title</label>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-sm-6 col-md-4">
-                                                                            <div class="form-floating">
-                                                                                <select class="form-select"
-                                                                                    id="floatingSelectTask">
-                                                                                    <option selected>Select task view
-                                                                                    </option>
-                                                                                    <option value="1">Technical</option>
-                                                                                    <option value="2">External</option>
-                                                                                    <option value="3">Organizational
-                                                                                    </option>
-                                                                                </select>
-                                                                                <label for="floatingSelectTask">Default
-                                                                                    task view</label>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-sm-6 col-md-4">
-                                                                            <div class="form-floating">
-                                                                                <select class="form-select"
-                                                                                    id="floatingSelectPrivacy">
-                                                                                    <option selected>Select privacy
-                                                                                    </option>
-                                                                                    <option value="1">Data Privacy One
-                                                                                    </option>
-                                                                                    <option value="2">Data Privacy Two
-                                                                                    </option>
-                                                                                    <option value="3">Data Privacy Three
-                                                                                    </option>
-                                                                                </select>
-                                                                                <label
-                                                                                    for="floatingSelectPrivacy">Project
-                                                                                    privacy</label>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-sm-6 col-md-4">
-                                                                            <div class="form-floating">
-                                                                                <select class="form-select"
-                                                                                    id="floatingSelectTeam">
-                                                                                    <option selected>Select team
-                                                                                    </option>
-                                                                                    <option value="1">Team One</option>
-                                                                                    <option value="2">Team Two</option>
-                                                                                    <option value="3">Team Three
-                                                                                    </option>
-                                                                                </select>
-                                                                                <label
-                                                                                    for="floatingSelectTeam">Team</label>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-sm-6 col-md-4">
-                                                                            <div class="form-floating">
-                                                                                <select class="form-select"
-                                                                                    id="floatingSelectAssignees">
-                                                                                    <option selected>Select assignees
-                                                                                    </option>
-                                                                                    <option value="1">One</option>
-                                                                                    <option value="2">Two</option>
-                                                                                    <option value="3">Three</option>
-                                                                                </select>
-                                                                                <label
-                                                                                    for="floatingSelectAssignees">People</label>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-sm-6 col-md-4">
-                                                                            <div class="form-floating">
-                                                                                <select class="form-select"
-                                                                                    id="floatingSelectAdmin">
-                                                                                    <option selected>Select admin
-                                                                                    </option>
-                                                                                    <option value="1">Data Privacy One
-                                                                                    </option>
-                                                                                    <option value="2">Data Privacy Two
-                                                                                    </option>
-                                                                                    <option value="3">Data Privacy Three
-                                                                                    </option>
-                                                                                </select>
-                                                                                <label for="floatingSelectAdmin">Project
-                                                                                    Lead</label>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-sm-6 col-md-4">
-                                                                            <div class="flatpickr-input-container">
-                                                                                <div class="form-floating">
-                                                                                    <input
-                                                                                        class="form-control datetimepicker flatpickr-input"
-                                                                                        id="floatingInputStartDate"
-                                                                                        type="text"
-                                                                                        placeholder="Start date"
-                                                                                        data-options="{&quot;disableMobile&quot;:true}"
-                                                                                        readonly>
-                                                                                    <label class="ps-6"
-                                                                                        for="floatingInputStartDate">Start
-                                                                                        date</label>
-                                                                                    <span
-                                                                                        class="uil uil-calendar-alt flatpickr-icon text-700"></span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-sm-6 col-md-4">
-                                                                            <div class="flatpickr-input-container">
-                                                                                <div class="form-floating">
-                                                                                    <input
-                                                                                        class="form-control datetimepicker flatpickr-input"
-                                                                                        id="floatingInputDeadline"
-                                                                                        type="text"
-                                                                                        placeholder="Deadline"
-                                                                                        data-options="{&quot;disableMobile&quot;:true}"
-                                                                                        readonly>
-                                                                                    <label class="ps-6"
-                                                                                        for="floatingInputDeadline">Deadline</label>
-                                                                                    <span
-                                                                                        class="uil uil-calendar-alt flatpickr-icon text-700"></span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-12 gy-6">
-                                                                            <div class="form-floating">
-                                                                                <textarea class="form-control"
-                                                                                    id="floatingProjectOverview"
-                                                                                    placeholder="Leave a comment here"
-                                                                                    style="height: 100px"></textarea>
-                                                                                <label
-                                                                                    for="floatingProjectOverview">Project
-                                                                                    overview</label>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-md-6 gy-6">
-                                                                            <div class="form-floating">
-                                                                                <select class="form-select"
-                                                                                    id="floatingSelectClient">
-                                                                                    <option selected>Select client
-                                                                                    </option>
-                                                                                    <option value="1">Client One
-                                                                                    </option>
-                                                                                    <option value="2">Client Two
-                                                                                    </option>
-                                                                                    <option value="3">Client Three
-                                                                                    </option>
-                                                                                </select>
-                                                                                <label
-                                                                                    for="floatingSelectClient">Client</label>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-md-6 gy-6">
-                                                                            <div class="form-floating">
-                                                                                <input class="form-control"
-                                                                                    id="floatingInputBudget" type="text"
-                                                                                    placeholder="Budget">
-                                                                                <label
-                                                                                    for="floatingInputBudget">Budget</label>
-                                                                            </div>
-                                                                        </div>
-                                                                        
-                                                                        <div class="col-12 gy-6">
-                                                                            <div class="row g-3 justify-content-end">
-                                                                                <div class="col-auto">
-                                                                                    <button
-                                                                                        class="btn btn-phoenix-primary px-5"
-                                                                                        data-dismiss="modal">Cancel</button>
-                                                                                </div>
-                                                                                <div class="col-auto">
-                                                                                    <button
-                                                                                        class="btn btn-primary px-5 px-sm-15"
-                                                                                        type="submit">Create
-                                                                                        Project</button>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </form>
-                                                                </div>
+                                                    </div>
+                                                    <div class="col-sm-6 col-md-4">
+                                                        <div class="form-floating">
+                                                            <select class="form-select" id="floatingSelectTask">
+                                                                <option selected>Select task view
+                                                                </option>
+                                                                <option value="1">Technical</option>
+                                                                <option value="2">External</option>
+                                                                <option value="3">Organizational
+                                                                </option>
+                                                            </select>
+                                                            <label for="floatingSelectTask">Default
+                                                                task view</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6 col-md-4">
+                                                        <div class="form-floating">
+                                                            <select class="form-select" id="floatingSelectPrivacy">
+                                                                <option selected>Select privacy
+                                                                </option>
+                                                                <option value="1">Data Privacy One
+                                                                </option>
+                                                                <option value="2">Data Privacy Two
+                                                                </option>
+                                                                <option value="3">Data Privacy Three
+                                                                </option>
+                                                            </select>
+                                                            <label for="floatingSelectPrivacy">Project
+                                                                privacy</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6 col-md-4">
+                                                        <div class="form-floating">
+                                                            <select class="form-select" id="floatingSelectTeam">
+                                                                <option selected>Select team
+                                                                </option>
+                                                                <option value="1">Team One</option>
+                                                                <option value="2">Team Two</option>
+                                                                <option value="3">Team Three
+                                                                </option>
+                                                            </select>
+                                                            <label for="floatingSelectTeam">Team</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6 col-md-4">
+                                                        <div class="form-floating">
+                                                            <select class="form-select" id="floatingSelectAssignees">
+                                                                <option selected>Select assignees
+                                                                </option>
+                                                                <option value="1">One</option>
+                                                                <option value="2">Two</option>
+                                                                <option value="3">Three</option>
+                                                            </select>
+                                                            <label for="floatingSelectAssignees">People</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6 col-md-4">
+                                                        <div class="form-floating">
+                                                            <select class="form-select" id="floatingSelectAdmin">
+                                                                <option selected>Select admin
+                                                                </option>
+                                                                <option value="1">Data Privacy One
+                                                                </option>
+                                                                <option value="2">Data Privacy Two
+                                                                </option>
+                                                                <option value="3">Data Privacy Three
+                                                                </option>
+                                                            </select>
+                                                            <label for="floatingSelectAdmin">Project
+                                                                Lead</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6 col-md-4">
+                                                        <div class="flatpickr-input-container">
+                                                            <div class="form-floating">
+                                                                <input
+                                                                    class="form-control datetimepicker flatpickr-input"
+                                                                    id="floatingInputStartDate" type="text"
+                                                                    placeholder="Start date"
+                                                                    data-options="{&quot;disableMobile&quot;:true}"
+                                                                    readonly>
+                                                                <label class="ps-6" for="floatingInputStartDate">Start
+                                                                    date</label>
+                                                                <span
+                                                                    class="uil uil-calendar-alt flatpickr-icon text-700"></span>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                    <div class="col-sm-6 col-md-4">
+                                                        <div class="flatpickr-input-container">
+                                                            <div class="form-floating">
+                                                                <input
+                                                                    class="form-control datetimepicker flatpickr-input"
+                                                                    id="floatingInputDeadline" type="text"
+                                                                    placeholder="Deadline"
+                                                                    data-options="{&quot;disableMobile&quot;:true}"
+                                                                    readonly>
+                                                                <label class="ps-6"
+                                                                    for="floatingInputDeadline">Deadline</label>
+                                                                <span
+                                                                    class="uil uil-calendar-alt flatpickr-icon text-700"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 gy-6">
+                                                        <div class="form-floating">
+                                                            <textarea class="form-control" id="floatingProjectOverview"
+                                                                placeholder="Leave a comment here"
+                                                                style="height: 100px"></textarea>
+                                                            <label for="floatingProjectOverview">Project
+                                                                overview</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 gy-6">
+                                                        <div class="form-floating">
+                                                            <select class="form-select" id="floatingSelectClient">
+                                                                <option selected>Select client
+                                                                </option>
+                                                                <option value="1">Client One
+                                                                </option>
+                                                                <option value="2">Client Two
+                                                                </option>
+                                                                <option value="3">Client Three
+                                                                </option>
+                                                            </select>
+                                                            <label for="floatingSelectClient">Client</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 gy-6">
+                                                        <div class="form-floating">
+                                                            <input class="form-control" id="floatingInputBudget"
+                                                                type="text" placeholder="Budget">
+                                                            <label for="floatingInputBudget">Budget</label>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-12 gy-6">
+                                                        <div class="row g-3 justify-content-end">
+                                                            <div class="col-auto">
+                                                                <button class="btn btn-phoenix-primary px-5"
+                                                                    data-dismiss="modal">Cancel</button>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <button class="btn btn-primary px-5 px-sm-15"
+                                                                    type="submit">Create
+                                                                    Project</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
                                             </div>
-
-                                            <script>
-                                                $(document).ready(function () {
-                                                    $('#editButton').on('click', function (event) {
-                                                        event.preventDefault();
-                                                        $('#editModal').modal('show');
-                                                    });
-                                                });
-                                            </script>
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
+                        <script>
+                            $(document).ready(function () {
+                                $('#editButton').on('click', function (event) {
+                                    event.preventDefault();
+                                    $('#editModal').modal('show');
+                                });
+                            });
+                        </script>
                     </div>
-                    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-                    <script>
-    $(document).ready(function () {
-        // Setup CSRF token for AJAX requests
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
 
-        // Fetch and display the project list
-        $.ajax({
-            type: "GET",
-            url: "/project-list",
-            dataType: "json",
-            success: function (response) {
-                console.log("AJAX response:", response);
-                var tableBody = $('#project-list-table-body');
-                tableBody.empty(); // Clear existing rows
+                </div>
+                <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                <script>
+                    $(document).ready(function () {
+                        // Setup CSRF token for AJAX requests
+                        $.ajaxSetup({
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            }
+                        });
 
-                if (response.projects && response.projects.length) {
-                    response.projects.forEach(function (project) {
-                        var data = `
+                        // Fetch and display the project list
+                        $.ajax({
+                            type: "GET",
+                            url: "/project-list",
+                            dataType: "json",
+                            success: function (response) {
+                                console.log("AJAX response:", response);
+                                var tableBody = $('#project-list-table-body');
+                                tableBody.empty(); // Clear existing rows
+
+                                if (response.projects && response.projects.length) {
+                                    response.projects.forEach(function (project) {
+                                        var data = `
                             <tr>
                                 <td>${project.project_title}</td>
                                 <td>${project.assignies}</td>
@@ -8158,103 +8174,102 @@
                                     </div>
                                 </td>
                             </tr>`;
-                        tableBody.append(data);
+                                        tableBody.append(data);
+                                    });
+                                }
+                            },
+                            error: function (xhr, status, error) {
+                                console.error("AJAX error:", xhr.responseText);
+                            }
+                        });
+
+                        // Handle click event on accept button
+                        $(document).on('click', '.accept-btn', function (e) {
+                            e.preventDefault();
+
+                            var project_title = $(this).data('id'); // Get project title from data attribute
+
+                            $.ajax({
+                                type: "POST",
+                                url: "{{ route('project_accept') }}", // Define the route for accepting the project
+                                data: {
+                                    'project_title': project_title
+                                },
+                                dataType: "json",
+                                success: function (response) {
+                                    if (response.success) {
+                                        alert(response.message);
+                                        // Optionally, update the UI to reflect the status change
+                                        // e.g., change the button text, disable the button, etc.
+                                    } else {
+                                        alert('Error: ' + (response.message || 'Unable to accept project'));
+                                    }
+                                },
+                                error: function (xhr, status, error) {
+                                    alert('An error occurred. Please try again.');
+                                    console.error(xhr.responseText);
+                                }
+                            });
+                        });
+
+                        // Handle click event on reject button
+                        $(document).on('click', '.reject-btn', function (e) {
+                            e.preventDefault();
+
+                            var projectTitle = $(this).data('id'); // Get the project title from data-id attribute
+
+                            // Make AJAX request to reject the project
+                            $.ajax({
+                                url: '/reject-project',
+                                method: 'POST',
+                                data: {
+                                    project_title: projectTitle
+                                },
+                                success: function (response) {
+                                    console.log(response);
+                                    alert('Project rejected successfully');
+                                    // Optionally, you can perform additional actions after rejecting the project
+                                },
+                                error: function (xhr, status, error) {
+                                    console.error(xhr.responseText);
+                                    alert('Error: ' + xhr.responseText);
+                                }
+                            });
+                        });
+
                     });
-                }
-            },
-            error: function (xhr, status, error) {
-                console.error("AJAX error:", xhr.responseText);
-            }
-        });
+                </script>
 
-        // Handle click event on accept button
-        $(document).on('click', '.accept-btn', function (e) {
-            e.preventDefault();
-
-            var project_title = $(this).data('id'); // Get project title from data attribute
-
-            $.ajax({
-                type: "POST",
-                url: "{{ route('project_accept') }}", // Define the route for accepting the project
-                data: {
-                    'project_title': project_title
-                },
-                dataType: "json",
-                success: function (response) {
-                    if (response.success) {
-                        alert(response.message);
-                        // Optionally, update the UI to reflect the status change
-                        // e.g., change the button text, disable the button, etc.
-                    } else {
-                        alert('Error: ' + (response.message || 'Unable to accept project'));
-                    }
-                },
-                error: function (xhr, status, error) {
-                    alert('An error occurred. Please try again.');
-                    console.error(xhr.responseText);
-                }
-            });
-        });
-
-        // Handle click event on reject button
-        $(document).on('click', '.reject-btn', function (e) {
-            e.preventDefault();
-
-            var projectTitle = $(this).data('id'); // Get the project title from data-id attribute
-
-            // Make AJAX request to reject the project
-            $.ajax({
-                url: '/reject-project',
-                method: 'POST',
-                data: {
-                    project_title: projectTitle
-                },
-                success: function (response) {
-                    console.log(response);
-                    alert('Project rejected successfully');
-                    // Optionally, you can perform additional actions after rejecting the project
-                },
-                error: function (xhr, status, error) {
-                    console.error(xhr.responseText);
-                    alert('Error: ' + xhr.responseText);
-                }
-            });
-        });
-
-    });
-</script>
-
-                    <div
-                        class="d-flex flex-wrap align-items-center justify-content-between py-3 pe-0 fs--1 border-bottom border-200">
-                        <div class="d-flex">
-                            <p class="mb-0 d-none d-sm-block me-3 fw-semi-bold text-900"
-                                data-list-info="data-list-info"></p><a class="fw-semi-bold" href="#!"
-                                data-list-view="*">View all<span class="fas fa-angle-right ms-1"
-                                    data-fa-transform="down-1"></span></a><a class="fw-semi-bold d-none" href="#!"
-                                data-list-view="less">View Less<span class="fas fa-angle-right ms-1"
-                                    data-fa-transform="down-1"></span></a>
-                        </div>
-                        <div class="d-flex"><button class="page-link" data-list-pagination="prev"><span
-                                    class="fas fa-chevron-left"></span></button>
-                            <ul class="mb-0 pagination"></ul><button class="page-link pe-0"
-                                data-list-pagination="next"><span class="fas fa-chevron-right"></span></button>
-                        </div>
+                <div
+                    class="d-flex flex-wrap align-items-center justify-content-between py-3 pe-0 fs--1 border-bottom border-200">
+                    <div class="d-flex">
+                        <p class="mb-0 d-none d-sm-block me-3 fw-semi-bold text-900" data-list-info="data-list-info">
+                        </p><a class="fw-semi-bold" href="#!" data-list-view="*">View all<span
+                                class="fas fa-angle-right ms-1" data-fa-transform="down-1"></span></a><a
+                            class="fw-semi-bold d-none" href="#!" data-list-view="less">View Less<span
+                                class="fas fa-angle-right ms-1" data-fa-transform="down-1"></span></a>
+                    </div>
+                    <div class="d-flex"><button class="page-link" data-list-pagination="prev"><span
+                                class="fas fa-chevron-left"></span></button>
+                        <ul class="mb-0 pagination"></ul><button class="page-link pe-0"
+                            data-list-pagination="next"><span class="fas fa-chevron-right"></span></button>
                     </div>
                 </div>
             </div>
-            <footer class="footer position-absolute">
-                <div class="row g-0 justify-content-between align-items-center h-100">
-                    <div class="col-12 col-sm-auto text-center">
-                        <p class="mb-0 mt-2 mt-sm-0 text-900">Thank you for creating with Phoenix<span
-                                class="d-none d-sm-inline-block"></span><span
-                                class="d-none d-sm-inline-block mx-1">|</span><br class="d-sm-none" />2023 &copy;<a
-                                class="mx-1" href="https://themewagon.com/">Themewagon</a></p>
-                    </div>
-                    <div class="col-12 col-sm-auto text-center">
-                        <p class="mb-0 text-600">v1.13.0</p>
-                    </div>
+        </div>
+        <footer class="footer position-absolute">
+            <div class="row g-0 justify-content-between align-items-center h-100">
+                <div class="col-12 col-sm-auto text-center">
+                    <p class="mb-0 mt-2 mt-sm-0 text-900">Thank you for creating with Phoenix<span
+                            class="d-none d-sm-inline-block"></span><span
+                            class="d-none d-sm-inline-block mx-1">|</span><br class="d-sm-none" />2023 &copy;<a
+                            class="mx-1" href="https://themewagon.com/">Themewagon</a></p>
                 </div>
-            </footer>
+                <div class="col-12 col-sm-auto text-center">
+                    <p class="mb-0 text-600">v1.13.0</p>
+                </div>
+            </div>
+        </footer>
         </div>
         <div class="support-chat-container">
             <div class="container-fluid support-chat">

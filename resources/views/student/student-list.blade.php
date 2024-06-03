@@ -10,6 +10,8 @@
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <!-- ===============================================-->
   <!--    Document Title-->
   <!-- ===============================================-->
@@ -609,6 +611,7 @@
               class="text-1000 d-none d-sm-inline">slim</span></a>
         </div>
         <ul class="navbar-nav navbar-nav-icons flex-row">
+          class="navbar-nav navbar-nav-icons flex-row"
           <li class="nav-item">
             <div class="theme-control-toggle fa-ion-wait pe-2 theme-control-toggle-slim"><input
                 class="form-check-input ms-0 theme-control-toggle-input" id="themeControlToggle" type="checkbox"
@@ -944,8 +947,11 @@
               </div>
             </div>
           </li>
+          
+
         </ul>
       </div>
+
     </nav>
     <nav class="navbar navbar-top fixed-top navbar-expand-lg" id="navbarTop" style="display:none;">
       <div class="navbar-logo">
@@ -6296,6 +6302,122 @@
                 <!-- Table rows will be populated dynamically -->
               </tbody>
             </table>
+            <!-- The Modal -->
+            <div class="modal fade" id="studentModal" tabindex="-1" aria-labelledby="studentModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="studentModalLabel">Edit Student</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form id="developer-form" class="row g-3 mb-6" method="POST" action="{{ route('add_student') }}">
+                      @csrf
+                      <!-- Your form fields here -->
+                      <div class="col-sm-6 col-md-4">
+                        <div class="form-floating">
+                          <input class="form-control" id="regno" type="text" name="regno" placeholder="Register No"
+                            required>
+                          <label for="regno">Register No</label>
+                        </div>
+                        <div id="regno-error" class="error"></div> <!-- Error placeholder -->
+                      </div>
+                      <div class="col-sm-6 col-md-4">
+                        <div class="form-floating">
+                          <input class="form-control" id="name" type="text" name="name" placeholder="Name" required>
+                          <label for="name">Name</label>
+                        </div>
+                        <div id="name-error" class="error"></div> <!-- Error placeholder -->
+                      </div>
+                      <div class="col-sm-6 col-md-4">
+                        <div class="form-floating">
+                          <input class="form-control" id="email" type="email" name="email" placeholder="Email" required>
+                          <label for="email">Email</label>
+                        </div>
+                        <div id="email-error" class="error"></div> <!-- Error placeholder -->
+                      </div>
+                      <div class="col-sm-6 col-md-4">
+                        <div class="form-floating">
+                          <input class="form-control" id="password" type="password" name="password"
+                            placeholder="Password" required>
+                          <label for="password">Password</label>
+                        </div>
+                        <div id="password-error" class="error"></div> <!-- Error placeholder -->
+                      </div>
+                      <div class="col-sm-6 col-md-4">
+                        <div class="form-floating">
+                          <input class="form-control" id="department" type="text" name="department"
+                            placeholder="Department" required>
+                          <label for="department">Department</label>
+                        </div>
+                        <div id="department-error" class="error"></div> <!-- Error placeholder -->
+                      </div>
+                      <div class="col-sm-6 col-md-4">
+                        <div class="form-floating">
+                          <input class="form-control" id="batch_year" type="text" name="batch_year"
+                            placeholder="Batch/Year" required>
+                          <label for="batch_year">Batch/Year</label>
+                        </div>
+                        <div id="batch_year-error" class="error"></div> <!-- Error placeholder -->
+                      </div>
+                      <div class="col-sm-6 col-md-12">
+                        <div class="form-floating">
+                          <input class="form-control" id="project_title" type="text" name="project_title"
+                            placeholder="Project Title" required>
+                          <label for="project_title">Project Title</label>
+                        </div>
+                        <div id="project_title-error" class="error"></div> <!-- Error placeholder -->
+                      </div>
+                      <div class="form-floating col-sm-12 col-md-12">
+                        <textarea class="form-control" id="project_description" name="project_description"
+                          placeholder="Leave a comment here" style="height: 224px;" required></textarea>
+                        <label for="project_description">Project Description</label>
+                        <div id="project_description-error" class="error"></div> <!-- Error placeholder -->
+                      </div>
+                      <div class="col-sm-6 col-md-4">
+                        <div class="form-floating">
+                          <input class="form-control" id="mentor_name" type="text" name="mentor_name"
+                            placeholder="Mentor Name" required>
+                          <label for="mentor_name">Mentor Name</label>
+                        </div>
+                        <div id="mentor_name-error" class="error"></div> <!-- Error placeholder -->
+                      </div>
+                      <div class="col-sm-6 col-md-4">
+                        <div class="form-floating">
+                          <input class="form-control" id="mentor_number" type="text" name="mentor_number"
+                            placeholder="Mentor Number" required>
+                          <label for="mentor_number">Mentor Number</label>
+                        </div>
+                        <div id="mentor_number-error" class="error"></div> <!-- Error placeholder -->
+                      </div>
+                      <div class="col-sm-6 col-md-4">
+                        <div class="form-floating">
+                          <input class="form-control" id="student_mobile" type="text" name="student_mobile"
+                            placeholder="Student Mobile" required>
+                          <label for="student_mobile">Student Mobile</label>
+                        </div>
+                        <div id="student_mobile-error" class="error"></div> <!-- Error placeholder -->
+                      </div>
+
+                      <!-- Submit button -->
+                      <div class="col-12 gy-6">
+                        <div class="row g-3 justify-content-end">
+                          <div class="col-auto">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                          </div>
+                          <div class="col-auto">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -6341,6 +6463,8 @@
                                         <div class="dropdown-menu dropdown-menu-end py-2">
                                             <a class="accept-btn dropdown-item" href="#!" data-regno="${students.regno}">Accept</a>
                                             <a class="reject-btn dropdown-item" href="#!" data-regno="${students.regno}">Reject</a>
+                                            <div class="dropdown-divider"></div>
+                                              <a class="editbtn dropdown-item text-danger " href="#" value="'+${students.regno}+'" data-bs-toggle="modal"  data-regno="${students.regno}">Edit</a>
                                         </div>
                                     </div>
                                 </td>
@@ -6361,6 +6485,12 @@
               }
             });
 
+            $(document).on('click', '.editbtn', function (e) {
+              e.preventDefault();
+              var id = $(this).val();
+              console.log(id);
+            });
+
             // Accept button click event
             $(document).on('click', '.accept-btn', function (e) {
               e.preventDefault();
@@ -6370,7 +6500,7 @@
 
               $.ajax({
                 type: "POST",
-                url: "{{ route('accept') }}", // Define the route for accepting the student
+                url: "{{ route('accept_student') }}", // Define the route for accepting the student
                 data: {
                   'regno': regno
                 },
@@ -6394,35 +6524,38 @@
 
             // Reject button click event
             $(document).on('click', '.reject-btn', function (e) {
-    e.preventDefault();
+              e.preventDefault();
 
-    var regno = $(this).data('regno');
-    var token = "{{ csrf_token() }}"; // Get CSRF token
+              var regno = $(this).data('regno');
+              var token = "{{ csrf_token() }}"; // Get CSRF token
 
-    $.ajax({
-        type: "POST",
-        url: "{{ route('reject') }}", // Define the route for rejecting the student
-        data: {
-            'regno': regno,
-            '_token': token // Pass CSRF token
-        },
-        dataType: "json",
-        success: function (response) {
-            if (response.status === 'success') {
-                alert('Student rejected successfully');
-                // Optionally, update the UI to reflect the status change
-                // e.g., hide the student row from the table
-            } else {
-                alert('Error: ' + response.message);
-            }
-        },
-        error: function (xhr, status, error) {
-            alert('An error occurred. Please try again.');
-            console.error(xhr.responseText);
-        }
-    });
-});
+              $.ajax({
+                type: "POST",
+                url: "{{ route('reject_student') }}", // Define the route for rejecting the student
+                data: {
+                  'regno': regno,
+                  '_token': token // Pass CSRF token
+                },
+                dataType: "json",
+                success: function (response) {
+                  if (response.status === 'success') {
+                    alert('Student rejected successfully');
+                    // Optionally, update the UI to reflect the status change
+                    // e.g., hide the student row from the table
+                  } else {
+                    alert('Error: ' + response.message);
+                  }
+                },
+                error: function (xhr, status, error) {
+                  alert('An error occurred. Please try again.');
+                  console.error(xhr.responseText);
+                }
+              });
+            });
           });
+
+
+
         </script>
 
 

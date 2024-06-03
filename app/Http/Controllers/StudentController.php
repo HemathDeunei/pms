@@ -155,16 +155,13 @@ public function reject(Request $request)
         // Check if the student status is currently accepted
         if ($student->status === 'accepted') {
             // Update the student status to "rejected"
-            $student->status = 'rejected';
-            $student->save();
+            $student->update(['status' => 'rejected']);
 
-            // Find the corresponding user record and update its status
-            $user = User::where('email', $student->email)->first();
-            if ($user) {
-                // Update the user's status to "rejected"
-                $user->status = 'rejected';
-                $user->save();
-            }
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Student status updated to rejected',
+                'student' => $student,
+            ], 200);
         } else {
             // The student is already rejected
             return response()->json([
@@ -172,12 +169,6 @@ public function reject(Request $request)
                 'message' => 'Student status is already rejected',
             ], 400);
         }
-
-        return response()->json([
-            'status' => 'success',
-            'message' => 'Student rejected',
-            'student' => $student,
-        ], 200);
     } else {
         return response()->json([
             'status' => 'error',
@@ -185,6 +176,11 @@ public function reject(Request $request)
         ], 404);
     }
 }
+public function edit($regno)
+    {
+        $student = Student::findOrFail($regno);
+        return response()->json(['student' => $student]);
+    }
 
 
 }

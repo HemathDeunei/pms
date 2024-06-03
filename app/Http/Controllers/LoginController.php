@@ -18,11 +18,10 @@ class LoginController extends Controller
             }elseif($usertype=="member"){
                 return view('member.memberhome');
             }elseif($usertype=="student"){
-                return view('member.developerhome');
+                return view('student.studenthome');
             }elseif($usertype=="faculty"){
                 return view('faculty.facultyhome');
             }
-
             else{
                 return redirect()->back();
             }

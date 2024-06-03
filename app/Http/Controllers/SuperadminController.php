@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Project;
 use Validator;
+use App\Models\Team;
 
 class SuperadminController extends Controller
 {
@@ -127,5 +128,24 @@ class SuperadminController extends Controller
             ]);
         }
     }
+
+    public function show_team(){
+        return view('superadmin.addteam');
+    }
+    public function store(Request $request)
+    {
+        $request->validate([
+            'team_name' => 'required|string|max:255|unique:teams,name', // Validate and ensure team name is unique
+        ]);
+
+        // Create new team instance
+        $team = new Team();
+        $team->name = $request->input('team_name');
+        $team->save();
+
+        // Redirect back with success message
+        return redirect()->back()->with('success', 'Team added successfully!');
+    }
+    
     
 }

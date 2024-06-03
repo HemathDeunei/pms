@@ -39,10 +39,10 @@
                 <div class="navbar-vertical-content">
                     <ul class="navbar-nav flex-column" id="navbarVerticalNav">
                         <!-- the home content in sie bar page here -->
-                        @include('home.sibebar_home')
+                        @include('home.sidebar_home')
                         <!--end of the home content in sie bar page here -->
                         <!-- the apps content in side bar page here -->
-                        @include('home.sibebar_apps')
+                        @include('home.sidebar_apps')
                         <!--end of the apps content in side bar page here -->
                         @include('home.sidebar_page')
                        @include('home.sidebar_modules')
@@ -614,14 +614,23 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <form method="post" action="{{ route('logout') }}">
-                            @csrf
-                            <!-- Add any additional form fields if needed -->
+    <form method="post" action="{{ route('logout') }}">
+        @csrf
+        <!-- Add any additional form fields if needed -->
 
-                            <!-- <input type="submit" value="logout" class="btn btn-primary"> -->
-                            <button type="submit" class="btn btn-primary">LOGOUT</button>
-                        </form>
-                    </li>
+        <!-- Check if the user is authenticated and display the user type -->
+        @if (Auth::check())
+            <button type="submit" class="btn btn-primary">
+                LOGOUT ({{ Auth::user()->usertype }})
+            </button>
+        @else
+            <!-- Optionally, you can handle the case when no user is logged in -->
+            <button type="submit" class="btn btn-primary" disabled>
+                LOGOUT
+            </button>
+        @endif
+    </form>
+</li>
                 </ul>
             </div>
         </nav>
@@ -1065,7 +1074,6 @@
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
                                             data-feather="share-2"></span>Social feed</div>
                                 </a></li>
-                                
                         </ul>
                     </li>
                     <li class="nav-item dropdown"><a class="nav-link dropdown-toggle lh-1" href="#!" role="button"
@@ -5835,24 +5843,6 @@
                         </div>
                     </div>
                 </li>
-                <li class="nav-item">
-            <form method="post" action="{{ route('logout') }}">
-              @csrf
-              <!-- Add any additional form fields if needed -->
-
-              <!-- Check if the user is authenticated and display the user type -->
-              @if (Auth::check())
-          <button type="submit" class="btn btn-primary">
-          LOGOUT ({{ Auth::user()->usertype }})
-          </button>
-        @else
-        <!-- Optionally, you can handle the case when no user is logged in -->
-        <button type="submit" class="btn btn-primary" disabled>
-        LOGOUT
-        </button>
-      @endif
-            </form>
-          </li>
             </ul>
         </nav>
         <nav class="navbar navbar-top fixed-top navbar-expand-lg" id="dualNav" style="display:none;">
