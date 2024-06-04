@@ -11,7 +11,7 @@ class FacultyController extends Controller
     //
     public function create_faculty()
     {
-        return view('superadmin.addfaculty');
+        return view('faculty.addfaculty');
     }
 
     public function store_faculty(Request $request)
@@ -46,4 +46,47 @@ class FacultyController extends Controller
             return redirect()->back()->with('error', 'An error occurred while adding faculty. Please try again.');
         }
     }
+
+    public function index()
+{
+    $faculties = Faculty::all();
+
+    if (request()->expectsJson()) {
+        return response()->json([
+            'success' => true,
+            'message' => 'Faculties fetched',
+            'faculties' => $faculties,
+        ]);
+    } else {
+        return view('faculty.faculty-list', compact('faculties'));
+    }
+}
+
+    public function show($id)
+    {
+        $faculty = Faculty::find($id);
+        if ($faculty) {
+            return response()->json(['faculty' => $faculty, 'status' => 200]);
+        } else {
+            return response()->json(['message' => 'Faculty not found', 'status' => 404]);
+        }
+    }
+
+    public function update(Request $request, $id)
+    {
+        $faculty = Faculty::find($id);
+        if ($faculty) {
+            $faculty->name = $request->input('name');
+            $faculty->email = $request->input('email');
+            $faculty->mobile = $request->input('mobile');
+            $faculty->department = $request->input('department');
+            $faculty->password = bcrypt($request->input('password'));
+            $faculty->save();
+
+            return response()->json(['message' => 'Faculty updated successfully', 'status' => 'success']);
+        } else {
+            return response()->json(['message' => 'Faculty not found', 'status' => 'error']);
+        }
+    }
+
 }

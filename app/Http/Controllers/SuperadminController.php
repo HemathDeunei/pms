@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Project;
 use Validator;
 use App\Models\Team;
+use App\Models\Member;
 
 class SuperadminController extends Controller
 {
@@ -113,20 +114,29 @@ class SuperadminController extends Controller
     }
 
 
-    public function editProject($id)
+    public function getProject($id)
     {
         $project = Project::find($id);
+
         if ($project) {
             return response()->json([
                 'status' => 200,
-                'project' => $project,
+                'project' => $project
             ]);
         } else {
             return response()->json([
                 'status' => 404,
-                'message' => 'Project not found.',
+                'message' => 'Project not found'
             ]);
         }
+    }
+    public function getTeams()
+    {
+        $teams = Team::all();
+        return response()->json([
+            'status' => 200,
+            'teams' => $teams
+        ]);
     }
 
     public function show_team(){
@@ -147,5 +157,56 @@ class SuperadminController extends Controller
         return redirect()->back()->with('success', 'Team added successfully!');
     }
     
-    
+    public function updateProject(Request $request, $id)
+    {
+        try {
+            $project = Project::find($id);
+
+            if ($project) {
+                $project->project_title = $request->project_title;
+                $project->assignies = $request->assignies;
+                $project->task_view = $request->task_view;
+                $project->privacy = $request->privacy;
+                $project->start_date = $request->start_date;
+                $project->deadline = $request->deadline;
+                $project->project_description = $request->project_description;
+                $project->client = $request->client;
+                $project->budget = $request->budget;
+                $project->team = $request->team;
+
+                $project->save();
+
+                return response()->json([
+                    'status' => 200,
+                    'message' => 'Project updated successfully'
+                ]);
+            } else {
+                return response()->json([
+                    'status' => 404,
+                    'message' => 'Project not found'
+                ]);
+            }
+        } catch (\Exception $e) {
+            \Log::error('Error updating project: ' . $e->getMessage());
+            return response()->json([
+                'status' => 500,
+                'message' => 'Internal Server Error'
+            ]);
+        }
+    }
+    public function getMembers($id)
+    {
+        $member = Member::find($id);
+        if ($member) {
+            return response()->json([
+                'status' => 200,
+                'member' => $member,
+            ]);
+        } else {
+            return response()->json([
+                'status' => 404,
+                'message' => 'No Member Found.'
+            ]);
+        }
+    }
 }

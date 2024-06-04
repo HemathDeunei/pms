@@ -4,11 +4,18 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
 
     <!-- ===============================================-->
     <!--    Document Title-->
@@ -18,16 +25,16 @@
     <!-- ===============================================-->
     <!--    Favicons-->
     <!-- ===============================================-->
-    <link rel="apple-touch-icon" sizes="180x180" href="../../template/assets/img/favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../../template/assets/img/favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../../template/assets/img/favicons/favicon-16x16.png">
-    <link rel="shortcut icon" type="image/x-icon" href="../../template/assets/img/favicons/favicon.ico">
-    <link rel="manifest" href="../../template/assets/img/favicons/manifest.json">
-    <meta name="msapplication-TileImage" content="../../template/assets/img/favicons/mstile-150x150.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../template/assets/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../template/assets/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../template/assets/img/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../template/assets/img/favicons/favicon.ico">
+    <link rel="manifest" href="../template/assets/img/favicons/manifest.json">
+    <meta name="msapplication-TileImage" content="../template/assets/img/favicons/mstile-150x150.png">
     <meta name="theme-color" content="#ffffff">
-    <script src="../../template/vendors/imagesloaded/imagesloaded.pkgd.min.js"></script>
-    <script src="../../template/vendors/simplebar/simplebar.min.js"></script>
-    <script src="../../template/assets/js/config.js"></script>
+    <script src="../template/vendors/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="../template/vendors/simplebar/simplebar.min.js"></script>
+    <script src="../template/assets/js/config.js"></script>
 
     <!-- ===============================================-->
     <!--    Stylesheets-->
@@ -36,12 +43,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&amp;display=swap"
         rel="stylesheet">
-    <link href="../../template/vendors/simplebar/simplebar.min.css" rel="stylesheet">
+    <link href="../template/vendors/simplebar/simplebar.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
-    <link href="../../template/assets/css/theme-rtl.min.css" type="text/css" rel="stylesheet" id="style-rtl">
-    <link href="../../template/assets/css/theme.min.css" type="text/css" rel="stylesheet" id="style-default">
-    <link href="../../template/assets/css/user-rtl.min.css" type="text/css" rel="stylesheet" id="user-style-rtl">
-    <link href="../../template/assets/css/user.min.css" type="text/css" rel="stylesheet" id="user-style-default">
+    <link href="../template/assets/css/theme-rtl.min.css" type="text/css" rel="stylesheet" id="style-rtl">
+    <link href="../template/assets/css/theme.min.css" type="text/css" rel="stylesheet" id="style-default">
+    <link href="../template/assets/css/user-rtl.min.css" type="text/css" rel="stylesheet" id="user-style-rtl">
+    <link href="../template/assets/css/user.min.css" type="text/css" rel="stylesheet" id="user-style-default">
     <script>
         var phoenixIsRTL = window.config.config.phoenixIsRTL;
         if (phoenixIsRTL) {
@@ -58,9 +65,22 @@
         }
     </script>
     <style>
-        label {
-            text-align: left !important;
+        .col-form-label {
             width: 100%;
+            text-align: left;
+        }
+
+        thead,
+        tbody,
+        tfoot,
+        tr,
+        td,
+        th {
+            padding: 10px;
+            border-bottom: 1px solid #c5c0c0;
+        }
+
+
         }
     </style>
 </head>
@@ -107,10 +127,10 @@
                         aria-controls="navbarVerticalCollapse" aria-expanded="false"
                         aria-label="Toggle Navigation"><span class="navbar-toggle-icon"><span
                                 class="toggle-line"></span></span></button>
-                    <a class="navbar-brand me-1 me-sm-3" href="../../index-2.html">
+                    <a class="navbar-brand me-1 me-sm-3" href="../index-2.html">
                         <div class="d-flex align-items-center">
-                            <div class="d-flex align-items-center"><img src="../../assets/img/icons/logo.png"
-                                    alt="phoenix" width="27" />
+                            <div class="d-flex align-items-center"><img src="../assets/img/icons/logo.png" alt="phoenix"
+                                    width="27" />
                                 <p class="logo-text ms-2 d-none d-sm-block">phoenix</p>
                             </div>
                         </div>
@@ -125,7 +145,8 @@
                     </form>
                     <div class="btn-close position-absolute end-0 top-50 translate-middle cursor-pointer shadow-none"
                         data-bs-dismiss="search"><button class="btn btn-link btn-close-falcon p-0"
-                            aria-label="Close"></button></div>
+                            aria-label="Close"></button>
+                    </div>
                     <div class="dropdown-menu border border-300 font-base start-0 py-0 overflow-hidden w-100">
                         <div class="scrollbar-overlay" style="max-height: 30rem;">
                             <div class="list pb-3">
@@ -135,14 +156,14 @@
                                 <h6 class="dropdown-header text-1000 fs--1 border-bottom border-200 py-2 lh-sm">Recently
                                     Searched </h6>
                                 <div class="py-2"><a class="dropdown-item"
-                                        href="../e-commerce/landing/product-details.html">
+                                        href="../apps/e-commerce/landing/product-details.html">
                                         <div class="d-flex align-items-center">
                                             <div class="fw-normal text-1000 title"><span
                                                     class="fa-solid fa-clock-rotate-left"
                                                     data-fa-transform="shrink-2"></span> Store Macbook</div>
                                         </div>
                                     </a>
-                                    <a class="dropdown-item" href="../e-commerce/landing/product-details.html">
+                                    <a class="dropdown-item" href="../apps/e-commerce/landing/product-details.html">
                                         <div class="d-flex align-items-center">
                                             <div class="fw-normal text-1000 title"> <span
                                                     class="fa-solid fa-clock-rotate-left"
@@ -154,23 +175,25 @@
                                 <h6 class="dropdown-header text-1000 fs--1 border-bottom border-200 py-2 lh-sm">Products
                                 </h6>
                                 <div class="py-2"><a class="dropdown-item py-2 d-flex align-items-center"
-                                        href="../e-commerce/landing/product-details.html">
+                                        href="../apps/e-commerce/landing/product-details.html">
                                         <div class="file-thumbnail me-2"><img class="h-100 w-100 fit-cover rounded-3"
-                                                src="../../assets/img/products/60x60/3.png" alt="" /></div>
+                                                src="../assets/img/products/60x60/3.png" alt="" /></div>
                                         <div class="flex-1">
                                             <h6 class="mb-0 text-1000 title">MacBook Air - 13″</h6>
                                             <p class="fs--2 mb-0 d-flex text-700"><span class="fw-medium text-600">8GB
-                                                    Memory - 1.6GHz - 128GB Storage</span></p>
+                                                    Memory - 1.6GHz - 128GB
+                                                    Storage</span></p>
                                         </div>
                                     </a>
                                     <a class="dropdown-item py-2 d-flex align-items-center"
-                                        href="../e-commerce/landing/product-details.html">
+                                        href="../apps/e-commerce/landing/product-details.html">
                                         <div class="file-thumbnail me-2"><img class="img-fluid"
-                                                src="../../assets/img/products/60x60/3.png" alt="" /></div>
+                                                src="../assets/img/products/60x60/3.png" alt="" /></div>
                                         <div class="flex-1">
                                             <h6 class="mb-0 text-1000 title">MacBook Pro - 13″</h6>
                                             <p class="fs--2 mb-0 d-flex text-700"><span
-                                                    class="fw-medium text-600 ms-2">30 Sep at 12:30 PM</span></p>
+                                                    class="fw-medium text-600 ms-2">30 Sep at 12:30
+                                                    PM</span></p>
                                         </div>
                                     </a>
                                 </div>
@@ -178,14 +201,14 @@
                                 <h6 class="dropdown-header text-1000 fs--1 border-bottom border-200 py-2 lh-sm">Quick
                                     Links</h6>
                                 <div class="py-2"><a class="dropdown-item"
-                                        href="../e-commerce/landing/product-details.html">
+                                        href="../apps/e-commerce/landing/product-details.html">
                                         <div class="d-flex align-items-center">
                                             <div class="fw-normal text-1000 title"><span
                                                     class="fa-solid fa-link text-900"
                                                     data-fa-transform="shrink-2"></span> Support MacBook House</div>
                                         </div>
                                     </a>
-                                    <a class="dropdown-item" href="../e-commerce/landing/product-details.html">
+                                    <a class="dropdown-item" href="../apps/e-commerce/landing/product-details.html">
                                         <div class="d-flex align-items-center">
                                             <div class="fw-normal text-1000 title"> <span
                                                     class="fa-solid fa-link text-900"
@@ -197,7 +220,7 @@
                                 <h6 class="dropdown-header text-1000 fs--1 border-bottom border-200 py-2 lh-sm">Files
                                 </h6>
                                 <div class="py-2"><a class="dropdown-item"
-                                        href="../e-commerce/landing/product-details.html">
+                                        href="../apps/e-commerce/landing/product-details.html">
                                         <div class="d-flex align-items-center">
                                             <div class="fw-normal text-1000 title"><span
                                                     class="fa-solid fa-file-zipper text-900"
@@ -205,7 +228,7 @@
                                             </div>
                                         </div>
                                     </a>
-                                    <a class="dropdown-item" href="../e-commerce/landing/product-details.html">
+                                    <a class="dropdown-item" href="../apps/e-commerce/landing/product-details.html">
                                         <div class="d-flex align-items-center">
                                             <div class="fw-normal text-1000 title"> <span
                                                     class="fa-solid fa-file-lines text-900"
@@ -213,7 +236,7 @@
                                             </div>
                                         </div>
                                     </a>
-                                    <a class="dropdown-item" href="../e-commerce/landing/product-details.html">
+                                    <a class="dropdown-item" href="../apps/e-commerce/landing/product-details.html">
                                         <div class="d-flex align-items-center">
                                             <div class="fw-normal text-1000 title"> <span
                                                     class="fa-solid fa-image text-900"
@@ -225,9 +248,9 @@
                                 <h6 class="dropdown-header text-1000 fs--1 border-bottom border-200 py-2 lh-sm">Members
                                 </h6>
                                 <div class="py-2"><a class="dropdown-item py-2 d-flex align-items-center"
-                                        href="../../pages/members.html">
+                                        href="members.html">
                                         <div class="avatar avatar-l status-online  me-2 text-900">
-                                            <img class="rounded-circle " src="../../assets/img/team/40x40/10.webp"
+                                            <img class="rounded-circle " src="../assets/img/team/40x40/10.webp"
                                                 alt="" />
                                         </div>
                                         <div class="flex-1">
@@ -235,10 +258,9 @@
                                             <p class="fs--2 mb-0 d-flex text-700">anna@technext.it</p>
                                         </div>
                                     </a>
-                                    <a class="dropdown-item py-2 d-flex align-items-center"
-                                        href="../../pages/members.html">
+                                    <a class="dropdown-item py-2 d-flex align-items-center" href="members.html">
                                         <div class="avatar avatar-l  me-2 text-900">
-                                            <img class="rounded-circle " src="../../assets/img/team/40x40/12.webp"
+                                            <img class="rounded-circle " src="../assets/img/team/40x40/12.webp"
                                                 alt="" />
                                         </div>
                                         <div class="flex-1">
@@ -251,14 +273,14 @@
                                 <h6 class="dropdown-header text-1000 fs--1 border-bottom border-200 py-2 lh-sm">Related
                                     Searches</h6>
                                 <div class="py-2"><a class="dropdown-item"
-                                        href="../e-commerce/landing/product-details.html">
+                                        href="../apps/e-commerce/landing/product-details.html">
                                         <div class="d-flex align-items-center">
                                             <div class="fw-normal text-1000 title"><span
                                                     class="fa-brands fa-firefox-browser text-900"
                                                     data-fa-transform="shrink-2"></span> Search in the Web MacBook</div>
                                         </div>
                                     </a>
-                                    <a class="dropdown-item" href="../e-commerce/landing/product-details.html">
+                                    <a class="dropdown-item" href="../apps/e-commerce/landing/product-details.html">
                                         <div class="d-flex align-items-center">
                                             <div class="fw-normal text-1000 title"> <span
                                                     class="fa-brands fa-chrome text-900"
@@ -309,8 +331,7 @@
                                                     <div class="d-flex">
                                                         <div class="avatar avatar-m status-online me-3"><img
                                                                 class="rounded-circle"
-                                                                src="../../assets/img/team/40x40/30.webp" alt="" />
-                                                        </div>
+                                                                src="../assets/img/team/40x40/30.webp" alt="" /></div>
                                                         <div class="flex-1 me-sm-3">
                                                             <h4 class="fs--1 text-black">Jessie Samson</h4>
                                                             <p class="fs--1 text-1000 mb-2 mb-sm-3 fw-normal"><span
@@ -329,7 +350,8 @@
                                                             aria-expanded="false" data-bs-reference="parent"><span
                                                                 class="fas fa-ellipsis-h fs--2 text-900"></span></button>
                                                         <div class="dropdown-menu dropdown-menu-end py-2"><a
-                                                                class="dropdown-item" href="#!">Mark as unread</a></div>
+                                                                class="dropdown-item" href="#!">Mark as
+                                                                unread</a></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -358,7 +380,8 @@
                                                             aria-expanded="false" data-bs-reference="parent"><span
                                                                 class="fas fa-ellipsis-h fs--2 text-900"></span></button>
                                                         <div class="dropdown-menu dropdown-menu-end py-2"><a
-                                                                class="dropdown-item" href="#!">Mark as unread</a></div>
+                                                                class="dropdown-item" href="#!">Mark as
+                                                                unread</a></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -369,12 +392,13 @@
                                                     <div class="d-flex">
                                                         <div class="avatar avatar-m status-online me-3"><img
                                                                 class="rounded-circle avatar-placeholder"
-                                                                src="../../assets/img/team/40x40/avatar.webp" alt="" />
+                                                                src="../assets/img/team/40x40/avatar.webp" alt="" />
                                                         </div>
                                                         <div class="flex-1 me-sm-3">
                                                             <h4 class="fs--1 text-black">Jessie Samson</h4>
                                                             <p class="fs--1 text-1000 mb-2 mb-sm-3 fw-normal"><span
-                                                                    class='me-1 fs--2'>👍</span>Liked your comment.<span
+                                                                    class='me-1 fs--2'>👍</span>Liked
+                                                                your comment.<span
                                                                     class="ms-2 text-400 fw-bold fs--2">1h</span></p>
                                                             <p class="text-800 fs--1 mb-0"><span
                                                                     class="me-1 fas fa-clock"></span><span
@@ -388,7 +412,8 @@
                                                             aria-expanded="false" data-bs-reference="parent"><span
                                                                 class="fas fa-ellipsis-h fs--2 text-900"></span></button>
                                                         <div class="dropdown-menu dropdown-menu-end py-2"><a
-                                                                class="dropdown-item" href="#!">Mark as unread</a></div>
+                                                                class="dropdown-item" href="#!">Mark as
+                                                                unread</a></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -401,8 +426,7 @@
                                                     <div class="d-flex">
                                                         <div class="avatar avatar-m status-online me-3"><img
                                                                 class="rounded-circle"
-                                                                src="../../assets/img/team/40x40/57.webp" alt="" />
-                                                        </div>
+                                                                src="../assets/img/team/40x40/57.webp" alt="" /></div>
                                                         <div class="flex-1 me-sm-3">
                                                             <h4 class="fs--1 text-black">Kiera Anderson</h4>
                                                             <p class="fs--1 text-1000 mb-2 mb-sm-3 fw-normal"><span
@@ -421,7 +445,8 @@
                                                             aria-expanded="false" data-bs-reference="parent"><span
                                                                 class="fas fa-ellipsis-h fs--2 text-900"></span></button>
                                                         <div class="dropdown-menu dropdown-menu-end py-2"><a
-                                                                class="dropdown-item" href="#!">Mark as unread</a></div>
+                                                                class="dropdown-item" href="#!">Mark as
+                                                                unread</a></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -432,13 +457,12 @@
                                                     <div class="d-flex">
                                                         <div class="avatar avatar-m status-online me-3"><img
                                                                 class="rounded-circle"
-                                                                src="../../assets/img/team/40x40/59.webp" alt="" />
-                                                        </div>
+                                                                src="../assets/img/team/40x40/59.webp" alt="" /></div>
                                                         <div class="flex-1 me-sm-3">
                                                             <h4 class="fs--1 text-black">Herman Carter</h4>
                                                             <p class="fs--1 text-1000 mb-2 mb-sm-3 fw-normal"><span
-                                                                    class='me-1 fs--2'>👤</span>Tagged you in a
-                                                                comment.<span
+                                                                    class='me-1 fs--2'>👤</span>Tagged
+                                                                you in a comment.<span
                                                                     class="ms-2 text-400 fw-bold fs--2"></span></p>
                                                             <p class="text-800 fs--1 mb-0"><span
                                                                     class="me-1 fas fa-clock"></span><span
@@ -452,7 +476,8 @@
                                                             aria-expanded="false" data-bs-reference="parent"><span
                                                                 class="fas fa-ellipsis-h fs--2 text-900"></span></button>
                                                         <div class="dropdown-menu dropdown-menu-end py-2"><a
-                                                                class="dropdown-item" href="#!">Mark as unread</a></div>
+                                                                class="dropdown-item" href="#!">Mark as
+                                                                unread</a></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -463,12 +488,12 @@
                                                     <div class="d-flex">
                                                         <div class="avatar avatar-m status-online me-3"><img
                                                                 class="rounded-circle"
-                                                                src="../../assets/img/team/40x40/58.webp" alt="" />
-                                                        </div>
+                                                                src="../assets/img/team/40x40/58.webp" alt="" /></div>
                                                         <div class="flex-1 me-sm-3">
                                                             <h4 class="fs--1 text-black">Benjamin Button</h4>
                                                             <p class="fs--1 text-1000 mb-2 mb-sm-3 fw-normal"><span
-                                                                    class='me-1 fs--2'>👍</span>Liked your comment.<span
+                                                                    class='me-1 fs--2'>👍</span>Liked
+                                                                your comment.<span
                                                                     class="ms-2 text-400 fw-bold fs--2"></span></p>
                                                             <p class="text-800 fs--1 mb-0"><span
                                                                     class="me-1 fas fa-clock"></span><span
@@ -482,7 +507,8 @@
                                                             aria-expanded="false" data-bs-reference="parent"><span
                                                                 class="fas fa-ellipsis-h fs--2 text-900"></span></button>
                                                         <div class="dropdown-menu dropdown-menu-end py-2"><a
-                                                                class="dropdown-item" href="#!">Mark as unread</a></div>
+                                                                class="dropdown-item" href="#!">Mark as
+                                                                unread</a></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -491,7 +517,7 @@
                                 </div>
                                 <div class="card-footer p-0 border-top border-0">
                                     <div class="my-2 text-center fw-bold fs--2 text-600"><a class="fw-bolder"
-                                            href="../../pages/notifications.html">Notification history</a></div>
+                                            href="notifications.html">Notification history</a></div>
                                 </div>
                             </div>
                         </div>
@@ -518,85 +544,85 @@
                                     <div class="row text-center align-items-center gx-0 gy-0">
                                         <div class="col-4"><a
                                                 class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                                href="#!"><img src="../../assets/img/nav-icons/behance.webp" alt=""
+                                                href="#!"><img src="../assets/img/nav-icons/behance.webp" alt=""
                                                     width="30" />
                                                 <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Behance</p>
                                             </a></div>
                                         <div class="col-4"><a
                                                 class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                                href="#!"><img src="../../assets/img/nav-icons/google-cloud.webp" alt=""
+                                                href="#!"><img src="../assets/img/nav-icons/google-cloud.webp" alt=""
                                                     width="30" />
                                                 <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Cloud</p>
                                             </a></div>
                                         <div class="col-4"><a
                                                 class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                                href="#!"><img src="../../assets/img/nav-icons/slack.webp" alt=""
+                                                href="#!"><img src="../assets/img/nav-icons/slack.webp" alt=""
                                                     width="30" />
                                                 <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Slack</p>
                                             </a></div>
                                         <div class="col-4"><a
                                                 class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                                href="#!"><img src="../../assets/img/nav-icons/gitlab.webp" alt=""
+                                                href="#!"><img src="../assets/img/nav-icons/gitlab.webp" alt=""
                                                     width="30" />
                                                 <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Gitlab</p>
                                             </a></div>
                                         <div class="col-4"><a
                                                 class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                                href="#!"><img src="../../assets/img/nav-icons/bitbucket.webp" alt=""
+                                                href="#!"><img src="../assets/img/nav-icons/bitbucket.webp" alt=""
                                                     width="30" />
                                                 <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">BitBucket</p>
                                             </a></div>
                                         <div class="col-4"><a
                                                 class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                                href="#!"><img src="../../assets/img/nav-icons/google-drive.webp" alt=""
+                                                href="#!"><img src="../assets/img/nav-icons/google-drive.webp" alt=""
                                                     width="30" />
                                                 <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Drive</p>
                                             </a></div>
                                         <div class="col-4"><a
                                                 class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                                href="#!"><img src="../../assets/img/nav-icons/trello.webp" alt=""
+                                                href="#!"><img src="../assets/img/nav-icons/trello.webp" alt=""
                                                     width="30" />
                                                 <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Trello</p>
                                             </a></div>
                                         <div class="col-4"><a
                                                 class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                                href="#!"><img src="../../assets/img/nav-icons/figma.webp" alt=""
+                                                href="#!"><img src="../assets/img/nav-icons/figma.webp" alt=""
                                                     width="20" />
                                                 <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Figma</p>
                                             </a></div>
                                         <div class="col-4"><a
                                                 class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                                href="#!"><img src="../../assets/img/nav-icons/twitter.webp" alt=""
+                                                href="#!"><img src="../assets/img/nav-icons/twitter.webp" alt=""
                                                     width="30" />
                                                 <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Twitter</p>
                                             </a></div>
                                         <div class="col-4"><a
                                                 class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                                href="#!"><img src="../../assets/img/nav-icons/pinterest.webp" alt=""
+                                                href="#!"><img src="../assets/img/nav-icons/pinterest.webp" alt=""
                                                     width="30" />
                                                 <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Pinterest</p>
                                             </a></div>
                                         <div class="col-4"><a
                                                 class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                                href="#!"><img src="../../assets/img/nav-icons/ln.webp" alt=""
+                                                href="#!"><img src="../assets/img/nav-icons/ln.webp" alt=""
                                                     width="30" />
                                                 <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Linkedin</p>
                                             </a></div>
                                         <div class="col-4"><a
                                                 class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                                href="#!"><img src="../../assets/img/nav-icons/google-maps.webp" alt=""
+                                                href="#!"><img src="../assets/img/nav-icons/google-maps.webp" alt=""
                                                     width="30" />
                                                 <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Maps</p>
                                             </a></div>
                                         <div class="col-4"><a
                                                 class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                                href="#!"><img src="../../assets/img/nav-icons/google-photos.webp"
-                                                    alt="" width="30" />
+                                                href="#!"><img src="../assets/img/nav-icons/google-photos.webp" alt=""
+                                                    width="30" />
                                                 <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Photos</p>
                                             </a></div>
                                         <div class="col-4"><a
                                                 class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                                href="#!"><img src="../../assets/img/nav-icons/spotify.webp" alt=""
+                                                href="#!"><img src="../assets/img/nav-icons/spotify.webp" alt=""
                                                     width="30" />
                                                 <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Spotify</p>
                                             </a></div>
@@ -609,7 +635,7 @@
                             role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true"
                             aria-expanded="false">
                             <div class="avatar avatar-l ">
-                                <img class="rounded-circle " src="../../assets/img/team/40x40/57.webp" alt="" />
+                                <img class="rounded-circle " src="../assets/img/team/40x40/57.webp" alt="" />
                             </div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end navbar-dropdown-caret py-0 dropdown-profile shadow border border-300"
@@ -618,7 +644,7 @@
                                 <div class="card-body p-0">
                                     <div class="text-center pt-4 pb-3">
                                         <div class="avatar avatar-xl ">
-                                            <img class="rounded-circle " src="../../assets/img/team/72x72/57.webp"
+                                            <img class="rounded-circle " src="../assets/img/team/72x72/57.webp"
                                                 alt="" />
                                         </div>
                                         <h6 class="mt-2 text-black">Jerry Seinfield</h6>
@@ -658,30 +684,12 @@
                                             href="#!"> <span class="me-2" data-feather="log-out"> </span>Sign out</a>
                                     </div>
                                     <div class="my-2 text-center fw-bold fs--2 text-600"><a class="text-600 me-1"
-                                            href="#!">Privacy policy</a>&bull;<a class="text-600 mx-1"
-                                            href="#!">Terms</a>&bull;<a class="text-600 ms-1" href="#!">Cookies</a>
-                                    </div>
+                                            href="#!">Privacy
+                                            policy</a>&bull;<a class="text-600 mx-1" href="#!">Terms</a>&bull;<a
+                                            class="text-600 ms-1" href="#!">Cookies</a></div>
                                 </div>
                             </div>
                         </div>
-                    </li>
-                    <li class="nav-item">
-                        <form method="post" action="{{ route('logout') }}">
-                            @csrf
-                            <!-- Add any additional form fields if needed -->
-
-                            <!-- Check if the user is authenticated and display the user type -->
-                            @if (Auth::check())
-                                <button type="submit" class="btn btn-primary">
-                                    LOGOUT ({{ Auth::user()->usertype }})
-                                </button>
-                            @else
-                                <!-- Optionally, you can handle the case when no user is logged in -->
-                                <button type="submit" class="btn btn-primary" disabled>
-                                    LOGOUT
-                                </button>
-                            @endif
-                        </form>
                     </li>
                 </ul>
             </div>
@@ -694,7 +702,7 @@
                         aria-controls="navbarVerticalCollapse" aria-expanded="false"
                         aria-label="Toggle Navigation"><span class="navbar-toggle-icon"><span
                                 class="toggle-line"></span></span></button>
-                    <a class="navbar-brand navbar-brand" href="../../index-2.html">phoenix <span
+                    <a class="navbar-brand navbar-brand" href="../index-2.html">phoenix <span
                             class="text-1000 d-none d-sm-inline">slim</span></a>
                 </div>
                 <ul class="navbar-nav navbar-nav-icons flex-row">
@@ -713,7 +721,8 @@
                     </li>
                     <li class="nav-item"> <a class="nav-link" href="#" data-bs-toggle="modal"
                             data-bs-target="#searchBoxModal"><span data-feather="search"
-                                style="height:12px;width:12px;"></span></a></li>
+                                style="height:12px;width:12px;"></span></a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link" id="navbarDropdownNotification" href="#" role="button"
                             data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true"
@@ -738,8 +747,7 @@
                                                     <div class="d-flex">
                                                         <div class="avatar avatar-m status-online me-3"><img
                                                                 class="rounded-circle"
-                                                                src="../../assets/img/team/40x40/30.webp" alt="" />
-                                                        </div>
+                                                                src="../assets/img/team/40x40/30.webp" alt="" /></div>
                                                         <div class="flex-1 me-sm-3">
                                                             <h4 class="fs--1 text-black">Jessie Samson</h4>
                                                             <p class="fs--1 text-1000 mb-2 mb-sm-3 fw-normal"><span
@@ -758,7 +766,8 @@
                                                             aria-expanded="false" data-bs-reference="parent"><span
                                                                 class="fas fa-ellipsis-h fs--2 text-900"></span></button>
                                                         <div class="dropdown-menu dropdown-menu-end py-2"><a
-                                                                class="dropdown-item" href="#!">Mark as unread</a></div>
+                                                                class="dropdown-item" href="#!">Mark as
+                                                                unread</a></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -787,7 +796,8 @@
                                                             aria-expanded="false" data-bs-reference="parent"><span
                                                                 class="fas fa-ellipsis-h fs--2 text-900"></span></button>
                                                         <div class="dropdown-menu dropdown-menu-end py-2"><a
-                                                                class="dropdown-item" href="#!">Mark as unread</a></div>
+                                                                class="dropdown-item" href="#!">Mark as
+                                                                unread</a></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -798,12 +808,13 @@
                                                     <div class="d-flex">
                                                         <div class="avatar avatar-m status-online me-3"><img
                                                                 class="rounded-circle avatar-placeholder"
-                                                                src="../../assets/img/team/40x40/avatar.webp" alt="" />
+                                                                src="../assets/img/team/40x40/avatar.webp" alt="" />
                                                         </div>
                                                         <div class="flex-1 me-sm-3">
                                                             <h4 class="fs--1 text-black">Jessie Samson</h4>
                                                             <p class="fs--1 text-1000 mb-2 mb-sm-3 fw-normal"><span
-                                                                    class='me-1 fs--2'>👍</span>Liked your comment.<span
+                                                                    class='me-1 fs--2'>👍</span>Liked
+                                                                your comment.<span
                                                                     class="ms-2 text-400 fw-bold fs--2">1h</span></p>
                                                             <p class="text-800 fs--1 mb-0"><span
                                                                     class="me-1 fas fa-clock"></span><span
@@ -817,7 +828,8 @@
                                                             aria-expanded="false" data-bs-reference="parent"><span
                                                                 class="fas fa-ellipsis-h fs--2 text-900"></span></button>
                                                         <div class="dropdown-menu dropdown-menu-end py-2"><a
-                                                                class="dropdown-item" href="#!">Mark as unread</a></div>
+                                                                class="dropdown-item" href="#!">Mark as
+                                                                unread</a></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -830,8 +842,7 @@
                                                     <div class="d-flex">
                                                         <div class="avatar avatar-m status-online me-3"><img
                                                                 class="rounded-circle"
-                                                                src="../../assets/img/team/40x40/57.webp" alt="" />
-                                                        </div>
+                                                                src="../assets/img/team/40x40/57.webp" alt="" /></div>
                                                         <div class="flex-1 me-sm-3">
                                                             <h4 class="fs--1 text-black">Kiera Anderson</h4>
                                                             <p class="fs--1 text-1000 mb-2 mb-sm-3 fw-normal"><span
@@ -850,7 +861,8 @@
                                                             aria-expanded="false" data-bs-reference="parent"><span
                                                                 class="fas fa-ellipsis-h fs--2 text-900"></span></button>
                                                         <div class="dropdown-menu dropdown-menu-end py-2"><a
-                                                                class="dropdown-item" href="#!">Mark as unread</a></div>
+                                                                class="dropdown-item" href="#!">Mark as
+                                                                unread</a></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -861,13 +873,12 @@
                                                     <div class="d-flex">
                                                         <div class="avatar avatar-m status-online me-3"><img
                                                                 class="rounded-circle"
-                                                                src="../../assets/img/team/40x40/59.webp" alt="" />
-                                                        </div>
+                                                                src="../assets/img/team/40x40/59.webp" alt="" /></div>
                                                         <div class="flex-1 me-sm-3">
                                                             <h4 class="fs--1 text-black">Herman Carter</h4>
                                                             <p class="fs--1 text-1000 mb-2 mb-sm-3 fw-normal"><span
-                                                                    class='me-1 fs--2'>👤</span>Tagged you in a
-                                                                comment.<span
+                                                                    class='me-1 fs--2'>👤</span>Tagged
+                                                                you in a comment.<span
                                                                     class="ms-2 text-400 fw-bold fs--2"></span></p>
                                                             <p class="text-800 fs--1 mb-0"><span
                                                                     class="me-1 fas fa-clock"></span><span
@@ -881,7 +892,8 @@
                                                             aria-expanded="false" data-bs-reference="parent"><span
                                                                 class="fas fa-ellipsis-h fs--2 text-900"></span></button>
                                                         <div class="dropdown-menu dropdown-menu-end py-2"><a
-                                                                class="dropdown-item" href="#!">Mark as unread</a></div>
+                                                                class="dropdown-item" href="#!">Mark as
+                                                                unread</a></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -892,12 +904,12 @@
                                                     <div class="d-flex">
                                                         <div class="avatar avatar-m status-online me-3"><img
                                                                 class="rounded-circle"
-                                                                src="../../assets/img/team/40x40/58.webp" alt="" />
-                                                        </div>
+                                                                src="../assets/img/team/40x40/58.webp" alt="" /></div>
                                                         <div class="flex-1 me-sm-3">
                                                             <h4 class="fs--1 text-black">Benjamin Button</h4>
                                                             <p class="fs--1 text-1000 mb-2 mb-sm-3 fw-normal"><span
-                                                                    class='me-1 fs--2'>👍</span>Liked your comment.<span
+                                                                    class='me-1 fs--2'>👍</span>Liked
+                                                                your comment.<span
                                                                     class="ms-2 text-400 fw-bold fs--2"></span></p>
                                                             <p class="text-800 fs--1 mb-0"><span
                                                                     class="me-1 fas fa-clock"></span><span
@@ -911,7 +923,8 @@
                                                             aria-expanded="false" data-bs-reference="parent"><span
                                                                 class="fas fa-ellipsis-h fs--2 text-900"></span></button>
                                                         <div class="dropdown-menu dropdown-menu-end py-2"><a
-                                                                class="dropdown-item" href="#!">Mark as unread</a></div>
+                                                                class="dropdown-item" href="#!">Mark as
+                                                                unread</a></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -920,7 +933,7 @@
                                 </div>
                                 <div class="card-footer p-0 border-top border-0">
                                     <div class="my-2 text-center fw-bold fs--2 text-600"><a class="fw-bolder"
-                                            href="../../pages/notifications.html">Notification history</a></div>
+                                            href="notifications.html">Notification history</a></div>
                                 </div>
                             </div>
                         </div>
@@ -947,85 +960,85 @@
                                     <div class="row text-center align-items-center gx-0 gy-0">
                                         <div class="col-4"><a
                                                 class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                                href="#!"><img src="../../assets/img/nav-icons/behance.webp" alt=""
+                                                href="#!"><img src="../assets/img/nav-icons/behance.webp" alt=""
                                                     width="30" />
                                                 <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Behance</p>
                                             </a></div>
                                         <div class="col-4"><a
                                                 class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                                href="#!"><img src="../../assets/img/nav-icons/google-cloud.webp" alt=""
+                                                href="#!"><img src="../assets/img/nav-icons/google-cloud.webp" alt=""
                                                     width="30" />
                                                 <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Cloud</p>
                                             </a></div>
                                         <div class="col-4"><a
                                                 class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                                href="#!"><img src="../../assets/img/nav-icons/slack.webp" alt=""
+                                                href="#!"><img src="../assets/img/nav-icons/slack.webp" alt=""
                                                     width="30" />
                                                 <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Slack</p>
                                             </a></div>
                                         <div class="col-4"><a
                                                 class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                                href="#!"><img src="../../assets/img/nav-icons/gitlab.webp" alt=""
+                                                href="#!"><img src="../assets/img/nav-icons/gitlab.webp" alt=""
                                                     width="30" />
                                                 <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Gitlab</p>
                                             </a></div>
                                         <div class="col-4"><a
                                                 class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                                href="#!"><img src="../../assets/img/nav-icons/bitbucket.webp" alt=""
+                                                href="#!"><img src="../assets/img/nav-icons/bitbucket.webp" alt=""
                                                     width="30" />
                                                 <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">BitBucket</p>
                                             </a></div>
                                         <div class="col-4"><a
                                                 class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                                href="#!"><img src="../../assets/img/nav-icons/google-drive.webp" alt=""
+                                                href="#!"><img src="../assets/img/nav-icons/google-drive.webp" alt=""
                                                     width="30" />
                                                 <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Drive</p>
                                             </a></div>
                                         <div class="col-4"><a
                                                 class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                                href="#!"><img src="../../assets/img/nav-icons/trello.webp" alt=""
+                                                href="#!"><img src="../assets/img/nav-icons/trello.webp" alt=""
                                                     width="30" />
                                                 <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Trello</p>
                                             </a></div>
                                         <div class="col-4"><a
                                                 class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                                href="#!"><img src="../../assets/img/nav-icons/figma.webp" alt=""
+                                                href="#!"><img src="../assets/img/nav-icons/figma.webp" alt=""
                                                     width="20" />
                                                 <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Figma</p>
                                             </a></div>
                                         <div class="col-4"><a
                                                 class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                                href="#!"><img src="../../assets/img/nav-icons/twitter.webp" alt=""
+                                                href="#!"><img src="../assets/img/nav-icons/twitter.webp" alt=""
                                                     width="30" />
                                                 <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Twitter</p>
                                             </a></div>
                                         <div class="col-4"><a
                                                 class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                                href="#!"><img src="../../assets/img/nav-icons/pinterest.webp" alt=""
+                                                href="#!"><img src="../assets/img/nav-icons/pinterest.webp" alt=""
                                                     width="30" />
                                                 <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Pinterest</p>
                                             </a></div>
                                         <div class="col-4"><a
                                                 class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                                href="#!"><img src="../../assets/img/nav-icons/ln.webp" alt=""
+                                                href="#!"><img src="../assets/img/nav-icons/ln.webp" alt=""
                                                     width="30" />
                                                 <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Linkedin</p>
                                             </a></div>
                                         <div class="col-4"><a
                                                 class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                                href="#!"><img src="../../assets/img/nav-icons/google-maps.webp" alt=""
+                                                href="#!"><img src="../assets/img/nav-icons/google-maps.webp" alt=""
                                                     width="30" />
                                                 <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Maps</p>
                                             </a></div>
                                         <div class="col-4"><a
                                                 class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                                href="#!"><img src="../../assets/img/nav-icons/google-photos.webp"
-                                                    alt="" width="30" />
+                                                href="#!"><img src="../assets/img/nav-icons/google-photos.webp" alt=""
+                                                    width="30" />
                                                 <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Photos</p>
                                             </a></div>
                                         <div class="col-4"><a
                                                 class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                                href="#!"><img src="../../assets/img/nav-icons/spotify.webp" alt=""
+                                                href="#!"><img src="../assets/img/nav-icons/spotify.webp" alt=""
                                                     width="30" />
                                                 <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Spotify</p>
                                             </a></div>
@@ -1044,7 +1057,7 @@
                                 <div class="card-body p-0">
                                     <div class="text-center pt-4 pb-3">
                                         <div class="avatar avatar-xl ">
-                                            <img class="rounded-circle " src="../../assets/img/team/72x72/57.webp"
+                                            <img class="rounded-circle " src="../assets/img/team/72x72/57.webp"
                                                 alt="" />
                                         </div>
                                         <h6 class="mt-2 text-black">Jerry Seinfield</h6>
@@ -1084,9 +1097,9 @@
                                             href="#!"> <span class="me-2" data-feather="log-out"> </span>Sign out</a>
                                     </div>
                                     <div class="my-2 text-center fw-bold fs--2 text-600"><a class="text-600 me-1"
-                                            href="#!">Privacy policy</a>&bull;<a class="text-600 mx-1"
-                                            href="#!">Terms</a>&bull;<a class="text-600 ms-1" href="#!">Cookies</a>
-                                    </div>
+                                            href="#!">Privacy
+                                            policy</a>&bull;<a class="text-600 mx-1" href="#!">Terms</a>&bull;<a
+                                            class="text-600 ms-1" href="#!">Cookies</a></div>
                                 </div>
                             </div>
                         </div>
@@ -1100,9 +1113,9 @@
                     data-bs-toggle="collapse" data-bs-target="#navbarTopCollapse" aria-controls="navbarTopCollapse"
                     aria-expanded="false" aria-label="Toggle Navigation"><span class="navbar-toggle-icon"><span
                             class="toggle-line"></span></span></button>
-                <a class="navbar-brand me-1 me-sm-3" href="../../index-2.html">
+                <a class="navbar-brand me-1 me-sm-3" href="../index-2.html">
                     <div class="d-flex align-items-center">
-                        <div class="d-flex align-items-center"><img src="../../assets/img/icons/logo.png" alt="phoenix"
+                        <div class="d-flex align-items-center"><img src="../assets/img/icons/logo.png" alt="phoenix"
                                 width="27" />
                             <p class="logo-text ms-2 d-none d-sm-block">phoenix</p>
                         </div>
@@ -1116,21 +1129,24 @@
                             data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true"
                             aria-expanded="false"><span class="uil fs-0 me-2 uil-chart-pie"></span>Home</a>
                         <ul class="dropdown-menu navbar-dropdown-caret">
-                            <li><a class="dropdown-item" href="../../index-2.html">
+                            <li><a class="dropdown-item" href="../index-2.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
-                                            data-feather="shopping-cart"></span>E commerce</div>
+                                            data-feather="shopping-cart"></span>E
+                                        commerce</div>
                                 </a></li>
-                            <li><a class="dropdown-item" href="../../dashboard/project-management.html">
+                            <li><a class="dropdown-item" href="../dashboard/project-management.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
-                                            data-feather="clipboard"></span>Project management</div>
+                                            data-feather="clipboard"></span>Project
+                                        management</div>
                                 </a></li>
-                            <li><a class="dropdown-item" href="../../dashboard/crm.html">
+                            <li><a class="dropdown-item" href="../dashboard/crm.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
                                             data-feather="phone"></span>CRM</div>
                                 </a></li>
-                            <li><a class="dropdown-item" href="../social/feed.html">
+                            <li><a class="dropdown-item" href="../apps/social/feed.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
-                                            data-feather="share-2"></span>Social feed</div>
+                                            data-feather="share-2"></span>Social feed
+                                    </div>
                                 </a></li>
                         </ul>
                     </li>
@@ -1153,32 +1169,34 @@
                                                         class="me-2 uil"></span>Admin</span></div>
                                         </a>
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="../e-commerce/admin/add-product.html">
+                                            <li><a class="dropdown-item"
+                                                    href="../apps/e-commerce/admin/add-product.html">
                                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Add
                                                         product</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item" href="../e-commerce/admin/products.html">
+                                            <li><a class="dropdown-item" href="../apps/e-commerce/admin/products.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Products</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item" href="../e-commerce/admin/customers.html">
+                                            <li><a class="dropdown-item" href="../apps/e-commerce/admin/customers.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Customers</div>
                                                 </a></li>
                                             <li><a class="dropdown-item"
-                                                    href="../e-commerce/admin/customer-details.html">
+                                                    href="../apps/e-commerce/admin/customer-details.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Customer details</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item" href="../e-commerce/admin/orders.html">
+                                            <li><a class="dropdown-item" href="../apps/e-commerce/admin/orders.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Orders</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item" href="../e-commerce/admin/order-details.html">
+                                            <li><a class="dropdown-item"
+                                                    href="../apps/e-commerce/admin/order-details.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Order details</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item" href="../e-commerce/admin/refund.html">
+                                            <li><a class="dropdown-item" href="../apps/e-commerce/admin/refund.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Refund</div>
                                                 </a></li>
@@ -1191,52 +1209,55 @@
                                                         class="me-2 uil"></span>Customer</span></div>
                                         </a>
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="../e-commerce/landing/homepage.html">
+                                            <li><a class="dropdown-item"
+                                                    href="../apps/e-commerce/landing/homepage.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Homepage</div>
                                                 </a></li>
                                             <li><a class="dropdown-item"
-                                                    href="../e-commerce/landing/product-details.html">
+                                                    href="../apps/e-commerce/landing/product-details.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Product details</div>
                                                 </a></li>
                                             <li><a class="dropdown-item"
-                                                    href="../e-commerce/landing/products-filter.html">
+                                                    href="../apps/e-commerce/landing/products-filter.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Products filter</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item" href="../e-commerce/landing/cart.html">
+                                            <li><a class="dropdown-item" href="../apps/e-commerce/landing/cart.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Cart</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item" href="../e-commerce/landing/checkout.html">
+                                            <li><a class="dropdown-item"
+                                                    href="../apps/e-commerce/landing/checkout.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Checkout</div>
                                                 </a></li>
                                             <li><a class="dropdown-item"
-                                                    href="../e-commerce/landing/shipping-info.html">
+                                                    href="../apps/e-commerce/landing/shipping-info.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Shipping info</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item" href="../e-commerce/landing/profile.html">
+                                            <li><a class="dropdown-item" href="../apps/e-commerce/landing/profile.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Profile</div>
                                                 </a></li>
                                             <li><a class="dropdown-item"
-                                                    href="../e-commerce/landing/favourite-stores.html">
+                                                    href="../apps/e-commerce/landing/favourite-stores.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Favourite stores</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item" href="../e-commerce/landing/wishlist.html">
+                                            <li><a class="dropdown-item"
+                                                    href="../apps/e-commerce/landing/wishlist.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Wishlist</div>
                                                 </a></li>
                                             <li><a class="dropdown-item"
-                                                    href="../e-commerce/landing/order-tracking.html">
+                                                    href="../apps/e-commerce/landing/order-tracking.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Order tracking</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item" href="../e-commerce/landing/invoice.html">
+                                            <li><a class="dropdown-item" href="../apps/e-commerce/landing/invoice.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Invoice</div>
                                                 </a></li>
@@ -1251,33 +1272,33 @@
                                                 class="me-2 uil" data-feather="phone"></span>CRM</span></div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="../crm/analytics.html">
+                                    <li><a class="dropdown-item" href="../apps/crm/analytics.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Analytics
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../crm/deals.html">
+                                    <li><a class="dropdown-item" href="../apps/crm/deals.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Deals</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../crm/deal-details.html">
+                                    <li><a class="dropdown-item" href="../apps/crm/deal-details.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Deal
                                                 details</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../crm/leads.html">
+                                    <li><a class="dropdown-item" href="../apps/crm/leads.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Leads</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../crm/lead-details.html">
+                                    <li><a class="dropdown-item" href="../apps/crm/lead-details.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Lead
                                                 details</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../crm/reports.html">
+                                    <li><a class="dropdown-item" href="../apps/crm/reports.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Reports
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../crm/reports-details.html">
+                                    <li><a class="dropdown-item" href="../apps/crm/reports-details.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Reports
                                                 details</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../crm/add-contact.html">
+                                    <li><a class="dropdown-item" href="../apps/crm/add-contact.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Add contact
                                             </div>
                                         </a></li>
@@ -1291,35 +1312,39 @@
                                             management</span></div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="create-new.html">
+                                    <li><a class="dropdown-item" href="../apps/project-management/create-new.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Create new
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item active" href="project-list-view.html">
+                                    <li><a class="dropdown-item"
+                                            href="../apps/project-management/project-list-view.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Project
                                                 list view</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="project-card-view.html">
+                                    <li><a class="dropdown-item"
+                                            href="../apps/project-management/project-card-view.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Project
                                                 card view</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="project-board-view.html">
+                                    <li><a class="dropdown-item"
+                                            href="../apps/project-management/project-board-view.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Project
                                                 board view</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="todo-list.html">
+                                    <li><a class="dropdown-item" href="../apps/project-management/todo-list.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Todo list
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="project-details.html">
+                                    <li><a class="dropdown-item" href="../apps/project-management/project-details.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Project
                                                 details</div>
                                         </a></li>
                                 </ul>
                             </li>
-                            <li><a class="dropdown-item" href="../chat.html">
+                            <li><a class="dropdown-item" href="../apps/chat.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
-                                            data-feather="message-square"></span>Chat</div>
+                                            data-feather="message-square"></span>Chat
+                                    </div>
                                 </a></li>
                             <li class="dropdown"><a class="dropdown-item dropdown-toggle" id="email" href="#"
                                     data-bs-toggle="dropdown" data-bs-auto-close="outside">
@@ -1328,14 +1353,14 @@
                                                 class="me-2 uil" data-feather="mail"></span>Email</span></div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="../email/inbox.html">
+                                    <li><a class="dropdown-item" href="../apps/email/inbox.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Inbox</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../email/email-detail.html">
+                                    <li><a class="dropdown-item" href="../apps/email/email-detail.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Email
                                                 detail</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../email/compose.html">
+                                    <li><a class="dropdown-item" href="../apps/email/compose.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Compose
                                             </div>
                                         </a></li>
@@ -1348,11 +1373,11 @@
                                                 class="me-2 uil" data-feather="bookmark"></span>Events</span></div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="../events/create-an-event.html">
+                                    <li><a class="dropdown-item" href="../apps/events/create-an-event.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Create an
                                                 event</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../events/event-detail.html">
+                                    <li><a class="dropdown-item" href="../apps/events/event-detail.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Event
                                                 detail</div>
                                         </a></li>
@@ -1365,15 +1390,15 @@
                                                 class="me-2 uil" data-feather="trello"></span>Kanban</span></div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="../kanban/kanban.html">
+                                    <li><a class="dropdown-item" href="../apps/kanban/kanban.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Kanban
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../kanban/boards.html">
+                                    <li><a class="dropdown-item" href="../apps/kanban/boards.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Boards
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../kanban/create-kanban-board.html">
+                                    <li><a class="dropdown-item" href="../apps/kanban/create-kanban-board.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Create
                                                 board</div>
                                         </a></li>
@@ -1386,19 +1411,20 @@
                                                 class="me-2 uil" data-feather="share-2"></span>Social</span></div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="../social/profile.html">
+                                    <li><a class="dropdown-item" href="../apps/social/profile.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Profile
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../social/settings.html">
+                                    <li><a class="dropdown-item" href="../apps/social/settings.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Settings
                                             </div>
                                         </a></li>
                                 </ul>
                             </li>
-                            <li><a class="dropdown-item" href="../calendar.html">
+                            <li><a class="dropdown-item" href="../apps/calendar.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
-                                            data-feather="calendar"></span>Calendar</div>
+                                            data-feather="calendar"></span>Calendar
+                                    </div>
                                 </a></li>
                         </ul>
                     </li>
@@ -1406,7 +1432,7 @@
                             data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true"
                             aria-expanded="false"><span class="uil fs-0 me-2 uil-files-landscapes-alt"></span>Pages</a>
                         <ul class="dropdown-menu navbar-dropdown-caret">
-                            <li><a class="dropdown-item" href="../../pages/starter.html">
+                            <li><a class="dropdown-item" href="starter.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
                                             data-feather="compass"></span>Starter</div>
                                 </a></li>
@@ -1417,11 +1443,11 @@
                                                 class="me-2 uil" data-feather="help-circle"></span>Faq</span></div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="../../pages/faq/faq-accordion.html">
+                                    <li><a class="dropdown-item" href="faq/faq-accordion.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Faq
                                                 accordion</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../pages/faq/faq-tab.html">
+                                    <li><a class="dropdown-item" href="faq/faq-tab.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Faq tab
                                             </div>
                                         </a></li>
@@ -1434,11 +1460,11 @@
                                                 class="me-2 uil" data-feather="globe"></span>Landing</span></div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="../../pages/landing/default.html">
+                                    <li><a class="dropdown-item" href="landing/default.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Default
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../pages/landing/alternate.html">
+                                    <li><a class="dropdown-item" href="landing/alternate.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Alternate
                                             </div>
                                         </a></li>
@@ -1451,25 +1477,26 @@
                                                 class="me-2 uil" data-feather="tag"></span>Pricing</span></div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="../../pages/pricing/pricing-column.html">
+                                    <li><a class="dropdown-item" href="pricing/pricing-column.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Pricing
                                                 column</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../pages/pricing/pricing-grid.html">
+                                    <li><a class="dropdown-item" href="pricing/pricing-grid.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Pricing
                                                 grid</div>
                                         </a></li>
                                 </ul>
                             </li>
-                            <li><a class="dropdown-item" href="../../pages/notifications.html">
+                            <li><a class="dropdown-item" href="notifications.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
-                                            data-feather="bell"></span>Notifications</div>
+                                            data-feather="bell"></span>Notifications
+                                    </div>
                                 </a></li>
-                            <li><a class="dropdown-item" href="../../pages/members.html">
+                            <li><a class="dropdown-item active" href="members.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
                                             data-feather="users"></span>Members</div>
                                 </a></li>
-                            <li><a class="dropdown-item" href="../../pages/timeline.html">
+                            <li><a class="dropdown-item" href="timeline.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
                                             data-feather="clock"></span>Timeline</div>
                                 </a></li>
@@ -1481,13 +1508,13 @@
                                     </div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="../../pages/errors/404.html">
+                                    <li><a class="dropdown-item" href="errors/404.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>404</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../pages/errors/403.html">
+                                    <li><a class="dropdown-item" href="errors/403.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>403</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../pages/errors/500.html">
+                                    <li><a class="dropdown-item" href="errors/500.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>500</div>
                                         </a></li>
                                 </ul>
@@ -1506,38 +1533,33 @@
                                                         class="me-2 uil"></span>Simple</span></div>
                                         </a>
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/simple/sign-in.html">
+                                            <li><a class="dropdown-item" href="authentication/simple/sign-in.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Sign in</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/simple/sign-up.html">
+                                            <li><a class="dropdown-item" href="authentication/simple/sign-up.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Sign up</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/simple/sign-out.html">
+                                            <li><a class="dropdown-item" href="authentication/simple/sign-out.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Sign out</div>
                                                 </a></li>
                                             <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/simple/forgot-password.html">
+                                                    href="authentication/simple/forgot-password.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Forgot password</div>
                                                 </a></li>
                                             <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/simple/reset-password.html">
+                                                    href="authentication/simple/reset-password.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Reset password</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/simple/lock-screen.html">
+                                            <li><a class="dropdown-item" href="authentication/simple/lock-screen.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Lock screen</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/simple/2FA.html">
+                                            <li><a class="dropdown-item" href="authentication/simple/2FA.html">
                                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>2FA
                                                     </div>
                                                 </a></li>
@@ -1550,38 +1572,33 @@
                                                         class="me-2 uil"></span>Split</span></div>
                                         </a>
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/split/sign-in.html">
+                                            <li><a class="dropdown-item" href="authentication/split/sign-in.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Sign in</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/split/sign-up.html">
+                                            <li><a class="dropdown-item" href="authentication/split/sign-up.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Sign up</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/split/sign-out.html">
+                                            <li><a class="dropdown-item" href="authentication/split/sign-out.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Sign out</div>
                                                 </a></li>
                                             <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/split/forgot-password.html">
+                                                    href="authentication/split/forgot-password.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Forgot password</div>
                                                 </a></li>
                                             <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/split/reset-password.html">
+                                                    href="authentication/split/reset-password.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Reset password</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/split/lock-screen.html">
+                                            <li><a class="dropdown-item" href="authentication/split/lock-screen.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Lock screen</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/split/2FA.html">
+                                            <li><a class="dropdown-item" href="authentication/split/2FA.html">
                                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>2FA
                                                     </div>
                                                 </a></li>
@@ -1594,38 +1611,32 @@
                                                         class="me-2 uil"></span>Card</span></div>
                                         </a>
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/card/sign-in.html">
+                                            <li><a class="dropdown-item" href="authentication/card/sign-in.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Sign in</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/card/sign-up.html">
+                                            <li><a class="dropdown-item" href="authentication/card/sign-up.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Sign up</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/card/sign-out.html">
+                                            <li><a class="dropdown-item" href="authentication/card/sign-out.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Sign out</div>
                                                 </a></li>
                                             <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/card/forgot-password.html">
+                                                    href="authentication/card/forgot-password.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Forgot password</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/card/reset-password.html">
+                                            <li><a class="dropdown-item" href="authentication/card/reset-password.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Reset password</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/card/lock-screen.html">
+                                            <li><a class="dropdown-item" href="authentication/card/lock-screen.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Lock screen</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/card/2FA.html">
+                                            <li><a class="dropdown-item" href="authentication/card/2FA.html">
                                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>2FA
                                                     </div>
                                                 </a></li>
@@ -1640,47 +1651,47 @@
                                                 class="me-2 uil" data-feather="layout"></span>Layouts</span></div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="../../demo/vertical-sidenav.html">
+                                    <li><a class="dropdown-item" href="../demo/vertical-sidenav.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Vertical
                                                 sidenav</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../demo/dark-mode.html">
+                                    <li><a class="dropdown-item" href="../demo/dark-mode.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Dark mode
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../demo/sidenav-collapse.html">
+                                    <li><a class="dropdown-item" href="../demo/sidenav-collapse.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sidenav
                                                 collapse</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../demo/darknav.html">
+                                    <li><a class="dropdown-item" href="../demo/darknav.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Darknav
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../demo/topnav-slim.html">
+                                    <li><a class="dropdown-item" href="../demo/topnav-slim.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Topnav slim
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../demo/navbar-top-slim.html">
+                                    <li><a class="dropdown-item" href="../demo/navbar-top-slim.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Navbar top
                                                 slim</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../demo/navbar-top.html">
+                                    <li><a class="dropdown-item" href="../demo/navbar-top.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Navbar top
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../demo/horizontal-slim.html">
+                                    <li><a class="dropdown-item" href="../demo/horizontal-slim.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Horizontal
                                                 slim</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../demo/combo-nav.html">
+                                    <li><a class="dropdown-item" href="../demo/combo-nav.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Combo nav
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../demo/combo-nav-slim.html">
+                                    <li><a class="dropdown-item" href="../demo/combo-nav-slim.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Combo nav
                                                 slim</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../demo/dual-nav.html">
+                                    <li><a class="dropdown-item" href="../demo/dual-nav.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Dual nav
                                             </div>
                                         </a></li>
@@ -1700,174 +1711,167 @@
                                                     style="stroke-width:2;"></span>
                                                 <h6 class="dropdown-item-title">Forms</h6>
                                             </div><a class="dropdown-link"
-                                                href="../../modules/forms/basic/form-control.html">Form control</a><a
+                                                href="../modules/forms/basic/form-control.html">Form control</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/forms/basic/input-group.html">Input group</a><a
+                                                href="../modules/forms/basic/input-group.html">Input group</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/forms/basic/select.html">Select</a><a
+                                                href="../modules/forms/basic/select.html">Select</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/forms/basic/checks.html">Checks</a><a
+                                                href="../modules/forms/basic/checks.html">Checks</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/forms/basic/range.html">Range</a><a
+                                                href="../modules/forms/basic/range.html">Range</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/forms/basic/floating-labels.html">Floating
-                                                labels</a><a class="dropdown-link"
-                                                href="../../modules/forms/basic/layout.html">Layout</a><a
+                                                href="../modules/forms/basic/floating-labels.html">Floating labels</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/forms/advance/advance-select.html">Advance
-                                                select</a><a class="dropdown-link"
-                                                href="../../modules/forms/advance/date-picker.html">Date picker</a><a
+                                                href="../modules/forms/basic/layout.html">Layout</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/forms/advance/editor.html">Editor</a><a
+                                                href="../modules/forms/advance/advance-select.html">Advance select</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/forms/advance/file-uploader.html">File
-                                                uploader</a><a class="dropdown-link"
-                                                href="../../modules/forms/advance/rating.html">Rating</a><a
+                                                href="../modules/forms/advance/date-picker.html">Date picker</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/forms/advance/emoji-button.html">Emoji button</a><a
+                                                href="../modules/forms/advance/editor.html">Editor</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/forms/validation.html">Validation</a><a
-                                                class="dropdown-link" href="../../modules/forms/wizard.html">Wizard</a>
+                                                href="../modules/forms/advance/file-uploader.html">File uploader</a><a
+                                                class="dropdown-link"
+                                                href="../modules/forms/advance/rating.html">Rating</a><a
+                                                class="dropdown-link"
+                                                href="../modules/forms/advance/emoji-button.html">Emoji button</a><a
+                                                class="dropdown-link"
+                                                href="../modules/forms/validation.html">Validation</a><a
+                                                class="dropdown-link" href="../modules/forms/wizard.html">Wizard</a>
                                             <div class="dropdown-item-group mt-5"><span class="me-2" data-feather="grid"
                                                     style="stroke-width:2;"></span>
                                                 <h6 class="dropdown-item-title">Icons</h6>
                                             </div><a class="dropdown-link"
-                                                href="../../modules/icons/feather.html">Feather</a><a
-                                                class="dropdown-link" href="../../modules/icons/font-awesome.html">Font
-                                                awesome</a><a class="dropdown-link"
-                                                href="../../modules/icons/unicons.html">Unicons</a>
+                                                href="../modules/icons/feather.html">Feather</a><a class="dropdown-link"
+                                                href="../modules/icons/font-awesome.html">Font awesome</a><a
+                                                class="dropdown-link" href="../modules/icons/unicons.html">Unicons</a>
                                             <div class="dropdown-item-group mt-5"><span class="me-2"
                                                     data-feather="bar-chart-2" style="stroke-width:2;"></span>
                                                 <h6 class="dropdown-item-title">ECharts</h6>
                                             </div><a class="dropdown-link"
-                                                href="../../modules/echarts/line-charts.html">Line charts</a><a
-                                                class="dropdown-link" href="../../modules/echarts/bar-charts.html">Bar
+                                                href="../modules/echarts/line-charts.html">Line charts</a><a
+                                                class="dropdown-link" href="../modules/echarts/bar-charts.html">Bar
                                                 charts</a><a class="dropdown-link"
-                                                href="../../modules/echarts/candlestick-charts.html">Candlestick
+                                                href="../modules/echarts/candlestick-charts.html">Candlestick
                                                 charts</a><a class="dropdown-link"
-                                                href="../../modules/echarts/geo-map.html">Geo map</a><a
+                                                href="../modules/echarts/geo-map.html">Geo map</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/echarts/scatter-charts.html">Scatter charts</a><a
-                                                class="dropdown-link" href="../../modules/echarts/pie-charts.html">Pie
+                                                href="../modules/echarts/scatter-charts.html">Scatter charts</a><a
+                                                class="dropdown-link" href="../modules/echarts/pie-charts.html">Pie
                                                 charts</a><a class="dropdown-link"
-                                                href="../../modules/echarts/gauge-chart.html">Gauge chart</a><a
-                                                class="dropdown-link"
-                                                href="../../modules/echarts/radar-charts.html">Radar charts</a><a
-                                                class="dropdown-link"
-                                                href="../../modules/echarts/heatmap-charts.html">Heatmap charts</a><a
-                                                class="dropdown-link" href="../../modules/echarts/how-to-use.html">How
-                                                to use</a>
+                                                href="../modules/echarts/gauge-chart.html">Gauge chart</a><a
+                                                class="dropdown-link" href="../modules/echarts/radar-charts.html">Radar
+                                                charts</a><a class="dropdown-link"
+                                                href="../modules/echarts/heatmap-charts.html">Heatmap charts</a><a
+                                                class="dropdown-link" href="../modules/echarts/how-to-use.html">How to
+                                                use</a>
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="dropdown-item-group"><span class="me-2" data-feather="package"
                                                     style="stroke-width:2;"></span>
                                                 <h6 class="dropdown-item-title">Components</h6>
                                             </div><a class="dropdown-link"
-                                                href="../../modules/components/accordion.html">Accordion</a><a
+                                                href="../modules/components/accordion.html">Accordion</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/avatar.html">Avatar</a><a
+                                                href="../modules/components/avatar.html">Avatar</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/alerts.html">Alerts</a><a
+                                                href="../modules/components/alerts.html">Alerts</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/badge.html">Badge</a><a
+                                                href="../modules/components/badge.html">Badge</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/breadcrumb.html">Breadcrumb</a><a
+                                                href="../modules/components/breadcrumb.html">Breadcrumb</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/button.html">Buttons</a><a
+                                                href="../modules/components/button.html">Buttons</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/calendar.html">Calendar</a><a
+                                                href="../modules/components/calendar.html">Calendar</a><a
+                                                class="dropdown-link" href="../modules/components/card.html">Card</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/card.html">Card</a><a
+                                                href="../modules/components/carousel/bootstrap.html">Bootstrap</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/carousel/bootstrap.html">Bootstrap</a><a
+                                                href="../modules/components/carousel/swiper.html">Swiper</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/carousel/swiper.html">Swiper</a><a
+                                                href="../modules/components/collapse.html">Collapse</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/collapse.html">Collapse</a><a
+                                                href="../modules/components/dropdown.html">Dropdown</a><a
+                                                class="dropdown-link" href="../modules/components/list-group.html">List
+                                                group</a><a class="dropdown-link"
+                                                href="../modules/components/modal.html">Modals</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/dropdown.html">Dropdown</a><a
+                                                href="../modules/components/navs-and-tabs/navs.html">Navs</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/list-group.html">List group</a><a
+                                                href="../modules/components/navs-and-tabs/navbar.html">Navbar</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/modal.html">Modals</a><a
+                                                href="../modules/components/navs-and-tabs/tabs.html">Tabs</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/navs-and-tabs/navs.html">Navs</a><a
+                                                href="../modules/components/offcanvas.html">Offcanvas</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/navs-and-tabs/navbar.html">Navbar</a><a
+                                                href="../modules/components/progress-bar.html">Progress bar</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/navs-and-tabs/tabs.html">Tabs</a><a
+                                                href="../modules/components/placeholder.html">Placeholder</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/offcanvas.html">Offcanvas</a><a
+                                                href="../modules/components/pagination.html">Pagination</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/progress-bar.html">Progress bar</a><a
+                                                href="../modules/components/popovers.html">Popovers</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/placeholder.html">Placeholder</a><a
+                                                href="../modules/components/scrollspy.html">Scrollspy</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/pagination.html">Pagination</a><a
+                                                href="../modules/components/sortable.html">Sortable</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/popovers.html">Popovers</a><a
+                                                href="../modules/components/spinners.html">Spinners</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/scrollspy.html">Scrollspy</a><a
+                                                href="../modules/components/toast.html">Toast</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/sortable.html">Sortable</a><a
-                                                class="dropdown-link"
-                                                href="../../modules/components/spinners.html">Spinners</a><a
-                                                class="dropdown-link"
-                                                href="../../modules/components/toast.html">Toast</a><a
-                                                class="dropdown-link"
-                                                href="../../modules/components/tooltips.html">Tooltips</a><a
-                                                class="dropdown-link"
-                                                href="../../modules/components/chat-widget.html">Chat widget</a>
+                                                href="../modules/components/tooltips.html">Tooltips</a><a
+                                                class="dropdown-link" href="../modules/components/chat-widget.html">Chat
+                                                widget</a>
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="dropdown-item-group"><span class="me-2" data-feather="columns"
                                                     style="stroke-width:2;"></span>
                                                 <h6 class="dropdown-item-title">Tables</h6>
                                             </div><a class="dropdown-link"
-                                                href="../../modules/tables/basic-tables.html">Basic tables</a><a
+                                                href="../modules/tables/basic-tables.html">Basic tables</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/tables/advance-tables.html">Advance tables</a><a
-                                                class="dropdown-link" href="../../modules/tables/bulk-select.html">Bulk
+                                                href="../modules/tables/advance-tables.html">Advance tables</a><a
+                                                class="dropdown-link" href="../modules/tables/bulk-select.html">Bulk
                                                 Select</a>
                                             <div class="dropdown-item-group mt-5"><span class="me-2" data-feather="tool"
                                                     style="stroke-width:2;"></span>
                                                 <h6 class="dropdown-item-title">Utilities</h6>
                                             </div><a class="dropdown-link"
-                                                href="../../modules/utilities/background.html">Background</a><a
+                                                href="../modules/utilities/background.html">Background</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/borders.html">Borders</a><a
+                                                href="../modules/utilities/borders.html">Borders</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/colors.html">Colors</a><a
+                                                href="../modules/utilities/colors.html">Colors</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/display.html">Display</a><a
+                                                href="../modules/utilities/display.html">Display</a><a
+                                                class="dropdown-link" href="../modules/utilities/flex.html">Flex</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/flex.html">Flex</a><a
+                                                href="../modules/utilities/stacks.html">Stacks</a><a
+                                                class="dropdown-link" href="../modules/utilities/float.html">Float</a><a
+                                                class="dropdown-link" href="../modules/utilities/grid.html">Grid</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/stacks.html">Stacks</a><a
+                                                href="../modules/utilities/interactions.html">Interactions</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/float.html">Float</a><a
+                                                href="../modules/utilities/opacity.html">Opacity</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/grid.html">Grid</a><a
+                                                href="../modules/utilities/overflow.html">Overflow</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/interactions.html">Interactions</a><a
+                                                href="../modules/utilities/position.html">Position</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/opacity.html">Opacity</a><a
+                                                href="../modules/utilities/shadows.html">Shadows</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/overflow.html">Overflow</a><a
+                                                href="../modules/utilities/sizing.html">Sizing</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/position.html">Position</a><a
+                                                href="../modules/utilities/spacing.html">Spacing</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/shadows.html">Shadows</a><a
+                                                href="../modules/utilities/typography.html">Typography</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/sizing.html">Sizing</a><a
+                                                href="../modules/utilities/vertical-align.html">Vertical align</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/spacing.html">Spacing</a><a
-                                                class="dropdown-link"
-                                                href="../../modules/utilities/typography.html">Typography</a><a
-                                                class="dropdown-link"
-                                                href="../../modules/utilities/vertical-align.html">Vertical align</a><a
-                                                class="dropdown-link"
-                                                href="../../modules/utilities/visibility.html">Visibility</a>
+                                                href="../modules/utilities/visibility.html">Visibility</a>
                                         </div>
                                     </div>
                                 </div>
@@ -1879,9 +1883,10 @@
                             aria-expanded="false"><span
                                 class="uil fs-0 me-2 uil-document-layout-right"></span>Documentation</a>
                         <ul class="dropdown-menu navbar-dropdown-caret">
-                            <li><a class="dropdown-item" href="../../documentation/getting-started.html">
+                            <li><a class="dropdown-item" href="../documentation/getting-started.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
-                                            data-feather="life-buoy"></span>Getting started</div>
+                                            data-feather="life-buoy"></span>Getting
+                                        started</div>
                                 </a></li>
                             <li class="dropdown dropdown-inside"><a class="dropdown-item dropdown-toggle"
                                     id="customization" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">
@@ -1892,20 +1897,19 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item"
-                                            href="../../documentation/customization/configuration.html">
+                                            href="../documentation/customization/configuration.html">
                                             <div class="dropdown-item-wrapper"><span
                                                     class="me-2 uil"></span>Configuration</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../documentation/customization/styling.html">
+                                    <li><a class="dropdown-item" href="../documentation/customization/styling.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Styling
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item"
-                                            href="../../documentation/customization/dark-mode.html">
+                                    <li><a class="dropdown-item" href="../documentation/customization/dark-mode.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Dark mode
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../documentation/customization/plugin.html">
+                                    <li><a class="dropdown-item" href="../documentation/customization/plugin.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Plugin
                                             </div>
                                         </a></li>
@@ -1918,39 +1922,40 @@
                                                 class="me-2 uil" data-feather="table"></span>Layouts doc</span></div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item"
-                                            href="../../documentation/layouts/vertical-navbar.html">
+                                    <li><a class="dropdown-item" href="../documentation/layouts/vertical-navbar.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Vertical
                                                 navbar</div>
                                         </a></li>
-                                    <li><a class="dropdown-item"
-                                            href="../../documentation/layouts/horizontal-navbar.html">
+                                    <li><a class="dropdown-item" href="../documentation/layouts/horizontal-navbar.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Horizontal
                                                 navbar</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../documentation/layouts/combo-navbar.html">
+                                    <li><a class="dropdown-item" href="../documentation/layouts/combo-navbar.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Combo
                                                 navbar</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../documentation/layouts/dual-nav.html">
+                                    <li><a class="dropdown-item" href="../documentation/layouts/dual-nav.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Dual nav
                                             </div>
                                         </a></li>
                                 </ul>
                             </li>
-                            <li><a class="dropdown-item" href="../../documentation/gulp.html">
+                            <li><a class="dropdown-item" href="../documentation/gulp.html">
                                     <div class="dropdown-item-wrapper"><span
-                                            class="me-2 fa-brands fa-gulp ms-1 me-1 fa-lg"></span>Gulp</div>
+                                            class="me-2 fa-brands fa-gulp ms-1 me-1 fa-lg"></span>Gulp
+                                    </div>
                                 </a></li>
-                            <li><a class="dropdown-item" href="../../documentation/design-file.html">
+                            <li><a class="dropdown-item" href="../documentation/design-file.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
-                                            data-feather="figma"></span>Design file</div>
+                                            data-feather="figma"></span>Design file
+                                    </div>
                                 </a></li>
-                            <li><a class="dropdown-item" href="../../changelog.html">
+                            <li><a class="dropdown-item" href="../changelog.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
-                                            data-feather="git-merge"></span>Changelog</div>
+                                            data-feather="git-merge"></span>Changelog
+                                    </div>
                                 </a></li>
-                            <li><a class="dropdown-item" href="../../showcase.html">
+                            <li><a class="dropdown-item" href="../showcase.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
                                             data-feather="monitor"></span>Showcase</div>
                                 </a></li>
@@ -1996,7 +2001,7 @@
                                                 <div class="d-flex">
                                                     <div class="avatar avatar-m status-online me-3"><img
                                                             class="rounded-circle"
-                                                            src="../../assets/img/team/40x40/30.webp" alt="" /></div>
+                                                            src="../assets/img/team/40x40/30.webp" alt="" /></div>
                                                     <div class="flex-1 me-sm-3">
                                                         <h4 class="fs--1 text-black">Jessie Samson</h4>
                                                         <p class="fs--1 text-1000 mb-2 mb-sm-3 fw-normal"><span
@@ -2015,7 +2020,8 @@
                                                         data-bs-reference="parent"><span
                                                             class="fas fa-ellipsis-h fs--2 text-900"></span></button>
                                                     <div class="dropdown-menu dropdown-menu-end py-2"><a
-                                                            class="dropdown-item" href="#!">Mark as unread</a></div>
+                                                            class="dropdown-item" href="#!">Mark as
+                                                            unread</a></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -2030,7 +2036,8 @@
                                                     <div class="flex-1 me-sm-3">
                                                         <h4 class="fs--1 text-black">Jane Foster</h4>
                                                         <p class="fs--1 text-1000 mb-2 mb-sm-3 fw-normal"><span
-                                                                class='me-1 fs--2'>📅</span>Created an event.<span
+                                                                class='me-1 fs--2'>📅</span>Created
+                                                            an event.<span
                                                                 class="ms-2 text-400 fw-bold fs--2">20m</span></p>
                                                         <p class="text-800 fs--1 mb-0"><span
                                                                 class="me-1 fas fa-clock"></span><span
@@ -2044,7 +2051,8 @@
                                                         data-bs-reference="parent"><span
                                                             class="fas fa-ellipsis-h fs--2 text-900"></span></button>
                                                     <div class="dropdown-menu dropdown-menu-end py-2"><a
-                                                            class="dropdown-item" href="#!">Mark as unread</a></div>
+                                                            class="dropdown-item" href="#!">Mark as
+                                                            unread</a></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -2055,12 +2063,12 @@
                                                 <div class="d-flex">
                                                     <div class="avatar avatar-m status-online me-3"><img
                                                             class="rounded-circle avatar-placeholder"
-                                                            src="../../assets/img/team/40x40/avatar.webp" alt="" />
-                                                    </div>
+                                                            src="../assets/img/team/40x40/avatar.webp" alt="" /></div>
                                                     <div class="flex-1 me-sm-3">
                                                         <h4 class="fs--1 text-black">Jessie Samson</h4>
                                                         <p class="fs--1 text-1000 mb-2 mb-sm-3 fw-normal"><span
-                                                                class='me-1 fs--2'>👍</span>Liked your comment.<span
+                                                                class='me-1 fs--2'>👍</span>Liked
+                                                            your comment.<span
                                                                 class="ms-2 text-400 fw-bold fs--2">1h</span></p>
                                                         <p class="text-800 fs--1 mb-0"><span
                                                                 class="me-1 fas fa-clock"></span><span
@@ -2074,7 +2082,8 @@
                                                         data-bs-reference="parent"><span
                                                             class="fas fa-ellipsis-h fs--2 text-900"></span></button>
                                                     <div class="dropdown-menu dropdown-menu-end py-2"><a
-                                                            class="dropdown-item" href="#!">Mark as unread</a></div>
+                                                            class="dropdown-item" href="#!">Mark as
+                                                            unread</a></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -2087,7 +2096,7 @@
                                                 <div class="d-flex">
                                                     <div class="avatar avatar-m status-online me-3"><img
                                                             class="rounded-circle"
-                                                            src="../../assets/img/team/40x40/57.webp" alt="" /></div>
+                                                            src="../assets/img/team/40x40/57.webp" alt="" /></div>
                                                     <div class="flex-1 me-sm-3">
                                                         <h4 class="fs--1 text-black">Kiera Anderson</h4>
                                                         <p class="fs--1 text-1000 mb-2 mb-sm-3 fw-normal"><span
@@ -2106,7 +2115,8 @@
                                                         data-bs-reference="parent"><span
                                                             class="fas fa-ellipsis-h fs--2 text-900"></span></button>
                                                     <div class="dropdown-menu dropdown-menu-end py-2"><a
-                                                            class="dropdown-item" href="#!">Mark as unread</a></div>
+                                                            class="dropdown-item" href="#!">Mark as
+                                                            unread</a></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -2117,13 +2127,13 @@
                                                 <div class="d-flex">
                                                     <div class="avatar avatar-m status-online me-3"><img
                                                             class="rounded-circle"
-                                                            src="../../assets/img/team/40x40/59.webp" alt="" /></div>
+                                                            src="../assets/img/team/40x40/59.webp" alt="" /></div>
                                                     <div class="flex-1 me-sm-3">
                                                         <h4 class="fs--1 text-black">Herman Carter</h4>
                                                         <p class="fs--1 text-1000 mb-2 mb-sm-3 fw-normal"><span
-                                                                class='me-1 fs--2'>👤</span>Tagged you in a
-                                                            comment.<span class="ms-2 text-400 fw-bold fs--2"></span>
-                                                        </p>
+                                                                class='me-1 fs--2'>👤</span>Tagged
+                                                            you in a comment.<span
+                                                                class="ms-2 text-400 fw-bold fs--2"></span></p>
                                                         <p class="text-800 fs--1 mb-0"><span
                                                                 class="me-1 fas fa-clock"></span><span
                                                                 class="fw-bold">10:58 PM </span>August 7,2021</p>
@@ -2136,7 +2146,8 @@
                                                         data-bs-reference="parent"><span
                                                             class="fas fa-ellipsis-h fs--2 text-900"></span></button>
                                                     <div class="dropdown-menu dropdown-menu-end py-2"><a
-                                                            class="dropdown-item" href="#!">Mark as unread</a></div>
+                                                            class="dropdown-item" href="#!">Mark as
+                                                            unread</a></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -2147,11 +2158,12 @@
                                                 <div class="d-flex">
                                                     <div class="avatar avatar-m status-online me-3"><img
                                                             class="rounded-circle"
-                                                            src="../../assets/img/team/40x40/58.webp" alt="" /></div>
+                                                            src="../assets/img/team/40x40/58.webp" alt="" /></div>
                                                     <div class="flex-1 me-sm-3">
                                                         <h4 class="fs--1 text-black">Benjamin Button</h4>
                                                         <p class="fs--1 text-1000 mb-2 mb-sm-3 fw-normal"><span
-                                                                class='me-1 fs--2'>👍</span>Liked your comment.<span
+                                                                class='me-1 fs--2'>👍</span>Liked
+                                                            your comment.<span
                                                                 class="ms-2 text-400 fw-bold fs--2"></span></p>
                                                         <p class="text-800 fs--1 mb-0"><span
                                                                 class="me-1 fas fa-clock"></span><span
@@ -2165,7 +2177,8 @@
                                                         data-bs-reference="parent"><span
                                                             class="fas fa-ellipsis-h fs--2 text-900"></span></button>
                                                     <div class="dropdown-menu dropdown-menu-end py-2"><a
-                                                            class="dropdown-item" href="#!">Mark as unread</a></div>
+                                                            class="dropdown-item" href="#!">Mark as
+                                                            unread</a></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -2174,7 +2187,7 @@
                             </div>
                             <div class="card-footer p-0 border-top border-0">
                                 <div class="my-2 text-center fw-bold fs--2 text-600"><a class="fw-bolder"
-                                        href="../../pages/notifications.html">Notification history</a></div>
+                                        href="notifications.html">Notification history</a></div>
                             </div>
                         </div>
                     </div>
@@ -2200,84 +2213,82 @@
                                 <div class="row text-center align-items-center gx-0 gy-0">
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/behance.webp" alt=""
+                                            href="#!"><img src="../assets/img/nav-icons/behance.webp" alt=""
                                                 width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Behance</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/google-cloud.webp" alt=""
+                                            href="#!"><img src="../assets/img/nav-icons/google-cloud.webp" alt=""
                                                 width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Cloud</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/slack.webp" alt=""
-                                                width="30" />
+                                            href="#!"><img src="../assets/img/nav-icons/slack.webp" alt="" width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Slack</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/gitlab.webp" alt=""
+                                            href="#!"><img src="../assets/img/nav-icons/gitlab.webp" alt=""
                                                 width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Gitlab</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/bitbucket.webp" alt=""
+                                            href="#!"><img src="../assets/img/nav-icons/bitbucket.webp" alt=""
                                                 width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">BitBucket</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/google-drive.webp" alt=""
+                                            href="#!"><img src="../assets/img/nav-icons/google-drive.webp" alt=""
                                                 width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Drive</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/trello.webp" alt=""
+                                            href="#!"><img src="../assets/img/nav-icons/trello.webp" alt=""
                                                 width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Trello</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/figma.webp" alt=""
-                                                width="20" />
+                                            href="#!"><img src="../assets/img/nav-icons/figma.webp" alt="" width="20" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Figma</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/twitter.webp" alt=""
+                                            href="#!"><img src="../assets/img/nav-icons/twitter.webp" alt=""
                                                 width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Twitter</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/pinterest.webp" alt=""
+                                            href="#!"><img src="../assets/img/nav-icons/pinterest.webp" alt=""
                                                 width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Pinterest</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/ln.webp" alt="" width="30" />
+                                            href="#!"><img src="../assets/img/nav-icons/ln.webp" alt="" width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Linkedin</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/google-maps.webp" alt=""
+                                            href="#!"><img src="../assets/img/nav-icons/google-maps.webp" alt=""
                                                 width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Maps</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/google-photos.webp" alt=""
+                                            href="#!"><img src="../assets/img/nav-icons/google-photos.webp" alt=""
                                                 width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Photos</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/spotify.webp" alt=""
+                                            href="#!"><img src="../assets/img/nav-icons/spotify.webp" alt=""
                                                 width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Spotify</p>
                                         </a></div>
@@ -2290,7 +2301,7 @@
                         role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true"
                         aria-expanded="false">
                         <div class="avatar avatar-l ">
-                            <img class="rounded-circle " src="../../assets/img/team/40x40/57.webp" alt="" />
+                            <img class="rounded-circle " src="../assets/img/team/40x40/57.webp" alt="" />
                         </div>
                     </a>
                     <div class="dropdown-menu dropdown-menu-end navbar-dropdown-caret py-0 dropdown-profile shadow border border-300"
@@ -2299,7 +2310,7 @@
                             <div class="card-body p-0">
                                 <div class="text-center pt-4 pb-3">
                                     <div class="avatar avatar-xl ">
-                                        <img class="rounded-circle " src="../../assets/img/team/72x72/57.webp" alt="" />
+                                        <img class="rounded-circle " src="../assets/img/team/72x72/57.webp" alt="" />
                                     </div>
                                     <h6 class="mt-2 text-black">Jerry Seinfield</h6>
                                 </div>
@@ -2331,8 +2342,9 @@
                                 <div class="px-3"> <a class="btn btn-phoenix-secondary d-flex flex-center w-100"
                                         href="#!"> <span class="me-2" data-feather="log-out"> </span>Sign out</a></div>
                                 <div class="my-2 text-center fw-bold fs--2 text-600"><a class="text-600 me-1"
-                                        href="#!">Privacy policy</a>&bull;<a class="text-600 mx-1"
-                                        href="#!">Terms</a>&bull;<a class="text-600 ms-1" href="#!">Cookies</a></div>
+                                        href="#!">Privacy
+                                        policy</a>&bull;<a class="text-600 mx-1" href="#!">Terms</a>&bull;<a
+                                        class="text-600 ms-1" href="#!">Cookies</a></div>
                             </div>
                         </div>
                     </div>
@@ -2346,7 +2358,7 @@
                     data-bs-toggle="collapse" data-bs-target="#navbarTopCollapse" aria-controls="navbarTopCollapse"
                     aria-expanded="false" aria-label="Toggle Navigation"><span class="navbar-toggle-icon"><span
                             class="toggle-line"></span></span></button>
-                <a class="navbar-brand navbar-brand" href="../../index-2.html">phoenix <span
+                <a class="navbar-brand navbar-brand" href="../index-2.html">phoenix <span
                         class="text-1000 d-none d-sm-inline">slim</span></a>
             </div>
             <div class="collapse navbar-collapse navbar-top-collapse order-1 order-lg-0 justify-content-center"
@@ -2356,21 +2368,24 @@
                             data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true"
                             aria-expanded="false"><span class="uil fs-0 me-2 uil-chart-pie"></span>Home</a>
                         <ul class="dropdown-menu navbar-dropdown-caret">
-                            <li><a class="dropdown-item" href="../../index-2.html">
+                            <li><a class="dropdown-item" href="../index-2.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
-                                            data-feather="shopping-cart"></span>E commerce</div>
+                                            data-feather="shopping-cart"></span>E
+                                        commerce</div>
                                 </a></li>
-                            <li><a class="dropdown-item" href="../../dashboard/project-management.html">
+                            <li><a class="dropdown-item" href="../dashboard/project-management.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
-                                            data-feather="clipboard"></span>Project management</div>
+                                            data-feather="clipboard"></span>Project
+                                        management</div>
                                 </a></li>
-                            <li><a class="dropdown-item" href="../../dashboard/crm.html">
+                            <li><a class="dropdown-item" href="../dashboard/crm.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
                                             data-feather="phone"></span>CRM</div>
                                 </a></li>
-                            <li><a class="dropdown-item" href="../social/feed.html">
+                            <li><a class="dropdown-item" href="../apps/social/feed.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
-                                            data-feather="share-2"></span>Social feed</div>
+                                            data-feather="share-2"></span>Social feed
+                                    </div>
                                 </a></li>
                         </ul>
                     </li>
@@ -2393,32 +2408,34 @@
                                                         class="me-2 uil"></span>Admin</span></div>
                                         </a>
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="../e-commerce/admin/add-product.html">
+                                            <li><a class="dropdown-item"
+                                                    href="../apps/e-commerce/admin/add-product.html">
                                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Add
                                                         product</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item" href="../e-commerce/admin/products.html">
+                                            <li><a class="dropdown-item" href="../apps/e-commerce/admin/products.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Products</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item" href="../e-commerce/admin/customers.html">
+                                            <li><a class="dropdown-item" href="../apps/e-commerce/admin/customers.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Customers</div>
                                                 </a></li>
                                             <li><a class="dropdown-item"
-                                                    href="../e-commerce/admin/customer-details.html">
+                                                    href="../apps/e-commerce/admin/customer-details.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Customer details</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item" href="../e-commerce/admin/orders.html">
+                                            <li><a class="dropdown-item" href="../apps/e-commerce/admin/orders.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Orders</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item" href="../e-commerce/admin/order-details.html">
+                                            <li><a class="dropdown-item"
+                                                    href="../apps/e-commerce/admin/order-details.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Order details</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item" href="../e-commerce/admin/refund.html">
+                                            <li><a class="dropdown-item" href="../apps/e-commerce/admin/refund.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Refund</div>
                                                 </a></li>
@@ -2431,52 +2448,55 @@
                                                         class="me-2 uil"></span>Customer</span></div>
                                         </a>
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="../e-commerce/landing/homepage.html">
+                                            <li><a class="dropdown-item"
+                                                    href="../apps/e-commerce/landing/homepage.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Homepage</div>
                                                 </a></li>
                                             <li><a class="dropdown-item"
-                                                    href="../e-commerce/landing/product-details.html">
+                                                    href="../apps/e-commerce/landing/product-details.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Product details</div>
                                                 </a></li>
                                             <li><a class="dropdown-item"
-                                                    href="../e-commerce/landing/products-filter.html">
+                                                    href="../apps/e-commerce/landing/products-filter.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Products filter</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item" href="../e-commerce/landing/cart.html">
+                                            <li><a class="dropdown-item" href="../apps/e-commerce/landing/cart.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Cart</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item" href="../e-commerce/landing/checkout.html">
+                                            <li><a class="dropdown-item"
+                                                    href="../apps/e-commerce/landing/checkout.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Checkout</div>
                                                 </a></li>
                                             <li><a class="dropdown-item"
-                                                    href="../e-commerce/landing/shipping-info.html">
+                                                    href="../apps/e-commerce/landing/shipping-info.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Shipping info</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item" href="../e-commerce/landing/profile.html">
+                                            <li><a class="dropdown-item" href="../apps/e-commerce/landing/profile.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Profile</div>
                                                 </a></li>
                                             <li><a class="dropdown-item"
-                                                    href="../e-commerce/landing/favourite-stores.html">
+                                                    href="../apps/e-commerce/landing/favourite-stores.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Favourite stores</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item" href="../e-commerce/landing/wishlist.html">
+                                            <li><a class="dropdown-item"
+                                                    href="../apps/e-commerce/landing/wishlist.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Wishlist</div>
                                                 </a></li>
                                             <li><a class="dropdown-item"
-                                                    href="../e-commerce/landing/order-tracking.html">
+                                                    href="../apps/e-commerce/landing/order-tracking.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Order tracking</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item" href="../e-commerce/landing/invoice.html">
+                                            <li><a class="dropdown-item" href="../apps/e-commerce/landing/invoice.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Invoice</div>
                                                 </a></li>
@@ -2491,33 +2511,33 @@
                                                 class="me-2 uil" data-feather="phone"></span>CRM</span></div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="../crm/analytics.html">
+                                    <li><a class="dropdown-item" href="../apps/crm/analytics.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Analytics
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../crm/deals.html">
+                                    <li><a class="dropdown-item" href="../apps/crm/deals.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Deals</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../crm/deal-details.html">
+                                    <li><a class="dropdown-item" href="../apps/crm/deal-details.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Deal
                                                 details</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../crm/leads.html">
+                                    <li><a class="dropdown-item" href="../apps/crm/leads.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Leads</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../crm/lead-details.html">
+                                    <li><a class="dropdown-item" href="../apps/crm/lead-details.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Lead
                                                 details</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../crm/reports.html">
+                                    <li><a class="dropdown-item" href="../apps/crm/reports.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Reports
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../crm/reports-details.html">
+                                    <li><a class="dropdown-item" href="../apps/crm/reports-details.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Reports
                                                 details</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../crm/add-contact.html">
+                                    <li><a class="dropdown-item" href="../apps/crm/add-contact.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Add contact
                                             </div>
                                         </a></li>
@@ -2531,35 +2551,39 @@
                                             management</span></div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="create-new.html">
+                                    <li><a class="dropdown-item" href="../apps/project-management/create-new.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Create new
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item active" href="project-list-view.html">
+                                    <li><a class="dropdown-item"
+                                            href="../apps/project-management/project-list-view.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Project
                                                 list view</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="project-card-view.html">
+                                    <li><a class="dropdown-item"
+                                            href="../apps/project-management/project-card-view.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Project
                                                 card view</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="project-board-view.html">
+                                    <li><a class="dropdown-item"
+                                            href="../apps/project-management/project-board-view.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Project
                                                 board view</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="todo-list.html">
+                                    <li><a class="dropdown-item" href="../apps/project-management/todo-list.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Todo list
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="project-details.html">
+                                    <li><a class="dropdown-item" href="../apps/project-management/project-details.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Project
                                                 details</div>
                                         </a></li>
                                 </ul>
                             </li>
-                            <li><a class="dropdown-item" href="../chat.html">
+                            <li><a class="dropdown-item" href="../apps/chat.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
-                                            data-feather="message-square"></span>Chat</div>
+                                            data-feather="message-square"></span>Chat
+                                    </div>
                                 </a></li>
                             <li class="dropdown"><a class="dropdown-item dropdown-toggle" id="email" href="#"
                                     data-bs-toggle="dropdown" data-bs-auto-close="outside">
@@ -2568,14 +2592,14 @@
                                                 class="me-2 uil" data-feather="mail"></span>Email</span></div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="../email/inbox.html">
+                                    <li><a class="dropdown-item" href="../apps/email/inbox.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Inbox</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../email/email-detail.html">
+                                    <li><a class="dropdown-item" href="../apps/email/email-detail.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Email
                                                 detail</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../email/compose.html">
+                                    <li><a class="dropdown-item" href="../apps/email/compose.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Compose
                                             </div>
                                         </a></li>
@@ -2588,11 +2612,11 @@
                                                 class="me-2 uil" data-feather="bookmark"></span>Events</span></div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="../events/create-an-event.html">
+                                    <li><a class="dropdown-item" href="../apps/events/create-an-event.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Create an
                                                 event</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../events/event-detail.html">
+                                    <li><a class="dropdown-item" href="../apps/events/event-detail.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Event
                                                 detail</div>
                                         </a></li>
@@ -2605,15 +2629,15 @@
                                                 class="me-2 uil" data-feather="trello"></span>Kanban</span></div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="../kanban/kanban.html">
+                                    <li><a class="dropdown-item" href="../apps/kanban/kanban.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Kanban
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../kanban/boards.html">
+                                    <li><a class="dropdown-item" href="../apps/kanban/boards.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Boards
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../kanban/create-kanban-board.html">
+                                    <li><a class="dropdown-item" href="../apps/kanban/create-kanban-board.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Create
                                                 board</div>
                                         </a></li>
@@ -2626,19 +2650,20 @@
                                                 class="me-2 uil" data-feather="share-2"></span>Social</span></div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="../social/profile.html">
+                                    <li><a class="dropdown-item" href="../apps/social/profile.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Profile
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../social/settings.html">
+                                    <li><a class="dropdown-item" href="../apps/social/settings.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Settings
                                             </div>
                                         </a></li>
                                 </ul>
                             </li>
-                            <li><a class="dropdown-item" href="../calendar.html">
+                            <li><a class="dropdown-item" href="../apps/calendar.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
-                                            data-feather="calendar"></span>Calendar</div>
+                                            data-feather="calendar"></span>Calendar
+                                    </div>
                                 </a></li>
                         </ul>
                     </li>
@@ -2646,7 +2671,7 @@
                             data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true"
                             aria-expanded="false"><span class="uil fs-0 me-2 uil-files-landscapes-alt"></span>Pages</a>
                         <ul class="dropdown-menu navbar-dropdown-caret">
-                            <li><a class="dropdown-item" href="../../pages/starter.html">
+                            <li><a class="dropdown-item" href="starter.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
                                             data-feather="compass"></span>Starter</div>
                                 </a></li>
@@ -2657,11 +2682,11 @@
                                                 class="me-2 uil" data-feather="help-circle"></span>Faq</span></div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="../../pages/faq/faq-accordion.html">
+                                    <li><a class="dropdown-item" href="faq/faq-accordion.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Faq
                                                 accordion</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../pages/faq/faq-tab.html">
+                                    <li><a class="dropdown-item" href="faq/faq-tab.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Faq tab
                                             </div>
                                         </a></li>
@@ -2674,11 +2699,11 @@
                                                 class="me-2 uil" data-feather="globe"></span>Landing</span></div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="../../pages/landing/default.html">
+                                    <li><a class="dropdown-item" href="landing/default.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Default
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../pages/landing/alternate.html">
+                                    <li><a class="dropdown-item" href="landing/alternate.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Alternate
                                             </div>
                                         </a></li>
@@ -2691,25 +2716,26 @@
                                                 class="me-2 uil" data-feather="tag"></span>Pricing</span></div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="../../pages/pricing/pricing-column.html">
+                                    <li><a class="dropdown-item" href="pricing/pricing-column.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Pricing
                                                 column</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../pages/pricing/pricing-grid.html">
+                                    <li><a class="dropdown-item" href="pricing/pricing-grid.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Pricing
                                                 grid</div>
                                         </a></li>
                                 </ul>
                             </li>
-                            <li><a class="dropdown-item" href="../../pages/notifications.html">
+                            <li><a class="dropdown-item" href="notifications.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
-                                            data-feather="bell"></span>Notifications</div>
+                                            data-feather="bell"></span>Notifications
+                                    </div>
                                 </a></li>
-                            <li><a class="dropdown-item" href="../../pages/members.html">
+                            <li><a class="dropdown-item active" href="members.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
                                             data-feather="users"></span>Members</div>
                                 </a></li>
-                            <li><a class="dropdown-item" href="../../pages/timeline.html">
+                            <li><a class="dropdown-item" href="timeline.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
                                             data-feather="clock"></span>Timeline</div>
                                 </a></li>
@@ -2721,13 +2747,13 @@
                                     </div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="../../pages/errors/404.html">
+                                    <li><a class="dropdown-item" href="errors/404.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>404</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../pages/errors/403.html">
+                                    <li><a class="dropdown-item" href="errors/403.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>403</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../pages/errors/500.html">
+                                    <li><a class="dropdown-item" href="errors/500.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>500</div>
                                         </a></li>
                                 </ul>
@@ -2746,38 +2772,33 @@
                                                         class="me-2 uil"></span>Simple</span></div>
                                         </a>
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/simple/sign-in.html">
+                                            <li><a class="dropdown-item" href="authentication/simple/sign-in.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Sign in</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/simple/sign-up.html">
+                                            <li><a class="dropdown-item" href="authentication/simple/sign-up.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Sign up</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/simple/sign-out.html">
+                                            <li><a class="dropdown-item" href="authentication/simple/sign-out.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Sign out</div>
                                                 </a></li>
                                             <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/simple/forgot-password.html">
+                                                    href="authentication/simple/forgot-password.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Forgot password</div>
                                                 </a></li>
                                             <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/simple/reset-password.html">
+                                                    href="authentication/simple/reset-password.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Reset password</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/simple/lock-screen.html">
+                                            <li><a class="dropdown-item" href="authentication/simple/lock-screen.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Lock screen</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/simple/2FA.html">
+                                            <li><a class="dropdown-item" href="authentication/simple/2FA.html">
                                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>2FA
                                                     </div>
                                                 </a></li>
@@ -2790,38 +2811,33 @@
                                                         class="me-2 uil"></span>Split</span></div>
                                         </a>
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/split/sign-in.html">
+                                            <li><a class="dropdown-item" href="authentication/split/sign-in.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Sign in</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/split/sign-up.html">
+                                            <li><a class="dropdown-item" href="authentication/split/sign-up.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Sign up</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/split/sign-out.html">
+                                            <li><a class="dropdown-item" href="authentication/split/sign-out.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Sign out</div>
                                                 </a></li>
                                             <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/split/forgot-password.html">
+                                                    href="authentication/split/forgot-password.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Forgot password</div>
                                                 </a></li>
                                             <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/split/reset-password.html">
+                                                    href="authentication/split/reset-password.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Reset password</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/split/lock-screen.html">
+                                            <li><a class="dropdown-item" href="authentication/split/lock-screen.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Lock screen</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/split/2FA.html">
+                                            <li><a class="dropdown-item" href="authentication/split/2FA.html">
                                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>2FA
                                                     </div>
                                                 </a></li>
@@ -2834,38 +2850,32 @@
                                                         class="me-2 uil"></span>Card</span></div>
                                         </a>
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/card/sign-in.html">
+                                            <li><a class="dropdown-item" href="authentication/card/sign-in.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Sign in</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/card/sign-up.html">
+                                            <li><a class="dropdown-item" href="authentication/card/sign-up.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Sign up</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/card/sign-out.html">
+                                            <li><a class="dropdown-item" href="authentication/card/sign-out.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Sign out</div>
                                                 </a></li>
                                             <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/card/forgot-password.html">
+                                                    href="authentication/card/forgot-password.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Forgot password</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/card/reset-password.html">
+                                            <li><a class="dropdown-item" href="authentication/card/reset-password.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Reset password</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/card/lock-screen.html">
+                                            <li><a class="dropdown-item" href="authentication/card/lock-screen.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Lock screen</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/card/2FA.html">
+                                            <li><a class="dropdown-item" href="authentication/card/2FA.html">
                                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>2FA
                                                     </div>
                                                 </a></li>
@@ -2880,47 +2890,47 @@
                                                 class="me-2 uil" data-feather="layout"></span>Layouts</span></div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="../../demo/vertical-sidenav.html">
+                                    <li><a class="dropdown-item" href="../demo/vertical-sidenav.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Vertical
                                                 sidenav</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../demo/dark-mode.html">
+                                    <li><a class="dropdown-item" href="../demo/dark-mode.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Dark mode
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../demo/sidenav-collapse.html">
+                                    <li><a class="dropdown-item" href="../demo/sidenav-collapse.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sidenav
                                                 collapse</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../demo/darknav.html">
+                                    <li><a class="dropdown-item" href="../demo/darknav.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Darknav
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../demo/topnav-slim.html">
+                                    <li><a class="dropdown-item" href="../demo/topnav-slim.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Topnav slim
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../demo/navbar-top-slim.html">
+                                    <li><a class="dropdown-item" href="../demo/navbar-top-slim.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Navbar top
                                                 slim</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../demo/navbar-top.html">
+                                    <li><a class="dropdown-item" href="../demo/navbar-top.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Navbar top
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../demo/horizontal-slim.html">
+                                    <li><a class="dropdown-item" href="../demo/horizontal-slim.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Horizontal
                                                 slim</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../demo/combo-nav.html">
+                                    <li><a class="dropdown-item" href="../demo/combo-nav.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Combo nav
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../demo/combo-nav-slim.html">
+                                    <li><a class="dropdown-item" href="../demo/combo-nav-slim.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Combo nav
                                                 slim</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../demo/dual-nav.html">
+                                    <li><a class="dropdown-item" href="../demo/dual-nav.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Dual nav
                                             </div>
                                         </a></li>
@@ -2940,174 +2950,167 @@
                                                     style="stroke-width:2;"></span>
                                                 <h6 class="dropdown-item-title">Forms</h6>
                                             </div><a class="dropdown-link"
-                                                href="../../modules/forms/basic/form-control.html">Form control</a><a
+                                                href="../modules/forms/basic/form-control.html">Form control</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/forms/basic/input-group.html">Input group</a><a
+                                                href="../modules/forms/basic/input-group.html">Input group</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/forms/basic/select.html">Select</a><a
+                                                href="../modules/forms/basic/select.html">Select</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/forms/basic/checks.html">Checks</a><a
+                                                href="../modules/forms/basic/checks.html">Checks</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/forms/basic/range.html">Range</a><a
+                                                href="../modules/forms/basic/range.html">Range</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/forms/basic/floating-labels.html">Floating
-                                                labels</a><a class="dropdown-link"
-                                                href="../../modules/forms/basic/layout.html">Layout</a><a
+                                                href="../modules/forms/basic/floating-labels.html">Floating labels</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/forms/advance/advance-select.html">Advance
-                                                select</a><a class="dropdown-link"
-                                                href="../../modules/forms/advance/date-picker.html">Date picker</a><a
+                                                href="../modules/forms/basic/layout.html">Layout</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/forms/advance/editor.html">Editor</a><a
+                                                href="../modules/forms/advance/advance-select.html">Advance select</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/forms/advance/file-uploader.html">File
-                                                uploader</a><a class="dropdown-link"
-                                                href="../../modules/forms/advance/rating.html">Rating</a><a
+                                                href="../modules/forms/advance/date-picker.html">Date picker</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/forms/advance/emoji-button.html">Emoji button</a><a
+                                                href="../modules/forms/advance/editor.html">Editor</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/forms/validation.html">Validation</a><a
-                                                class="dropdown-link" href="../../modules/forms/wizard.html">Wizard</a>
+                                                href="../modules/forms/advance/file-uploader.html">File uploader</a><a
+                                                class="dropdown-link"
+                                                href="../modules/forms/advance/rating.html">Rating</a><a
+                                                class="dropdown-link"
+                                                href="../modules/forms/advance/emoji-button.html">Emoji button</a><a
+                                                class="dropdown-link"
+                                                href="../modules/forms/validation.html">Validation</a><a
+                                                class="dropdown-link" href="../modules/forms/wizard.html">Wizard</a>
                                             <div class="dropdown-item-group mt-5"><span class="me-2" data-feather="grid"
                                                     style="stroke-width:2;"></span>
                                                 <h6 class="dropdown-item-title">Icons</h6>
                                             </div><a class="dropdown-link"
-                                                href="../../modules/icons/feather.html">Feather</a><a
-                                                class="dropdown-link" href="../../modules/icons/font-awesome.html">Font
-                                                awesome</a><a class="dropdown-link"
-                                                href="../../modules/icons/unicons.html">Unicons</a>
+                                                href="../modules/icons/feather.html">Feather</a><a class="dropdown-link"
+                                                href="../modules/icons/font-awesome.html">Font awesome</a><a
+                                                class="dropdown-link" href="../modules/icons/unicons.html">Unicons</a>
                                             <div class="dropdown-item-group mt-5"><span class="me-2"
                                                     data-feather="bar-chart-2" style="stroke-width:2;"></span>
                                                 <h6 class="dropdown-item-title">ECharts</h6>
                                             </div><a class="dropdown-link"
-                                                href="../../modules/echarts/line-charts.html">Line charts</a><a
-                                                class="dropdown-link" href="../../modules/echarts/bar-charts.html">Bar
+                                                href="../modules/echarts/line-charts.html">Line charts</a><a
+                                                class="dropdown-link" href="../modules/echarts/bar-charts.html">Bar
                                                 charts</a><a class="dropdown-link"
-                                                href="../../modules/echarts/candlestick-charts.html">Candlestick
+                                                href="../modules/echarts/candlestick-charts.html">Candlestick
                                                 charts</a><a class="dropdown-link"
-                                                href="../../modules/echarts/geo-map.html">Geo map</a><a
+                                                href="../modules/echarts/geo-map.html">Geo map</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/echarts/scatter-charts.html">Scatter charts</a><a
-                                                class="dropdown-link" href="../../modules/echarts/pie-charts.html">Pie
+                                                href="../modules/echarts/scatter-charts.html">Scatter charts</a><a
+                                                class="dropdown-link" href="../modules/echarts/pie-charts.html">Pie
                                                 charts</a><a class="dropdown-link"
-                                                href="../../modules/echarts/gauge-chart.html">Gauge chart</a><a
-                                                class="dropdown-link"
-                                                href="../../modules/echarts/radar-charts.html">Radar charts</a><a
-                                                class="dropdown-link"
-                                                href="../../modules/echarts/heatmap-charts.html">Heatmap charts</a><a
-                                                class="dropdown-link" href="../../modules/echarts/how-to-use.html">How
-                                                to use</a>
+                                                href="../modules/echarts/gauge-chart.html">Gauge chart</a><a
+                                                class="dropdown-link" href="../modules/echarts/radar-charts.html">Radar
+                                                charts</a><a class="dropdown-link"
+                                                href="../modules/echarts/heatmap-charts.html">Heatmap charts</a><a
+                                                class="dropdown-link" href="../modules/echarts/how-to-use.html">How to
+                                                use</a>
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="dropdown-item-group"><span class="me-2" data-feather="package"
                                                     style="stroke-width:2;"></span>
                                                 <h6 class="dropdown-item-title">Components</h6>
                                             </div><a class="dropdown-link"
-                                                href="../../modules/components/accordion.html">Accordion</a><a
+                                                href="../modules/components/accordion.html">Accordion</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/avatar.html">Avatar</a><a
+                                                href="../modules/components/avatar.html">Avatar</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/alerts.html">Alerts</a><a
+                                                href="../modules/components/alerts.html">Alerts</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/badge.html">Badge</a><a
+                                                href="../modules/components/badge.html">Badge</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/breadcrumb.html">Breadcrumb</a><a
+                                                href="../modules/components/breadcrumb.html">Breadcrumb</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/button.html">Buttons</a><a
+                                                href="../modules/components/button.html">Buttons</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/calendar.html">Calendar</a><a
+                                                href="../modules/components/calendar.html">Calendar</a><a
+                                                class="dropdown-link" href="../modules/components/card.html">Card</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/card.html">Card</a><a
+                                                href="../modules/components/carousel/bootstrap.html">Bootstrap</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/carousel/bootstrap.html">Bootstrap</a><a
+                                                href="../modules/components/carousel/swiper.html">Swiper</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/carousel/swiper.html">Swiper</a><a
+                                                href="../modules/components/collapse.html">Collapse</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/collapse.html">Collapse</a><a
+                                                href="../modules/components/dropdown.html">Dropdown</a><a
+                                                class="dropdown-link" href="../modules/components/list-group.html">List
+                                                group</a><a class="dropdown-link"
+                                                href="../modules/components/modal.html">Modals</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/dropdown.html">Dropdown</a><a
+                                                href="../modules/components/navs-and-tabs/navs.html">Navs</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/list-group.html">List group</a><a
+                                                href="../modules/components/navs-and-tabs/navbar.html">Navbar</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/modal.html">Modals</a><a
+                                                href="../modules/components/navs-and-tabs/tabs.html">Tabs</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/navs-and-tabs/navs.html">Navs</a><a
+                                                href="../modules/components/offcanvas.html">Offcanvas</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/navs-and-tabs/navbar.html">Navbar</a><a
+                                                href="../modules/components/progress-bar.html">Progress bar</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/navs-and-tabs/tabs.html">Tabs</a><a
+                                                href="../modules/components/placeholder.html">Placeholder</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/offcanvas.html">Offcanvas</a><a
+                                                href="../modules/components/pagination.html">Pagination</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/progress-bar.html">Progress bar</a><a
+                                                href="../modules/components/popovers.html">Popovers</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/placeholder.html">Placeholder</a><a
+                                                href="../modules/components/scrollspy.html">Scrollspy</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/pagination.html">Pagination</a><a
+                                                href="../modules/components/sortable.html">Sortable</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/popovers.html">Popovers</a><a
+                                                href="../modules/components/spinners.html">Spinners</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/scrollspy.html">Scrollspy</a><a
+                                                href="../modules/components/toast.html">Toast</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/sortable.html">Sortable</a><a
-                                                class="dropdown-link"
-                                                href="../../modules/components/spinners.html">Spinners</a><a
-                                                class="dropdown-link"
-                                                href="../../modules/components/toast.html">Toast</a><a
-                                                class="dropdown-link"
-                                                href="../../modules/components/tooltips.html">Tooltips</a><a
-                                                class="dropdown-link"
-                                                href="../../modules/components/chat-widget.html">Chat widget</a>
+                                                href="../modules/components/tooltips.html">Tooltips</a><a
+                                                class="dropdown-link" href="../modules/components/chat-widget.html">Chat
+                                                widget</a>
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="dropdown-item-group"><span class="me-2" data-feather="columns"
                                                     style="stroke-width:2;"></span>
                                                 <h6 class="dropdown-item-title">Tables</h6>
                                             </div><a class="dropdown-link"
-                                                href="../../modules/tables/basic-tables.html">Basic tables</a><a
+                                                href="../modules/tables/basic-tables.html">Basic tables</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/tables/advance-tables.html">Advance tables</a><a
-                                                class="dropdown-link" href="../../modules/tables/bulk-select.html">Bulk
+                                                href="../modules/tables/advance-tables.html">Advance tables</a><a
+                                                class="dropdown-link" href="../modules/tables/bulk-select.html">Bulk
                                                 Select</a>
                                             <div class="dropdown-item-group mt-5"><span class="me-2" data-feather="tool"
                                                     style="stroke-width:2;"></span>
                                                 <h6 class="dropdown-item-title">Utilities</h6>
                                             </div><a class="dropdown-link"
-                                                href="../../modules/utilities/background.html">Background</a><a
+                                                href="../modules/utilities/background.html">Background</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/borders.html">Borders</a><a
+                                                href="../modules/utilities/borders.html">Borders</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/colors.html">Colors</a><a
+                                                href="../modules/utilities/colors.html">Colors</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/display.html">Display</a><a
+                                                href="../modules/utilities/display.html">Display</a><a
+                                                class="dropdown-link" href="../modules/utilities/flex.html">Flex</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/flex.html">Flex</a><a
+                                                href="../modules/utilities/stacks.html">Stacks</a><a
+                                                class="dropdown-link" href="../modules/utilities/float.html">Float</a><a
+                                                class="dropdown-link" href="../modules/utilities/grid.html">Grid</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/stacks.html">Stacks</a><a
+                                                href="../modules/utilities/interactions.html">Interactions</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/float.html">Float</a><a
+                                                href="../modules/utilities/opacity.html">Opacity</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/grid.html">Grid</a><a
+                                                href="../modules/utilities/overflow.html">Overflow</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/interactions.html">Interactions</a><a
+                                                href="../modules/utilities/position.html">Position</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/opacity.html">Opacity</a><a
+                                                href="../modules/utilities/shadows.html">Shadows</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/overflow.html">Overflow</a><a
+                                                href="../modules/utilities/sizing.html">Sizing</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/position.html">Position</a><a
+                                                href="../modules/utilities/spacing.html">Spacing</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/shadows.html">Shadows</a><a
+                                                href="../modules/utilities/typography.html">Typography</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/sizing.html">Sizing</a><a
+                                                href="../modules/utilities/vertical-align.html">Vertical align</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/spacing.html">Spacing</a><a
-                                                class="dropdown-link"
-                                                href="../../modules/utilities/typography.html">Typography</a><a
-                                                class="dropdown-link"
-                                                href="../../modules/utilities/vertical-align.html">Vertical align</a><a
-                                                class="dropdown-link"
-                                                href="../../modules/utilities/visibility.html">Visibility</a>
+                                                href="../modules/utilities/visibility.html">Visibility</a>
                                         </div>
                                     </div>
                                 </div>
@@ -3119,9 +3122,10 @@
                             aria-expanded="false"><span
                                 class="uil fs-0 me-2 uil-document-layout-right"></span>Documentation</a>
                         <ul class="dropdown-menu navbar-dropdown-caret">
-                            <li><a class="dropdown-item" href="../../documentation/getting-started.html">
+                            <li><a class="dropdown-item" href="../documentation/getting-started.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
-                                            data-feather="life-buoy"></span>Getting started</div>
+                                            data-feather="life-buoy"></span>Getting
+                                        started</div>
                                 </a></li>
                             <li class="dropdown dropdown-inside"><a class="dropdown-item dropdown-toggle"
                                     id="customization" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">
@@ -3132,20 +3136,19 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item"
-                                            href="../../documentation/customization/configuration.html">
+                                            href="../documentation/customization/configuration.html">
                                             <div class="dropdown-item-wrapper"><span
                                                     class="me-2 uil"></span>Configuration</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../documentation/customization/styling.html">
+                                    <li><a class="dropdown-item" href="../documentation/customization/styling.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Styling
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item"
-                                            href="../../documentation/customization/dark-mode.html">
+                                    <li><a class="dropdown-item" href="../documentation/customization/dark-mode.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Dark mode
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../documentation/customization/plugin.html">
+                                    <li><a class="dropdown-item" href="../documentation/customization/plugin.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Plugin
                                             </div>
                                         </a></li>
@@ -3158,39 +3161,40 @@
                                                 class="me-2 uil" data-feather="table"></span>Layouts doc</span></div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item"
-                                            href="../../documentation/layouts/vertical-navbar.html">
+                                    <li><a class="dropdown-item" href="../documentation/layouts/vertical-navbar.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Vertical
                                                 navbar</div>
                                         </a></li>
-                                    <li><a class="dropdown-item"
-                                            href="../../documentation/layouts/horizontal-navbar.html">
+                                    <li><a class="dropdown-item" href="../documentation/layouts/horizontal-navbar.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Horizontal
                                                 navbar</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../documentation/layouts/combo-navbar.html">
+                                    <li><a class="dropdown-item" href="../documentation/layouts/combo-navbar.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Combo
                                                 navbar</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../documentation/layouts/dual-nav.html">
+                                    <li><a class="dropdown-item" href="../documentation/layouts/dual-nav.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Dual nav
                                             </div>
                                         </a></li>
                                 </ul>
                             </li>
-                            <li><a class="dropdown-item" href="../../documentation/gulp.html">
+                            <li><a class="dropdown-item" href="../documentation/gulp.html">
                                     <div class="dropdown-item-wrapper"><span
-                                            class="me-2 fa-brands fa-gulp ms-1 me-1 fa-lg"></span>Gulp</div>
+                                            class="me-2 fa-brands fa-gulp ms-1 me-1 fa-lg"></span>Gulp
+                                    </div>
                                 </a></li>
-                            <li><a class="dropdown-item" href="../../documentation/design-file.html">
+                            <li><a class="dropdown-item" href="../documentation/design-file.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
-                                            data-feather="figma"></span>Design file</div>
+                                            data-feather="figma"></span>Design file
+                                    </div>
                                 </a></li>
-                            <li><a class="dropdown-item" href="../../changelog.html">
+                            <li><a class="dropdown-item" href="../changelog.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
-                                            data-feather="git-merge"></span>Changelog</div>
+                                            data-feather="git-merge"></span>Changelog
+                                    </div>
                                 </a></li>
-                            <li><a class="dropdown-item" href="../../showcase.html">
+                            <li><a class="dropdown-item" href="../showcase.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
                                             data-feather="monitor"></span>Showcase</div>
                                 </a></li>
@@ -3238,7 +3242,7 @@
                                                 <div class="d-flex">
                                                     <div class="avatar avatar-m status-online me-3"><img
                                                             class="rounded-circle"
-                                                            src="../../assets/img/team/40x40/30.webp" alt="" /></div>
+                                                            src="../assets/img/team/40x40/30.webp" alt="" /></div>
                                                     <div class="flex-1 me-sm-3">
                                                         <h4 class="fs--1 text-black">Jessie Samson</h4>
                                                         <p class="fs--1 text-1000 mb-2 mb-sm-3 fw-normal"><span
@@ -3257,7 +3261,8 @@
                                                         data-bs-reference="parent"><span
                                                             class="fas fa-ellipsis-h fs--2 text-900"></span></button>
                                                     <div class="dropdown-menu dropdown-menu-end py-2"><a
-                                                            class="dropdown-item" href="#!">Mark as unread</a></div>
+                                                            class="dropdown-item" href="#!">Mark as
+                                                            unread</a></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -3272,7 +3277,8 @@
                                                     <div class="flex-1 me-sm-3">
                                                         <h4 class="fs--1 text-black">Jane Foster</h4>
                                                         <p class="fs--1 text-1000 mb-2 mb-sm-3 fw-normal"><span
-                                                                class='me-1 fs--2'>📅</span>Created an event.<span
+                                                                class='me-1 fs--2'>📅</span>Created
+                                                            an event.<span
                                                                 class="ms-2 text-400 fw-bold fs--2">20m</span></p>
                                                         <p class="text-800 fs--1 mb-0"><span
                                                                 class="me-1 fas fa-clock"></span><span
@@ -3286,7 +3292,8 @@
                                                         data-bs-reference="parent"><span
                                                             class="fas fa-ellipsis-h fs--2 text-900"></span></button>
                                                     <div class="dropdown-menu dropdown-menu-end py-2"><a
-                                                            class="dropdown-item" href="#!">Mark as unread</a></div>
+                                                            class="dropdown-item" href="#!">Mark as
+                                                            unread</a></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -3297,12 +3304,12 @@
                                                 <div class="d-flex">
                                                     <div class="avatar avatar-m status-online me-3"><img
                                                             class="rounded-circle avatar-placeholder"
-                                                            src="../../assets/img/team/40x40/avatar.webp" alt="" />
-                                                    </div>
+                                                            src="../assets/img/team/40x40/avatar.webp" alt="" /></div>
                                                     <div class="flex-1 me-sm-3">
                                                         <h4 class="fs--1 text-black">Jessie Samson</h4>
                                                         <p class="fs--1 text-1000 mb-2 mb-sm-3 fw-normal"><span
-                                                                class='me-1 fs--2'>👍</span>Liked your comment.<span
+                                                                class='me-1 fs--2'>👍</span>Liked
+                                                            your comment.<span
                                                                 class="ms-2 text-400 fw-bold fs--2">1h</span></p>
                                                         <p class="text-800 fs--1 mb-0"><span
                                                                 class="me-1 fas fa-clock"></span><span
@@ -3316,7 +3323,8 @@
                                                         data-bs-reference="parent"><span
                                                             class="fas fa-ellipsis-h fs--2 text-900"></span></button>
                                                     <div class="dropdown-menu dropdown-menu-end py-2"><a
-                                                            class="dropdown-item" href="#!">Mark as unread</a></div>
+                                                            class="dropdown-item" href="#!">Mark as
+                                                            unread</a></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -3329,7 +3337,7 @@
                                                 <div class="d-flex">
                                                     <div class="avatar avatar-m status-online me-3"><img
                                                             class="rounded-circle"
-                                                            src="../../assets/img/team/40x40/57.webp" alt="" /></div>
+                                                            src="../assets/img/team/40x40/57.webp" alt="" /></div>
                                                     <div class="flex-1 me-sm-3">
                                                         <h4 class="fs--1 text-black">Kiera Anderson</h4>
                                                         <p class="fs--1 text-1000 mb-2 mb-sm-3 fw-normal"><span
@@ -3348,7 +3356,8 @@
                                                         data-bs-reference="parent"><span
                                                             class="fas fa-ellipsis-h fs--2 text-900"></span></button>
                                                     <div class="dropdown-menu dropdown-menu-end py-2"><a
-                                                            class="dropdown-item" href="#!">Mark as unread</a></div>
+                                                            class="dropdown-item" href="#!">Mark as
+                                                            unread</a></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -3359,13 +3368,13 @@
                                                 <div class="d-flex">
                                                     <div class="avatar avatar-m status-online me-3"><img
                                                             class="rounded-circle"
-                                                            src="../../assets/img/team/40x40/59.webp" alt="" /></div>
+                                                            src="../assets/img/team/40x40/59.webp" alt="" /></div>
                                                     <div class="flex-1 me-sm-3">
                                                         <h4 class="fs--1 text-black">Herman Carter</h4>
                                                         <p class="fs--1 text-1000 mb-2 mb-sm-3 fw-normal"><span
-                                                                class='me-1 fs--2'>👤</span>Tagged you in a
-                                                            comment.<span class="ms-2 text-400 fw-bold fs--2"></span>
-                                                        </p>
+                                                                class='me-1 fs--2'>👤</span>Tagged
+                                                            you in a comment.<span
+                                                                class="ms-2 text-400 fw-bold fs--2"></span></p>
                                                         <p class="text-800 fs--1 mb-0"><span
                                                                 class="me-1 fas fa-clock"></span><span
                                                                 class="fw-bold">10:58 PM </span>August 7,2021</p>
@@ -3378,7 +3387,8 @@
                                                         data-bs-reference="parent"><span
                                                             class="fas fa-ellipsis-h fs--2 text-900"></span></button>
                                                     <div class="dropdown-menu dropdown-menu-end py-2"><a
-                                                            class="dropdown-item" href="#!">Mark as unread</a></div>
+                                                            class="dropdown-item" href="#!">Mark as
+                                                            unread</a></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -3389,11 +3399,12 @@
                                                 <div class="d-flex">
                                                     <div class="avatar avatar-m status-online me-3"><img
                                                             class="rounded-circle"
-                                                            src="../../assets/img/team/40x40/58.webp" alt="" /></div>
+                                                            src="../assets/img/team/40x40/58.webp" alt="" /></div>
                                                     <div class="flex-1 me-sm-3">
                                                         <h4 class="fs--1 text-black">Benjamin Button</h4>
                                                         <p class="fs--1 text-1000 mb-2 mb-sm-3 fw-normal"><span
-                                                                class='me-1 fs--2'>👍</span>Liked your comment.<span
+                                                                class='me-1 fs--2'>👍</span>Liked
+                                                            your comment.<span
                                                                 class="ms-2 text-400 fw-bold fs--2"></span></p>
                                                         <p class="text-800 fs--1 mb-0"><span
                                                                 class="me-1 fas fa-clock"></span><span
@@ -3407,7 +3418,8 @@
                                                         data-bs-reference="parent"><span
                                                             class="fas fa-ellipsis-h fs--2 text-900"></span></button>
                                                     <div class="dropdown-menu dropdown-menu-end py-2"><a
-                                                            class="dropdown-item" href="#!">Mark as unread</a></div>
+                                                            class="dropdown-item" href="#!">Mark as
+                                                            unread</a></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -3416,7 +3428,7 @@
                             </div>
                             <div class="card-footer p-0 border-top border-0">
                                 <div class="my-2 text-center fw-bold fs--2 text-600"><a class="fw-bolder"
-                                        href="../../pages/notifications.html">Notification history</a></div>
+                                        href="notifications.html">Notification history</a></div>
                             </div>
                         </div>
                     </div>
@@ -3442,84 +3454,82 @@
                                 <div class="row text-center align-items-center gx-0 gy-0">
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/behance.webp" alt=""
+                                            href="#!"><img src="../assets/img/nav-icons/behance.webp" alt=""
                                                 width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Behance</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/google-cloud.webp" alt=""
+                                            href="#!"><img src="../assets/img/nav-icons/google-cloud.webp" alt=""
                                                 width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Cloud</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/slack.webp" alt=""
-                                                width="30" />
+                                            href="#!"><img src="../assets/img/nav-icons/slack.webp" alt="" width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Slack</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/gitlab.webp" alt=""
+                                            href="#!"><img src="../assets/img/nav-icons/gitlab.webp" alt=""
                                                 width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Gitlab</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/bitbucket.webp" alt=""
+                                            href="#!"><img src="../assets/img/nav-icons/bitbucket.webp" alt=""
                                                 width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">BitBucket</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/google-drive.webp" alt=""
+                                            href="#!"><img src="../assets/img/nav-icons/google-drive.webp" alt=""
                                                 width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Drive</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/trello.webp" alt=""
+                                            href="#!"><img src="../assets/img/nav-icons/trello.webp" alt=""
                                                 width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Trello</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/figma.webp" alt=""
-                                                width="20" />
+                                            href="#!"><img src="../assets/img/nav-icons/figma.webp" alt="" width="20" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Figma</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/twitter.webp" alt=""
+                                            href="#!"><img src="../assets/img/nav-icons/twitter.webp" alt=""
                                                 width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Twitter</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/pinterest.webp" alt=""
+                                            href="#!"><img src="../assets/img/nav-icons/pinterest.webp" alt=""
                                                 width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Pinterest</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/ln.webp" alt="" width="30" />
+                                            href="#!"><img src="../assets/img/nav-icons/ln.webp" alt="" width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Linkedin</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/google-maps.webp" alt=""
+                                            href="#!"><img src="../assets/img/nav-icons/google-maps.webp" alt=""
                                                 width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Maps</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/google-photos.webp" alt=""
+                                            href="#!"><img src="../assets/img/nav-icons/google-photos.webp" alt=""
                                                 width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Photos</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/spotify.webp" alt=""
+                                            href="#!"><img src="../assets/img/nav-icons/spotify.webp" alt=""
                                                 width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Spotify</p>
                                         </a></div>
@@ -3538,7 +3548,7 @@
                             <div class="card-body p-0">
                                 <div class="text-center pt-4 pb-3">
                                     <div class="avatar avatar-xl ">
-                                        <img class="rounded-circle " src="../../assets/img/team/72x72/57.webp" alt="" />
+                                        <img class="rounded-circle " src="../assets/img/team/72x72/57.webp" alt="" />
                                     </div>
                                     <h6 class="mt-2 text-black">Jerry Seinfield</h6>
                                 </div>
@@ -3570,8 +3580,9 @@
                                 <div class="px-3"> <a class="btn btn-phoenix-secondary d-flex flex-center w-100"
                                         href="#!"> <span class="me-2" data-feather="log-out"> </span>Sign out</a></div>
                                 <div class="my-2 text-center fw-bold fs--2 text-600"><a class="text-600 me-1"
-                                        href="#!">Privacy policy</a>&bull;<a class="text-600 mx-1"
-                                        href="#!">Terms</a>&bull;<a class="text-600 ms-1" href="#!">Cookies</a></div>
+                                        href="#!">Privacy
+                                        policy</a>&bull;<a class="text-600 mx-1" href="#!">Terms</a>&bull;<a
+                                        class="text-600 ms-1" href="#!">Cookies</a></div>
                             </div>
                         </div>
                     </div>
@@ -3585,9 +3596,9 @@
                     data-bs-toggle="collapse" data-bs-target="#navbarVerticalCollapse"
                     aria-controls="navbarVerticalCollapse" aria-expanded="false" aria-label="Toggle Navigation"><span
                         class="navbar-toggle-icon"><span class="toggle-line"></span></span></button>
-                <a class="navbar-brand me-1 me-sm-3" href="../../index-2.html">
+                <a class="navbar-brand me-1 me-sm-3" href="../index-2.html">
                     <div class="d-flex align-items-center">
-                        <div class="d-flex align-items-center"><img src="../../assets/img/icons/logo.png" alt="phoenix"
+                        <div class="d-flex align-items-center"><img src="../assets/img/icons/logo.png" alt="phoenix"
                                 width="27" />
                             <p class="logo-text ms-2 d-none d-sm-block">phoenix</p>
                         </div>
@@ -3601,21 +3612,24 @@
                             data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true"
                             aria-expanded="false"><span class="uil fs-0 me-2 uil-chart-pie"></span>Home</a>
                         <ul class="dropdown-menu navbar-dropdown-caret">
-                            <li><a class="dropdown-item" href="../../index-2.html">
+                            <li><a class="dropdown-item" href="../index-2.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
-                                            data-feather="shopping-cart"></span>E commerce</div>
+                                            data-feather="shopping-cart"></span>E
+                                        commerce</div>
                                 </a></li>
-                            <li><a class="dropdown-item" href="../../dashboard/project-management.html">
+                            <li><a class="dropdown-item" href="../dashboard/project-management.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
-                                            data-feather="clipboard"></span>Project management</div>
+                                            data-feather="clipboard"></span>Project
+                                        management</div>
                                 </a></li>
-                            <li><a class="dropdown-item" href="../../dashboard/crm.html">
+                            <li><a class="dropdown-item" href="../dashboard/crm.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
                                             data-feather="phone"></span>CRM</div>
                                 </a></li>
-                            <li><a class="dropdown-item" href="../social/feed.html">
+                            <li><a class="dropdown-item" href="../apps/social/feed.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
-                                            data-feather="share-2"></span>Social feed</div>
+                                            data-feather="share-2"></span>Social feed
+                                    </div>
                                 </a></li>
                         </ul>
                     </li>
@@ -3638,32 +3652,34 @@
                                                         class="me-2 uil"></span>Admin</span></div>
                                         </a>
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="../e-commerce/admin/add-product.html">
+                                            <li><a class="dropdown-item"
+                                                    href="../apps/e-commerce/admin/add-product.html">
                                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Add
                                                         product</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item" href="../e-commerce/admin/products.html">
+                                            <li><a class="dropdown-item" href="../apps/e-commerce/admin/products.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Products</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item" href="../e-commerce/admin/customers.html">
+                                            <li><a class="dropdown-item" href="../apps/e-commerce/admin/customers.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Customers</div>
                                                 </a></li>
                                             <li><a class="dropdown-item"
-                                                    href="../e-commerce/admin/customer-details.html">
+                                                    href="../apps/e-commerce/admin/customer-details.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Customer details</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item" href="../e-commerce/admin/orders.html">
+                                            <li><a class="dropdown-item" href="../apps/e-commerce/admin/orders.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Orders</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item" href="../e-commerce/admin/order-details.html">
+                                            <li><a class="dropdown-item"
+                                                    href="../apps/e-commerce/admin/order-details.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Order details</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item" href="../e-commerce/admin/refund.html">
+                                            <li><a class="dropdown-item" href="../apps/e-commerce/admin/refund.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Refund</div>
                                                 </a></li>
@@ -3676,52 +3692,55 @@
                                                         class="me-2 uil"></span>Customer</span></div>
                                         </a>
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="../e-commerce/landing/homepage.html">
+                                            <li><a class="dropdown-item"
+                                                    href="../apps/e-commerce/landing/homepage.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Homepage</div>
                                                 </a></li>
                                             <li><a class="dropdown-item"
-                                                    href="../e-commerce/landing/product-details.html">
+                                                    href="../apps/e-commerce/landing/product-details.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Product details</div>
                                                 </a></li>
                                             <li><a class="dropdown-item"
-                                                    href="../e-commerce/landing/products-filter.html">
+                                                    href="../apps/e-commerce/landing/products-filter.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Products filter</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item" href="../e-commerce/landing/cart.html">
+                                            <li><a class="dropdown-item" href="../apps/e-commerce/landing/cart.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Cart</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item" href="../e-commerce/landing/checkout.html">
+                                            <li><a class="dropdown-item"
+                                                    href="../apps/e-commerce/landing/checkout.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Checkout</div>
                                                 </a></li>
                                             <li><a class="dropdown-item"
-                                                    href="../e-commerce/landing/shipping-info.html">
+                                                    href="../apps/e-commerce/landing/shipping-info.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Shipping info</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item" href="../e-commerce/landing/profile.html">
+                                            <li><a class="dropdown-item" href="../apps/e-commerce/landing/profile.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Profile</div>
                                                 </a></li>
                                             <li><a class="dropdown-item"
-                                                    href="../e-commerce/landing/favourite-stores.html">
+                                                    href="../apps/e-commerce/landing/favourite-stores.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Favourite stores</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item" href="../e-commerce/landing/wishlist.html">
+                                            <li><a class="dropdown-item"
+                                                    href="../apps/e-commerce/landing/wishlist.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Wishlist</div>
                                                 </a></li>
                                             <li><a class="dropdown-item"
-                                                    href="../e-commerce/landing/order-tracking.html">
+                                                    href="../apps/e-commerce/landing/order-tracking.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Order tracking</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item" href="../e-commerce/landing/invoice.html">
+                                            <li><a class="dropdown-item" href="../apps/e-commerce/landing/invoice.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Invoice</div>
                                                 </a></li>
@@ -3736,33 +3755,33 @@
                                                 class="me-2 uil" data-feather="phone"></span>CRM</span></div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="../crm/analytics.html">
+                                    <li><a class="dropdown-item" href="../apps/crm/analytics.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Analytics
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../crm/deals.html">
+                                    <li><a class="dropdown-item" href="../apps/crm/deals.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Deals</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../crm/deal-details.html">
+                                    <li><a class="dropdown-item" href="../apps/crm/deal-details.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Deal
                                                 details</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../crm/leads.html">
+                                    <li><a class="dropdown-item" href="../apps/crm/leads.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Leads</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../crm/lead-details.html">
+                                    <li><a class="dropdown-item" href="../apps/crm/lead-details.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Lead
                                                 details</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../crm/reports.html">
+                                    <li><a class="dropdown-item" href="../apps/crm/reports.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Reports
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../crm/reports-details.html">
+                                    <li><a class="dropdown-item" href="../apps/crm/reports-details.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Reports
                                                 details</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../crm/add-contact.html">
+                                    <li><a class="dropdown-item" href="../apps/crm/add-contact.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Add contact
                                             </div>
                                         </a></li>
@@ -3776,35 +3795,39 @@
                                             management</span></div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="create-new.html">
+                                    <li><a class="dropdown-item" href="../apps/project-management/create-new.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Create new
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item active" href="project-list-view.html">
+                                    <li><a class="dropdown-item"
+                                            href="../apps/project-management/project-list-view.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Project
                                                 list view</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="project-card-view.html">
+                                    <li><a class="dropdown-item"
+                                            href="../apps/project-management/project-card-view.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Project
                                                 card view</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="project-board-view.html">
+                                    <li><a class="dropdown-item"
+                                            href="../apps/project-management/project-board-view.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Project
                                                 board view</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="todo-list.html">
+                                    <li><a class="dropdown-item" href="../apps/project-management/todo-list.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Todo list
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="project-details.html">
+                                    <li><a class="dropdown-item" href="../apps/project-management/project-details.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Project
                                                 details</div>
                                         </a></li>
                                 </ul>
                             </li>
-                            <li><a class="dropdown-item" href="../chat.html">
+                            <li><a class="dropdown-item" href="../apps/chat.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
-                                            data-feather="message-square"></span>Chat</div>
+                                            data-feather="message-square"></span>Chat
+                                    </div>
                                 </a></li>
                             <li class="dropdown"><a class="dropdown-item dropdown-toggle" id="email" href="#"
                                     data-bs-toggle="dropdown" data-bs-auto-close="outside">
@@ -3813,14 +3836,14 @@
                                                 class="me-2 uil" data-feather="mail"></span>Email</span></div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="../email/inbox.html">
+                                    <li><a class="dropdown-item" href="../apps/email/inbox.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Inbox</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../email/email-detail.html">
+                                    <li><a class="dropdown-item" href="../apps/email/email-detail.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Email
                                                 detail</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../email/compose.html">
+                                    <li><a class="dropdown-item" href="../apps/email/compose.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Compose
                                             </div>
                                         </a></li>
@@ -3833,11 +3856,11 @@
                                                 class="me-2 uil" data-feather="bookmark"></span>Events</span></div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="../events/create-an-event.html">
+                                    <li><a class="dropdown-item" href="../apps/events/create-an-event.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Create an
                                                 event</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../events/event-detail.html">
+                                    <li><a class="dropdown-item" href="../apps/events/event-detail.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Event
                                                 detail</div>
                                         </a></li>
@@ -3850,15 +3873,15 @@
                                                 class="me-2 uil" data-feather="trello"></span>Kanban</span></div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="../kanban/kanban.html">
+                                    <li><a class="dropdown-item" href="../apps/kanban/kanban.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Kanban
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../kanban/boards.html">
+                                    <li><a class="dropdown-item" href="../apps/kanban/boards.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Boards
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../kanban/create-kanban-board.html">
+                                    <li><a class="dropdown-item" href="../apps/kanban/create-kanban-board.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Create
                                                 board</div>
                                         </a></li>
@@ -3871,19 +3894,20 @@
                                                 class="me-2 uil" data-feather="share-2"></span>Social</span></div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="../social/profile.html">
+                                    <li><a class="dropdown-item" href="../apps/social/profile.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Profile
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../social/settings.html">
+                                    <li><a class="dropdown-item" href="../apps/social/settings.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Settings
                                             </div>
                                         </a></li>
                                 </ul>
                             </li>
-                            <li><a class="dropdown-item" href="../calendar.html">
+                            <li><a class="dropdown-item" href="../apps/calendar.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
-                                            data-feather="calendar"></span>Calendar</div>
+                                            data-feather="calendar"></span>Calendar
+                                    </div>
                                 </a></li>
                         </ul>
                     </li>
@@ -3891,7 +3915,7 @@
                             data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true"
                             aria-expanded="false"><span class="uil fs-0 me-2 uil-files-landscapes-alt"></span>Pages</a>
                         <ul class="dropdown-menu navbar-dropdown-caret">
-                            <li><a class="dropdown-item" href="../../pages/starter.html">
+                            <li><a class="dropdown-item" href="starter.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
                                             data-feather="compass"></span>Starter</div>
                                 </a></li>
@@ -3902,11 +3926,11 @@
                                                 class="me-2 uil" data-feather="help-circle"></span>Faq</span></div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="../../pages/faq/faq-accordion.html">
+                                    <li><a class="dropdown-item" href="faq/faq-accordion.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Faq
                                                 accordion</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../pages/faq/faq-tab.html">
+                                    <li><a class="dropdown-item" href="faq/faq-tab.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Faq tab
                                             </div>
                                         </a></li>
@@ -3919,11 +3943,11 @@
                                                 class="me-2 uil" data-feather="globe"></span>Landing</span></div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="../../pages/landing/default.html">
+                                    <li><a class="dropdown-item" href="landing/default.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Default
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../pages/landing/alternate.html">
+                                    <li><a class="dropdown-item" href="landing/alternate.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Alternate
                                             </div>
                                         </a></li>
@@ -3936,25 +3960,26 @@
                                                 class="me-2 uil" data-feather="tag"></span>Pricing</span></div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="../../pages/pricing/pricing-column.html">
+                                    <li><a class="dropdown-item" href="pricing/pricing-column.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Pricing
                                                 column</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../pages/pricing/pricing-grid.html">
+                                    <li><a class="dropdown-item" href="pricing/pricing-grid.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Pricing
                                                 grid</div>
                                         </a></li>
                                 </ul>
                             </li>
-                            <li><a class="dropdown-item" href="../../pages/notifications.html">
+                            <li><a class="dropdown-item" href="notifications.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
-                                            data-feather="bell"></span>Notifications</div>
+                                            data-feather="bell"></span>Notifications
+                                    </div>
                                 </a></li>
-                            <li><a class="dropdown-item" href="../../pages/members.html">
+                            <li><a class="dropdown-item active" href="members.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
                                             data-feather="users"></span>Members</div>
                                 </a></li>
-                            <li><a class="dropdown-item" href="../../pages/timeline.html">
+                            <li><a class="dropdown-item" href="timeline.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
                                             data-feather="clock"></span>Timeline</div>
                                 </a></li>
@@ -3966,13 +3991,13 @@
                                     </div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="../../pages/errors/404.html">
+                                    <li><a class="dropdown-item" href="errors/404.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>404</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../pages/errors/403.html">
+                                    <li><a class="dropdown-item" href="errors/403.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>403</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../pages/errors/500.html">
+                                    <li><a class="dropdown-item" href="errors/500.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>500</div>
                                         </a></li>
                                 </ul>
@@ -3991,38 +4016,33 @@
                                                         class="me-2 uil"></span>Simple</span></div>
                                         </a>
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/simple/sign-in.html">
+                                            <li><a class="dropdown-item" href="authentication/simple/sign-in.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Sign in</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/simple/sign-up.html">
+                                            <li><a class="dropdown-item" href="authentication/simple/sign-up.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Sign up</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/simple/sign-out.html">
+                                            <li><a class="dropdown-item" href="authentication/simple/sign-out.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Sign out</div>
                                                 </a></li>
                                             <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/simple/forgot-password.html">
+                                                    href="authentication/simple/forgot-password.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Forgot password</div>
                                                 </a></li>
                                             <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/simple/reset-password.html">
+                                                    href="authentication/simple/reset-password.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Reset password</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/simple/lock-screen.html">
+                                            <li><a class="dropdown-item" href="authentication/simple/lock-screen.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Lock screen</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/simple/2FA.html">
+                                            <li><a class="dropdown-item" href="authentication/simple/2FA.html">
                                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>2FA
                                                     </div>
                                                 </a></li>
@@ -4035,38 +4055,33 @@
                                                         class="me-2 uil"></span>Split</span></div>
                                         </a>
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/split/sign-in.html">
+                                            <li><a class="dropdown-item" href="authentication/split/sign-in.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Sign in</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/split/sign-up.html">
+                                            <li><a class="dropdown-item" href="authentication/split/sign-up.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Sign up</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/split/sign-out.html">
+                                            <li><a class="dropdown-item" href="authentication/split/sign-out.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Sign out</div>
                                                 </a></li>
                                             <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/split/forgot-password.html">
+                                                    href="authentication/split/forgot-password.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Forgot password</div>
                                                 </a></li>
                                             <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/split/reset-password.html">
+                                                    href="authentication/split/reset-password.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Reset password</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/split/lock-screen.html">
+                                            <li><a class="dropdown-item" href="authentication/split/lock-screen.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Lock screen</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/split/2FA.html">
+                                            <li><a class="dropdown-item" href="authentication/split/2FA.html">
                                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>2FA
                                                     </div>
                                                 </a></li>
@@ -4079,38 +4094,32 @@
                                                         class="me-2 uil"></span>Card</span></div>
                                         </a>
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/card/sign-in.html">
+                                            <li><a class="dropdown-item" href="authentication/card/sign-in.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Sign in</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/card/sign-up.html">
+                                            <li><a class="dropdown-item" href="authentication/card/sign-up.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Sign up</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/card/sign-out.html">
+                                            <li><a class="dropdown-item" href="authentication/card/sign-out.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Sign out</div>
                                                 </a></li>
                                             <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/card/forgot-password.html">
+                                                    href="authentication/card/forgot-password.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Forgot password</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/card/reset-password.html">
+                                            <li><a class="dropdown-item" href="authentication/card/reset-password.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Reset password</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/card/lock-screen.html">
+                                            <li><a class="dropdown-item" href="authentication/card/lock-screen.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Lock screen</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/card/2FA.html">
+                                            <li><a class="dropdown-item" href="authentication/card/2FA.html">
                                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>2FA
                                                     </div>
                                                 </a></li>
@@ -4125,47 +4134,47 @@
                                                 class="me-2 uil" data-feather="layout"></span>Layouts</span></div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="../../demo/vertical-sidenav.html">
+                                    <li><a class="dropdown-item" href="../demo/vertical-sidenav.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Vertical
                                                 sidenav</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../demo/dark-mode.html">
+                                    <li><a class="dropdown-item" href="../demo/dark-mode.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Dark mode
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../demo/sidenav-collapse.html">
+                                    <li><a class="dropdown-item" href="../demo/sidenav-collapse.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sidenav
                                                 collapse</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../demo/darknav.html">
+                                    <li><a class="dropdown-item" href="../demo/darknav.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Darknav
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../demo/topnav-slim.html">
+                                    <li><a class="dropdown-item" href="../demo/topnav-slim.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Topnav slim
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../demo/navbar-top-slim.html">
+                                    <li><a class="dropdown-item" href="../demo/navbar-top-slim.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Navbar top
                                                 slim</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../demo/navbar-top.html">
+                                    <li><a class="dropdown-item" href="../demo/navbar-top.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Navbar top
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../demo/horizontal-slim.html">
+                                    <li><a class="dropdown-item" href="../demo/horizontal-slim.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Horizontal
                                                 slim</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../demo/combo-nav.html">
+                                    <li><a class="dropdown-item" href="../demo/combo-nav.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Combo nav
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../demo/combo-nav-slim.html">
+                                    <li><a class="dropdown-item" href="../demo/combo-nav-slim.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Combo nav
                                                 slim</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../demo/dual-nav.html">
+                                    <li><a class="dropdown-item" href="../demo/dual-nav.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Dual nav
                                             </div>
                                         </a></li>
@@ -4185,174 +4194,167 @@
                                                     style="stroke-width:2;"></span>
                                                 <h6 class="dropdown-item-title">Forms</h6>
                                             </div><a class="dropdown-link"
-                                                href="../../modules/forms/basic/form-control.html">Form control</a><a
+                                                href="../modules/forms/basic/form-control.html">Form control</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/forms/basic/input-group.html">Input group</a><a
+                                                href="../modules/forms/basic/input-group.html">Input group</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/forms/basic/select.html">Select</a><a
+                                                href="../modules/forms/basic/select.html">Select</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/forms/basic/checks.html">Checks</a><a
+                                                href="../modules/forms/basic/checks.html">Checks</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/forms/basic/range.html">Range</a><a
+                                                href="../modules/forms/basic/range.html">Range</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/forms/basic/floating-labels.html">Floating
-                                                labels</a><a class="dropdown-link"
-                                                href="../../modules/forms/basic/layout.html">Layout</a><a
+                                                href="../modules/forms/basic/floating-labels.html">Floating labels</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/forms/advance/advance-select.html">Advance
-                                                select</a><a class="dropdown-link"
-                                                href="../../modules/forms/advance/date-picker.html">Date picker</a><a
+                                                href="../modules/forms/basic/layout.html">Layout</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/forms/advance/editor.html">Editor</a><a
+                                                href="../modules/forms/advance/advance-select.html">Advance select</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/forms/advance/file-uploader.html">File
-                                                uploader</a><a class="dropdown-link"
-                                                href="../../modules/forms/advance/rating.html">Rating</a><a
+                                                href="../modules/forms/advance/date-picker.html">Date picker</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/forms/advance/emoji-button.html">Emoji button</a><a
+                                                href="../modules/forms/advance/editor.html">Editor</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/forms/validation.html">Validation</a><a
-                                                class="dropdown-link" href="../../modules/forms/wizard.html">Wizard</a>
+                                                href="../modules/forms/advance/file-uploader.html">File uploader</a><a
+                                                class="dropdown-link"
+                                                href="../modules/forms/advance/rating.html">Rating</a><a
+                                                class="dropdown-link"
+                                                href="../modules/forms/advance/emoji-button.html">Emoji button</a><a
+                                                class="dropdown-link"
+                                                href="../modules/forms/validation.html">Validation</a><a
+                                                class="dropdown-link" href="../modules/forms/wizard.html">Wizard</a>
                                             <div class="dropdown-item-group mt-5"><span class="me-2" data-feather="grid"
                                                     style="stroke-width:2;"></span>
                                                 <h6 class="dropdown-item-title">Icons</h6>
                                             </div><a class="dropdown-link"
-                                                href="../../modules/icons/feather.html">Feather</a><a
-                                                class="dropdown-link" href="../../modules/icons/font-awesome.html">Font
-                                                awesome</a><a class="dropdown-link"
-                                                href="../../modules/icons/unicons.html">Unicons</a>
+                                                href="../modules/icons/feather.html">Feather</a><a class="dropdown-link"
+                                                href="../modules/icons/font-awesome.html">Font awesome</a><a
+                                                class="dropdown-link" href="../modules/icons/unicons.html">Unicons</a>
                                             <div class="dropdown-item-group mt-5"><span class="me-2"
                                                     data-feather="bar-chart-2" style="stroke-width:2;"></span>
                                                 <h6 class="dropdown-item-title">ECharts</h6>
                                             </div><a class="dropdown-link"
-                                                href="../../modules/echarts/line-charts.html">Line charts</a><a
-                                                class="dropdown-link" href="../../modules/echarts/bar-charts.html">Bar
+                                                href="../modules/echarts/line-charts.html">Line charts</a><a
+                                                class="dropdown-link" href="../modules/echarts/bar-charts.html">Bar
                                                 charts</a><a class="dropdown-link"
-                                                href="../../modules/echarts/candlestick-charts.html">Candlestick
+                                                href="../modules/echarts/candlestick-charts.html">Candlestick
                                                 charts</a><a class="dropdown-link"
-                                                href="../../modules/echarts/geo-map.html">Geo map</a><a
+                                                href="../modules/echarts/geo-map.html">Geo map</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/echarts/scatter-charts.html">Scatter charts</a><a
-                                                class="dropdown-link" href="../../modules/echarts/pie-charts.html">Pie
+                                                href="../modules/echarts/scatter-charts.html">Scatter charts</a><a
+                                                class="dropdown-link" href="../modules/echarts/pie-charts.html">Pie
                                                 charts</a><a class="dropdown-link"
-                                                href="../../modules/echarts/gauge-chart.html">Gauge chart</a><a
-                                                class="dropdown-link"
-                                                href="../../modules/echarts/radar-charts.html">Radar charts</a><a
-                                                class="dropdown-link"
-                                                href="../../modules/echarts/heatmap-charts.html">Heatmap charts</a><a
-                                                class="dropdown-link" href="../../modules/echarts/how-to-use.html">How
-                                                to use</a>
+                                                href="../modules/echarts/gauge-chart.html">Gauge chart</a><a
+                                                class="dropdown-link" href="../modules/echarts/radar-charts.html">Radar
+                                                charts</a><a class="dropdown-link"
+                                                href="../modules/echarts/heatmap-charts.html">Heatmap charts</a><a
+                                                class="dropdown-link" href="../modules/echarts/how-to-use.html">How to
+                                                use</a>
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="dropdown-item-group"><span class="me-2" data-feather="package"
                                                     style="stroke-width:2;"></span>
                                                 <h6 class="dropdown-item-title">Components</h6>
                                             </div><a class="dropdown-link"
-                                                href="../../modules/components/accordion.html">Accordion</a><a
+                                                href="../modules/components/accordion.html">Accordion</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/avatar.html">Avatar</a><a
+                                                href="../modules/components/avatar.html">Avatar</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/alerts.html">Alerts</a><a
+                                                href="../modules/components/alerts.html">Alerts</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/badge.html">Badge</a><a
+                                                href="../modules/components/badge.html">Badge</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/breadcrumb.html">Breadcrumb</a><a
+                                                href="../modules/components/breadcrumb.html">Breadcrumb</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/button.html">Buttons</a><a
+                                                href="../modules/components/button.html">Buttons</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/calendar.html">Calendar</a><a
+                                                href="../modules/components/calendar.html">Calendar</a><a
+                                                class="dropdown-link" href="../modules/components/card.html">Card</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/card.html">Card</a><a
+                                                href="../modules/components/carousel/bootstrap.html">Bootstrap</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/carousel/bootstrap.html">Bootstrap</a><a
+                                                href="../modules/components/carousel/swiper.html">Swiper</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/carousel/swiper.html">Swiper</a><a
+                                                href="../modules/components/collapse.html">Collapse</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/collapse.html">Collapse</a><a
+                                                href="../modules/components/dropdown.html">Dropdown</a><a
+                                                class="dropdown-link" href="../modules/components/list-group.html">List
+                                                group</a><a class="dropdown-link"
+                                                href="../modules/components/modal.html">Modals</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/dropdown.html">Dropdown</a><a
+                                                href="../modules/components/navs-and-tabs/navs.html">Navs</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/list-group.html">List group</a><a
+                                                href="../modules/components/navs-and-tabs/navbar.html">Navbar</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/modal.html">Modals</a><a
+                                                href="../modules/components/navs-and-tabs/tabs.html">Tabs</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/navs-and-tabs/navs.html">Navs</a><a
+                                                href="../modules/components/offcanvas.html">Offcanvas</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/navs-and-tabs/navbar.html">Navbar</a><a
+                                                href="../modules/components/progress-bar.html">Progress bar</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/navs-and-tabs/tabs.html">Tabs</a><a
+                                                href="../modules/components/placeholder.html">Placeholder</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/offcanvas.html">Offcanvas</a><a
+                                                href="../modules/components/pagination.html">Pagination</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/progress-bar.html">Progress bar</a><a
+                                                href="../modules/components/popovers.html">Popovers</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/placeholder.html">Placeholder</a><a
+                                                href="../modules/components/scrollspy.html">Scrollspy</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/pagination.html">Pagination</a><a
+                                                href="../modules/components/sortable.html">Sortable</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/popovers.html">Popovers</a><a
+                                                href="../modules/components/spinners.html">Spinners</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/scrollspy.html">Scrollspy</a><a
+                                                href="../modules/components/toast.html">Toast</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/sortable.html">Sortable</a><a
-                                                class="dropdown-link"
-                                                href="../../modules/components/spinners.html">Spinners</a><a
-                                                class="dropdown-link"
-                                                href="../../modules/components/toast.html">Toast</a><a
-                                                class="dropdown-link"
-                                                href="../../modules/components/tooltips.html">Tooltips</a><a
-                                                class="dropdown-link"
-                                                href="../../modules/components/chat-widget.html">Chat widget</a>
+                                                href="../modules/components/tooltips.html">Tooltips</a><a
+                                                class="dropdown-link" href="../modules/components/chat-widget.html">Chat
+                                                widget</a>
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="dropdown-item-group"><span class="me-2" data-feather="columns"
                                                     style="stroke-width:2;"></span>
                                                 <h6 class="dropdown-item-title">Tables</h6>
                                             </div><a class="dropdown-link"
-                                                href="../../modules/tables/basic-tables.html">Basic tables</a><a
+                                                href="../modules/tables/basic-tables.html">Basic tables</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/tables/advance-tables.html">Advance tables</a><a
-                                                class="dropdown-link" href="../../modules/tables/bulk-select.html">Bulk
+                                                href="../modules/tables/advance-tables.html">Advance tables</a><a
+                                                class="dropdown-link" href="../modules/tables/bulk-select.html">Bulk
                                                 Select</a>
                                             <div class="dropdown-item-group mt-5"><span class="me-2" data-feather="tool"
                                                     style="stroke-width:2;"></span>
                                                 <h6 class="dropdown-item-title">Utilities</h6>
                                             </div><a class="dropdown-link"
-                                                href="../../modules/utilities/background.html">Background</a><a
+                                                href="../modules/utilities/background.html">Background</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/borders.html">Borders</a><a
+                                                href="../modules/utilities/borders.html">Borders</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/colors.html">Colors</a><a
+                                                href="../modules/utilities/colors.html">Colors</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/display.html">Display</a><a
+                                                href="../modules/utilities/display.html">Display</a><a
+                                                class="dropdown-link" href="../modules/utilities/flex.html">Flex</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/flex.html">Flex</a><a
+                                                href="../modules/utilities/stacks.html">Stacks</a><a
+                                                class="dropdown-link" href="../modules/utilities/float.html">Float</a><a
+                                                class="dropdown-link" href="../modules/utilities/grid.html">Grid</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/stacks.html">Stacks</a><a
+                                                href="../modules/utilities/interactions.html">Interactions</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/float.html">Float</a><a
+                                                href="../modules/utilities/opacity.html">Opacity</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/grid.html">Grid</a><a
+                                                href="../modules/utilities/overflow.html">Overflow</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/interactions.html">Interactions</a><a
+                                                href="../modules/utilities/position.html">Position</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/opacity.html">Opacity</a><a
+                                                href="../modules/utilities/shadows.html">Shadows</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/overflow.html">Overflow</a><a
+                                                href="../modules/utilities/sizing.html">Sizing</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/position.html">Position</a><a
+                                                href="../modules/utilities/spacing.html">Spacing</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/shadows.html">Shadows</a><a
+                                                href="../modules/utilities/typography.html">Typography</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/sizing.html">Sizing</a><a
+                                                href="../modules/utilities/vertical-align.html">Vertical align</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/spacing.html">Spacing</a><a
-                                                class="dropdown-link"
-                                                href="../../modules/utilities/typography.html">Typography</a><a
-                                                class="dropdown-link"
-                                                href="../../modules/utilities/vertical-align.html">Vertical align</a><a
-                                                class="dropdown-link"
-                                                href="../../modules/utilities/visibility.html">Visibility</a>
+                                                href="../modules/utilities/visibility.html">Visibility</a>
                                         </div>
                                     </div>
                                 </div>
@@ -4364,9 +4366,10 @@
                             aria-expanded="false"><span
                                 class="uil fs-0 me-2 uil-document-layout-right"></span>Documentation</a>
                         <ul class="dropdown-menu navbar-dropdown-caret">
-                            <li><a class="dropdown-item" href="../../documentation/getting-started.html">
+                            <li><a class="dropdown-item" href="../documentation/getting-started.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
-                                            data-feather="life-buoy"></span>Getting started</div>
+                                            data-feather="life-buoy"></span>Getting
+                                        started</div>
                                 </a></li>
                             <li class="dropdown dropdown-inside"><a class="dropdown-item dropdown-toggle"
                                     id="customization" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">
@@ -4377,20 +4380,19 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item"
-                                            href="../../documentation/customization/configuration.html">
+                                            href="../documentation/customization/configuration.html">
                                             <div class="dropdown-item-wrapper"><span
                                                     class="me-2 uil"></span>Configuration</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../documentation/customization/styling.html">
+                                    <li><a class="dropdown-item" href="../documentation/customization/styling.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Styling
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item"
-                                            href="../../documentation/customization/dark-mode.html">
+                                    <li><a class="dropdown-item" href="../documentation/customization/dark-mode.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Dark mode
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../documentation/customization/plugin.html">
+                                    <li><a class="dropdown-item" href="../documentation/customization/plugin.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Plugin
                                             </div>
                                         </a></li>
@@ -4403,39 +4405,40 @@
                                                 class="me-2 uil" data-feather="table"></span>Layouts doc</span></div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item"
-                                            href="../../documentation/layouts/vertical-navbar.html">
+                                    <li><a class="dropdown-item" href="../documentation/layouts/vertical-navbar.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Vertical
                                                 navbar</div>
                                         </a></li>
-                                    <li><a class="dropdown-item"
-                                            href="../../documentation/layouts/horizontal-navbar.html">
+                                    <li><a class="dropdown-item" href="../documentation/layouts/horizontal-navbar.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Horizontal
                                                 navbar</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../documentation/layouts/combo-navbar.html">
+                                    <li><a class="dropdown-item" href="../documentation/layouts/combo-navbar.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Combo
                                                 navbar</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../documentation/layouts/dual-nav.html">
+                                    <li><a class="dropdown-item" href="../documentation/layouts/dual-nav.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Dual nav
                                             </div>
                                         </a></li>
                                 </ul>
                             </li>
-                            <li><a class="dropdown-item" href="../../documentation/gulp.html">
+                            <li><a class="dropdown-item" href="../documentation/gulp.html">
                                     <div class="dropdown-item-wrapper"><span
-                                            class="me-2 fa-brands fa-gulp ms-1 me-1 fa-lg"></span>Gulp</div>
+                                            class="me-2 fa-brands fa-gulp ms-1 me-1 fa-lg"></span>Gulp
+                                    </div>
                                 </a></li>
-                            <li><a class="dropdown-item" href="../../documentation/design-file.html">
+                            <li><a class="dropdown-item" href="../documentation/design-file.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
-                                            data-feather="figma"></span>Design file</div>
+                                            data-feather="figma"></span>Design file
+                                    </div>
                                 </a></li>
-                            <li><a class="dropdown-item" href="../../changelog.html">
+                            <li><a class="dropdown-item" href="../changelog.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
-                                            data-feather="git-merge"></span>Changelog</div>
+                                            data-feather="git-merge"></span>Changelog
+                                    </div>
                                 </a></li>
-                            <li><a class="dropdown-item" href="../../showcase.html">
+                            <li><a class="dropdown-item" href="../showcase.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
                                             data-feather="monitor"></span>Showcase</div>
                                 </a></li>
@@ -4481,7 +4484,7 @@
                                                 <div class="d-flex">
                                                     <div class="avatar avatar-m status-online me-3"><img
                                                             class="rounded-circle"
-                                                            src="../../assets/img/team/40x40/30.webp" alt="" /></div>
+                                                            src="../assets/img/team/40x40/30.webp" alt="" /></div>
                                                     <div class="flex-1 me-sm-3">
                                                         <h4 class="fs--1 text-black">Jessie Samson</h4>
                                                         <p class="fs--1 text-1000 mb-2 mb-sm-3 fw-normal"><span
@@ -4500,7 +4503,8 @@
                                                         data-bs-reference="parent"><span
                                                             class="fas fa-ellipsis-h fs--2 text-900"></span></button>
                                                     <div class="dropdown-menu dropdown-menu-end py-2"><a
-                                                            class="dropdown-item" href="#!">Mark as unread</a></div>
+                                                            class="dropdown-item" href="#!">Mark as
+                                                            unread</a></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -4515,7 +4519,8 @@
                                                     <div class="flex-1 me-sm-3">
                                                         <h4 class="fs--1 text-black">Jane Foster</h4>
                                                         <p class="fs--1 text-1000 mb-2 mb-sm-3 fw-normal"><span
-                                                                class='me-1 fs--2'>📅</span>Created an event.<span
+                                                                class='me-1 fs--2'>📅</span>Created
+                                                            an event.<span
                                                                 class="ms-2 text-400 fw-bold fs--2">20m</span></p>
                                                         <p class="text-800 fs--1 mb-0"><span
                                                                 class="me-1 fas fa-clock"></span><span
@@ -4529,7 +4534,8 @@
                                                         data-bs-reference="parent"><span
                                                             class="fas fa-ellipsis-h fs--2 text-900"></span></button>
                                                     <div class="dropdown-menu dropdown-menu-end py-2"><a
-                                                            class="dropdown-item" href="#!">Mark as unread</a></div>
+                                                            class="dropdown-item" href="#!">Mark as
+                                                            unread</a></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -4540,12 +4546,12 @@
                                                 <div class="d-flex">
                                                     <div class="avatar avatar-m status-online me-3"><img
                                                             class="rounded-circle avatar-placeholder"
-                                                            src="../../assets/img/team/40x40/avatar.webp" alt="" />
-                                                    </div>
+                                                            src="../assets/img/team/40x40/avatar.webp" alt="" /></div>
                                                     <div class="flex-1 me-sm-3">
                                                         <h4 class="fs--1 text-black">Jessie Samson</h4>
                                                         <p class="fs--1 text-1000 mb-2 mb-sm-3 fw-normal"><span
-                                                                class='me-1 fs--2'>👍</span>Liked your comment.<span
+                                                                class='me-1 fs--2'>👍</span>Liked
+                                                            your comment.<span
                                                                 class="ms-2 text-400 fw-bold fs--2">1h</span></p>
                                                         <p class="text-800 fs--1 mb-0"><span
                                                                 class="me-1 fas fa-clock"></span><span
@@ -4559,7 +4565,8 @@
                                                         data-bs-reference="parent"><span
                                                             class="fas fa-ellipsis-h fs--2 text-900"></span></button>
                                                     <div class="dropdown-menu dropdown-menu-end py-2"><a
-                                                            class="dropdown-item" href="#!">Mark as unread</a></div>
+                                                            class="dropdown-item" href="#!">Mark as
+                                                            unread</a></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -4572,7 +4579,7 @@
                                                 <div class="d-flex">
                                                     <div class="avatar avatar-m status-online me-3"><img
                                                             class="rounded-circle"
-                                                            src="../../assets/img/team/40x40/57.webp" alt="" /></div>
+                                                            src="../assets/img/team/40x40/57.webp" alt="" /></div>
                                                     <div class="flex-1 me-sm-3">
                                                         <h4 class="fs--1 text-black">Kiera Anderson</h4>
                                                         <p class="fs--1 text-1000 mb-2 mb-sm-3 fw-normal"><span
@@ -4591,7 +4598,8 @@
                                                         data-bs-reference="parent"><span
                                                             class="fas fa-ellipsis-h fs--2 text-900"></span></button>
                                                     <div class="dropdown-menu dropdown-menu-end py-2"><a
-                                                            class="dropdown-item" href="#!">Mark as unread</a></div>
+                                                            class="dropdown-item" href="#!">Mark as
+                                                            unread</a></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -4602,13 +4610,13 @@
                                                 <div class="d-flex">
                                                     <div class="avatar avatar-m status-online me-3"><img
                                                             class="rounded-circle"
-                                                            src="../../assets/img/team/40x40/59.webp" alt="" /></div>
+                                                            src="../assets/img/team/40x40/59.webp" alt="" /></div>
                                                     <div class="flex-1 me-sm-3">
                                                         <h4 class="fs--1 text-black">Herman Carter</h4>
                                                         <p class="fs--1 text-1000 mb-2 mb-sm-3 fw-normal"><span
-                                                                class='me-1 fs--2'>👤</span>Tagged you in a
-                                                            comment.<span class="ms-2 text-400 fw-bold fs--2"></span>
-                                                        </p>
+                                                                class='me-1 fs--2'>👤</span>Tagged
+                                                            you in a comment.<span
+                                                                class="ms-2 text-400 fw-bold fs--2"></span></p>
                                                         <p class="text-800 fs--1 mb-0"><span
                                                                 class="me-1 fas fa-clock"></span><span
                                                                 class="fw-bold">10:58 PM </span>August 7,2021</p>
@@ -4621,7 +4629,8 @@
                                                         data-bs-reference="parent"><span
                                                             class="fas fa-ellipsis-h fs--2 text-900"></span></button>
                                                     <div class="dropdown-menu dropdown-menu-end py-2"><a
-                                                            class="dropdown-item" href="#!">Mark as unread</a></div>
+                                                            class="dropdown-item" href="#!">Mark as
+                                                            unread</a></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -4632,11 +4641,12 @@
                                                 <div class="d-flex">
                                                     <div class="avatar avatar-m status-online me-3"><img
                                                             class="rounded-circle"
-                                                            src="../../assets/img/team/40x40/58.webp" alt="" /></div>
+                                                            src="../assets/img/team/40x40/58.webp" alt="" /></div>
                                                     <div class="flex-1 me-sm-3">
                                                         <h4 class="fs--1 text-black">Benjamin Button</h4>
                                                         <p class="fs--1 text-1000 mb-2 mb-sm-3 fw-normal"><span
-                                                                class='me-1 fs--2'>👍</span>Liked your comment.<span
+                                                                class='me-1 fs--2'>👍</span>Liked
+                                                            your comment.<span
                                                                 class="ms-2 text-400 fw-bold fs--2"></span></p>
                                                         <p class="text-800 fs--1 mb-0"><span
                                                                 class="me-1 fas fa-clock"></span><span
@@ -4650,7 +4660,8 @@
                                                         data-bs-reference="parent"><span
                                                             class="fas fa-ellipsis-h fs--2 text-900"></span></button>
                                                     <div class="dropdown-menu dropdown-menu-end py-2"><a
-                                                            class="dropdown-item" href="#!">Mark as unread</a></div>
+                                                            class="dropdown-item" href="#!">Mark as
+                                                            unread</a></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -4659,7 +4670,7 @@
                             </div>
                             <div class="card-footer p-0 border-top border-0">
                                 <div class="my-2 text-center fw-bold fs--2 text-600"><a class="fw-bolder"
-                                        href="../../pages/notifications.html">Notification history</a></div>
+                                        href="notifications.html">Notification history</a></div>
                             </div>
                         </div>
                     </div>
@@ -4685,84 +4696,82 @@
                                 <div class="row text-center align-items-center gx-0 gy-0">
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/behance.webp" alt=""
+                                            href="#!"><img src="../assets/img/nav-icons/behance.webp" alt=""
                                                 width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Behance</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/google-cloud.webp" alt=""
+                                            href="#!"><img src="../assets/img/nav-icons/google-cloud.webp" alt=""
                                                 width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Cloud</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/slack.webp" alt=""
-                                                width="30" />
+                                            href="#!"><img src="../assets/img/nav-icons/slack.webp" alt="" width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Slack</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/gitlab.webp" alt=""
+                                            href="#!"><img src="../assets/img/nav-icons/gitlab.webp" alt=""
                                                 width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Gitlab</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/bitbucket.webp" alt=""
+                                            href="#!"><img src="../assets/img/nav-icons/bitbucket.webp" alt=""
                                                 width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">BitBucket</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/google-drive.webp" alt=""
+                                            href="#!"><img src="../assets/img/nav-icons/google-drive.webp" alt=""
                                                 width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Drive</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/trello.webp" alt=""
+                                            href="#!"><img src="../assets/img/nav-icons/trello.webp" alt=""
                                                 width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Trello</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/figma.webp" alt=""
-                                                width="20" />
+                                            href="#!"><img src="../assets/img/nav-icons/figma.webp" alt="" width="20" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Figma</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/twitter.webp" alt=""
+                                            href="#!"><img src="../assets/img/nav-icons/twitter.webp" alt=""
                                                 width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Twitter</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/pinterest.webp" alt=""
+                                            href="#!"><img src="../assets/img/nav-icons/pinterest.webp" alt=""
                                                 width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Pinterest</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/ln.webp" alt="" width="30" />
+                                            href="#!"><img src="../assets/img/nav-icons/ln.webp" alt="" width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Linkedin</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/google-maps.webp" alt=""
+                                            href="#!"><img src="../assets/img/nav-icons/google-maps.webp" alt=""
                                                 width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Maps</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/google-photos.webp" alt=""
+                                            href="#!"><img src="../assets/img/nav-icons/google-photos.webp" alt=""
                                                 width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Photos</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/spotify.webp" alt=""
+                                            href="#!"><img src="../assets/img/nav-icons/spotify.webp" alt=""
                                                 width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Spotify</p>
                                         </a></div>
@@ -4775,7 +4784,7 @@
                         role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true"
                         aria-expanded="false">
                         <div class="avatar avatar-l ">
-                            <img class="rounded-circle " src="../../assets/img/team/40x40/57.webp" alt="" />
+                            <img class="rounded-circle " src="../assets/img/team/40x40/57.webp" alt="" />
                         </div>
                     </a>
                     <div class="dropdown-menu dropdown-menu-end navbar-dropdown-caret py-0 dropdown-profile shadow border border-300"
@@ -4784,7 +4793,7 @@
                             <div class="card-body p-0">
                                 <div class="text-center pt-4 pb-3">
                                     <div class="avatar avatar-xl ">
-                                        <img class="rounded-circle " src="../../assets/img/team/72x72/57.webp" alt="" />
+                                        <img class="rounded-circle " src="../assets/img/team/72x72/57.webp" alt="" />
                                     </div>
                                     <h6 class="mt-2 text-black">Jerry Seinfield</h6>
                                 </div>
@@ -4816,8 +4825,9 @@
                                 <div class="px-3"> <a class="btn btn-phoenix-secondary d-flex flex-center w-100"
                                         href="#!"> <span class="me-2" data-feather="log-out"> </span>Sign out</a></div>
                                 <div class="my-2 text-center fw-bold fs--2 text-600"><a class="text-600 me-1"
-                                        href="#!">Privacy policy</a>&bull;<a class="text-600 mx-1"
-                                        href="#!">Terms</a>&bull;<a class="text-600 ms-1" href="#!">Cookies</a></div>
+                                        href="#!">Privacy
+                                        policy</a>&bull;<a class="text-600 mx-1" href="#!">Terms</a>&bull;<a
+                                        class="text-600 ms-1" href="#!">Cookies</a></div>
                             </div>
                         </div>
                     </div>
@@ -4831,7 +4841,7 @@
                     data-bs-toggle="collapse" data-bs-target="#navbarVerticalCollapse"
                     aria-controls="navbarVerticalCollapse" aria-expanded="false" aria-label="Toggle Navigation"><span
                         class="navbar-toggle-icon"><span class="toggle-line"></span></span></button>
-                <a class="navbar-brand navbar-brand" href="../../index-2.html">phoenix <span
+                <a class="navbar-brand navbar-brand" href="../index-2.html">phoenix <span
                         class="text-1000 d-none d-sm-inline">slim</span></a>
             </div>
             <div class="collapse navbar-collapse navbar-top-collapse order-1 order-lg-0 justify-content-center"
@@ -4841,21 +4851,24 @@
                             data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true"
                             aria-expanded="false"><span class="uil fs-0 me-2 uil-chart-pie"></span>Home</a>
                         <ul class="dropdown-menu navbar-dropdown-caret">
-                            <li><a class="dropdown-item" href="../../index-2.html">
+                            <li><a class="dropdown-item" href="../index-2.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
-                                            data-feather="shopping-cart"></span>E commerce</div>
+                                            data-feather="shopping-cart"></span>E
+                                        commerce</div>
                                 </a></li>
-                            <li><a class="dropdown-item" href="../../dashboard/project-management.html">
+                            <li><a class="dropdown-item" href="../dashboard/project-management.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
-                                            data-feather="clipboard"></span>Project management</div>
+                                            data-feather="clipboard"></span>Project
+                                        management</div>
                                 </a></li>
-                            <li><a class="dropdown-item" href="../../dashboard/crm.html">
+                            <li><a class="dropdown-item" href="../dashboard/crm.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
                                             data-feather="phone"></span>CRM</div>
                                 </a></li>
-                            <li><a class="dropdown-item" href="../social/feed.html">
+                            <li><a class="dropdown-item" href="../apps/social/feed.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
-                                            data-feather="share-2"></span>Social feed</div>
+                                            data-feather="share-2"></span>Social feed
+                                    </div>
                                 </a></li>
                         </ul>
                     </li>
@@ -4878,32 +4891,34 @@
                                                         class="me-2 uil"></span>Admin</span></div>
                                         </a>
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="../e-commerce/admin/add-product.html">
+                                            <li><a class="dropdown-item"
+                                                    href="../apps/e-commerce/admin/add-product.html">
                                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Add
                                                         product</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item" href="../e-commerce/admin/products.html">
+                                            <li><a class="dropdown-item" href="../apps/e-commerce/admin/products.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Products</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item" href="../e-commerce/admin/customers.html">
+                                            <li><a class="dropdown-item" href="../apps/e-commerce/admin/customers.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Customers</div>
                                                 </a></li>
                                             <li><a class="dropdown-item"
-                                                    href="../e-commerce/admin/customer-details.html">
+                                                    href="../apps/e-commerce/admin/customer-details.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Customer details</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item" href="../e-commerce/admin/orders.html">
+                                            <li><a class="dropdown-item" href="../apps/e-commerce/admin/orders.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Orders</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item" href="../e-commerce/admin/order-details.html">
+                                            <li><a class="dropdown-item"
+                                                    href="../apps/e-commerce/admin/order-details.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Order details</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item" href="../e-commerce/admin/refund.html">
+                                            <li><a class="dropdown-item" href="../apps/e-commerce/admin/refund.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Refund</div>
                                                 </a></li>
@@ -4916,52 +4931,55 @@
                                                         class="me-2 uil"></span>Customer</span></div>
                                         </a>
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="../e-commerce/landing/homepage.html">
+                                            <li><a class="dropdown-item"
+                                                    href="../apps/e-commerce/landing/homepage.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Homepage</div>
                                                 </a></li>
                                             <li><a class="dropdown-item"
-                                                    href="../e-commerce/landing/product-details.html">
+                                                    href="../apps/e-commerce/landing/product-details.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Product details</div>
                                                 </a></li>
                                             <li><a class="dropdown-item"
-                                                    href="../e-commerce/landing/products-filter.html">
+                                                    href="../apps/e-commerce/landing/products-filter.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Products filter</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item" href="../e-commerce/landing/cart.html">
+                                            <li><a class="dropdown-item" href="../apps/e-commerce/landing/cart.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Cart</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item" href="../e-commerce/landing/checkout.html">
+                                            <li><a class="dropdown-item"
+                                                    href="../apps/e-commerce/landing/checkout.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Checkout</div>
                                                 </a></li>
                                             <li><a class="dropdown-item"
-                                                    href="../e-commerce/landing/shipping-info.html">
+                                                    href="../apps/e-commerce/landing/shipping-info.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Shipping info</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item" href="../e-commerce/landing/profile.html">
+                                            <li><a class="dropdown-item" href="../apps/e-commerce/landing/profile.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Profile</div>
                                                 </a></li>
                                             <li><a class="dropdown-item"
-                                                    href="../e-commerce/landing/favourite-stores.html">
+                                                    href="../apps/e-commerce/landing/favourite-stores.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Favourite stores</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item" href="../e-commerce/landing/wishlist.html">
+                                            <li><a class="dropdown-item"
+                                                    href="../apps/e-commerce/landing/wishlist.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Wishlist</div>
                                                 </a></li>
                                             <li><a class="dropdown-item"
-                                                    href="../e-commerce/landing/order-tracking.html">
+                                                    href="../apps/e-commerce/landing/order-tracking.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Order tracking</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item" href="../e-commerce/landing/invoice.html">
+                                            <li><a class="dropdown-item" href="../apps/e-commerce/landing/invoice.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Invoice</div>
                                                 </a></li>
@@ -4976,33 +4994,33 @@
                                                 class="me-2 uil" data-feather="phone"></span>CRM</span></div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="../crm/analytics.html">
+                                    <li><a class="dropdown-item" href="../apps/crm/analytics.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Analytics
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../crm/deals.html">
+                                    <li><a class="dropdown-item" href="../apps/crm/deals.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Deals</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../crm/deal-details.html">
+                                    <li><a class="dropdown-item" href="../apps/crm/deal-details.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Deal
                                                 details</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../crm/leads.html">
+                                    <li><a class="dropdown-item" href="../apps/crm/leads.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Leads</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../crm/lead-details.html">
+                                    <li><a class="dropdown-item" href="../apps/crm/lead-details.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Lead
                                                 details</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../crm/reports.html">
+                                    <li><a class="dropdown-item" href="../apps/crm/reports.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Reports
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../crm/reports-details.html">
+                                    <li><a class="dropdown-item" href="../apps/crm/reports-details.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Reports
                                                 details</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../crm/add-contact.html">
+                                    <li><a class="dropdown-item" href="../apps/crm/add-contact.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Add contact
                                             </div>
                                         </a></li>
@@ -5016,35 +5034,39 @@
                                             management</span></div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="create-new.html">
+                                    <li><a class="dropdown-item" href="../apps/project-management/create-new.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Create new
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item active" href="project-list-view.html">
+                                    <li><a class="dropdown-item"
+                                            href="../apps/project-management/project-list-view.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Project
                                                 list view</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="project-card-view.html">
+                                    <li><a class="dropdown-item"
+                                            href="../apps/project-management/project-card-view.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Project
                                                 card view</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="project-board-view.html">
+                                    <li><a class="dropdown-item"
+                                            href="../apps/project-management/project-board-view.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Project
                                                 board view</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="todo-list.html">
+                                    <li><a class="dropdown-item" href="../apps/project-management/todo-list.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Todo list
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="project-details.html">
+                                    <li><a class="dropdown-item" href="../apps/project-management/project-details.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Project
                                                 details</div>
                                         </a></li>
                                 </ul>
                             </li>
-                            <li><a class="dropdown-item" href="../chat.html">
+                            <li><a class="dropdown-item" href="../apps/chat.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
-                                            data-feather="message-square"></span>Chat</div>
+                                            data-feather="message-square"></span>Chat
+                                    </div>
                                 </a></li>
                             <li class="dropdown"><a class="dropdown-item dropdown-toggle" id="email" href="#"
                                     data-bs-toggle="dropdown" data-bs-auto-close="outside">
@@ -5053,14 +5075,14 @@
                                                 class="me-2 uil" data-feather="mail"></span>Email</span></div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="../email/inbox.html">
+                                    <li><a class="dropdown-item" href="../apps/email/inbox.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Inbox</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../email/email-detail.html">
+                                    <li><a class="dropdown-item" href="../apps/email/email-detail.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Email
                                                 detail</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../email/compose.html">
+                                    <li><a class="dropdown-item" href="../apps/email/compose.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Compose
                                             </div>
                                         </a></li>
@@ -5073,11 +5095,11 @@
                                                 class="me-2 uil" data-feather="bookmark"></span>Events</span></div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="../events/create-an-event.html">
+                                    <li><a class="dropdown-item" href="../apps/events/create-an-event.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Create an
                                                 event</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../events/event-detail.html">
+                                    <li><a class="dropdown-item" href="../apps/events/event-detail.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Event
                                                 detail</div>
                                         </a></li>
@@ -5090,15 +5112,15 @@
                                                 class="me-2 uil" data-feather="trello"></span>Kanban</span></div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="../kanban/kanban.html">
+                                    <li><a class="dropdown-item" href="../apps/kanban/kanban.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Kanban
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../kanban/boards.html">
+                                    <li><a class="dropdown-item" href="../apps/kanban/boards.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Boards
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../kanban/create-kanban-board.html">
+                                    <li><a class="dropdown-item" href="../apps/kanban/create-kanban-board.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Create
                                                 board</div>
                                         </a></li>
@@ -5111,19 +5133,20 @@
                                                 class="me-2 uil" data-feather="share-2"></span>Social</span></div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="../social/profile.html">
+                                    <li><a class="dropdown-item" href="../apps/social/profile.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Profile
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../social/settings.html">
+                                    <li><a class="dropdown-item" href="../apps/social/settings.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Settings
                                             </div>
                                         </a></li>
                                 </ul>
                             </li>
-                            <li><a class="dropdown-item" href="../calendar.html">
+                            <li><a class="dropdown-item" href="../apps/calendar.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
-                                            data-feather="calendar"></span>Calendar</div>
+                                            data-feather="calendar"></span>Calendar
+                                    </div>
                                 </a></li>
                         </ul>
                     </li>
@@ -5131,7 +5154,7 @@
                             data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true"
                             aria-expanded="false"><span class="uil fs-0 me-2 uil-files-landscapes-alt"></span>Pages</a>
                         <ul class="dropdown-menu navbar-dropdown-caret">
-                            <li><a class="dropdown-item" href="../../pages/starter.html">
+                            <li><a class="dropdown-item" href="starter.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
                                             data-feather="compass"></span>Starter</div>
                                 </a></li>
@@ -5142,11 +5165,11 @@
                                                 class="me-2 uil" data-feather="help-circle"></span>Faq</span></div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="../../pages/faq/faq-accordion.html">
+                                    <li><a class="dropdown-item" href="faq/faq-accordion.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Faq
                                                 accordion</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../pages/faq/faq-tab.html">
+                                    <li><a class="dropdown-item" href="faq/faq-tab.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Faq tab
                                             </div>
                                         </a></li>
@@ -5159,11 +5182,11 @@
                                                 class="me-2 uil" data-feather="globe"></span>Landing</span></div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="../../pages/landing/default.html">
+                                    <li><a class="dropdown-item" href="landing/default.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Default
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../pages/landing/alternate.html">
+                                    <li><a class="dropdown-item" href="landing/alternate.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Alternate
                                             </div>
                                         </a></li>
@@ -5176,25 +5199,26 @@
                                                 class="me-2 uil" data-feather="tag"></span>Pricing</span></div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="../../pages/pricing/pricing-column.html">
+                                    <li><a class="dropdown-item" href="pricing/pricing-column.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Pricing
                                                 column</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../pages/pricing/pricing-grid.html">
+                                    <li><a class="dropdown-item" href="pricing/pricing-grid.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Pricing
                                                 grid</div>
                                         </a></li>
                                 </ul>
                             </li>
-                            <li><a class="dropdown-item" href="../../pages/notifications.html">
+                            <li><a class="dropdown-item" href="notifications.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
-                                            data-feather="bell"></span>Notifications</div>
+                                            data-feather="bell"></span>Notifications
+                                    </div>
                                 </a></li>
-                            <li><a class="dropdown-item" href="../../pages/members.html">
+                            <li><a class="dropdown-item active" href="members.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
                                             data-feather="users"></span>Members</div>
                                 </a></li>
-                            <li><a class="dropdown-item" href="../../pages/timeline.html">
+                            <li><a class="dropdown-item" href="timeline.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
                                             data-feather="clock"></span>Timeline</div>
                                 </a></li>
@@ -5206,13 +5230,13 @@
                                     </div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="../../pages/errors/404.html">
+                                    <li><a class="dropdown-item" href="errors/404.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>404</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../pages/errors/403.html">
+                                    <li><a class="dropdown-item" href="errors/403.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>403</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../pages/errors/500.html">
+                                    <li><a class="dropdown-item" href="errors/500.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>500</div>
                                         </a></li>
                                 </ul>
@@ -5231,38 +5255,33 @@
                                                         class="me-2 uil"></span>Simple</span></div>
                                         </a>
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/simple/sign-in.html">
+                                            <li><a class="dropdown-item" href="authentication/simple/sign-in.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Sign in</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/simple/sign-up.html">
+                                            <li><a class="dropdown-item" href="authentication/simple/sign-up.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Sign up</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/simple/sign-out.html">
+                                            <li><a class="dropdown-item" href="authentication/simple/sign-out.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Sign out</div>
                                                 </a></li>
                                             <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/simple/forgot-password.html">
+                                                    href="authentication/simple/forgot-password.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Forgot password</div>
                                                 </a></li>
                                             <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/simple/reset-password.html">
+                                                    href="authentication/simple/reset-password.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Reset password</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/simple/lock-screen.html">
+                                            <li><a class="dropdown-item" href="authentication/simple/lock-screen.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Lock screen</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/simple/2FA.html">
+                                            <li><a class="dropdown-item" href="authentication/simple/2FA.html">
                                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>2FA
                                                     </div>
                                                 </a></li>
@@ -5275,38 +5294,33 @@
                                                         class="me-2 uil"></span>Split</span></div>
                                         </a>
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/split/sign-in.html">
+                                            <li><a class="dropdown-item" href="authentication/split/sign-in.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Sign in</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/split/sign-up.html">
+                                            <li><a class="dropdown-item" href="authentication/split/sign-up.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Sign up</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/split/sign-out.html">
+                                            <li><a class="dropdown-item" href="authentication/split/sign-out.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Sign out</div>
                                                 </a></li>
                                             <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/split/forgot-password.html">
+                                                    href="authentication/split/forgot-password.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Forgot password</div>
                                                 </a></li>
                                             <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/split/reset-password.html">
+                                                    href="authentication/split/reset-password.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Reset password</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/split/lock-screen.html">
+                                            <li><a class="dropdown-item" href="authentication/split/lock-screen.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Lock screen</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/split/2FA.html">
+                                            <li><a class="dropdown-item" href="authentication/split/2FA.html">
                                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>2FA
                                                     </div>
                                                 </a></li>
@@ -5319,38 +5333,32 @@
                                                         class="me-2 uil"></span>Card</span></div>
                                         </a>
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/card/sign-in.html">
+                                            <li><a class="dropdown-item" href="authentication/card/sign-in.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Sign in</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/card/sign-up.html">
+                                            <li><a class="dropdown-item" href="authentication/card/sign-up.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Sign up</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/card/sign-out.html">
+                                            <li><a class="dropdown-item" href="authentication/card/sign-out.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Sign out</div>
                                                 </a></li>
                                             <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/card/forgot-password.html">
+                                                    href="authentication/card/forgot-password.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Forgot password</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/card/reset-password.html">
+                                            <li><a class="dropdown-item" href="authentication/card/reset-password.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Reset password</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/card/lock-screen.html">
+                                            <li><a class="dropdown-item" href="authentication/card/lock-screen.html">
                                                     <div class="dropdown-item-wrapper"><span
                                                             class="me-2 uil"></span>Lock screen</div>
                                                 </a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="../../pages/authentication/card/2FA.html">
+                                            <li><a class="dropdown-item" href="authentication/card/2FA.html">
                                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>2FA
                                                     </div>
                                                 </a></li>
@@ -5365,47 +5373,47 @@
                                                 class="me-2 uil" data-feather="layout"></span>Layouts</span></div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="../../demo/vertical-sidenav.html">
+                                    <li><a class="dropdown-item" href="../demo/vertical-sidenav.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Vertical
                                                 sidenav</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../demo/dark-mode.html">
+                                    <li><a class="dropdown-item" href="../demo/dark-mode.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Dark mode
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../demo/sidenav-collapse.html">
+                                    <li><a class="dropdown-item" href="../demo/sidenav-collapse.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sidenav
                                                 collapse</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../demo/darknav.html">
+                                    <li><a class="dropdown-item" href="../demo/darknav.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Darknav
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../demo/topnav-slim.html">
+                                    <li><a class="dropdown-item" href="../demo/topnav-slim.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Topnav slim
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../demo/navbar-top-slim.html">
+                                    <li><a class="dropdown-item" href="../demo/navbar-top-slim.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Navbar top
                                                 slim</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../demo/navbar-top.html">
+                                    <li><a class="dropdown-item" href="../demo/navbar-top.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Navbar top
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../demo/horizontal-slim.html">
+                                    <li><a class="dropdown-item" href="../demo/horizontal-slim.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Horizontal
                                                 slim</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../demo/combo-nav.html">
+                                    <li><a class="dropdown-item" href="../demo/combo-nav.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Combo nav
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../demo/combo-nav-slim.html">
+                                    <li><a class="dropdown-item" href="../demo/combo-nav-slim.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Combo nav
                                                 slim</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../demo/dual-nav.html">
+                                    <li><a class="dropdown-item" href="../demo/dual-nav.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Dual nav
                                             </div>
                                         </a></li>
@@ -5425,174 +5433,167 @@
                                                     style="stroke-width:2;"></span>
                                                 <h6 class="dropdown-item-title">Forms</h6>
                                             </div><a class="dropdown-link"
-                                                href="../../modules/forms/basic/form-control.html">Form control</a><a
+                                                href="../modules/forms/basic/form-control.html">Form control</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/forms/basic/input-group.html">Input group</a><a
+                                                href="../modules/forms/basic/input-group.html">Input group</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/forms/basic/select.html">Select</a><a
+                                                href="../modules/forms/basic/select.html">Select</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/forms/basic/checks.html">Checks</a><a
+                                                href="../modules/forms/basic/checks.html">Checks</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/forms/basic/range.html">Range</a><a
+                                                href="../modules/forms/basic/range.html">Range</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/forms/basic/floating-labels.html">Floating
-                                                labels</a><a class="dropdown-link"
-                                                href="../../modules/forms/basic/layout.html">Layout</a><a
+                                                href="../modules/forms/basic/floating-labels.html">Floating labels</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/forms/advance/advance-select.html">Advance
-                                                select</a><a class="dropdown-link"
-                                                href="../../modules/forms/advance/date-picker.html">Date picker</a><a
+                                                href="../modules/forms/basic/layout.html">Layout</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/forms/advance/editor.html">Editor</a><a
+                                                href="../modules/forms/advance/advance-select.html">Advance select</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/forms/advance/file-uploader.html">File
-                                                uploader</a><a class="dropdown-link"
-                                                href="../../modules/forms/advance/rating.html">Rating</a><a
+                                                href="../modules/forms/advance/date-picker.html">Date picker</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/forms/advance/emoji-button.html">Emoji button</a><a
+                                                href="../modules/forms/advance/editor.html">Editor</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/forms/validation.html">Validation</a><a
-                                                class="dropdown-link" href="../../modules/forms/wizard.html">Wizard</a>
+                                                href="../modules/forms/advance/file-uploader.html">File uploader</a><a
+                                                class="dropdown-link"
+                                                href="../modules/forms/advance/rating.html">Rating</a><a
+                                                class="dropdown-link"
+                                                href="../modules/forms/advance/emoji-button.html">Emoji button</a><a
+                                                class="dropdown-link"
+                                                href="../modules/forms/validation.html">Validation</a><a
+                                                class="dropdown-link" href="../modules/forms/wizard.html">Wizard</a>
                                             <div class="dropdown-item-group mt-5"><span class="me-2" data-feather="grid"
                                                     style="stroke-width:2;"></span>
                                                 <h6 class="dropdown-item-title">Icons</h6>
                                             </div><a class="dropdown-link"
-                                                href="../../modules/icons/feather.html">Feather</a><a
-                                                class="dropdown-link" href="../../modules/icons/font-awesome.html">Font
-                                                awesome</a><a class="dropdown-link"
-                                                href="../../modules/icons/unicons.html">Unicons</a>
+                                                href="../modules/icons/feather.html">Feather</a><a class="dropdown-link"
+                                                href="../modules/icons/font-awesome.html">Font awesome</a><a
+                                                class="dropdown-link" href="../modules/icons/unicons.html">Unicons</a>
                                             <div class="dropdown-item-group mt-5"><span class="me-2"
                                                     data-feather="bar-chart-2" style="stroke-width:2;"></span>
                                                 <h6 class="dropdown-item-title">ECharts</h6>
                                             </div><a class="dropdown-link"
-                                                href="../../modules/echarts/line-charts.html">Line charts</a><a
-                                                class="dropdown-link" href="../../modules/echarts/bar-charts.html">Bar
+                                                href="../modules/echarts/line-charts.html">Line charts</a><a
+                                                class="dropdown-link" href="../modules/echarts/bar-charts.html">Bar
                                                 charts</a><a class="dropdown-link"
-                                                href="../../modules/echarts/candlestick-charts.html">Candlestick
+                                                href="../modules/echarts/candlestick-charts.html">Candlestick
                                                 charts</a><a class="dropdown-link"
-                                                href="../../modules/echarts/geo-map.html">Geo map</a><a
+                                                href="../modules/echarts/geo-map.html">Geo map</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/echarts/scatter-charts.html">Scatter charts</a><a
-                                                class="dropdown-link" href="../../modules/echarts/pie-charts.html">Pie
+                                                href="../modules/echarts/scatter-charts.html">Scatter charts</a><a
+                                                class="dropdown-link" href="../modules/echarts/pie-charts.html">Pie
                                                 charts</a><a class="dropdown-link"
-                                                href="../../modules/echarts/gauge-chart.html">Gauge chart</a><a
-                                                class="dropdown-link"
-                                                href="../../modules/echarts/radar-charts.html">Radar charts</a><a
-                                                class="dropdown-link"
-                                                href="../../modules/echarts/heatmap-charts.html">Heatmap charts</a><a
-                                                class="dropdown-link" href="../../modules/echarts/how-to-use.html">How
-                                                to use</a>
+                                                href="../modules/echarts/gauge-chart.html">Gauge chart</a><a
+                                                class="dropdown-link" href="../modules/echarts/radar-charts.html">Radar
+                                                charts</a><a class="dropdown-link"
+                                                href="../modules/echarts/heatmap-charts.html">Heatmap charts</a><a
+                                                class="dropdown-link" href="../modules/echarts/how-to-use.html">How to
+                                                use</a>
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="dropdown-item-group"><span class="me-2" data-feather="package"
                                                     style="stroke-width:2;"></span>
                                                 <h6 class="dropdown-item-title">Components</h6>
                                             </div><a class="dropdown-link"
-                                                href="../../modules/components/accordion.html">Accordion</a><a
+                                                href="../modules/components/accordion.html">Accordion</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/avatar.html">Avatar</a><a
+                                                href="../modules/components/avatar.html">Avatar</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/alerts.html">Alerts</a><a
+                                                href="../modules/components/alerts.html">Alerts</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/badge.html">Badge</a><a
+                                                href="../modules/components/badge.html">Badge</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/breadcrumb.html">Breadcrumb</a><a
+                                                href="../modules/components/breadcrumb.html">Breadcrumb</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/button.html">Buttons</a><a
+                                                href="../modules/components/button.html">Buttons</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/calendar.html">Calendar</a><a
+                                                href="../modules/components/calendar.html">Calendar</a><a
+                                                class="dropdown-link" href="../modules/components/card.html">Card</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/card.html">Card</a><a
+                                                href="../modules/components/carousel/bootstrap.html">Bootstrap</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/carousel/bootstrap.html">Bootstrap</a><a
+                                                href="../modules/components/carousel/swiper.html">Swiper</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/carousel/swiper.html">Swiper</a><a
+                                                href="../modules/components/collapse.html">Collapse</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/collapse.html">Collapse</a><a
+                                                href="../modules/components/dropdown.html">Dropdown</a><a
+                                                class="dropdown-link" href="../modules/components/list-group.html">List
+                                                group</a><a class="dropdown-link"
+                                                href="../modules/components/modal.html">Modals</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/dropdown.html">Dropdown</a><a
+                                                href="../modules/components/navs-and-tabs/navs.html">Navs</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/list-group.html">List group</a><a
+                                                href="../modules/components/navs-and-tabs/navbar.html">Navbar</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/modal.html">Modals</a><a
+                                                href="../modules/components/navs-and-tabs/tabs.html">Tabs</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/navs-and-tabs/navs.html">Navs</a><a
+                                                href="../modules/components/offcanvas.html">Offcanvas</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/navs-and-tabs/navbar.html">Navbar</a><a
+                                                href="../modules/components/progress-bar.html">Progress bar</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/navs-and-tabs/tabs.html">Tabs</a><a
+                                                href="../modules/components/placeholder.html">Placeholder</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/offcanvas.html">Offcanvas</a><a
+                                                href="../modules/components/pagination.html">Pagination</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/progress-bar.html">Progress bar</a><a
+                                                href="../modules/components/popovers.html">Popovers</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/placeholder.html">Placeholder</a><a
+                                                href="../modules/components/scrollspy.html">Scrollspy</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/pagination.html">Pagination</a><a
+                                                href="../modules/components/sortable.html">Sortable</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/popovers.html">Popovers</a><a
+                                                href="../modules/components/spinners.html">Spinners</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/scrollspy.html">Scrollspy</a><a
+                                                href="../modules/components/toast.html">Toast</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/components/sortable.html">Sortable</a><a
-                                                class="dropdown-link"
-                                                href="../../modules/components/spinners.html">Spinners</a><a
-                                                class="dropdown-link"
-                                                href="../../modules/components/toast.html">Toast</a><a
-                                                class="dropdown-link"
-                                                href="../../modules/components/tooltips.html">Tooltips</a><a
-                                                class="dropdown-link"
-                                                href="../../modules/components/chat-widget.html">Chat widget</a>
+                                                href="../modules/components/tooltips.html">Tooltips</a><a
+                                                class="dropdown-link" href="../modules/components/chat-widget.html">Chat
+                                                widget</a>
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="dropdown-item-group"><span class="me-2" data-feather="columns"
                                                     style="stroke-width:2;"></span>
                                                 <h6 class="dropdown-item-title">Tables</h6>
                                             </div><a class="dropdown-link"
-                                                href="../../modules/tables/basic-tables.html">Basic tables</a><a
+                                                href="../modules/tables/basic-tables.html">Basic tables</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/tables/advance-tables.html">Advance tables</a><a
-                                                class="dropdown-link" href="../../modules/tables/bulk-select.html">Bulk
+                                                href="../modules/tables/advance-tables.html">Advance tables</a><a
+                                                class="dropdown-link" href="../modules/tables/bulk-select.html">Bulk
                                                 Select</a>
                                             <div class="dropdown-item-group mt-5"><span class="me-2" data-feather="tool"
                                                     style="stroke-width:2;"></span>
                                                 <h6 class="dropdown-item-title">Utilities</h6>
                                             </div><a class="dropdown-link"
-                                                href="../../modules/utilities/background.html">Background</a><a
+                                                href="../modules/utilities/background.html">Background</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/borders.html">Borders</a><a
+                                                href="../modules/utilities/borders.html">Borders</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/colors.html">Colors</a><a
+                                                href="../modules/utilities/colors.html">Colors</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/display.html">Display</a><a
+                                                href="../modules/utilities/display.html">Display</a><a
+                                                class="dropdown-link" href="../modules/utilities/flex.html">Flex</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/flex.html">Flex</a><a
+                                                href="../modules/utilities/stacks.html">Stacks</a><a
+                                                class="dropdown-link" href="../modules/utilities/float.html">Float</a><a
+                                                class="dropdown-link" href="../modules/utilities/grid.html">Grid</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/stacks.html">Stacks</a><a
+                                                href="../modules/utilities/interactions.html">Interactions</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/float.html">Float</a><a
+                                                href="../modules/utilities/opacity.html">Opacity</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/grid.html">Grid</a><a
+                                                href="../modules/utilities/overflow.html">Overflow</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/interactions.html">Interactions</a><a
+                                                href="../modules/utilities/position.html">Position</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/opacity.html">Opacity</a><a
+                                                href="../modules/utilities/shadows.html">Shadows</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/overflow.html">Overflow</a><a
+                                                href="../modules/utilities/sizing.html">Sizing</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/position.html">Position</a><a
+                                                href="../modules/utilities/spacing.html">Spacing</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/shadows.html">Shadows</a><a
+                                                href="../modules/utilities/typography.html">Typography</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/sizing.html">Sizing</a><a
+                                                href="../modules/utilities/vertical-align.html">Vertical align</a><a
                                                 class="dropdown-link"
-                                                href="../../modules/utilities/spacing.html">Spacing</a><a
-                                                class="dropdown-link"
-                                                href="../../modules/utilities/typography.html">Typography</a><a
-                                                class="dropdown-link"
-                                                href="../../modules/utilities/vertical-align.html">Vertical align</a><a
-                                                class="dropdown-link"
-                                                href="../../modules/utilities/visibility.html">Visibility</a>
+                                                href="../modules/utilities/visibility.html">Visibility</a>
                                         </div>
                                     </div>
                                 </div>
@@ -5604,9 +5605,10 @@
                             aria-expanded="false"><span
                                 class="uil fs-0 me-2 uil-document-layout-right"></span>Documentation</a>
                         <ul class="dropdown-menu navbar-dropdown-caret">
-                            <li><a class="dropdown-item" href="../../documentation/getting-started.html">
+                            <li><a class="dropdown-item" href="../documentation/getting-started.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
-                                            data-feather="life-buoy"></span>Getting started</div>
+                                            data-feather="life-buoy"></span>Getting
+                                        started</div>
                                 </a></li>
                             <li class="dropdown dropdown-inside"><a class="dropdown-item dropdown-toggle"
                                     id="customization" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">
@@ -5617,20 +5619,19 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item"
-                                            href="../../documentation/customization/configuration.html">
+                                            href="../documentation/customization/configuration.html">
                                             <div class="dropdown-item-wrapper"><span
                                                     class="me-2 uil"></span>Configuration</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../documentation/customization/styling.html">
+                                    <li><a class="dropdown-item" href="../documentation/customization/styling.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Styling
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item"
-                                            href="../../documentation/customization/dark-mode.html">
+                                    <li><a class="dropdown-item" href="../documentation/customization/dark-mode.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Dark mode
                                             </div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../documentation/customization/plugin.html">
+                                    <li><a class="dropdown-item" href="../documentation/customization/plugin.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Plugin
                                             </div>
                                         </a></li>
@@ -5643,39 +5644,40 @@
                                                 class="me-2 uil" data-feather="table"></span>Layouts doc</span></div>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item"
-                                            href="../../documentation/layouts/vertical-navbar.html">
+                                    <li><a class="dropdown-item" href="../documentation/layouts/vertical-navbar.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Vertical
                                                 navbar</div>
                                         </a></li>
-                                    <li><a class="dropdown-item"
-                                            href="../../documentation/layouts/horizontal-navbar.html">
+                                    <li><a class="dropdown-item" href="../documentation/layouts/horizontal-navbar.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Horizontal
                                                 navbar</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../documentation/layouts/combo-navbar.html">
+                                    <li><a class="dropdown-item" href="../documentation/layouts/combo-navbar.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Combo
                                                 navbar</div>
                                         </a></li>
-                                    <li><a class="dropdown-item" href="../../documentation/layouts/dual-nav.html">
+                                    <li><a class="dropdown-item" href="../documentation/layouts/dual-nav.html">
                                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Dual nav
                                             </div>
                                         </a></li>
                                 </ul>
                             </li>
-                            <li><a class="dropdown-item" href="../../documentation/gulp.html">
+                            <li><a class="dropdown-item" href="../documentation/gulp.html">
                                     <div class="dropdown-item-wrapper"><span
-                                            class="me-2 fa-brands fa-gulp ms-1 me-1 fa-lg"></span>Gulp</div>
+                                            class="me-2 fa-brands fa-gulp ms-1 me-1 fa-lg"></span>Gulp
+                                    </div>
                                 </a></li>
-                            <li><a class="dropdown-item" href="../../documentation/design-file.html">
+                            <li><a class="dropdown-item" href="../documentation/design-file.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
-                                            data-feather="figma"></span>Design file</div>
+                                            data-feather="figma"></span>Design file
+                                    </div>
                                 </a></li>
-                            <li><a class="dropdown-item" href="../../changelog.html">
+                            <li><a class="dropdown-item" href="../changelog.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
-                                            data-feather="git-merge"></span>Changelog</div>
+                                            data-feather="git-merge"></span>Changelog
+                                    </div>
                                 </a></li>
-                            <li><a class="dropdown-item" href="../../showcase.html">
+                            <li><a class="dropdown-item" href="../showcase.html">
                                     <div class="dropdown-item-wrapper"><span class="me-2 uil"
                                             data-feather="monitor"></span>Showcase</div>
                                 </a></li>
@@ -5723,7 +5725,7 @@
                                                 <div class="d-flex">
                                                     <div class="avatar avatar-m status-online me-3"><img
                                                             class="rounded-circle"
-                                                            src="../../assets/img/team/40x40/30.webp" alt="" /></div>
+                                                            src="../assets/img/team/40x40/30.webp" alt="" /></div>
                                                     <div class="flex-1 me-sm-3">
                                                         <h4 class="fs--1 text-black">Jessie Samson</h4>
                                                         <p class="fs--1 text-1000 mb-2 mb-sm-3 fw-normal"><span
@@ -5742,7 +5744,8 @@
                                                         data-bs-reference="parent"><span
                                                             class="fas fa-ellipsis-h fs--2 text-900"></span></button>
                                                     <div class="dropdown-menu dropdown-menu-end py-2"><a
-                                                            class="dropdown-item" href="#!">Mark as unread</a></div>
+                                                            class="dropdown-item" href="#!">Mark as
+                                                            unread</a></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -5757,7 +5760,8 @@
                                                     <div class="flex-1 me-sm-3">
                                                         <h4 class="fs--1 text-black">Jane Foster</h4>
                                                         <p class="fs--1 text-1000 mb-2 mb-sm-3 fw-normal"><span
-                                                                class='me-1 fs--2'>📅</span>Created an event.<span
+                                                                class='me-1 fs--2'>📅</span>Created
+                                                            an event.<span
                                                                 class="ms-2 text-400 fw-bold fs--2">20m</span></p>
                                                         <p class="text-800 fs--1 mb-0"><span
                                                                 class="me-1 fas fa-clock"></span><span
@@ -5771,7 +5775,8 @@
                                                         data-bs-reference="parent"><span
                                                             class="fas fa-ellipsis-h fs--2 text-900"></span></button>
                                                     <div class="dropdown-menu dropdown-menu-end py-2"><a
-                                                            class="dropdown-item" href="#!">Mark as unread</a></div>
+                                                            class="dropdown-item" href="#!">Mark as
+                                                            unread</a></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -5782,12 +5787,12 @@
                                                 <div class="d-flex">
                                                     <div class="avatar avatar-m status-online me-3"><img
                                                             class="rounded-circle avatar-placeholder"
-                                                            src="../../assets/img/team/40x40/avatar.webp" alt="" />
-                                                    </div>
+                                                            src="../assets/img/team/40x40/avatar.webp" alt="" /></div>
                                                     <div class="flex-1 me-sm-3">
                                                         <h4 class="fs--1 text-black">Jessie Samson</h4>
                                                         <p class="fs--1 text-1000 mb-2 mb-sm-3 fw-normal"><span
-                                                                class='me-1 fs--2'>👍</span>Liked your comment.<span
+                                                                class='me-1 fs--2'>👍</span>Liked
+                                                            your comment.<span
                                                                 class="ms-2 text-400 fw-bold fs--2">1h</span></p>
                                                         <p class="text-800 fs--1 mb-0"><span
                                                                 class="me-1 fas fa-clock"></span><span
@@ -5801,7 +5806,8 @@
                                                         data-bs-reference="parent"><span
                                                             class="fas fa-ellipsis-h fs--2 text-900"></span></button>
                                                     <div class="dropdown-menu dropdown-menu-end py-2"><a
-                                                            class="dropdown-item" href="#!">Mark as unread</a></div>
+                                                            class="dropdown-item" href="#!">Mark as
+                                                            unread</a></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -5814,7 +5820,7 @@
                                                 <div class="d-flex">
                                                     <div class="avatar avatar-m status-online me-3"><img
                                                             class="rounded-circle"
-                                                            src="../../assets/img/team/40x40/57.webp" alt="" /></div>
+                                                            src="../assets/img/team/40x40/57.webp" alt="" /></div>
                                                     <div class="flex-1 me-sm-3">
                                                         <h4 class="fs--1 text-black">Kiera Anderson</h4>
                                                         <p class="fs--1 text-1000 mb-2 mb-sm-3 fw-normal"><span
@@ -5833,7 +5839,8 @@
                                                         data-bs-reference="parent"><span
                                                             class="fas fa-ellipsis-h fs--2 text-900"></span></button>
                                                     <div class="dropdown-menu dropdown-menu-end py-2"><a
-                                                            class="dropdown-item" href="#!">Mark as unread</a></div>
+                                                            class="dropdown-item" href="#!">Mark as
+                                                            unread</a></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -5844,13 +5851,13 @@
                                                 <div class="d-flex">
                                                     <div class="avatar avatar-m status-online me-3"><img
                                                             class="rounded-circle"
-                                                            src="../../assets/img/team/40x40/59.webp" alt="" /></div>
+                                                            src="../assets/img/team/40x40/59.webp" alt="" /></div>
                                                     <div class="flex-1 me-sm-3">
                                                         <h4 class="fs--1 text-black">Herman Carter</h4>
                                                         <p class="fs--1 text-1000 mb-2 mb-sm-3 fw-normal"><span
-                                                                class='me-1 fs--2'>👤</span>Tagged you in a
-                                                            comment.<span class="ms-2 text-400 fw-bold fs--2"></span>
-                                                        </p>
+                                                                class='me-1 fs--2'>👤</span>Tagged
+                                                            you in a comment.<span
+                                                                class="ms-2 text-400 fw-bold fs--2"></span></p>
                                                         <p class="text-800 fs--1 mb-0"><span
                                                                 class="me-1 fas fa-clock"></span><span
                                                                 class="fw-bold">10:58 PM </span>August 7,2021</p>
@@ -5863,7 +5870,8 @@
                                                         data-bs-reference="parent"><span
                                                             class="fas fa-ellipsis-h fs--2 text-900"></span></button>
                                                     <div class="dropdown-menu dropdown-menu-end py-2"><a
-                                                            class="dropdown-item" href="#!">Mark as unread</a></div>
+                                                            class="dropdown-item" href="#!">Mark as
+                                                            unread</a></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -5874,11 +5882,12 @@
                                                 <div class="d-flex">
                                                     <div class="avatar avatar-m status-online me-3"><img
                                                             class="rounded-circle"
-                                                            src="../../assets/img/team/40x40/58.webp" alt="" /></div>
+                                                            src="../assets/img/team/40x40/58.webp" alt="" /></div>
                                                     <div class="flex-1 me-sm-3">
                                                         <h4 class="fs--1 text-black">Benjamin Button</h4>
                                                         <p class="fs--1 text-1000 mb-2 mb-sm-3 fw-normal"><span
-                                                                class='me-1 fs--2'>👍</span>Liked your comment.<span
+                                                                class='me-1 fs--2'>👍</span>Liked
+                                                            your comment.<span
                                                                 class="ms-2 text-400 fw-bold fs--2"></span></p>
                                                         <p class="text-800 fs--1 mb-0"><span
                                                                 class="me-1 fas fa-clock"></span><span
@@ -5892,7 +5901,8 @@
                                                         data-bs-reference="parent"><span
                                                             class="fas fa-ellipsis-h fs--2 text-900"></span></button>
                                                     <div class="dropdown-menu dropdown-menu-end py-2"><a
-                                                            class="dropdown-item" href="#!">Mark as unread</a></div>
+                                                            class="dropdown-item" href="#!">Mark as
+                                                            unread</a></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -5901,7 +5911,7 @@
                             </div>
                             <div class="card-footer p-0 border-top border-0">
                                 <div class="my-2 text-center fw-bold fs--2 text-600"><a class="fw-bolder"
-                                        href="../../pages/notifications.html">Notification history</a></div>
+                                        href="notifications.html">Notification history</a></div>
                             </div>
                         </div>
                     </div>
@@ -5927,84 +5937,82 @@
                                 <div class="row text-center align-items-center gx-0 gy-0">
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/behance.webp" alt=""
+                                            href="#!"><img src="../assets/img/nav-icons/behance.webp" alt=""
                                                 width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Behance</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/google-cloud.webp" alt=""
+                                            href="#!"><img src="../assets/img/nav-icons/google-cloud.webp" alt=""
                                                 width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Cloud</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/slack.webp" alt=""
-                                                width="30" />
+                                            href="#!"><img src="../assets/img/nav-icons/slack.webp" alt="" width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Slack</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/gitlab.webp" alt=""
+                                            href="#!"><img src="../assets/img/nav-icons/gitlab.webp" alt=""
                                                 width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Gitlab</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/bitbucket.webp" alt=""
+                                            href="#!"><img src="../assets/img/nav-icons/bitbucket.webp" alt=""
                                                 width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">BitBucket</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/google-drive.webp" alt=""
+                                            href="#!"><img src="../assets/img/nav-icons/google-drive.webp" alt=""
                                                 width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Drive</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/trello.webp" alt=""
+                                            href="#!"><img src="../assets/img/nav-icons/trello.webp" alt=""
                                                 width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Trello</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/figma.webp" alt=""
-                                                width="20" />
+                                            href="#!"><img src="../assets/img/nav-icons/figma.webp" alt="" width="20" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Figma</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/twitter.webp" alt=""
+                                            href="#!"><img src="../assets/img/nav-icons/twitter.webp" alt=""
                                                 width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Twitter</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/pinterest.webp" alt=""
+                                            href="#!"><img src="../assets/img/nav-icons/pinterest.webp" alt=""
                                                 width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Pinterest</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/ln.webp" alt="" width="30" />
+                                            href="#!"><img src="../assets/img/nav-icons/ln.webp" alt="" width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Linkedin</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/google-maps.webp" alt=""
+                                            href="#!"><img src="../assets/img/nav-icons/google-maps.webp" alt=""
                                                 width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Maps</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/google-photos.webp" alt=""
+                                            href="#!"><img src="../assets/img/nav-icons/google-photos.webp" alt=""
                                                 width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Photos</p>
                                         </a></div>
                                     <div class="col-4"><a
                                             class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                            href="#!"><img src="../../assets/img/nav-icons/spotify.webp" alt=""
+                                            href="#!"><img src="../assets/img/nav-icons/spotify.webp" alt=""
                                                 width="30" />
                                             <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Spotify</p>
                                         </a></div>
@@ -6023,7 +6031,7 @@
                             <div class="card-body p-0">
                                 <div class="text-center pt-4 pb-3">
                                     <div class="avatar avatar-xl ">
-                                        <img class="rounded-circle " src="../../assets/img/team/72x72/57.webp" alt="" />
+                                        <img class="rounded-circle " src="../assets/img/team/72x72/57.webp" alt="" />
                                     </div>
                                     <h6 class="mt-2 text-black">Jerry Seinfield</h6>
                                 </div>
@@ -6055,29 +6063,12 @@
                                 <div class="px-3"> <a class="btn btn-phoenix-secondary d-flex flex-center w-100"
                                         href="#!"> <span class="me-2" data-feather="log-out"> </span>Sign out</a></div>
                                 <div class="my-2 text-center fw-bold fs--2 text-600"><a class="text-600 me-1"
-                                        href="#!">Privacy policy</a>&bull;<a class="text-600 mx-1"
-                                        href="#!">Terms</a>&bull;<a class="text-600 ms-1" href="#!">Cookies</a></div>
+                                        href="#!">Privacy
+                                        policy</a>&bull;<a class="text-600 mx-1" href="#!">Terms</a>&bull;<a
+                                        class="text-600 ms-1" href="#!">Cookies</a></div>
                             </div>
                         </div>
                     </div>
-                </li>
-                <li class="nav-item">
-                    <form method="post" action="{{ route('logout') }}">
-                        @csrf
-                        <!-- Add any additional form fields if needed -->
-
-                        <!-- Check if the user is authenticated and display the user type -->
-                        @if (Auth::check())
-                            <button type="submit" class="btn btn-primary">
-                                LOGOUT ({{ Auth::user()->usertype }})
-                            </button>
-                        @else
-                            <!-- Optionally, you can handle the case when no user is logged in -->
-                            <button type="submit" class="btn btn-primary" disabled>
-                                LOGOUT
-                            </button>
-                        @endif
-                    </form>
                 </li>
             </ul>
         </nav>
@@ -6089,9 +6080,9 @@
                             type="button" data-bs-toggle="collapse" data-bs-target="#navbarTopCollapse"
                             aria-controls="navbarTopCollapse" aria-expanded="false" aria-label="Toggle Navigation"><span
                                 class="navbar-toggle-icon"><span class="toggle-line"></span></span></button>
-                        <a class="navbar-brand me-1 me-sm-3" href="../../index-2.html">
+                        <a class="navbar-brand me-1 me-sm-3" href="../index-2.html">
                             <div class="d-flex align-items-center">
-                                <div class="d-flex align-items-center"><img src="../../assets/img/icons/logo.png"
+                                <div class="d-flex align-items-center"><img src="../assets/img/icons/logo.png"
                                         alt="phoenix" width="27" />
                                     <p class="logo-text ms-2 d-none d-sm-block">phoenix</p>
                                 </div>
@@ -6107,7 +6098,8 @@
                         </form>
                         <div class="btn-close position-absolute end-0 top-50 translate-middle cursor-pointer shadow-none"
                             data-bs-dismiss="search"><button class="btn btn-link btn-close-falcon p-0"
-                                aria-label="Close"></button></div>
+                                aria-label="Close"></button>
+                        </div>
                         <div class="dropdown-menu border border-300 font-base start-0 py-0 overflow-hidden w-100">
                             <div class="scrollbar-overlay" style="max-height: 30rem;">
                                 <div class="list pb-3">
@@ -6115,16 +6107,17 @@
                                             class="text-500">results</span></h6>
                                     <hr class="text-200 my-0" />
                                     <h6 class="dropdown-header text-1000 fs--1 border-bottom border-200 py-2 lh-sm">
-                                        Recently Searched </h6>
+                                        Recently Searched
+                                    </h6>
                                     <div class="py-2"><a class="dropdown-item"
-                                            href="../e-commerce/landing/product-details.html">
+                                            href="../apps/e-commerce/landing/product-details.html">
                                             <div class="d-flex align-items-center">
                                                 <div class="fw-normal text-1000 title"><span
                                                         class="fa-solid fa-clock-rotate-left"
                                                         data-fa-transform="shrink-2"></span> Store Macbook</div>
                                             </div>
                                         </a>
-                                        <a class="dropdown-item" href="../e-commerce/landing/product-details.html">
+                                        <a class="dropdown-item" href="../apps/e-commerce/landing/product-details.html">
                                             <div class="d-flex align-items-center">
                                                 <div class="fw-normal text-1000 title"> <span
                                                         class="fa-solid fa-clock-rotate-left"
@@ -6136,25 +6129,26 @@
                                     <h6 class="dropdown-header text-1000 fs--1 border-bottom border-200 py-2 lh-sm">
                                         Products</h6>
                                     <div class="py-2"><a class="dropdown-item py-2 d-flex align-items-center"
-                                            href="../e-commerce/landing/product-details.html">
+                                            href="../apps/e-commerce/landing/product-details.html">
                                             <div class="file-thumbnail me-2"><img
                                                     class="h-100 w-100 fit-cover rounded-3"
-                                                    src="../../assets/img/products/60x60/3.png" alt="" /></div>
+                                                    src="../assets/img/products/60x60/3.png" alt="" /></div>
                                             <div class="flex-1">
                                                 <h6 class="mb-0 text-1000 title">MacBook Air - 13″</h6>
                                                 <p class="fs--2 mb-0 d-flex text-700"><span
-                                                        class="fw-medium text-600">8GB Memory - 1.6GHz - 128GB
-                                                        Storage</span></p>
+                                                        class="fw-medium text-600">8GB Memory - 1.6GHz -
+                                                        128GB Storage</span></p>
                                             </div>
                                         </a>
                                         <a class="dropdown-item py-2 d-flex align-items-center"
-                                            href="../e-commerce/landing/product-details.html">
+                                            href="../apps/e-commerce/landing/product-details.html">
                                             <div class="file-thumbnail me-2"><img class="img-fluid"
-                                                    src="../../assets/img/products/60x60/3.png" alt="" /></div>
+                                                    src="../assets/img/products/60x60/3.png" alt="" /></div>
                                             <div class="flex-1">
                                                 <h6 class="mb-0 text-1000 title">MacBook Pro - 13″</h6>
                                                 <p class="fs--2 mb-0 d-flex text-700"><span
-                                                        class="fw-medium text-600 ms-2">30 Sep at 12:30 PM</span></p>
+                                                        class="fw-medium text-600 ms-2">30 Sep at 12:30
+                                                        PM</span></p>
                                             </div>
                                         </a>
                                     </div>
@@ -6162,14 +6156,14 @@
                                     <h6 class="dropdown-header text-1000 fs--1 border-bottom border-200 py-2 lh-sm">
                                         Quick Links</h6>
                                     <div class="py-2"><a class="dropdown-item"
-                                            href="../e-commerce/landing/product-details.html">
+                                            href="../apps/e-commerce/landing/product-details.html">
                                             <div class="d-flex align-items-center">
                                                 <div class="fw-normal text-1000 title"><span
                                                         class="fa-solid fa-link text-900"
                                                         data-fa-transform="shrink-2"></span> Support MacBook House</div>
                                             </div>
                                         </a>
-                                        <a class="dropdown-item" href="../e-commerce/landing/product-details.html">
+                                        <a class="dropdown-item" href="../apps/e-commerce/landing/product-details.html">
                                             <div class="d-flex align-items-center">
                                                 <div class="fw-normal text-1000 title"> <span
                                                         class="fa-solid fa-link text-900"
@@ -6181,7 +6175,7 @@
                                     <h6 class="dropdown-header text-1000 fs--1 border-bottom border-200 py-2 lh-sm">
                                         Files</h6>
                                     <div class="py-2"><a class="dropdown-item"
-                                            href="../e-commerce/landing/product-details.html">
+                                            href="../apps/e-commerce/landing/product-details.html">
                                             <div class="d-flex align-items-center">
                                                 <div class="fw-normal text-1000 title"><span
                                                         class="fa-solid fa-file-zipper text-900"
@@ -6189,7 +6183,7 @@
                                                 </div>
                                             </div>
                                         </a>
-                                        <a class="dropdown-item" href="../e-commerce/landing/product-details.html">
+                                        <a class="dropdown-item" href="../apps/e-commerce/landing/product-details.html">
                                             <div class="d-flex align-items-center">
                                                 <div class="fw-normal text-1000 title"> <span
                                                         class="fa-solid fa-file-lines text-900"
@@ -6197,7 +6191,7 @@
                                                     extensions.txt</div>
                                             </div>
                                         </a>
-                                        <a class="dropdown-item" href="../e-commerce/landing/product-details.html">
+                                        <a class="dropdown-item" href="../apps/e-commerce/landing/product-details.html">
                                             <div class="d-flex align-items-center">
                                                 <div class="fw-normal text-1000 title"> <span
                                                         class="fa-solid fa-image text-900"
@@ -6209,9 +6203,9 @@
                                     <h6 class="dropdown-header text-1000 fs--1 border-bottom border-200 py-2 lh-sm">
                                         Members</h6>
                                     <div class="py-2"><a class="dropdown-item py-2 d-flex align-items-center"
-                                            href="../../pages/members.html">
+                                            href="members.html">
                                             <div class="avatar avatar-l status-online  me-2 text-900">
-                                                <img class="rounded-circle " src="../../assets/img/team/40x40/10.webp"
+                                                <img class="rounded-circle " src="../assets/img/team/40x40/10.webp"
                                                     alt="" />
                                             </div>
                                             <div class="flex-1">
@@ -6219,10 +6213,9 @@
                                                 <p class="fs--2 mb-0 d-flex text-700">anna@technext.it</p>
                                             </div>
                                         </a>
-                                        <a class="dropdown-item py-2 d-flex align-items-center"
-                                            href="../../pages/members.html">
+                                        <a class="dropdown-item py-2 d-flex align-items-center" href="members.html">
                                             <div class="avatar avatar-l  me-2 text-900">
-                                                <img class="rounded-circle " src="../../assets/img/team/40x40/12.webp"
+                                                <img class="rounded-circle " src="../assets/img/team/40x40/12.webp"
                                                     alt="" />
                                             </div>
                                             <div class="flex-1">
@@ -6235,7 +6228,7 @@
                                     <h6 class="dropdown-header text-1000 fs--1 border-bottom border-200 py-2 lh-sm">
                                         Related Searches</h6>
                                     <div class="py-2"><a class="dropdown-item"
-                                            href="../e-commerce/landing/product-details.html">
+                                            href="../apps/e-commerce/landing/product-details.html">
                                             <div class="d-flex align-items-center">
                                                 <div class="fw-normal text-1000 title"><span
                                                         class="fa-brands fa-firefox-browser text-900"
@@ -6243,7 +6236,7 @@
                                                 </div>
                                             </div>
                                         </a>
-                                        <a class="dropdown-item" href="../e-commerce/landing/product-details.html">
+                                        <a class="dropdown-item" href="../apps/e-commerce/landing/product-details.html">
                                             <div class="d-flex align-items-center">
                                                 <div class="fw-normal text-1000 title"> <span
                                                         class="fa-brands fa-chrome text-900"
@@ -6295,7 +6288,7 @@
                                                         <div class="d-flex">
                                                             <div class="avatar avatar-m status-online me-3"><img
                                                                     class="rounded-circle"
-                                                                    src="../../assets/img/team/40x40/30.webp" alt="" />
+                                                                    src="../assets/img/team/40x40/30.webp" alt="" />
                                                             </div>
                                                             <div class="flex-1 me-sm-3">
                                                                 <h4 class="fs--1 text-black">Jessie Samson</h4>
@@ -6317,8 +6310,8 @@
                                                                 aria-expanded="false" data-bs-reference="parent"><span
                                                                     class="fas fa-ellipsis-h fs--2 text-900"></span></button>
                                                             <div class="dropdown-menu dropdown-menu-end py-2"><a
-                                                                    class="dropdown-item" href="#!">Mark as unread</a>
-                                                            </div>
+                                                                    class="dropdown-item" href="#!">Mark
+                                                                    as unread</a></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -6351,8 +6344,8 @@
                                                                 aria-expanded="false" data-bs-reference="parent"><span
                                                                     class="fas fa-ellipsis-h fs--2 text-900"></span></button>
                                                             <div class="dropdown-menu dropdown-menu-end py-2"><a
-                                                                    class="dropdown-item" href="#!">Mark as unread</a>
-                                                            </div>
+                                                                    class="dropdown-item" href="#!">Mark
+                                                                    as unread</a></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -6363,8 +6356,8 @@
                                                         <div class="d-flex">
                                                             <div class="avatar avatar-m status-online me-3"><img
                                                                     class="rounded-circle avatar-placeholder"
-                                                                    src="../../assets/img/team/40x40/avatar.webp"
-                                                                    alt="" /></div>
+                                                                    src="../assets/img/team/40x40/avatar.webp" alt="" />
+                                                            </div>
                                                             <div class="flex-1 me-sm-3">
                                                                 <h4 class="fs--1 text-black">Jessie Samson</h4>
                                                                 <p class="fs--1 text-1000 mb-2 mb-sm-3 fw-normal"><span
@@ -6384,8 +6377,8 @@
                                                                 aria-expanded="false" data-bs-reference="parent"><span
                                                                     class="fas fa-ellipsis-h fs--2 text-900"></span></button>
                                                             <div class="dropdown-menu dropdown-menu-end py-2"><a
-                                                                    class="dropdown-item" href="#!">Mark as unread</a>
-                                                            </div>
+                                                                    class="dropdown-item" href="#!">Mark
+                                                                    as unread</a></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -6398,7 +6391,7 @@
                                                         <div class="d-flex">
                                                             <div class="avatar avatar-m status-online me-3"><img
                                                                     class="rounded-circle"
-                                                                    src="../../assets/img/team/40x40/57.webp" alt="" />
+                                                                    src="../assets/img/team/40x40/57.webp" alt="" />
                                                             </div>
                                                             <div class="flex-1 me-sm-3">
                                                                 <h4 class="fs--1 text-black">Kiera Anderson</h4>
@@ -6418,8 +6411,8 @@
                                                                 aria-expanded="false" data-bs-reference="parent"><span
                                                                     class="fas fa-ellipsis-h fs--2 text-900"></span></button>
                                                             <div class="dropdown-menu dropdown-menu-end py-2"><a
-                                                                    class="dropdown-item" href="#!">Mark as unread</a>
-                                                            </div>
+                                                                    class="dropdown-item" href="#!">Mark
+                                                                    as unread</a></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -6430,7 +6423,7 @@
                                                         <div class="d-flex">
                                                             <div class="avatar avatar-m status-online me-3"><img
                                                                     class="rounded-circle"
-                                                                    src="../../assets/img/team/40x40/59.webp" alt="" />
+                                                                    src="../assets/img/team/40x40/59.webp" alt="" />
                                                             </div>
                                                             <div class="flex-1 me-sm-3">
                                                                 <h4 class="fs--1 text-black">Herman Carter</h4>
@@ -6451,8 +6444,8 @@
                                                                 aria-expanded="false" data-bs-reference="parent"><span
                                                                     class="fas fa-ellipsis-h fs--2 text-900"></span></button>
                                                             <div class="dropdown-menu dropdown-menu-end py-2"><a
-                                                                    class="dropdown-item" href="#!">Mark as unread</a>
-                                                            </div>
+                                                                    class="dropdown-item" href="#!">Mark
+                                                                    as unread</a></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -6463,7 +6456,7 @@
                                                         <div class="d-flex">
                                                             <div class="avatar avatar-m status-online me-3"><img
                                                                     class="rounded-circle"
-                                                                    src="../../assets/img/team/40x40/58.webp" alt="" />
+                                                                    src="../assets/img/team/40x40/58.webp" alt="" />
                                                             </div>
                                                             <div class="flex-1 me-sm-3">
                                                                 <h4 class="fs--1 text-black">Benjamin Button</h4>
@@ -6484,8 +6477,8 @@
                                                                 aria-expanded="false" data-bs-reference="parent"><span
                                                                     class="fas fa-ellipsis-h fs--2 text-900"></span></button>
                                                             <div class="dropdown-menu dropdown-menu-end py-2"><a
-                                                                    class="dropdown-item" href="#!">Mark as unread</a>
-                                                            </div>
+                                                                    class="dropdown-item" href="#!">Mark
+                                                                    as unread</a></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -6494,7 +6487,7 @@
                                     </div>
                                     <div class="card-footer p-0 border-top border-0">
                                         <div class="my-2 text-center fw-bold fs--2 text-600"><a class="fw-bolder"
-                                                href="../../pages/notifications.html">Notification history</a></div>
+                                                href="notifications.html">Notification history</a></div>
                                     </div>
                                 </div>
                             </div>
@@ -6522,88 +6515,88 @@
                                         <div class="row text-center align-items-center gx-0 gy-0">
                                             <div class="col-4"><a
                                                     class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                                    href="#!"><img src="../../assets/img/nav-icons/behance.webp" alt=""
+                                                    href="#!"><img src="../assets/img/nav-icons/behance.webp" alt=""
                                                         width="30" />
                                                     <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Behance</p>
                                                 </a></div>
                                             <div class="col-4"><a
                                                     class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                                    href="#!"><img src="../../assets/img/nav-icons/google-cloud.webp"
+                                                    href="#!"><img src="../assets/img/nav-icons/google-cloud.webp"
                                                         alt="" width="30" />
                                                     <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Cloud</p>
                                                 </a></div>
                                             <div class="col-4"><a
                                                     class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                                    href="#!"><img src="../../assets/img/nav-icons/slack.webp" alt=""
+                                                    href="#!"><img src="../assets/img/nav-icons/slack.webp" alt=""
                                                         width="30" />
                                                     <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Slack</p>
                                                 </a></div>
                                             <div class="col-4"><a
                                                     class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                                    href="#!"><img src="../../assets/img/nav-icons/gitlab.webp" alt=""
+                                                    href="#!"><img src="../assets/img/nav-icons/gitlab.webp" alt=""
                                                         width="30" />
                                                     <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Gitlab</p>
                                                 </a></div>
                                             <div class="col-4"><a
                                                     class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                                    href="#!"><img src="../../assets/img/nav-icons/bitbucket.webp"
-                                                        alt="" width="30" />
+                                                    href="#!"><img src="../assets/img/nav-icons/bitbucket.webp" alt=""
+                                                        width="30" />
                                                     <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">BitBucket
                                                     </p>
                                                 </a></div>
                                             <div class="col-4"><a
                                                     class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                                    href="#!"><img src="../../assets/img/nav-icons/google-drive.webp"
+                                                    href="#!"><img src="../assets/img/nav-icons/google-drive.webp"
                                                         alt="" width="30" />
                                                     <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Drive</p>
                                                 </a></div>
                                             <div class="col-4"><a
                                                     class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                                    href="#!"><img src="../../assets/img/nav-icons/trello.webp" alt=""
+                                                    href="#!"><img src="../assets/img/nav-icons/trello.webp" alt=""
                                                         width="30" />
                                                     <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Trello</p>
                                                 </a></div>
                                             <div class="col-4"><a
                                                     class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                                    href="#!"><img src="../../assets/img/nav-icons/figma.webp" alt=""
+                                                    href="#!"><img src="../assets/img/nav-icons/figma.webp" alt=""
                                                         width="20" />
                                                     <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Figma</p>
                                                 </a></div>
                                             <div class="col-4"><a
                                                     class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                                    href="#!"><img src="../../assets/img/nav-icons/twitter.webp" alt=""
+                                                    href="#!"><img src="../assets/img/nav-icons/twitter.webp" alt=""
                                                         width="30" />
                                                     <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Twitter</p>
                                                 </a></div>
                                             <div class="col-4"><a
                                                     class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                                    href="#!"><img src="../../assets/img/nav-icons/pinterest.webp"
-                                                        alt="" width="30" />
+                                                    href="#!"><img src="../assets/img/nav-icons/pinterest.webp" alt=""
+                                                        width="30" />
                                                     <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Pinterest
                                                     </p>
                                                 </a></div>
                                             <div class="col-4"><a
                                                     class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                                    href="#!"><img src="../../assets/img/nav-icons/ln.webp" alt=""
+                                                    href="#!"><img src="../assets/img/nav-icons/ln.webp" alt=""
                                                         width="30" />
                                                     <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Linkedin
                                                     </p>
                                                 </a></div>
                                             <div class="col-4"><a
                                                     class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                                    href="#!"><img src="../../assets/img/nav-icons/google-maps.webp"
-                                                        alt="" width="30" />
+                                                    href="#!"><img src="../assets/img/nav-icons/google-maps.webp" alt=""
+                                                        width="30" />
                                                     <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Maps</p>
                                                 </a></div>
                                             <div class="col-4"><a
                                                     class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                                    href="#!"><img src="../../assets/img/nav-icons/google-photos.webp"
+                                                    href="#!"><img src="../assets/img/nav-icons/google-photos.webp"
                                                         alt="" width="30" />
                                                     <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Photos</p>
                                                 </a></div>
                                             <div class="col-4"><a
                                                     class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3"
-                                                    href="#!"><img src="../../assets/img/nav-icons/spotify.webp" alt=""
+                                                    href="#!"><img src="../assets/img/nav-icons/spotify.webp" alt=""
                                                         width="30" />
                                                     <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Spotify</p>
                                                 </a></div>
@@ -6616,7 +6609,7 @@
                                 role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside"
                                 aria-haspopup="true" aria-expanded="false">
                                 <div class="avatar avatar-l ">
-                                    <img class="rounded-circle " src="../../assets/img/team/40x40/57.webp" alt="" />
+                                    <img class="rounded-circle " src="../assets/img/team/40x40/57.webp" alt="" />
                                 </div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end navbar-dropdown-caret py-0 dropdown-profile shadow border border-300"
@@ -6625,7 +6618,7 @@
                                     <div class="card-body p-0">
                                         <div class="text-center pt-4 pb-3">
                                             <div class="avatar avatar-xl ">
-                                                <img class="rounded-circle " src="../../assets/img/team/72x72/57.webp"
+                                                <img class="rounded-circle " src="../assets/img/team/72x72/57.webp"
                                                     alt="" />
                                             </div>
                                             <h6 class="mt-2 text-black">Jerry Seinfield</h6>
@@ -6667,14 +6660,13 @@
                                                 href="#!"> <span class="me-2" data-feather="log-out"> </span>Sign
                                                 out</a></div>
                                         <div class="my-2 text-center fw-bold fs--2 text-600"><a class="text-600 me-1"
-                                                href="#!">Privacy policy</a>&bull;<a class="text-600 mx-1"
-                                                href="#!">Terms</a>&bull;<a class="text-600 ms-1" href="#!">Cookies</a>
-                                        </div>
+                                                href="#!">Privacy
+                                                policy</a>&bull;<a class="text-600 mx-1" href="#!">Terms</a>&bull;<a
+                                                class="text-600 ms-1" href="#!">Cookies</a></div>
                                     </div>
                                 </div>
                             </div>
                         </li>
-
                     </ul>
                 </div>
                 <div class="collapse navbar-collapse navbar-top-collapse justify-content-center" id="navbarTopCollapse">
@@ -6683,21 +6675,24 @@
                                 data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true"
                                 aria-expanded="false"><span class="uil fs-0 me-2 uil-chart-pie"></span>Home</a>
                             <ul class="dropdown-menu navbar-dropdown-caret">
-                                <li><a class="dropdown-item" href="../../index-2.html">
+                                <li><a class="dropdown-item" href="../index-2.html">
                                         <div class="dropdown-item-wrapper"><span class="me-2 uil"
-                                                data-feather="shopping-cart"></span>E commerce</div>
+                                                data-feather="shopping-cart"></span>E
+                                            commerce</div>
                                     </a></li>
-                                <li><a class="dropdown-item" href="../../dashboard/project-management.html">
+                                <li><a class="dropdown-item" href="../dashboard/project-management.html">
                                         <div class="dropdown-item-wrapper"><span class="me-2 uil"
-                                                data-feather="clipboard"></span>Project management</div>
+                                                data-feather="clipboard"></span>Project
+                                            management</div>
                                     </a></li>
-                                <li><a class="dropdown-item" href="../../dashboard/crm.html">
+                                <li><a class="dropdown-item" href="../dashboard/crm.html">
                                         <div class="dropdown-item-wrapper"><span class="me-2 uil"
                                                 data-feather="phone"></span>CRM</div>
                                     </a></li>
-                                <li><a class="dropdown-item" href="../social/feed.html">
+                                <li><a class="dropdown-item" href="../apps/social/feed.html">
                                         <div class="dropdown-item-wrapper"><span class="me-2 uil"
-                                                data-feather="share-2"></span>Social feed</div>
+                                                data-feather="share-2"></span>Social feed
+                                        </div>
                                     </a></li>
                             </ul>
                         </li>
@@ -6721,33 +6716,37 @@
                                             </a>
                                             <ul class="dropdown-menu">
                                                 <li><a class="dropdown-item"
-                                                        href="../e-commerce/admin/add-product.html">
+                                                        href="../apps/e-commerce/admin/add-product.html">
                                                         <div class="dropdown-item-wrapper"><span
                                                                 class="me-2 uil"></span>Add product</div>
                                                     </a></li>
-                                                <li><a class="dropdown-item" href="../e-commerce/admin/products.html">
+                                                <li><a class="dropdown-item"
+                                                        href="../apps/e-commerce/admin/products.html">
                                                         <div class="dropdown-item-wrapper"><span
                                                                 class="me-2 uil"></span>Products</div>
                                                     </a></li>
-                                                <li><a class="dropdown-item" href="../e-commerce/admin/customers.html">
+                                                <li><a class="dropdown-item"
+                                                        href="../apps/e-commerce/admin/customers.html">
                                                         <div class="dropdown-item-wrapper"><span
                                                                 class="me-2 uil"></span>Customers</div>
                                                     </a></li>
                                                 <li><a class="dropdown-item"
-                                                        href="../e-commerce/admin/customer-details.html">
+                                                        href="../apps/e-commerce/admin/customer-details.html">
                                                         <div class="dropdown-item-wrapper"><span
                                                                 class="me-2 uil"></span>Customer details</div>
                                                     </a></li>
-                                                <li><a class="dropdown-item" href="../e-commerce/admin/orders.html">
+                                                <li><a class="dropdown-item"
+                                                        href="../apps/e-commerce/admin/orders.html">
                                                         <div class="dropdown-item-wrapper"><span
                                                                 class="me-2 uil"></span>Orders</div>
                                                     </a></li>
                                                 <li><a class="dropdown-item"
-                                                        href="../e-commerce/admin/order-details.html">
+                                                        href="../apps/e-commerce/admin/order-details.html">
                                                         <div class="dropdown-item-wrapper"><span
                                                                 class="me-2 uil"></span>Order details</div>
                                                     </a></li>
-                                                <li><a class="dropdown-item" href="../e-commerce/admin/refund.html">
+                                                <li><a class="dropdown-item"
+                                                        href="../apps/e-commerce/admin/refund.html">
                                                         <div class="dropdown-item-wrapper"><span
                                                                 class="me-2 uil"></span>Refund</div>
                                                     </a></li>
@@ -6760,52 +6759,58 @@
                                                             class="me-2 uil"></span>Customer</span></div>
                                             </a>
                                             <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="../e-commerce/landing/homepage.html">
+                                                <li><a class="dropdown-item"
+                                                        href="../apps/e-commerce/landing/homepage.html">
                                                         <div class="dropdown-item-wrapper"><span
                                                                 class="me-2 uil"></span>Homepage</div>
                                                     </a></li>
                                                 <li><a class="dropdown-item"
-                                                        href="../e-commerce/landing/product-details.html">
+                                                        href="../apps/e-commerce/landing/product-details.html">
                                                         <div class="dropdown-item-wrapper"><span
                                                                 class="me-2 uil"></span>Product details</div>
                                                     </a></li>
                                                 <li><a class="dropdown-item"
-                                                        href="../e-commerce/landing/products-filter.html">
+                                                        href="../apps/e-commerce/landing/products-filter.html">
                                                         <div class="dropdown-item-wrapper"><span
                                                                 class="me-2 uil"></span>Products filter</div>
                                                     </a></li>
-                                                <li><a class="dropdown-item" href="../e-commerce/landing/cart.html">
+                                                <li><a class="dropdown-item"
+                                                        href="../apps/e-commerce/landing/cart.html">
                                                         <div class="dropdown-item-wrapper"><span
                                                                 class="me-2 uil"></span>Cart</div>
                                                     </a></li>
-                                                <li><a class="dropdown-item" href="../e-commerce/landing/checkout.html">
+                                                <li><a class="dropdown-item"
+                                                        href="../apps/e-commerce/landing/checkout.html">
                                                         <div class="dropdown-item-wrapper"><span
                                                                 class="me-2 uil"></span>Checkout</div>
                                                     </a></li>
                                                 <li><a class="dropdown-item"
-                                                        href="../e-commerce/landing/shipping-info.html">
+                                                        href="../apps/e-commerce/landing/shipping-info.html">
                                                         <div class="dropdown-item-wrapper"><span
                                                                 class="me-2 uil"></span>Shipping info</div>
                                                     </a></li>
-                                                <li><a class="dropdown-item" href="../e-commerce/landing/profile.html">
+                                                <li><a class="dropdown-item"
+                                                        href="../apps/e-commerce/landing/profile.html">
                                                         <div class="dropdown-item-wrapper"><span
                                                                 class="me-2 uil"></span>Profile</div>
                                                     </a></li>
                                                 <li><a class="dropdown-item"
-                                                        href="../e-commerce/landing/favourite-stores.html">
+                                                        href="../apps/e-commerce/landing/favourite-stores.html">
                                                         <div class="dropdown-item-wrapper"><span
                                                                 class="me-2 uil"></span>Favourite stores</div>
                                                     </a></li>
-                                                <li><a class="dropdown-item" href="../e-commerce/landing/wishlist.html">
+                                                <li><a class="dropdown-item"
+                                                        href="../apps/e-commerce/landing/wishlist.html">
                                                         <div class="dropdown-item-wrapper"><span
                                                                 class="me-2 uil"></span>Wishlist</div>
                                                     </a></li>
                                                 <li><a class="dropdown-item"
-                                                        href="../e-commerce/landing/order-tracking.html">
+                                                        href="../apps/e-commerce/landing/order-tracking.html">
                                                         <div class="dropdown-item-wrapper"><span
                                                                 class="me-2 uil"></span>Order tracking</div>
                                                     </a></li>
-                                                <li><a class="dropdown-item" href="../e-commerce/landing/invoice.html">
+                                                <li><a class="dropdown-item"
+                                                        href="../apps/e-commerce/landing/invoice.html">
                                                         <div class="dropdown-item-wrapper"><span
                                                                 class="me-2 uil"></span>Invoice</div>
                                                     </a></li>
@@ -6820,35 +6825,35 @@
                                                     class="me-2 uil" data-feather="phone"></span>CRM</span></div>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="../crm/analytics.html">
+                                        <li><a class="dropdown-item" href="../apps/crm/analytics.html">
                                                 <div class="dropdown-item-wrapper"><span
                                                         class="me-2 uil"></span>Analytics</div>
                                             </a></li>
-                                        <li><a class="dropdown-item" href="../crm/deals.html">
+                                        <li><a class="dropdown-item" href="../apps/crm/deals.html">
                                                 <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Deals
                                                 </div>
                                             </a></li>
-                                        <li><a class="dropdown-item" href="../crm/deal-details.html">
+                                        <li><a class="dropdown-item" href="../apps/crm/deal-details.html">
                                                 <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Deal
                                                     details</div>
                                             </a></li>
-                                        <li><a class="dropdown-item" href="../crm/leads.html">
+                                        <li><a class="dropdown-item" href="../apps/crm/leads.html">
                                                 <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Leads
                                                 </div>
                                             </a></li>
-                                        <li><a class="dropdown-item" href="../crm/lead-details.html">
+                                        <li><a class="dropdown-item" href="../apps/crm/lead-details.html">
                                                 <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Lead
                                                     details</div>
                                             </a></li>
-                                        <li><a class="dropdown-item" href="../crm/reports.html">
+                                        <li><a class="dropdown-item" href="../apps/crm/reports.html">
                                                 <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Reports
                                                 </div>
                                             </a></li>
-                                        <li><a class="dropdown-item" href="../crm/reports-details.html">
+                                        <li><a class="dropdown-item" href="../apps/crm/reports-details.html">
                                                 <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Reports
                                                     details</div>
                                             </a></li>
-                                        <li><a class="dropdown-item" href="../crm/add-contact.html">
+                                        <li><a class="dropdown-item" href="../apps/crm/add-contact.html">
                                                 <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Add
                                                     contact</div>
                                             </a></li>
@@ -6862,35 +6867,40 @@
                                                 management</span></div>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="create-new.html">
+                                        <li><a class="dropdown-item" href="../apps/project-management/create-new.html">
                                                 <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Create
                                                     new</div>
                                             </a></li>
-                                        <li><a class="dropdown-item active" href="project-list-view.html">
+                                        <li><a class="dropdown-item"
+                                                href="../apps/project-management/project-list-view.html">
                                                 <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Project
                                                     list view</div>
                                             </a></li>
-                                        <li><a class="dropdown-item" href="project-card-view.html">
+                                        <li><a class="dropdown-item"
+                                                href="../apps/project-management/project-card-view.html">
                                                 <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Project
                                                     card view</div>
                                             </a></li>
-                                        <li><a class="dropdown-item" href="project-board-view.html">
+                                        <li><a class="dropdown-item"
+                                                href="../apps/project-management/project-board-view.html">
                                                 <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Project
                                                     board view</div>
                                             </a></li>
-                                        <li><a class="dropdown-item" href="todo-list.html">
+                                        <li><a class="dropdown-item" href="../apps/project-management/todo-list.html">
                                                 <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Todo
                                                     list</div>
                                             </a></li>
-                                        <li><a class="dropdown-item" href="project-details.html">
+                                        <li><a class="dropdown-item"
+                                                href="../apps/project-management/project-details.html">
                                                 <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Project
                                                     details</div>
                                             </a></li>
                                     </ul>
                                 </li>
-                                <li><a class="dropdown-item" href="../chat.html">
+                                <li><a class="dropdown-item" href="../apps/chat.html">
                                         <div class="dropdown-item-wrapper"><span class="me-2 uil"
-                                                data-feather="message-square"></span>Chat</div>
+                                                data-feather="message-square"></span>Chat
+                                        </div>
                                     </a></li>
                                 <li class="dropdown"><a class="dropdown-item dropdown-toggle" id="email" href="#"
                                         data-bs-toggle="dropdown" data-bs-auto-close="outside">
@@ -6899,15 +6909,15 @@
                                                     class="me-2 uil" data-feather="mail"></span>Email</span></div>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="../email/inbox.html">
+                                        <li><a class="dropdown-item" href="../apps/email/inbox.html">
                                                 <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Inbox
                                                 </div>
                                             </a></li>
-                                        <li><a class="dropdown-item" href="../email/email-detail.html">
+                                        <li><a class="dropdown-item" href="../apps/email/email-detail.html">
                                                 <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Email
                                                     detail</div>
                                             </a></li>
-                                        <li><a class="dropdown-item" href="../email/compose.html">
+                                        <li><a class="dropdown-item" href="../apps/email/compose.html">
                                                 <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Compose
                                                 </div>
                                             </a></li>
@@ -6920,11 +6930,11 @@
                                                     class="me-2 uil" data-feather="bookmark"></span>Events</span></div>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="../events/create-an-event.html">
+                                        <li><a class="dropdown-item" href="../apps/events/create-an-event.html">
                                                 <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Create
                                                     an event</div>
                                             </a></li>
-                                        <li><a class="dropdown-item" href="../events/event-detail.html">
+                                        <li><a class="dropdown-item" href="../apps/events/event-detail.html">
                                                 <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Event
                                                     detail</div>
                                             </a></li>
@@ -6937,15 +6947,15 @@
                                                     class="me-2 uil" data-feather="trello"></span>Kanban</span></div>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="../kanban/kanban.html">
+                                        <li><a class="dropdown-item" href="../apps/kanban/kanban.html">
                                                 <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Kanban
                                                 </div>
                                             </a></li>
-                                        <li><a class="dropdown-item" href="../kanban/boards.html">
+                                        <li><a class="dropdown-item" href="../apps/kanban/boards.html">
                                                 <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Boards
                                                 </div>
                                             </a></li>
-                                        <li><a class="dropdown-item" href="../kanban/create-kanban-board.html">
+                                        <li><a class="dropdown-item" href="../apps/kanban/create-kanban-board.html">
                                                 <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Create
                                                     board</div>
                                             </a></li>
@@ -6958,19 +6968,20 @@
                                                     class="me-2 uil" data-feather="share-2"></span>Social</span></div>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="../social/profile.html">
+                                        <li><a class="dropdown-item" href="../apps/social/profile.html">
                                                 <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Profile
                                                 </div>
                                             </a></li>
-                                        <li><a class="dropdown-item" href="../social/settings.html">
+                                        <li><a class="dropdown-item" href="../apps/social/settings.html">
                                                 <div class="dropdown-item-wrapper"><span
                                                         class="me-2 uil"></span>Settings</div>
                                             </a></li>
                                     </ul>
                                 </li>
-                                <li><a class="dropdown-item" href="../calendar.html">
+                                <li><a class="dropdown-item" href="../apps/calendar.html">
                                         <div class="dropdown-item-wrapper"><span class="me-2 uil"
-                                                data-feather="calendar"></span>Calendar</div>
+                                                data-feather="calendar"></span>Calendar
+                                        </div>
                                     </a></li>
                             </ul>
                         </li>
@@ -6979,9 +6990,10 @@
                                 aria-expanded="false"><span
                                     class="uil fs-0 me-2 uil-files-landscapes-alt"></span>Pages</a>
                             <ul class="dropdown-menu navbar-dropdown-caret">
-                                <li><a class="dropdown-item" href="../../pages/starter.html">
+                                <li><a class="dropdown-item" href="starter.html">
                                         <div class="dropdown-item-wrapper"><span class="me-2 uil"
-                                                data-feather="compass"></span>Starter</div>
+                                                data-feather="compass"></span>Starter
+                                        </div>
                                     </a></li>
                                 <li class="dropdown"><a class="dropdown-item dropdown-toggle" id="faq" href="#"
                                         data-bs-toggle="dropdown" data-bs-auto-close="outside">
@@ -6990,11 +7002,11 @@
                                                     class="me-2 uil" data-feather="help-circle"></span>Faq</span></div>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="../../pages/faq/faq-accordion.html">
+                                        <li><a class="dropdown-item" href="faq/faq-accordion.html">
                                                 <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Faq
                                                     accordion</div>
                                             </a></li>
-                                        <li><a class="dropdown-item" href="../../pages/faq/faq-tab.html">
+                                        <li><a class="dropdown-item" href="faq/faq-tab.html">
                                                 <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Faq tab
                                                 </div>
                                             </a></li>
@@ -7007,11 +7019,11 @@
                                                     class="me-2 uil" data-feather="globe"></span>Landing</span></div>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="../../pages/landing/default.html">
+                                        <li><a class="dropdown-item" href="landing/default.html">
                                                 <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Default
                                                 </div>
                                             </a></li>
-                                        <li><a class="dropdown-item" href="../../pages/landing/alternate.html">
+                                        <li><a class="dropdown-item" href="landing/alternate.html">
                                                 <div class="dropdown-item-wrapper"><span
                                                         class="me-2 uil"></span>Alternate</div>
                                             </a></li>
@@ -7024,25 +7036,26 @@
                                                     class="me-2 uil" data-feather="tag"></span>Pricing</span></div>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="../../pages/pricing/pricing-column.html">
+                                        <li><a class="dropdown-item" href="pricing/pricing-column.html">
                                                 <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Pricing
                                                     column</div>
                                             </a></li>
-                                        <li><a class="dropdown-item" href="../../pages/pricing/pricing-grid.html">
+                                        <li><a class="dropdown-item" href="pricing/pricing-grid.html">
                                                 <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Pricing
                                                     grid</div>
                                             </a></li>
                                     </ul>
                                 </li>
-                                <li><a class="dropdown-item" href="../../pages/notifications.html">
+                                <li><a class="dropdown-item" href="notifications.html">
                                         <div class="dropdown-item-wrapper"><span class="me-2 uil"
-                                                data-feather="bell"></span>Notifications</div>
+                                                data-feather="bell"></span>Notifications
+                                        </div>
                                     </a></li>
-                                <li><a class="dropdown-item" href="../../pages/members.html">
+                                <li><a class="dropdown-item active" href="members.html">
                                         <div class="dropdown-item-wrapper"><span class="me-2 uil"
                                                 data-feather="users"></span>Members</div>
                                     </a></li>
-                                <li><a class="dropdown-item" href="../../pages/timeline.html">
+                                <li><a class="dropdown-item" href="timeline.html">
                                         <div class="dropdown-item-wrapper"><span class="me-2 uil"
                                                 data-feather="clock"></span>Timeline</div>
                                     </a></li>
@@ -7054,15 +7067,15 @@
                                         </div>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="../../pages/errors/404.html">
+                                        <li><a class="dropdown-item" href="errors/404.html">
                                                 <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>404
                                                 </div>
                                             </a></li>
-                                        <li><a class="dropdown-item" href="../../pages/errors/403.html">
+                                        <li><a class="dropdown-item" href="errors/403.html">
                                                 <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>403
                                                 </div>
                                             </a></li>
-                                        <li><a class="dropdown-item" href="../../pages/errors/500.html">
+                                        <li><a class="dropdown-item" href="errors/500.html">
                                                 <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>500
                                                 </div>
                                             </a></li>
@@ -7083,38 +7096,34 @@
                                                             class="me-2 uil"></span>Simple</span></div>
                                             </a>
                                             <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item"
-                                                        href="../../pages/authentication/simple/sign-in.html">
+                                                <li><a class="dropdown-item" href="authentication/simple/sign-in.html">
                                                         <div class="dropdown-item-wrapper"><span
                                                                 class="me-2 uil"></span>Sign in</div>
                                                     </a></li>
-                                                <li><a class="dropdown-item"
-                                                        href="../../pages/authentication/simple/sign-up.html">
+                                                <li><a class="dropdown-item" href="authentication/simple/sign-up.html">
                                                         <div class="dropdown-item-wrapper"><span
                                                                 class="me-2 uil"></span>Sign up</div>
                                                     </a></li>
-                                                <li><a class="dropdown-item"
-                                                        href="../../pages/authentication/simple/sign-out.html">
+                                                <li><a class="dropdown-item" href="authentication/simple/sign-out.html">
                                                         <div class="dropdown-item-wrapper"><span
                                                                 class="me-2 uil"></span>Sign out</div>
                                                     </a></li>
                                                 <li><a class="dropdown-item"
-                                                        href="../../pages/authentication/simple/forgot-password.html">
+                                                        href="authentication/simple/forgot-password.html">
                                                         <div class="dropdown-item-wrapper"><span
                                                                 class="me-2 uil"></span>Forgot password</div>
                                                     </a></li>
                                                 <li><a class="dropdown-item"
-                                                        href="../../pages/authentication/simple/reset-password.html">
+                                                        href="authentication/simple/reset-password.html">
                                                         <div class="dropdown-item-wrapper"><span
                                                                 class="me-2 uil"></span>Reset password</div>
                                                     </a></li>
                                                 <li><a class="dropdown-item"
-                                                        href="../../pages/authentication/simple/lock-screen.html">
+                                                        href="authentication/simple/lock-screen.html">
                                                         <div class="dropdown-item-wrapper"><span
                                                                 class="me-2 uil"></span>Lock screen</div>
                                                     </a></li>
-                                                <li><a class="dropdown-item"
-                                                        href="../../pages/authentication/simple/2FA.html">
+                                                <li><a class="dropdown-item" href="authentication/simple/2FA.html">
                                                         <div class="dropdown-item-wrapper"><span
                                                                 class="me-2 uil"></span>2FA</div>
                                                     </a></li>
@@ -7127,38 +7136,34 @@
                                                             class="me-2 uil"></span>Split</span></div>
                                             </a>
                                             <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item"
-                                                        href="../../pages/authentication/split/sign-in.html">
+                                                <li><a class="dropdown-item" href="authentication/split/sign-in.html">
                                                         <div class="dropdown-item-wrapper"><span
                                                                 class="me-2 uil"></span>Sign in</div>
                                                     </a></li>
-                                                <li><a class="dropdown-item"
-                                                        href="../../pages/authentication/split/sign-up.html">
+                                                <li><a class="dropdown-item" href="authentication/split/sign-up.html">
                                                         <div class="dropdown-item-wrapper"><span
                                                                 class="me-2 uil"></span>Sign up</div>
                                                     </a></li>
-                                                <li><a class="dropdown-item"
-                                                        href="../../pages/authentication/split/sign-out.html">
+                                                <li><a class="dropdown-item" href="authentication/split/sign-out.html">
                                                         <div class="dropdown-item-wrapper"><span
                                                                 class="me-2 uil"></span>Sign out</div>
                                                     </a></li>
                                                 <li><a class="dropdown-item"
-                                                        href="../../pages/authentication/split/forgot-password.html">
+                                                        href="authentication/split/forgot-password.html">
                                                         <div class="dropdown-item-wrapper"><span
                                                                 class="me-2 uil"></span>Forgot password</div>
                                                     </a></li>
                                                 <li><a class="dropdown-item"
-                                                        href="../../pages/authentication/split/reset-password.html">
+                                                        href="authentication/split/reset-password.html">
                                                         <div class="dropdown-item-wrapper"><span
                                                                 class="me-2 uil"></span>Reset password</div>
                                                     </a></li>
                                                 <li><a class="dropdown-item"
-                                                        href="../../pages/authentication/split/lock-screen.html">
+                                                        href="authentication/split/lock-screen.html">
                                                         <div class="dropdown-item-wrapper"><span
                                                                 class="me-2 uil"></span>Lock screen</div>
                                                     </a></li>
-                                                <li><a class="dropdown-item"
-                                                        href="../../pages/authentication/split/2FA.html">
+                                                <li><a class="dropdown-item" href="authentication/split/2FA.html">
                                                         <div class="dropdown-item-wrapper"><span
                                                                 class="me-2 uil"></span>2FA</div>
                                                     </a></li>
@@ -7171,38 +7176,34 @@
                                                             class="me-2 uil"></span>Card</span></div>
                                             </a>
                                             <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item"
-                                                        href="../../pages/authentication/card/sign-in.html">
+                                                <li><a class="dropdown-item" href="authentication/card/sign-in.html">
                                                         <div class="dropdown-item-wrapper"><span
                                                                 class="me-2 uil"></span>Sign in</div>
                                                     </a></li>
-                                                <li><a class="dropdown-item"
-                                                        href="../../pages/authentication/card/sign-up.html">
+                                                <li><a class="dropdown-item" href="authentication/card/sign-up.html">
                                                         <div class="dropdown-item-wrapper"><span
                                                                 class="me-2 uil"></span>Sign up</div>
                                                     </a></li>
-                                                <li><a class="dropdown-item"
-                                                        href="../../pages/authentication/card/sign-out.html">
+                                                <li><a class="dropdown-item" href="authentication/card/sign-out.html">
                                                         <div class="dropdown-item-wrapper"><span
                                                                 class="me-2 uil"></span>Sign out</div>
                                                     </a></li>
                                                 <li><a class="dropdown-item"
-                                                        href="../../pages/authentication/card/forgot-password.html">
+                                                        href="authentication/card/forgot-password.html">
                                                         <div class="dropdown-item-wrapper"><span
                                                                 class="me-2 uil"></span>Forgot password</div>
                                                     </a></li>
                                                 <li><a class="dropdown-item"
-                                                        href="../../pages/authentication/card/reset-password.html">
+                                                        href="authentication/card/reset-password.html">
                                                         <div class="dropdown-item-wrapper"><span
                                                                 class="me-2 uil"></span>Reset password</div>
                                                     </a></li>
                                                 <li><a class="dropdown-item"
-                                                        href="../../pages/authentication/card/lock-screen.html">
+                                                        href="authentication/card/lock-screen.html">
                                                         <div class="dropdown-item-wrapper"><span
                                                                 class="me-2 uil"></span>Lock screen</div>
                                                     </a></li>
-                                                <li><a class="dropdown-item"
-                                                        href="../../pages/authentication/card/2FA.html">
+                                                <li><a class="dropdown-item" href="authentication/card/2FA.html">
                                                         <div class="dropdown-item-wrapper"><span
                                                                 class="me-2 uil"></span>2FA</div>
                                                     </a></li>
@@ -7217,47 +7218,47 @@
                                                     class="me-2 uil" data-feather="layout"></span>Layouts</span></div>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="../../demo/vertical-sidenav.html">
+                                        <li><a class="dropdown-item" href="../demo/vertical-sidenav.html">
                                                 <div class="dropdown-item-wrapper"><span
                                                         class="me-2 uil"></span>Vertical sidenav</div>
                                             </a></li>
-                                        <li><a class="dropdown-item" href="../../demo/dark-mode.html">
+                                        <li><a class="dropdown-item" href="../demo/dark-mode.html">
                                                 <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Dark
                                                     mode</div>
                                             </a></li>
-                                        <li><a class="dropdown-item" href="../../demo/sidenav-collapse.html">
+                                        <li><a class="dropdown-item" href="../demo/sidenav-collapse.html">
                                                 <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sidenav
                                                     collapse</div>
                                             </a></li>
-                                        <li><a class="dropdown-item" href="../../demo/darknav.html">
+                                        <li><a class="dropdown-item" href="../demo/darknav.html">
                                                 <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Darknav
                                                 </div>
                                             </a></li>
-                                        <li><a class="dropdown-item" href="../../demo/topnav-slim.html">
+                                        <li><a class="dropdown-item" href="../demo/topnav-slim.html">
                                                 <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Topnav
                                                     slim</div>
                                             </a></li>
-                                        <li><a class="dropdown-item" href="../../demo/navbar-top-slim.html">
+                                        <li><a class="dropdown-item" href="../demo/navbar-top-slim.html">
                                                 <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Navbar
                                                     top slim</div>
                                             </a></li>
-                                        <li><a class="dropdown-item" href="../../demo/navbar-top.html">
+                                        <li><a class="dropdown-item" href="../demo/navbar-top.html">
                                                 <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Navbar
                                                     top</div>
                                             </a></li>
-                                        <li><a class="dropdown-item" href="../../demo/horizontal-slim.html">
+                                        <li><a class="dropdown-item" href="../demo/horizontal-slim.html">
                                                 <div class="dropdown-item-wrapper"><span
                                                         class="me-2 uil"></span>Horizontal slim</div>
                                             </a></li>
-                                        <li><a class="dropdown-item" href="../../demo/combo-nav.html">
+                                        <li><a class="dropdown-item" href="../demo/combo-nav.html">
                                                 <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Combo
                                                     nav</div>
                                             </a></li>
-                                        <li><a class="dropdown-item" href="../../demo/combo-nav-slim.html">
+                                        <li><a class="dropdown-item" href="../demo/combo-nav-slim.html">
                                                 <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Combo
                                                     nav slim</div>
                                             </a></li>
-                                        <li><a class="dropdown-item" href="../../demo/dual-nav.html">
+                                        <li><a class="dropdown-item" href="../demo/dual-nav.html">
                                                 <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Dual
                                                     nav</div>
                                             </a></li>
@@ -7277,178 +7278,174 @@
                                                         data-feather="file-text" style="stroke-width:2;"></span>
                                                     <h6 class="dropdown-item-title">Forms</h6>
                                                 </div><a class="dropdown-link"
-                                                    href="../../modules/forms/basic/form-control.html">Form
+                                                    href="../modules/forms/basic/form-control.html">Form
                                                     control</a><a class="dropdown-link"
-                                                    href="../../modules/forms/basic/input-group.html">Input group</a><a
+                                                    href="../modules/forms/basic/input-group.html">Input
+                                                    group</a><a class="dropdown-link"
+                                                    href="../modules/forms/basic/select.html">Select</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/forms/basic/select.html">Select</a><a
+                                                    href="../modules/forms/basic/checks.html">Checks</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/forms/basic/checks.html">Checks</a><a
+                                                    href="../modules/forms/basic/range.html">Range</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/forms/basic/range.html">Range</a><a
-                                                    class="dropdown-link"
-                                                    href="../../modules/forms/basic/floating-labels.html">Floating
+                                                    href="../modules/forms/basic/floating-labels.html">Floating
                                                     labels</a><a class="dropdown-link"
-                                                    href="../../modules/forms/basic/layout.html">Layout</a><a
+                                                    href="../modules/forms/basic/layout.html">Layout</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/forms/advance/advance-select.html">Advance
+                                                    href="../modules/forms/advance/advance-select.html">Advance
                                                     select</a><a class="dropdown-link"
-                                                    href="../../modules/forms/advance/date-picker.html">Date
-                                                    picker</a><a class="dropdown-link"
-                                                    href="../../modules/forms/advance/editor.html">Editor</a><a
+                                                    href="../modules/forms/advance/date-picker.html">Date picker</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/forms/advance/file-uploader.html">File
+                                                    href="../modules/forms/advance/editor.html">Editor</a><a
+                                                    class="dropdown-link"
+                                                    href="../modules/forms/advance/file-uploader.html">File
                                                     uploader</a><a class="dropdown-link"
-                                                    href="../../modules/forms/advance/rating.html">Rating</a><a
+                                                    href="../modules/forms/advance/rating.html">Rating</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/forms/advance/emoji-button.html">Emoji
-                                                    button</a><a class="dropdown-link"
-                                                    href="../../modules/forms/validation.html">Validation</a><a
+                                                    href="../modules/forms/advance/emoji-button.html">Emoji button</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/forms/wizard.html">Wizard</a>
+                                                    href="../modules/forms/validation.html">Validation</a><a
+                                                    class="dropdown-link" href="../modules/forms/wizard.html">Wizard</a>
                                                 <div class="dropdown-item-group mt-5"><span class="me-2"
                                                         data-feather="grid" style="stroke-width:2;"></span>
                                                     <h6 class="dropdown-item-title">Icons</h6>
                                                 </div><a class="dropdown-link"
-                                                    href="../../modules/icons/feather.html">Feather</a><a
-                                                    class="dropdown-link"
-                                                    href="../../modules/icons/font-awesome.html">Font awesome</a><a
-                                                    class="dropdown-link"
-                                                    href="../../modules/icons/unicons.html">Unicons</a>
+                                                    href="../modules/icons/feather.html">Feather</a><a
+                                                    class="dropdown-link" href="../modules/icons/font-awesome.html">Font
+                                                    awesome</a><a class="dropdown-link"
+                                                    href="../modules/icons/unicons.html">Unicons</a>
                                                 <div class="dropdown-item-group mt-5"><span class="me-2"
                                                         data-feather="bar-chart-2" style="stroke-width:2;"></span>
                                                     <h6 class="dropdown-item-title">ECharts</h6>
                                                 </div><a class="dropdown-link"
-                                                    href="../../modules/echarts/line-charts.html">Line charts</a><a
-                                                    class="dropdown-link"
-                                                    href="../../modules/echarts/bar-charts.html">Bar charts</a><a
-                                                    class="dropdown-link"
-                                                    href="../../modules/echarts/candlestick-charts.html">Candlestick
+                                                    href="../modules/echarts/line-charts.html">Line charts</a><a
+                                                    class="dropdown-link" href="../modules/echarts/bar-charts.html">Bar
                                                     charts</a><a class="dropdown-link"
-                                                    href="../../modules/echarts/geo-map.html">Geo map</a><a
-                                                    class="dropdown-link"
-                                                    href="../../modules/echarts/scatter-charts.html">Scatter
+                                                    href="../modules/echarts/candlestick-charts.html">Candlestick
                                                     charts</a><a class="dropdown-link"
-                                                    href="../../modules/echarts/pie-charts.html">Pie charts</a><a
+                                                    href="../modules/echarts/geo-map.html">Geo map</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/echarts/gauge-chart.html">Gauge chart</a><a
-                                                    class="dropdown-link"
-                                                    href="../../modules/echarts/radar-charts.html">Radar charts</a><a
-                                                    class="dropdown-link"
-                                                    href="../../modules/echarts/heatmap-charts.html">Heatmap
+                                                    href="../modules/echarts/scatter-charts.html">Scatter charts</a><a
+                                                    class="dropdown-link" href="../modules/echarts/pie-charts.html">Pie
                                                     charts</a><a class="dropdown-link"
-                                                    href="../../modules/echarts/how-to-use.html">How to use</a>
+                                                    href="../modules/echarts/gauge-chart.html">Gauge chart</a><a
+                                                    class="dropdown-link"
+                                                    href="../modules/echarts/radar-charts.html">Radar charts</a><a
+                                                    class="dropdown-link"
+                                                    href="../modules/echarts/heatmap-charts.html">Heatmap charts</a><a
+                                                    class="dropdown-link" href="../modules/echarts/how-to-use.html">How
+                                                    to use</a>
                                             </div>
                                             <div class="col-12 col-sm-6 col-md-4">
                                                 <div class="dropdown-item-group"><span class="me-2"
                                                         data-feather="package" style="stroke-width:2;"></span>
                                                     <h6 class="dropdown-item-title">Components</h6>
                                                 </div><a class="dropdown-link"
-                                                    href="../../modules/components/accordion.html">Accordion</a><a
+                                                    href="../modules/components/accordion.html">Accordion</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/components/avatar.html">Avatar</a><a
+                                                    href="../modules/components/avatar.html">Avatar</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/components/alerts.html">Alerts</a><a
+                                                    href="../modules/components/alerts.html">Alerts</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/components/badge.html">Badge</a><a
+                                                    href="../modules/components/badge.html">Badge</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/components/breadcrumb.html">Breadcrumb</a><a
+                                                    href="../modules/components/breadcrumb.html">Breadcrumb</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/components/button.html">Buttons</a><a
+                                                    href="../modules/components/button.html">Buttons</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/components/calendar.html">Calendar</a><a
+                                                    href="../modules/components/calendar.html">Calendar</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/components/card.html">Card</a><a
+                                                    href="../modules/components/card.html">Card</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/components/carousel/bootstrap.html">Bootstrap</a><a
+                                                    href="../modules/components/carousel/bootstrap.html">Bootstrap</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/components/carousel/swiper.html">Swiper</a><a
+                                                    href="../modules/components/carousel/swiper.html">Swiper</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/components/collapse.html">Collapse</a><a
+                                                    href="../modules/components/collapse.html">Collapse</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/components/dropdown.html">Dropdown</a><a
+                                                    href="../modules/components/dropdown.html">Dropdown</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/components/list-group.html">List group</a><a
+                                                    href="../modules/components/list-group.html">List group</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/components/modal.html">Modals</a><a
+                                                    href="../modules/components/modal.html">Modals</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/components/navs-and-tabs/navs.html">Navs</a><a
+                                                    href="../modules/components/navs-and-tabs/navs.html">Navs</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/components/navs-and-tabs/navbar.html">Navbar</a><a
+                                                    href="../modules/components/navs-and-tabs/navbar.html">Navbar</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/components/navs-and-tabs/tabs.html">Tabs</a><a
+                                                    href="../modules/components/navs-and-tabs/tabs.html">Tabs</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/components/offcanvas.html">Offcanvas</a><a
+                                                    href="../modules/components/offcanvas.html">Offcanvas</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/components/progress-bar.html">Progress bar</a><a
+                                                    href="../modules/components/progress-bar.html">Progress bar</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/components/placeholder.html">Placeholder</a><a
+                                                    href="../modules/components/placeholder.html">Placeholder</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/components/pagination.html">Pagination</a><a
+                                                    href="../modules/components/pagination.html">Pagination</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/components/popovers.html">Popovers</a><a
+                                                    href="../modules/components/popovers.html">Popovers</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/components/scrollspy.html">Scrollspy</a><a
+                                                    href="../modules/components/scrollspy.html">Scrollspy</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/components/sortable.html">Sortable</a><a
+                                                    href="../modules/components/sortable.html">Sortable</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/components/spinners.html">Spinners</a><a
+                                                    href="../modules/components/spinners.html">Spinners</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/components/toast.html">Toast</a><a
+                                                    href="../modules/components/toast.html">Toast</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/components/tooltips.html">Tooltips</a><a
+                                                    href="../modules/components/tooltips.html">Tooltips</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/components/chat-widget.html">Chat widget</a>
+                                                    href="../modules/components/chat-widget.html">Chat widget</a>
                                             </div>
                                             <div class="col-12 col-sm-6 col-md-4">
                                                 <div class="dropdown-item-group"><span class="me-2"
                                                         data-feather="columns" style="stroke-width:2;"></span>
                                                     <h6 class="dropdown-item-title">Tables</h6>
                                                 </div><a class="dropdown-link"
-                                                    href="../../modules/tables/basic-tables.html">Basic tables</a><a
+                                                    href="../modules/tables/basic-tables.html">Basic tables</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/tables/advance-tables.html">Advance tables</a><a
-                                                    class="dropdown-link"
-                                                    href="../../modules/tables/bulk-select.html">Bulk Select</a>
+                                                    href="../modules/tables/advance-tables.html">Advance tables</a><a
+                                                    class="dropdown-link" href="../modules/tables/bulk-select.html">Bulk
+                                                    Select</a>
                                                 <div class="dropdown-item-group mt-5"><span class="me-2"
                                                         data-feather="tool" style="stroke-width:2;"></span>
                                                     <h6 class="dropdown-item-title">Utilities</h6>
                                                 </div><a class="dropdown-link"
-                                                    href="../../modules/utilities/background.html">Background</a><a
+                                                    href="../modules/utilities/background.html">Background</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/utilities/borders.html">Borders</a><a
+                                                    href="../modules/utilities/borders.html">Borders</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/utilities/colors.html">Colors</a><a
+                                                    href="../modules/utilities/colors.html">Colors</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/utilities/display.html">Display</a><a
+                                                    href="../modules/utilities/display.html">Display</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/utilities/flex.html">Flex</a><a
+                                                    href="../modules/utilities/flex.html">Flex</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/utilities/stacks.html">Stacks</a><a
+                                                    href="../modules/utilities/stacks.html">Stacks</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/utilities/float.html">Float</a><a
+                                                    href="../modules/utilities/float.html">Float</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/utilities/grid.html">Grid</a><a
+                                                    href="../modules/utilities/grid.html">Grid</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/utilities/interactions.html">Interactions</a><a
+                                                    href="../modules/utilities/interactions.html">Interactions</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/utilities/opacity.html">Opacity</a><a
+                                                    href="../modules/utilities/opacity.html">Opacity</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/utilities/overflow.html">Overflow</a><a
+                                                    href="../modules/utilities/overflow.html">Overflow</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/utilities/position.html">Position</a><a
+                                                    href="../modules/utilities/position.html">Position</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/utilities/shadows.html">Shadows</a><a
+                                                    href="../modules/utilities/shadows.html">Shadows</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/utilities/sizing.html">Sizing</a><a
+                                                    href="../modules/utilities/sizing.html">Sizing</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/utilities/spacing.html">Spacing</a><a
+                                                    href="../modules/utilities/spacing.html">Spacing</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/utilities/typography.html">Typography</a><a
+                                                    href="../modules/utilities/typography.html">Typography</a><a
                                                     class="dropdown-link"
-                                                    href="../../modules/utilities/vertical-align.html">Vertical
-                                                    align</a><a class="dropdown-link"
-                                                    href="../../modules/utilities/visibility.html">Visibility</a>
+                                                    href="../modules/utilities/vertical-align.html">Vertical align</a><a
+                                                    class="dropdown-link"
+                                                    href="../modules/utilities/visibility.html">Visibility</a>
                                             </div>
                                         </div>
                                     </div>
@@ -7460,9 +7457,10 @@
                                 aria-expanded="false"><span
                                     class="uil fs-0 me-2 uil-document-layout-right"></span>Documentation</a>
                             <ul class="dropdown-menu navbar-dropdown-caret">
-                                <li><a class="dropdown-item" href="../../documentation/getting-started.html">
+                                <li><a class="dropdown-item" href="../documentation/getting-started.html">
                                         <div class="dropdown-item-wrapper"><span class="me-2 uil"
-                                                data-feather="life-buoy"></span>Getting started</div>
+                                                data-feather="life-buoy"></span>Getting
+                                            started</div>
                                     </a></li>
                                 <li class="dropdown dropdown-inside"><a class="dropdown-item dropdown-toggle"
                                         id="customization" href="#" data-bs-toggle="dropdown"
@@ -7474,22 +7472,20 @@
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item"
-                                                href="../../documentation/customization/configuration.html">
+                                                href="../documentation/customization/configuration.html">
                                                 <div class="dropdown-item-wrapper"><span
                                                         class="me-2 uil"></span>Configuration</div>
                                             </a></li>
-                                        <li><a class="dropdown-item"
-                                                href="../../documentation/customization/styling.html">
+                                        <li><a class="dropdown-item" href="../documentation/customization/styling.html">
                                                 <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Styling
                                                 </div>
                                             </a></li>
                                         <li><a class="dropdown-item"
-                                                href="../../documentation/customization/dark-mode.html">
+                                                href="../documentation/customization/dark-mode.html">
                                                 <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Dark
                                                     mode</div>
                                             </a></li>
-                                        <li><a class="dropdown-item"
-                                                href="../../documentation/customization/plugin.html">
+                                        <li><a class="dropdown-item" href="../documentation/customization/plugin.html">
                                                 <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Plugin
                                                 </div>
                                             </a></li>
@@ -7505,41 +7501,44 @@
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item"
-                                                href="../../documentation/layouts/vertical-navbar.html">
+                                                href="../documentation/layouts/vertical-navbar.html">
                                                 <div class="dropdown-item-wrapper"><span
                                                         class="me-2 uil"></span>Vertical navbar</div>
                                             </a></li>
                                         <li><a class="dropdown-item"
-                                                href="../../documentation/layouts/horizontal-navbar.html">
+                                                href="../documentation/layouts/horizontal-navbar.html">
                                                 <div class="dropdown-item-wrapper"><span
                                                         class="me-2 uil"></span>Horizontal navbar</div>
                                             </a></li>
-                                        <li><a class="dropdown-item"
-                                                href="../../documentation/layouts/combo-navbar.html">
+                                        <li><a class="dropdown-item" href="../documentation/layouts/combo-navbar.html">
                                                 <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Combo
                                                     navbar</div>
                                             </a></li>
-                                        <li><a class="dropdown-item" href="../../documentation/layouts/dual-nav.html">
+                                        <li><a class="dropdown-item" href="../documentation/layouts/dual-nav.html">
                                                 <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Dual
                                                     nav</div>
                                             </a></li>
                                     </ul>
                                 </li>
-                                <li><a class="dropdown-item" href="../../documentation/gulp.html">
+                                <li><a class="dropdown-item" href="../documentation/gulp.html">
                                         <div class="dropdown-item-wrapper"><span
-                                                class="me-2 fa-brands fa-gulp ms-1 me-1 fa-lg"></span>Gulp</div>
+                                                class="me-2 fa-brands fa-gulp ms-1 me-1 fa-lg"></span>Gulp
+                                        </div>
                                     </a></li>
-                                <li><a class="dropdown-item" href="../../documentation/design-file.html">
+                                <li><a class="dropdown-item" href="../documentation/design-file.html">
                                         <div class="dropdown-item-wrapper"><span class="me-2 uil"
-                                                data-feather="figma"></span>Design file</div>
+                                                data-feather="figma"></span>Design file
+                                        </div>
                                     </a></li>
-                                <li><a class="dropdown-item" href="../../changelog.html">
+                                <li><a class="dropdown-item" href="../changelog.html">
                                         <div class="dropdown-item-wrapper"><span class="me-2 uil"
-                                                data-feather="git-merge"></span>Changelog</div>
+                                                data-feather="git-merge"></span>Changelog
+                                        </div>
                                     </a></li>
-                                <li><a class="dropdown-item" href="../../showcase.html">
+                                <li><a class="dropdown-item" href="../showcase.html">
                                         <div class="dropdown-item-wrapper"><span class="me-2 uil"
-                                                data-feather="monitor"></span>Showcase</div>
+                                                data-feather="monitor"></span>Showcase
+                                        </div>
                                     </a></li>
                             </ul>
                         </li>
@@ -7561,7 +7560,8 @@
                             </form>
                             <div class="btn-close position-absolute end-0 top-50 translate-middle cursor-pointer shadow-none"
                                 data-bs-dismiss="search"><button class="btn btn-link btn-close-falcon p-0"
-                                    aria-label="Close"></button></div>
+                                    aria-label="Close"></button>
+                            </div>
                             <div class="dropdown-menu border border-300 font-base start-0 py-0 overflow-hidden w-100">
                                 <div class="scrollbar-overlay" style="max-height: 30rem;">
                                     <div class="list pb-3">
@@ -7569,16 +7569,18 @@
                                                 class="text-500">results</span></h6>
                                         <hr class="text-200 my-0" />
                                         <h6 class="dropdown-header text-1000 fs--1 border-bottom border-200 py-2 lh-sm">
-                                            Recently Searched </h6>
+                                            Recently Searched
+                                        </h6>
                                         <div class="py-2"><a class="dropdown-item"
-                                                href="../e-commerce/landing/product-details.html">
+                                                href="../apps/e-commerce/landing/product-details.html">
                                                 <div class="d-flex align-items-center">
                                                     <div class="fw-normal text-1000 title"><span
                                                             class="fa-solid fa-clock-rotate-left"
                                                             data-fa-transform="shrink-2"></span> Store Macbook</div>
                                                 </div>
                                             </a>
-                                            <a class="dropdown-item" href="../e-commerce/landing/product-details.html">
+                                            <a class="dropdown-item"
+                                                href="../apps/e-commerce/landing/product-details.html">
                                                 <div class="d-flex align-items-center">
                                                     <div class="fw-normal text-1000 title"> <span
                                                             class="fa-solid fa-clock-rotate-left"
@@ -7590,26 +7592,26 @@
                                         <h6 class="dropdown-header text-1000 fs--1 border-bottom border-200 py-2 lh-sm">
                                             Products</h6>
                                         <div class="py-2"><a class="dropdown-item py-2 d-flex align-items-center"
-                                                href="../e-commerce/landing/product-details.html">
+                                                href="../apps/e-commerce/landing/product-details.html">
                                                 <div class="file-thumbnail me-2"><img
                                                         class="h-100 w-100 fit-cover rounded-3"
-                                                        src="../../assets/img/products/60x60/3.png" alt="" /></div>
+                                                        src="../assets/img/products/60x60/3.png" alt="" /></div>
                                                 <div class="flex-1">
                                                     <h6 class="mb-0 text-1000 title">MacBook Air - 13″</h6>
                                                     <p class="fs--2 mb-0 d-flex text-700"><span
-                                                            class="fw-medium text-600">8GB Memory - 1.6GHz - 128GB
-                                                            Storage</span></p>
+                                                            class="fw-medium text-600">8GB Memory - 1.6GHz -
+                                                            128GB Storage</span></p>
                                                 </div>
                                             </a>
                                             <a class="dropdown-item py-2 d-flex align-items-center"
-                                                href="../e-commerce/landing/product-details.html">
+                                                href="../apps/e-commerce/landing/product-details.html">
                                                 <div class="file-thumbnail me-2"><img class="img-fluid"
-                                                        src="../../assets/img/products/60x60/3.png" alt="" /></div>
+                                                        src="../assets/img/products/60x60/3.png" alt="" /></div>
                                                 <div class="flex-1">
                                                     <h6 class="mb-0 text-1000 title">MacBook Pro - 13″</h6>
                                                     <p class="fs--2 mb-0 d-flex text-700"><span
-                                                            class="fw-medium text-600 ms-2">30 Sep at 12:30 PM</span>
-                                                    </p>
+                                                            class="fw-medium text-600 ms-2">30 Sep at 12:30
+                                                            PM</span></p>
                                                 </div>
                                             </a>
                                         </div>
@@ -7617,7 +7619,7 @@
                                         <h6 class="dropdown-header text-1000 fs--1 border-bottom border-200 py-2 lh-sm">
                                             Quick Links</h6>
                                         <div class="py-2"><a class="dropdown-item"
-                                                href="../e-commerce/landing/product-details.html">
+                                                href="../apps/e-commerce/landing/product-details.html">
                                                 <div class="d-flex align-items-center">
                                                     <div class="fw-normal text-1000 title"><span
                                                             class="fa-solid fa-link text-900"
@@ -7625,7 +7627,8 @@
                                                     </div>
                                                 </div>
                                             </a>
-                                            <a class="dropdown-item" href="../e-commerce/landing/product-details.html">
+                                            <a class="dropdown-item"
+                                                href="../apps/e-commerce/landing/product-details.html">
                                                 <div class="d-flex align-items-center">
                                                     <div class="fw-normal text-1000 title"> <span
                                                             class="fa-solid fa-link text-900"
@@ -7637,7 +7640,7 @@
                                         <h6 class="dropdown-header text-1000 fs--1 border-bottom border-200 py-2 lh-sm">
                                             Files</h6>
                                         <div class="py-2"><a class="dropdown-item"
-                                                href="../e-commerce/landing/product-details.html">
+                                                href="../apps/e-commerce/landing/product-details.html">
                                                 <div class="d-flex align-items-center">
                                                     <div class="fw-normal text-1000 title"><span
                                                             class="fa-solid fa-file-zipper text-900"
@@ -7645,7 +7648,8 @@
                                                         folder.rar</div>
                                                 </div>
                                             </a>
-                                            <a class="dropdown-item" href="../e-commerce/landing/product-details.html">
+                                            <a class="dropdown-item"
+                                                href="../apps/e-commerce/landing/product-details.html">
                                                 <div class="d-flex align-items-center">
                                                     <div class="fw-normal text-1000 title"> <span
                                                             class="fa-solid fa-file-lines text-900"
@@ -7653,7 +7657,8 @@
                                                         extensions.txt</div>
                                                 </div>
                                             </a>
-                                            <a class="dropdown-item" href="../e-commerce/landing/product-details.html">
+                                            <a class="dropdown-item"
+                                                href="../apps/e-commerce/landing/product-details.html">
                                                 <div class="d-flex align-items-center">
                                                     <div class="fw-normal text-1000 title"> <span
                                                             class="fa-solid fa-image text-900"
@@ -7666,21 +7671,20 @@
                                         <h6 class="dropdown-header text-1000 fs--1 border-bottom border-200 py-2 lh-sm">
                                             Members</h6>
                                         <div class="py-2"><a class="dropdown-item py-2 d-flex align-items-center"
-                                                href="../../pages/members.html">
+                                                href="members.html">
                                                 <div class="avatar avatar-l status-online  me-2 text-900">
-                                                    <img class="rounded-circle "
-                                                        src="../../assets/img/team/40x40/10.webp" alt="" />
+                                                    <img class="rounded-circle " src="../assets/img/team/40x40/10.webp"
+                                                        alt="" />
                                                 </div>
                                                 <div class="flex-1">
                                                     <h6 class="mb-0 text-1000 title">Carry Anna</h6>
                                                     <p class="fs--2 mb-0 d-flex text-700">anna@technext.it</p>
                                                 </div>
                                             </a>
-                                            <a class="dropdown-item py-2 d-flex align-items-center"
-                                                href="../../pages/members.html">
+                                            <a class="dropdown-item py-2 d-flex align-items-center" href="members.html">
                                                 <div class="avatar avatar-l  me-2 text-900">
-                                                    <img class="rounded-circle "
-                                                        src="../../assets/img/team/40x40/12.webp" alt="" />
+                                                    <img class="rounded-circle " src="../assets/img/team/40x40/12.webp"
+                                                        alt="" />
                                                 </div>
                                                 <div class="flex-1">
                                                     <h6 class="mb-0 text-1000 title">John Smith</h6>
@@ -7690,9 +7694,10 @@
                                         </div>
                                         <hr class="text-200 my-0" />
                                         <h6 class="dropdown-header text-1000 fs--1 border-bottom border-200 py-2 lh-sm">
-                                            Related Searches</h6>
+                                            Related Searches
+                                        </h6>
                                         <div class="py-2"><a class="dropdown-item"
-                                                href="../e-commerce/landing/product-details.html">
+                                                href="../apps/e-commerce/landing/product-details.html">
                                                 <div class="d-flex align-items-center">
                                                     <div class="fw-normal text-1000 title"><span
                                                             class="fa-brands fa-firefox-browser text-900"
@@ -7700,7 +7705,8 @@
                                                         MacBook</div>
                                                 </div>
                                             </a>
-                                            <a class="dropdown-item" href="../e-commerce/landing/product-details.html">
+                                            <a class="dropdown-item"
+                                                href="../apps/e-commerce/landing/product-details.html">
                                                 <div class="d-flex align-items-center">
                                                     <div class="fw-normal text-1000 title"> <span
                                                             class="fa-brands fa-chrome text-900"
@@ -7816,551 +7822,250 @@
         <div class="content">
             <nav class="mb-2" aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0">
-                    <li class="breadcrumb-item"><a href="#!">Project</a></li>
-                    <li class="breadcrumb-item"><a href="{{route('project_store')}}">Project List</a></li>
-                    <li class="breadcrumb-item active">Default</li>
+                    <li class="breadcrumb-item"><a href="#!">Faculty</a></li>
+                    <li class="breadcrumb-item active">Faculty List</li>
                 </ol>
             </nav>
-            <div class="mb-9">
-                <div id="projectSummary"
-                    data-list='{"valueNames":["projectName","assigness","start","deadline","task","projectprogress","status","action"],"page":6,"pagination":true}'>
-                    <div class="row mb-4 gx-6 gy-3 align-items-center">
-                        <div class="col-auto">
-                            <h2 class="mb-0">Projects<span class="fw-normal text-700 ms-3">(32)</span></h2>
-                        </div>
-                        <div class="col-auto"><a class="btn btn-primary px-5" href="{{route('project-create')}}"><i
-                                    class="fa-solid fa-plus me-2"></i>Add new project</a></div>
-                    </div>
-                    <div class="row g-3 justify-content-between align-items-end mb-4">
-                        <div class="col-12 col-sm-auto">
-                            <ul class="nav nav-links mx-n2">
-                                <li class="nav-item"><a class="nav-link px-2 py-1 active" aria-current="page"
-                                        href="#"><span>All</span><span class="text-700 fw-semi-bold">(32)</span></a>
-                                </li>
-                                <li class="nav-item"><a class="nav-link px-2 py-1" href="#"><span>Ongoing</span><span
-                                            class="text-700 fw-semi-bold">(14)</span></a></li>
-                                <li class="nav-item"><a class="nav-link px-2 py-1" href="#"><span>Cancelled</span><span
-                                            class="text-700 fw-semi-bold">(2)</span></a></li>
-                                <li class="nav-item"><a class="nav-link px-2 py-1" href="#"><span>Finished</span><span
-                                            class="text-700 fw-semi-bold">(14)</span></a></li>
-                                <li class="nav-item"><a class="nav-link px-2 py-1" href="#"><span>Postponed</span><span
-                                            class="text-700 fw-semi-bold">(2)</span></a></li>
-                            </ul>
-                        </div>
-                        <div class="col-12 col-sm-auto">
-                            <div class="d-flex align-items-center">
-                                <div class="search-box me-3">
-                                    <form class="position-relative" data-bs-toggle="search" data-bs-display="static">
-                                        <input class="form-control search-input search" type="search"
-                                            placeholder="Search projects" aria-label="Search" />
-                                        <span class="fas fa-search search-box-icon"></span>
-                                    </form>
-                                </div><a class="btn btn-phoenix-primary px-3 me-1 border-0 text-900"
-                                    href="project-list-view.html" data-bs-toggle="tooltip" data-bs-placement="top"
-                                    data-bs-title="List view"><span class="fa-solid fa-list fs--2"></span></a><a
-                                    class="btn btn-phoenix-primary px-3 me-1" href="project-board-view.html"
-                                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Board view"><svg
-                                        width="9" height="9" viewbox="0 0 9 9" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M0 0.5C0 0.223857 0.223858 0 0.5 0H1.83333C2.10948 0 2.33333 0.223858 2.33333 0.5V1.83333C2.33333 2.10948 2.10948 2.33333 1.83333 2.33333H0.5C0.223857 2.33333 0 2.10948 0 1.83333V0.5Z"
-                                            fill="currentColor"></path>
-                                        <path
-                                            d="M3.33333 0.5C3.33333 0.223857 3.55719 0 3.83333 0H5.16667C5.44281 0 5.66667 0.223858 5.66667 0.5V1.83333C5.66667 2.10948 5.44281 2.33333 5.16667 2.33333H3.83333C3.55719 2.33333 3.33333 2.10948 3.33333 1.83333V0.5Z"
-                                            fill="currentColor"></path>
-                                        <path
-                                            d="M6.66667 0.5C6.66667 0.223857 6.89052 0 7.16667 0H8.5C8.77614 0 9 0.223858 9 0.5V1.83333C9 2.10948 8.77614 2.33333 8.5 2.33333H7.16667C6.89052 2.33333 6.66667 2.10948 6.66667 1.83333V0.5Z"
-                                            fill="currentColor"></path>
-                                        <path
-                                            d="M0 3.83333C0 3.55719 0.223858 3.33333 0.5 3.33333H1.83333C2.10948 3.33333 2.33333 3.55719 2.33333 3.83333V5.16667C2.33333 5.44281 2.10948 5.66667 1.83333 5.66667H0.5C0.223857 5.66667 0 5.44281 0 5.16667V3.83333Z"
-                                            fill="currentColor"></path>
-                                        <path
-                                            d="M3.33333 3.83333C3.33333 3.55719 3.55719 3.33333 3.83333 3.33333H5.16667C5.44281 3.33333 5.66667 3.55719 5.66667 3.83333V5.16667C5.66667 5.44281 5.44281 5.66667 5.16667 5.66667H3.83333C3.55719 5.66667 3.33333 5.44281 3.33333 5.16667V3.83333Z"
-                                            fill="currentColor"></path>
-                                        <path
-                                            d="M6.66667 3.83333C6.66667 3.55719 6.89052 3.33333 7.16667 3.33333H8.5C8.77614 3.33333 9 3.55719 9 3.83333V5.16667C9 5.44281 8.77614 5.66667 8.5 5.66667H7.16667C6.89052 5.66667 6.66667 5.44281 6.66667 5.16667V3.83333Z"
-                                            fill="currentColor"></path>
-                                        <path
-                                            d="M0 7.16667C0 6.89052 0.223858 6.66667 0.5 6.66667H1.83333C2.10948 6.66667 2.33333 6.89052 2.33333 7.16667V8.5C2.33333 8.77614 2.10948 9 1.83333 9H0.5C0.223857 9 0 8.77614 0 8.5V7.16667Z"
-                                            fill="currentColor"></path>
-                                        <path
-                                            d="M3.33333 7.16667C3.33333 6.89052 3.55719 6.66667 3.83333 6.66667H5.16667C5.44281 6.66667 5.66667 6.89052 5.66667 7.16667V8.5C5.66667 8.77614 5.44281 9 5.16667 9H3.83333C3.55719 9 3.33333 8.77614 3.33333 8.5V7.16667Z"
-                                            fill="currentColor"></path>
-                                        <path
-                                            d="M6.66667 7.16667C6.66667 6.89052 6.89052 6.66667 7.16667 6.66667H8.5C8.77614 6.66667 9 6.89052 9 7.16667V8.5C9 8.77614 8.77614 9 8.5 9H7.16667C6.89052 9 6.66667 8.77614 6.66667 8.5V7.16667Z"
-                                            fill="currentColor"></path>
-                                    </svg></a><a class="btn btn-phoenix-primary px-3" href="project-card-view.html"
-                                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Card view"><svg
-                                        width="9" height="9" viewBox="0 0 9 9" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M0 0.5C0 0.223858 0.223858 0 0.5 0H3.5C3.77614 0 4 0.223858 4 0.5V3.5C4 3.77614 3.77614 4 3.5 4H0.5C0.223858 4 0 3.77614 0 3.5V0.5Z"
-                                            fill="currentColor"></path>
-                                        <path
-                                            d="M0 5.5C0 5.22386 0.223858 5 0.5 5H3.5C3.77614 5 4 5.22386 4 5.5V8.5C4 8.77614 3.77614 9 3.5 9H0.5C0.223858 9 0 8.77614 0 8.5V5.5Z"
-                                            fill="currentColor"></path>
-                                        <path
-                                            d="M5 0.5C5 0.223858 5.22386 0 5.5 0H8.5C8.77614 0 9 0.223858 9 0.5V3.5C9 3.77614 8.77614 4 8.5 4H5.5C5.22386 4 5 3.77614 5 3.5V0.5Z"
-                                            fill="currentColor"></path>
-                                        <path
-                                            d="M5 5.5C5 5.22386 5.22386 5 5.5 5H8.5C8.77614 5 9 5.22386 9 5.5V8.5C9 8.77614 8.77614 9 8.5 9H5.5C5.22386 9 5 8.77614 5 8.5V5.5Z"
-                                            fill="currentColor"></path>
-                                    </svg></a>
-                            </div>
+            <h2 class="text-bold text-1100 mb-5">Faculty</h2>
+            <div id="members"
+                data-list='{"valueNames":["customer","email","mobile_number","city","last_active","joined"],"page":10,"pagination":true}'>
+                <div class="row align-items-center justify-content-between g-3 mb-4">
+                    <div class="col col-auto">
+                        <div class="search-box">
+                            <form class="position-relative" data-bs-toggle="search" data-bs-display="static"><input
+                                    class="form-control search-input search" type="search" placeholder="Search members"
+                                    aria-label="Search" />
+                                <span class="fas fa-search search-box-icon"></span>
+                            </form>
                         </div>
                     </div>
-                    <div class="table-responsive scrollbar">
-                        <table class="table fs--1 mb-0 border-top border-200">
+                    <div class="col-auto">
+                        <div class="d-flex align-items-center">
+                            <button class="btn btn-link text-900 me-4 px-0"><a href="{{route('add_faculty')}}">
+                                    <span class="fa-solid fa-file-export fs--1 me-2"></span>Export</button><button
+                                class="btn btn-primary"><span class="fas fa-plus me-2"></span>Add faculty</button>
+                        </div>
+
+                        </a>
+                    </div>
+                </div>
+                <div class="mx-n4 mx-lg-n6 px-4 px-lg-6 mb-9 bg-white border-y border-300 mt-2 position-relative top-1">
+                    <div class="table-responsive scrollbar ms-n1 ps-1">
+                        <table id="faculty-table" class="table">
                             <thead>
                                 <tr>
-                                    <th class="sort white-space-nowrap align-middle ps-0" scope="col"
-                                        data-sort="projectName" style="width:30%;">PROJECT TITLE</th>
-                                    <th class="sort align-middle ps-3" scope="col" data-sort="assigness"
-                                        style="width:10%;">ASSIGNESS</th>
-                                    <th class="sort align-middle ps-3" scope="col" data-sort="start" style="width:10%;">
-                                        START DATE</th>
-                                    <th class="sort align-middle ps-3" scope="col" data-sort="deadline"
-                                        style="width:15%;">DEADLINE</th>
-                                    <th class="sort align-middle ps-3" scope="col" data-sort="task" style="width:12%;">
-                                        TASK</th>
-                                    <th class="sort align-middle ps-3" scope="col" data-sort="projectprogress"
-                                        style="width:5%;">PROGRESS</th>
-                                    <th class="sort align-middle text-end" scope="col" data-sort="statuses"
-                                        style="width:10%;">STATUS</th>
-                                    <th class="sort align-middle text-end" scope="col" style="width:10%;">ACTION</th>
+                                    <th class="sort align-middle" scope="col" data-sort="name"
+                                        style="width:15%; min-width:87px;">Name</th>
+                                    <th class="sort align-middle" scope="col" data-sort="email"
+                                        style="width:15%; min-width:200px;">Email</th>
+                                    <th class="sort align-middle" scope="col" data-sort="mobile"
+                                        style="width:15%; min-width:200px;">Mobile</th>
+                                    <th class="sort align-middle" scope="col" data-sort="department"
+                                        style="width:15%; min-width:200px;">Department</th>
+                                    <th class="sort align-middle" scope="col" data-sort="action">Action</th>
                                 </tr>
                             </thead>
-                            <tbody class="list" id="project-list-table-body">
-
-
-
-
+                            <tbody id="faculty-table-body">
+                                <!-- Faculty data will be inserted here dynamically -->
                             </tbody>
                         </table>
+                        <!-- edit modal form -->
                         <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel"
                             aria-hidden="true">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="editModalLabel">Edit Project
-                                        </h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
+                                        <h5 class="modal-title" id="editModalLabel">Update Faculty</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <!-- Insert Form Here -->
-                                        <div>
-                                            <div class="col-xl-12">
-                                                <form class="row g-3 mb-6">
-                                                    <div class="col-sm-6 col-md-8">
-                                                        <div class="form-floating">
-                                                            <input class="form-control" id="floatingInputGrid"
-                                                                type="text" placeholder="Project title">
-                                                            <label for="floatingInputGrid">Project
-                                                                title</label>
-                                                        </div>
+                                        <form method="POST" id="faculty-form">
+                                            @csrf
+                                            <div class="form-row mb-4">
+                                                <div class="col-sm-6 col-md-4">
+                                                    <div class="form-floating">
+                                                        <input class="form-control" id="name" name="name" type="text"
+                                                            placeholder="Name" required>
+                                                        <label for="name">Name</label>
                                                     </div>
-                                                    <div class="col-sm-6 col-md-4">
-                                                        <div class="form-floating">
-                                                            <select class="form-select" id="floatingSelectTask">
-                                                                <option selected>Select task view
-                                                                </option>
-                                                                <option value="1">Technical</option>
-                                                                <option value="2">External</option>
-                                                                <option value="3">Organizational
-                                                                </option>
-                                                            </select>
-                                                            <label for="floatingSelectTask">Default
-                                                                task view</label>
-                                                        </div>
+                                                </div>
+                                                <div class="col-sm-6 col-md-4">
+                                                    <div class="form-floating">
+                                                        <input class="form-control" id="email" name="email" type="email"
+                                                            placeholder="Email" required>
+                                                        <label for="email">Email</label>
                                                     </div>
-                                                    <div class="col-sm-6 col-md-4">
-                                                        <div class="form-floating">
-                                                            <select class="form-select" id="floatingSelectPrivacy">
-                                                                <option selected>Select privacy
-                                                                </option>
-                                                                <option value="1">Data Privacy One
-                                                                </option>
-                                                                <option value="2">Data Privacy Two
-                                                                </option>
-                                                                <option value="3">Data Privacy Three
-                                                                </option>
-                                                            </select>
-                                                            <label for="floatingSelectPrivacy">Project
-                                                                privacy</label>
-                                                        </div>
+                                                </div>
+                                                <div class="col-sm-6 col-md-4">
+                                                    <div class="form-floating">
+                                                        <input class="form-control" id="mobile" name="mobile"
+                                                            type="text" placeholder="Mobile" required>
+                                                        <label for="mobile">Mobile</label>
                                                     </div>
-                                                    <div class="col-sm-6 col-md-4">
-                                                        <div class="form-floating">
-                                                            <select class="form-select" id="floatingSelectTeam">
-                                                                <option selected>Select team
-                                                                </option>
-                                                                <option value="1">Team One</option>
-                                                                <option value="2">Team Two</option>
-                                                                <option value="3">Team Three
-                                                                </option>
-                                                            </select>
-                                                            <label for="floatingSelectTeam">Team</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-6 col-md-4">
-                                                        <div class="form-floating">
-                                                            <select class="form-select" id="floatingSelectAssignees">
-                                                                <option selected>Select assignees
-                                                                </option>
-                                                                <option value="1">One</option>
-                                                                <option value="2">Two</option>
-                                                                <option value="3">Three</option>
-                                                            </select>
-                                                            <label for="floatingSelectAssignees">People</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-6 col-md-4">
-                                                        <div class="form-floating">
-                                                            <select class="form-select" id="floatingSelectAdmin">
-                                                                <option selected>Select admin
-                                                                </option>
-                                                                <option value="1">Data Privacy One
-                                                                </option>
-                                                                <option value="2">Data Privacy Two
-                                                                </option>
-                                                                <option value="3">Data Privacy Three
-                                                                </option>
-                                                            </select>
-                                                            <label for="floatingSelectAdmin">Project
-                                                                Lead</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-6 col-md-4">
-                                                        <div class="flatpickr-input-container">
-                                                            <div class="form-floating">
-                                                                <input
-                                                                    class="form-control datetimepicker flatpickr-input"
-                                                                    id="floatingInputStartDate" type="text"
-                                                                    placeholder="Start date"
-                                                                    data-options="{&quot;disableMobile&quot;:true}"
-                                                                    readonly>
-                                                                <label class="ps-6" for="floatingInputStartDate">Start
-                                                                    date</label>
-                                                                <span
-                                                                    class="uil uil-calendar-alt flatpickr-icon text-700"></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-6 col-md-4">
-                                                        <div class="flatpickr-input-container">
-                                                            <div class="form-floating">
-                                                                <input
-                                                                    class="form-control datetimepicker flatpickr-input"
-                                                                    id="floatingInputDeadline" type="text"
-                                                                    placeholder="Deadline"
-                                                                    data-options="{&quot;disableMobile&quot;:true}"
-                                                                    readonly>
-                                                                <label class="ps-6"
-                                                                    for="floatingInputDeadline">Deadline</label>
-                                                                <span
-                                                                    class="uil uil-calendar-alt flatpickr-icon text-700"></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12 gy-6">
-                                                        <div class="form-floating">
-                                                            <textarea class="form-control" id="floatingProjectOverview"
-                                                                placeholder="Leave a comment here"
-                                                                style="height: 100px"></textarea>
-                                                            <label for="floatingProjectOverview">Project
-                                                                overview</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6 gy-6">
-                                                        <div class="form-floating">
-                                                            <select class="form-select" id="floatingSelectClient">
-                                                                <option selected>Select client
-                                                                </option>
-                                                                <option value="1">Client One
-                                                                </option>
-                                                                <option value="2">Client Two
-                                                                </option>
-                                                                <option value="3">Client Three
-                                                                </option>
-                                                            </select>
-                                                            <label for="floatingSelectClient">Client</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6 gy-6">
-                                                        <div class="form-floating">
-                                                            <input class="form-control" id="floatingInputBudget"
-                                                                type="text" placeholder="Budget">
-                                                            <label for="floatingInputBudget">Budget</label>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-12 gy-6">
-                                                        <div class="row g-3 justify-content-end">
-                                                            <div class="col-auto">
-                                                                <button class="btn btn-phoenix-primary px-5"
-                                                                    data-dismiss="modal">Cancel</button>
-                                                            </div>
-                                                            <div class="col-auto">
-                                                                <button class="btn btn-primary px-5 px-sm-15"
-                                                                    type="submit">Upadte
-                                                                    Project</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </form>
+                                                </div>
                                             </div>
-                                        </div>
+                                            <div class="form-row mb-4">
+                                                <div class="col-sm-6 col-md-4">
+                                                    <div class="form-floating">
+                                                        <input class="form-control" id="department" name="department"
+                                                            type="text" placeholder="Department" required>
+                                                        <label for="department">Department</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6 col-md-4">
+                                                    <div class="form-floating">
+                                                        <input class="form-control" id="password" name="password"
+                                                            type="password" placeholder="Password" required>
+                                                        <label for="password">Password</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="text-center">
+                                                <button type="submit" class="btn btn-primary mt-4"><i
+                                                        class="fas fa-paper-plane"></i> Update</button>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-                        <script>
-                            $(document).ready(function () {
-                                $('#editButton').on('click', function (event) {
-                                    event.preventDefault();
-                                    $('#editModal').modal('show');
-                                });
-                            });
-                        </script>
-                    </div>
-
-                </div>
-                <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-                <script>
-                    $(document).ready(function () {
-                        // Setup CSRF token for AJAX requests
-                        $.ajaxSetup({
-                            headers: {
-                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                            }
-                        });
-
-                        // Fetch and display the project list
-                        $.ajax({
-                            type: "GET",
-                            url: "/project-list",
-                            dataType: "json",
-                            success: function (response) {
-                                console.log("AJAX response:", response);
-                                var tableBody = $('#project-list-table-body');
-                                tableBody.empty(); // Clear existing rows
-
-                                if (response.projects && response.projects.length) {
-                                    response.projects.forEach(function (project) {
-                                        var data = `
-                        <tr>
-                            <td>${project.project_title}</td>
-                            <td><div class="avatar-group avatar-group-dense"><a class="dropdown-toggle dropdown-caret-none d-inline-block" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-                          <div class="avatar avatar-s  rounded-circle">
-                            <img class="rounded-circle " src="../../assets/img/team/34.webp" alt="">
-                          </div>
-                        </a>
-                        
-                        ${project.assignies}
-                      </div></td>
-                            <td>${project.start_date}</td>
-                            <td>${project.deadline}</td>
-                            <td>${project.task}</td>
-                            <td>${project.progress}</td>
-                            <td>${project.status}</td>
-                            <td class="align-middle text-end white-space-nowrap pe-0 action">
-                                <div class="font-sans-serif btn-reveal-trigger position-static">
-                                    <button class="btn btn-sm dropdown-toggle dropdown-caret-none transition-none btn-reveal fs--2" type="button" data-bs-toggle="dropdown" data-boundary="window" aria-haspopup="true" aria-expanded="false" data-bs-reference="parent">
-                                        <svg class="svg-inline--fa fa-ellipsis fs--2" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="ellipsis" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
-                                            <path fill="currentColor" d="M120 256C120 286.9 94.93 312 64 312C33.07 312 8 286.9 8 256C8 225.1 33.07 200 64 200C94.93 200 120 225.1 120 256zM280 256C280 286.9 254.9 312 224 312C193.1 312 168 286.9 168 256C168 225.1 193.1 200 224 200C254.9 200 280 225.1 280 256zM328 256C328 225.1 353.1 200 384 200C414.9 200 440 225.1 440 256C440 286.9 414.9 312 384 312C353.1 312 328 286.9 328 256z"></path>
-                                        </svg>
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-end py-2">
-                                        <a class="accept-btn dropdown-item" href="#!" data-id="${project.project_title}">Accept</a>
-                                        <a class="reject-btn dropdown-item" href="#!" data-id="${project.project_title}">Reject</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="editbtn dropdown-item text-danger" href="#" data-bs-toggle="modal" data-bs-target="#editModal" data-id="${project.id}">Edit</a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>`;
-                                        tableBody.append(data);
-                                    });
-                                }
-                            },
-                            error: function (xhr, status, error) {
-                                console.error("AJAX error:", xhr.responseText);
-                            }
-                        });
-
-                        // Handle click event on accept button
-                        $(document).on('click', '.accept-btn', function (e) {
-                            e.preventDefault();
-
-                            var project_title = $(this).data('id'); // Get project title from data attribute
-
-                            $.ajax({
-                                type: "POST",
-                                url: "{{ route('project_accept') }}", // Define the route for accepting the project
-                                data: {
-                                    'project_title': project_title
-                                },
-                                dataType: "json",
-                                success: function (response) {
-                                    if (response.success) {
-                                        alert(response.message);
-                                        // Optionally, update the UI to reflect the status change
-                                        // e.g., change the button text, disable the button, etc.
-                                    } else {
-                                        alert('Error: ' + (response.message || 'Unable to accept project'));
-                                    }
-                                },
-                                error: function (xhr, status, error) {
-                                    alert('An error occurred. Please try again.');
-                                    console.error(xhr.responseText);
-                                }
-                            });
-                        });
-
-                        // Handle click event on reject button
-                        $(document).on('click', '.reject-btn', function (e) {
-                            e.preventDefault();
-
-                            var projectTitle = $(this).data('id'); // Get the project title from data-id attribute
-
-                            // Make AJAX request to reject the project
-                            $.ajax({
-                                url: '/reject-project',
-                                method: 'POST',
-                                data: {
-                                    project_title: projectTitle
-                                },
-                                success: function (response) {
-                                    console.log(response);
-                                    alert('Project rejected successfully');
-                                    // Optionally, you can perform additional actions after rejecting the project
-                                },
-                                error: function (xhr, status, error) {
-                                    console.error(xhr.responseText);
-                                    alert('Error: ' + xhr.responseText);
-                                }
-                            });
-                        });
-
-                        // Handle click event on edit button
-                        $(document).on('click', '.editbtn', function (e) {
-                            e.preventDefault();
-                            var id = $(this).data('id'); // Retrieve the value of data-id attribute
-
-                            // Fetch project data
-                            $.ajax({
-                                type: "GET",
-                                url: "/get-project/" + id,
-                                success: function (response) {
-                                    if (response.status == 200) {
-                                        var project = response.project;
-                                        $('#floatingInputGrid').val(project.project_title);
-                                        $('#floatingSelectAssignees').val(project.assignies);
-                                        $('#floatingSelectTask').val(project.task_view);
-                                        $('#floatingSelectPrivacy').val(project.privacy);
-                                        $('#floatingInputStartDate').val(project.start_date);
-                                        $('#floatingInputDeadline').val(project.deadline);
-                                        $('#floatingProjectOverview').val(project.project_description);
-                                        $('#floatingSelectClient').val(project.client);
-                                        $('#floatingInputBudget').val(project.budget);
-
-                                        // Fetch teams and populate the team dropdown
-                                        $.ajax({
-                                            type: "GET",
-                                            url: "/get-teams",
-                                            success: function (teamResponse) {
-                                                if (teamResponse.status == 200) {
-                                                    var teams = teamResponse.teams;
-                                                    var teamDropdown = $('#floatingSelectTeam');
-                                                    teamDropdown.empty(); // Clear existing options
-
-                                                    teams.forEach(function (team) {
-                                                        var option = $('<option></option>')
-                                                            .attr('value', team.id)
-                                                            .text(team.name);
-                                                        teamDropdown.append(option);
-                                                    });
-
-                                                    teamDropdown.val(project.team); // Set the current team value
-                                                } else {
-                                                    console.log("Error: " + teamResponse.message); // Log error message
-                                                }
-                                            },
-                                            error: function (xhr, status, error) {
-                                                console.error("AJAX Request Error:", error); // Log AJAX error
-                                            }
-                                        });
-
-                                        // Fetch members and populate the assignees dropdown
-
-
-                                        // Update project data
-                                        $('#updateProjectForm').off('submit').on('submit', function (e) {
-                                            e.preventDefault();
-                                            var formData = {
-                                                project_title: $('#floatingInputGrid').val(),
-                                                assignies: $('#floatingSelectAssignees').val(),
-                                                task_view: $('#floatingSelectTask').val(),
-                                                privacy: $('#floatingSelectPrivacy').val(),
-                                                start_date: $('#floatingInputStartDate').val(),
-                                                deadline: $('#floatingInputDeadline').val(),
-                                                project_description: $('#floatingProjectOverview').val(),
-                                                client: $('#floatingSelectClient').val(),
-                                                budget: $('#floatingInputBudget').val(),
-                                                team: $('#floatingSelectTeam').val()
-                                            };
-
-                                            $.ajax({
-                                                type: "PUT",
-                                                url: "/update-project/" + id,
-                                                data: formData,
-                                                success: function (response) {
-                                                    if (response.status == 200) {
-                                                        alert(response.message); // Notify success
-                                                        location.reload(); // Reload the page or update the UI
-                                                    } else {
-                                                        console.log("Error: " + response.message); // Log error message
-                                                    }
-                                                },
-                                                error: function (xhr, status, error) {
-                                                    console.error("AJAX Request Error:", error); // Log AJAX error
-                                                }
-                                            });
-                                        });
-
-                                    } else {
-                                        console.log("Error: " + response.message); // Log error message
-                                    }
-                                },
-                                error: function (xhr, status, error) {
-                                    console.error("AJAX Request Error:", error); // Log AJAX error
-                                }
-                            });
-                        });
-                    });
-                </script>
-
-
-                <div
-                    class="d-flex flex-wrap align-items-center justify-content-between py-3 pe-0 fs--1 border-bottom border-200">
-                    <div class="d-flex">
-                        <p class="mb-0 d-none d-sm-block me-3 fw-semi-bold text-900" data-list-info="data-list-info">
-                        </p><a class="fw-semi-bold" href="#!" data-list-view="*">View all<span
-                                class="fas fa-angle-right ms-1" data-fa-transform="down-1"></span></a><a
-                            class="fw-semi-bold d-none" href="#!" data-list-view="less">View Less<span
-                                class="fas fa-angle-right ms-1" data-fa-transform="down-1"></span></a>
-                    </div>
-                    <div class="d-flex"><button class="page-link" data-list-pagination="prev"><span
-                                class="fas fa-chevron-left"></span></button>
-                        <ul class="mb-0 pagination"></ul><button class="page-link pe-0"
-                            data-list-pagination="next"><span class="fas fa-chevron-right"></span></button>
+                        <!-- end of edit modal form -->
                     </div>
                 </div>
             </div>
+        </div>
+        </div>
+
+        <!-- Bootstrap JS (optional if you need JavaScript components) -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <script>
+            $(document).ready(function () {
+                // Setup CSRF token for AJAX requests
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                // Fetch and display the faculty list
+                $.ajax({
+                    type: "GET",
+                    url: "{{route('faculty_list')}}",
+                    dataType: "json",
+                    success: function (response) {
+                        console.log("AJAX response:", response);
+                        var tableBody = $('#faculty-table-body');
+                        tableBody.empty(); // Clear existing rows
+
+                        if (response.faculties && response.faculties.length) {
+                            response.faculties.forEach(function (faculty) {
+                                var data = `<tr>
+                                <td>${faculty.name}</td>
+                                <td>${faculty.email}</td>
+                                <td>${faculty.mobile}</td>
+                                <td>${faculty.department}</td>
+                                <td class="align-middle white-space-nowrap pe-0 action">
+                                    <div class="font-sans-serif btn-reveal-trigger position-static">
+                                        <button class="btn btn-sm dropdown-toggle dropdown-caret-none transition-none btn-reveal fs--2" type="button" data-bs-toggle="dropdown" data-boundary="window" aria-haspopup="true" aria-expanded="false" data-bs-reference="parent">
+                                            <svg class="svg-inline--fa fa-ellipsis fs--2" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="ellipsis" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                                                <path fill="currentColor" d="M120 256C120 286.9 94.93 312 64 312C33.07 312 8 286.9 8 256C8 225.1 33.07 200 64 200C94.93 200 120 225.1 120 256zM280 256C280 286.9 254.9 312 224 312C193.1 312 168 286.9 168 256C168 225.1 193.1 200 224 200C254.9 200 280 225.1 280 256zM328 256C328 225.1 353.1 200 384 200C414.9 200 440 225.1 440 256C440 286.9 414.9 312 384 312C353.1 312 328 286.9 328 256z"></path>
+                                            </svg>
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-end py-2">
+                                            <a class="dropdown-item text-danger editbtn" href="#!" data-bs-toggle="modal" data-bs-target="#editModal" data-id="${faculty.id}">Edit</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>`;
+                                tableBody.append(data);
+                            });
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("AJAX error:", xhr.responseText);
+                    }
+                });
+
+                // Handle edit button click
+                $(document).on('click', '.editbtn', function (e) {
+                    e.preventDefault();
+                    var id = $(this).data('id'); // Retrieve the value of data-id attribute
+
+                    // Perform AJAX request to fetch data for the given ID
+                    $.ajax({
+                        type: "GET",
+                        url: "/get-faculty/" + id,
+                        success: function (response) {
+                            if (response.status == 200) {
+                                // If data is successfully fetched, populate the edit form
+                                var faculty = response.faculty;
+                                $('#name').val(faculty.name);
+                                $('#email').val(faculty.email); // Ensure the email field is properly populated
+                                $('#mobile').val(faculty.mobile);
+                                $('#department').val(faculty.department);
+                                $('#password').val(faculty.password);
+                            } else {
+                                console.log("Error: " + response.message); // Log error message
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            console.error("AJAX Request Error:", error); // Log AJAX error
+                        }
+                    });
+                });
+
+
+                // Handle form submission for updating faculty
+                $('#faculty-form').on('submit', function (e) {
+                    e.preventDefault(); // Prevent the default form submission
+
+                    // Serialize the form data
+                    var formData = $(this).serialize() + '&_token={{ csrf_token() }}';
+
+                    // Send AJAX request to update faculty data
+                    $.ajax({
+                        type: "POST",
+                        url: "/update-faculty/" + $('#name').val(), // Use the name as the faculty ID (assuming it's unique)
+                        data: formData,
+                        success: function (response) {
+                            if (response.status == 'success') {
+                                console.log("Faculty data updated successfully!");
+                                // Optionally, you can perform actions after successful update
+                            } else {
+                                console.log("Error: " + response.message);
+                                // Optionally, handle errors or display error messages
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            console.error("AJAX Request Error:", error);
+                            // Optionally, handle AJAX errors
+                        }
+                    });
+                });
+            });
+        </script>
+
+
+        </div>
+
+
+        <div class="row align-items-center justify-content-between py-2 pe-0 fs--1">
+            <div class="col-auto d-flex">
+                <p class="mb-0 d-none d-sm-block me-3 fw-semi-bold text-900" data-list-info="data-list-info"></p><a
+                    class="fw-semi-bold" href="#!" data-list-view="*">View all<span class="fas fa-angle-right ms-1"
+                        data-fa-transform="down-1"></span></a><a class="fw-semi-bold d-none" href="#!"
+                    data-list-view="less">View Less<span class="fas fa-angle-right ms-1"
+                        data-fa-transform="down-1"></span></a>
+            </div>
+            <div class="col-auto d-flex"><button class="page-link" data-list-pagination="prev"><span
+                        class="fas fa-chevron-left"></span></button>
+                <ul class="mb-0 pagination"></ul><button class="page-link pe-0" data-list-pagination="next"><span
+                        class="fas fa-chevron-right"></span></button>
+            </div>
+        </div>
+        </div>
         </div>
         <footer class="footer position-absolute">
             <div class="row g-0 justify-content-between align-items-center h-100">
@@ -8389,9 +8094,11 @@
                                 data-bs-reference="parent"><span class="fas fa-ellipsis-h text-900"></span></button>
                             <div class="dropdown-menu dropdown-menu-end py-2" aria-labelledby="support-chat-dropdown"><a
                                     class="dropdown-item" href="#!">Request a callback</a><a class="dropdown-item"
-                                    href="#!">Search in chat</a><a class="dropdown-item" href="#!">Show history</a><a
-                                    class="dropdown-item" href="#!">Report to Admin</a><a
-                                    class="dropdown-item btn-support-chat" href="#!">Close Support</a></div>
+                                    href="#!">Search in
+                                    chat</a><a class="dropdown-item" href="#!">Show history</a><a class="dropdown-item"
+                                    href="#!">Report
+                                    to Admin</a><a class="dropdown-item btn-support-chat" href="#!">Close Support</a>
+                            </div>
                         </div>
                     </div>
                     <div class="card-body chat p-0">
@@ -8420,10 +8127,11 @@
                             <div class="text-center mt-auto">
                                 <div class="avatar avatar-3xl status-online"><img
                                         class="rounded-circle border border-3 border-white"
-                                        src="../../assets/img/team/30.webp" alt="" /></div>
+                                        src="../assets/img/team/30.webp" alt="" /></div>
                                 <h5 class="mt-2 mb-3">Eric</h5>
                                 <p class="text-center text-black mb-0">Ask us anything – we’ll get back to you here or
-                                    by email within 24 hours.</p>
+                                    by email within
+                                    24 hours.</p>
                             </div>
                         </div>
                     </div>
@@ -8469,14 +8177,15 @@
                             value="light" data-theme-control="phoenixTheme" /><label
                             class="btn d-inline-block btn-navbar-style fs--1" for="themeSwitcherLight"> <span
                                 class="mb-2 rounded d-block"><img class="img-fluid img-prototype mb-0"
-                                    src="../../assets/img/generic/default-light.png" alt="" /></span><span
+                                    src="../assets/img/generic/default-light.png" alt="" /></span><span
                                 class="label-text">Light</span></label></div>
                     <div class="col-6"><input class="btn-check" id="themeSwitcherDark" name="theme-color" type="radio"
                             value="dark" data-theme-control="phoenixTheme" /><label
                             class="btn d-inline-block btn-navbar-style fs--1" for="themeSwitcherDark"> <span
                                 class="mb-2 rounded d-block"><img class="img-fluid img-prototype mb-0"
-                                    src="../../assets/img/generic/default-dark.png" alt="" /></span><span
-                                class="label-text"> Dark</span></label></div>
+                                    src="../assets/img/generic/default-dark.png" alt="" /></span><span
+                                class="label-text">
+                                Dark</span></label></div>
                 </div>
             </div>
             <div class="border rounded-3 p-4 setting-panel-item bg-white">
@@ -8502,34 +8211,36 @@
                             type="radio" value="vertical" data-theme-control="phoenixNavbarPosition" /><label
                             class="btn d-inline-block btn-navbar-style fs--1" for="navbarPositionVertical"> <span
                                 class="mb-2 rounded d-block"><img class="img-fluid img-prototype d-dark-none"
-                                    src="../../assets/img/generic/default-light.png" alt="" /><img
+                                    src="../assets/img/generic/default-light.png" alt="" /><img
                                     class="img-fluid img-prototype d-light-none"
-                                    src="../../assets/img/generic/default-dark.png" alt="" /></span><span
+                                    src="../assets/img/generic/default-dark.png" alt="" /></span><span
                                 class="label-text">Vertical</span></label></div>
                     <div class="col-6"><input class="btn-check" id="navbarPositionHorizontal" name="navigation-type"
                             type="radio" value="horizontal" data-theme-control="phoenixNavbarPosition" /><label
                             class="btn d-inline-block btn-navbar-style fs--1" for="navbarPositionHorizontal"> <span
                                 class="mb-2 rounded d-block"><img class="img-fluid img-prototype d-dark-none"
-                                    src="../../assets/img/generic/top-default.png" alt="" /><img
+                                    src="../assets/img/generic/top-default.png" alt="" /><img
                                     class="img-fluid img-prototype d-light-none"
-                                    src="../../assets/img/generic/top-default-dark.png" alt="" /></span><span
-                                class="label-text"> Horizontal</span></label></div>
+                                    src="../assets/img/generic/top-default-dark.png" alt="" /></span><span
+                                class="label-text">
+                                Horizontal</span></label></div>
                     <div class="col-6"><input class="btn-check" id="navbarPositionCombo" name="navigation-type"
                             type="radio" value="combo" data-theme-control="phoenixNavbarPosition" /><label
                             class="btn d-inline-block btn-navbar-style fs--1" for="navbarPositionCombo"> <span
                                 class="mb-2 rounded d-block"><img class="img-fluid img-prototype d-dark-none"
-                                    src="../../assets/img/generic/nav-combo-light.png" alt="" /><img
+                                    src="../assets/img/generic/nav-combo-light.png" alt="" /><img
                                     class="img-fluid img-prototype d-light-none"
-                                    src="../../assets/img/generic/nav-combo-dark.png" alt="" /></span><span
+                                    src="../assets/img/generic/nav-combo-dark.png" alt="" /></span><span
                                 class="label-text"> Combo</span></label></div>
                     <div class="col-6"><input class="btn-check" id="navbarPositionTopDouble" name="navigation-type"
                             type="radio" value="dual-nav" data-theme-control="phoenixNavbarPosition" /><label
                             class="btn d-inline-block btn-navbar-style fs--1" for="navbarPositionTopDouble"> <span
                                 class="mb-2 rounded d-block"><img class="img-fluid img-prototype d-dark-none"
-                                    src="../../assets/img/generic/dual-light.png" alt="" /><img
+                                    src="../assets/img/generic/dual-light.png" alt="" /><img
                                     class="img-fluid img-prototype d-light-none"
-                                    src="../../assets/img/generic/dual-dark.png" alt="" /></span><span
-                                class="label-text"> Dual nav</span></label></div>
+                                    src="../assets/img/generic/dual-dark.png" alt="" /></span><span class="label-text">
+                                Dual
+                                nav</span></label></div>
                 </div>
             </div>
             <div class="setting-panel-item">
@@ -8539,20 +8250,20 @@
                             name="config.name" value="default" data-theme-control="phoenixNavbarVerticalStyle" /><label
                             class="btn d-block w-100 btn-navbar-style fs--1" for="navbar-style-default"> <img
                                 class="img-fluid img-prototype d-dark-none"
-                                src="../../assets/img/generic/default-light.png" alt="" /><img
+                                src="../assets/img/generic/default-light.png" alt="" /><img
                                 class="img-fluid img-prototype d-light-none"
-                                src="../../assets/img/generic/default-dark.png" alt="" /><span
+                                src="../assets/img/generic/default-dark.png" alt="" /><span
                                 class="label-text d-dark-none"> Default</span><span
                                 class="label-text d-light-none">Default</span></label></div>
                     <div class="col-6"><input class="btn-check" id="navbar-style-dark" type="radio" name="config.name"
                             value="darker" data-theme-control="phoenixNavbarVerticalStyle" /><label
                             class="btn d-block w-100 btn-navbar-style fs--1" for="navbar-style-dark"> <img
                                 class="img-fluid img-prototype d-dark-none"
-                                src="../../assets/img/generic/vertical-darker.png" alt="" /><img
+                                src="../assets/img/generic/vertical-darker.png" alt="" /><img
                                 class="img-fluid img-prototype d-light-none"
-                                src="../../assets/img/generic/vertical-lighter.png" alt="" /><span
-                                class="label-text d-dark-none"> Darker</span><span
-                                class="label-text d-light-none">Lighter</span></label></div>
+                                src="../assets/img/generic/vertical-lighter.png" alt="" /><span
+                                class="label-text d-dark-none">
+                                Darker</span><span class="label-text d-light-none">Lighter</span></label></div>
                 </div>
             </div>
             <div class="setting-panel-item">
@@ -8562,18 +8273,19 @@
                             value="default" data-theme-control="phoenixNavbarTopShape" /><label
                             class="btn d-inline-block btn-navbar-style fs--1" for="navbarShapeDefault"> <span
                                 class="mb-2 rounded d-block"><img class="img-fluid img-prototype d-dark-none mb-0"
-                                    src="../../assets/img/generic/top-default.png" alt="" /><img
+                                    src="../assets/img/generic/top-default.png" alt="" /><img
                                     class="img-fluid img-prototype d-light-none mb-0"
-                                    src="../../assets/img/generic/top-default-dark.png" alt="" /></span><span
+                                    src="../assets/img/generic/top-default-dark.png" alt="" /></span><span
                                 class="label-text">Default</span></label></div>
                     <div class="col-6"><input class="btn-check" id="navbarShapeSlim" name="navbar-shape" type="radio"
                             value="slim" data-theme-control="phoenixNavbarTopShape" /><label
                             class="btn d-inline-block btn-navbar-style fs--1" for="navbarShapeSlim"> <span
                                 class="mb-2 rounded d-block"><img class="img-fluid img-prototype d-dark-none mb-0"
-                                    src="../../assets/img/generic/top-slim.png" alt="" /><img
+                                    src="../assets/img/generic/top-slim.png" alt="" /><img
                                     class="img-fluid img-prototype d-light-none mb-0"
-                                    src="../../assets/img/generic/top-slim-dark.png" alt="" /></span><span
-                                class="label-text"> Slim</span></label></div>
+                                    src="../assets/img/generic/top-slim-dark.png" alt="" /></span><span
+                                class="label-text">
+                                Slim</span></label></div>
                 </div>
             </div>
             <div class="setting-panel-item">
@@ -8583,42 +8295,44 @@
                             type="radio" value="default" data-theme-control="phoenixNavbarTopStyle" /><label
                             class="btn d-inline-block btn-navbar-style fs--1" for="navbarTopDefault"> <span
                                 class="mb-2 rounded d-block"><img class="img-fluid img-prototype d-dark-none mb-0"
-                                    src="../../assets/img/generic/top-default.png" alt="" /><img
+                                    src="../assets/img/generic/top-default.png" alt="" /><img
                                     class="img-fluid img-prototype d-light-none mb-0"
-                                    src="../../assets/img/generic/top-style-darker.png" alt="" /></span><span
+                                    src="../assets/img/generic/top-style-darker.png" alt="" /></span><span
                                 class="label-text">Default</span></label></div>
                     <div class="col-6"><input class="btn-check" id="navbarTopDarker" name="navbar-top-style"
                             type="radio" value="darker" data-theme-control="phoenixNavbarTopStyle" /><label
                             class="btn d-inline-block btn-navbar-style fs--1" for="navbarTopDarker"> <span
                                 class="mb-2 rounded d-block"><img class="img-fluid img-prototype d-dark-none mb-0"
-                                    src="../../assets/img/generic/navbar-top-style-light.png" alt="" /><img
+                                    src="../assets/img/generic/navbar-top-style-light.png" alt="" /><img
                                     class="img-fluid img-prototype d-light-none mb-0"
-                                    src="../../assets/img/generic/top-style-lighter.png" alt="" /></span><span
+                                    src="../assets/img/generic/top-style-lighter.png" alt="" /></span><span
                                 class="label-text d-dark-none">Darker</span><span
                                 class="label-text d-light-none">Lighter</span></label></div>
                 </div>
             </div><a class="bun btn-primary d-grid mb-3 text-white dark__text-100 mt-5 btn btn-primary"
                 href="https://themes.getbootstrap.com/product/phoenix-admin-dashboard-webapp-template/"
-                target="_blank">Purchase template</a>
+                target="_blank">Purchase
+                template</a>
         </div>
-    </div><a class="card setting-toggle" href="#settings-offcanvas" data-bs-toggle="offcanvas">
 
-    </a>
+        </a>
 
-    <!-- ===============================================-->
-    <!--    JavaScripts-->
-    <!-- ===============================================-->
-    <script src="../../template/vendors/popper/popper.min.js"></script>
-    <script src="../../template/vendors/bootstrap/bootstrap.min.js"></script>
-    <script src="../../template/vendors/anchorjs/anchor.min.js"></script>
-    <script src="../../template/vendors/is/is.min.js"></script>
-    <script src="../../template/vendors/fontawesome/all.min.js"></script>
-    <script src="../../template/vendors/lodash/lodash.min.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
-    <script src="../../template/vendors/list.js/list.min.js"></script>
-    <script src="../../template/vendors/feather-icons/feather.min.js"></script>
-    <script src="../../template/vendors/dayjs/dayjs.min.js"></script>
-    <script src="../../template/assets/js/phoenix.js"></script>
+        <!-- ===============================================-->
+        <!--    JavaScripts-->
+        <!-- ===============================================-->
+        <script src="../template/vendors/popper/popper.min.js"></script>
+        <script src="../template/vendors/bootstrap/bootstrap.min.js"></script>
+        <script src="../template/vendors/anchorjs/anchor.min.js"></script>
+        <script src="../template/vendors/is/is.min.js"></script>
+        <script src="../template/vendors/fontawesome/all.min.js"></script>
+        <script src="../template/vendors/lodash/lodash.min.js"></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+        <script src="../template/vendors/list.js/list.min.js"></script>
+        <script src="../template/vendors/feather-icons/feather.min.js"></script>
+        <script src="../template/vendors/dayjs/dayjs.min.js"></script>
+        <script src="../template/assets/js/phoenix.js"></script>
+        <script src="../template/vendors/list.js/list.min.js"></script>
+
 </body>
 
 </html>

@@ -39,14 +39,7 @@
                         <div class="d-flex align-items-center"><span class="nav-link-text">Add Team</span></div>
                     </a><!-- more inner pages-->
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('add_faculty') }}" data-bs-toggle="" aria-expanded="false">
-                        <div class="d-flex align-items-center">
-                            <span class="nav-link-text">Add Faculty</span>
-                        </div>
-                    </a>
-                    <!-- more inner pages -->
-                </li>
+                
             </ul>
         </div>
     </div>

@@ -1,15 +1,21 @@
 <li class="nav-item">
                             <!-- label-->
-                            <p class="navbar-vertical-label">Documentation</p>
+                            <p class="navbar-vertical-label">Faculty</p>
                             <hr class="navbar-vertical-line" /><!-- parent pages-->
                             <div class="nav-item-wrapper"><a class="nav-link label-1"
-                                    href="documentation/getting-started.html" role="button" data-bs-toggle=""
+                                    href="{{route('add_faculty')}}" role="button" data-bs-toggle=""
                                     aria-expanded="false">
                                     <div class="d-flex align-items-center"><span class="nav-link-icon"><span
                                                 data-feather="life-buoy"></span></span><span
-                                            class="nav-link-text-wrapper"><span class="nav-link-text">Getting
-                                                started</span></span></div>
+                                            class="nav-link-text-wrapper"><span class="nav-link-text">Faculty create</span></span></div>
                                 </a></div><!-- parent pages-->
+                                <div class="nav-item-wrapper"><a class="nav-link label-1"
+                                    href="{{route('faculty_list')}}" role="button" data-bs-toggle=""
+                                    aria-expanded="false">
+                                    <div class="d-flex align-items-center"><span class="nav-link-icon"><span
+                                                data-feather="life-buoy"></span></span><span
+                                            class="nav-link-text-wrapper"><span class="nav-link-text">Faculty List</span></span></div>
+                                </a></div>
                             <div class="nav-item-wrapper"><a class="nav-link dropdown-indicator label-1"
                                     href="#nv-customization" role="button" data-bs-toggle="collapse"
                                     aria-expanded="false" aria-controls="nv-customization">

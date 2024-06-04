@@ -51,6 +51,12 @@ Route::post('/reject-project', [SuperadminController::class, 'reject']);
 Route::get('/add-team', [SuperadminController::class, 'show_team'])->name('show_team');
 Route::get('get_team',[SuperadminController::class,'display_team']);
 Route::post('/store-team', [SuperadminController::class, 'store'])->name('store_team');
+Route::get('/get-project/{id}', [SuperadminController::class, 'getProject']);
+Route::get('/get-teams', [SuperadminController::class, 'getTeams']);
+Route::put('/update-project/{id}', [SuperadminController::class, 'updateProject']);
+// Route::get('/get-members', [SuperadminController::class, 'getMembers']);
+
+
 
 
 //developer page
@@ -61,6 +67,8 @@ Route::get('/get-member/{id}', [MemberController::class, 'getMember']);
 Route::post('/update-member/{id}', [MemberController::class, 'updateMember']);
 Route::post('/accept', [MemberController::class, 'accept'])->name('accept');
 Route::post('/reject', [MemberController::class, 'reject'])->name('reject');
+// Route::get('get-team',[MemberController::class,'getteam']);
+
 
 
 //student page
@@ -80,6 +88,9 @@ Route::post('/reject_student', [StudentController::class, 'reject'])->name('reje
 // Route::get('/project_register',[ProjectController::class,'project_register']);
 
 
-
+//faculty page
 Route::get('/create-faculty', [FacultyController::class, 'create_faculty'])->name('add_faculty');
 Route::post('/add-faculty', [FacultyController::class, 'store_faculty'])->name('store_faculty');
+Route::get('/faculty-list', [FacultyController::class, 'index'])->name('faculty_list');
+Route::get('/get-faculty/{id}', [FacultyController::class, 'show'])->name('faculty_show');
+Route::post('/update-faculty/{id}', [FacultyController::class, 'update']);

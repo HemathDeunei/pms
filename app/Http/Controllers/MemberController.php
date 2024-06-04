@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Validator;
 use App\Models\Member;
 use App\Models\User;
+use App\Models\Team;
+
 
 class MemberController extends Controller
 {
@@ -96,53 +98,13 @@ class MemberController extends Controller
         }
     }
 
-    public function updateMember(Request $request, $id)
-{
-    $validator = Validator::make($request->all(), [
-        'bio_id' => 'required|max:191',
-        'user_name' => 'required|max:191',
-        'password' => 'required|max:191',
-        'personal_email' => 'required|email|max:191',
-        'official_email' => 'required|email|max:191',
-        'employee_id' => 'required|max:191',
-        'experience' => 'required|max:191',
-        'linkedin' => 'required|max:191',
-        'portfolio' => 'required|max:191',
-        'mobile_number' => 'required|max:191',
-        'tech_stack' => 'required|max:191',
-        'designation' => 'required|max:191',
-        'date_of_joining' => 'required|date',
-        'team'=>'required|max:191',
-    ]);
-
-    if ($validator->fails()) {
-        return response()->json([
-            'status' => 400,
-            'errors' => $validator->messages()
-        ]);
-    } else {
-        $member = Member::find($id);
-        if ($member) {
-            // Update the member's properties
-            $member->bio_id = $request->input('bio_id');
-            $member->user_name = $request->input('user_name');
-            $member->password = $request->input('password');
-            $member->personal_email = $request->input('personal_email');
-            $member->official_email = $request->input('official_email');
-            $member->employee_id = $request->input('employee_id');
-            $member->experience = $request->input('experience');
-            $member->linkedin = $request->input('linkedin');
-            $member->portfolio = $request->input('portfolio');
-            $member->mobile_number = $request->input('mobile_number');
-            $member->tech_stack = $request->input('tech_stack');
-            $member->designation = $request->input('designation');
-            $member->date_of_joining = $request->input('date_of_joining');
-            $member->team = $request->input('team');
-            $member->save(); // Save the updated member
-
+    public function getteam($id)
+    {
+        $teams = Team::find($id);
+        if ($teams) {
             return response()->json([
                 'status' => 200,
-                'message' => 'Member Updated Successfully.'
+                'member' => $teams,
             ]);
         } else {
             return response()->json([
@@ -151,71 +113,129 @@ class MemberController extends Controller
             ]);
         }
     }
-}
 
-public function accept(Request $request)
-{
-    // Validate request
-    $request->validate([
-        'personal_email' => 'required|email:users,email',
-        'user_type' => 'required|in:tl,member' // Validate user type
-    ]);
+    public function updateMember(Request $request, $id)
+    {
+        $validator = Validator::make($request->all(), [
+            'bio_id' => 'required|max:191',
+            'user_name' => 'required|max:191',
+            'password' => 'required|max:191',
+            'personal_email' => 'required|email|max:191',
+            'official_email' => 'required|email|max:191',
+            'employee_id' => 'required|max:191',
+            'experience' => 'required|max:191',
+            'linkedin' => 'required|max:191',
+            'portfolio' => 'required|max:191',
+            'mobile_number' => 'required|max:191',
+            'tech_stack' => 'required|max:191',
+            'designation' => 'required|max:191',
+            'date_of_joining' => 'required|date',
+            'team' => 'required|max:191',
+        ]);
 
-    // Find the member record by email
-    $member = Member::where('personal_email', $request->personal_email)->first();
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->messages()
+            ]);
+        } else {
+            $member = Member::find($id);
+            if ($member) {
+                // Update the member's properties
+                $member->bio_id = $request->input('bio_id');
+                $member->user_name = $request->input('user_name');
+                $member->password = $request->input('password');
+                $member->personal_email = $request->input('personal_email');
+                $member->official_email = $request->input('official_email');
+                $member->employee_id = $request->input('employee_id');
+                $member->experience = $request->input('experience');
+                $member->linkedin = $request->input('linkedin');
+                $member->portfolio = $request->input('portfolio');
+                $member->mobile_number = $request->input('mobile_number');
+                $member->tech_stack = $request->input('tech_stack');
+                $member->designation = $request->input('designation');
+                $member->date_of_joining = $request->input('date_of_joining');
+                $member->team = $request->input('team');
+                $member->save(); // Save the updated member
 
-    if ($member) {
-        // Retrieve necessary data from member record
-        $password = $member->password;
-        $userName = $member->user_name;
-
-        // Create new user with member's name, personal email, and password
-        $user = new User();
-        $user->name = $userName; // Set user's name from member's record
-        $user->email = $member->personal_email;
-        $user->password = bcrypt($password); // Encrypt the password
-        $user->usertype = $request->user_type; // Set user's type
-        $user->save();
-
-        // Update member status to "accepted"
-        $member->status = 'accepted'; // Update status to 'accepted'
-        $member->save();
-
-        // Customize the success message based on user type
-        $message = ($request->user_type == 'tl') ? 'TL added and stored successfully' : 'Member added and stored successfully';
-
-        return response()->json(['message' => $message], 200);
-    } else {
-        return response()->json(['message' => 'Member not found'], 404);
-    }
-}
-public function reject(Request $request)
-{
-    // Validate request
-    $request->validate([
-        'personal_email' => 'required|email|exists:members,personal_email',
-    ]);
-
-    // Find the member record by email
-    $member = Member::where('personal_email', $request->personal_email)->first();
-
-    if ($member) {
-        // Update member status to "rejected"
-        $member->status = 'rejected'; // Update status to 'rejected'
-        $member->save();
-
-        // Find the user associated with the rejected member
-        $user = User::where('email', $request->personal_email)->first();
-
-        if ($user) {
-            // Update user status to "rejected"
-            $user->status = 'rejected';
-            $user->save();
+                return response()->json([
+                    'status' => 200,
+                    'message' => 'Member Updated Successfully.'
+                ]);
+            } else {
+                return response()->json([
+                    'status' => 404,
+                    'message' => 'No Member Found.'
+                ]);
+            }
         }
-
-        return response()->json(['message' => 'Member rejected successfully'], 200);
-    } else {
-        return response()->json(['message' => 'Member not found'], 404);
     }
-}
+
+    public function accept(Request $request)
+    {
+        // Validate request
+        $request->validate([
+            'personal_email' => 'required|email:users,email',
+            'user_type' => 'required|in:tl,member' // Validate user type
+        ]);
+
+        // Find the member record by email
+        $member = Member::where('personal_email', $request->personal_email)->first();
+
+        if ($member) {
+            // Retrieve necessary data from member record
+            $password = $member->password;
+            $userName = $member->user_name;
+
+            // Create new user with member's name, personal email, and password
+            $user = new User();
+            $user->name = $userName; // Set user's name from member's record
+            $user->email = $member->personal_email;
+            $user->password = bcrypt($password); // Encrypt the password
+            $user->usertype = $request->user_type; // Set user's type
+            $user->save();
+
+            // Update member status to "accepted"
+            $member->status = 'accepted'; // Update status to 'accepted'
+            $member->save();
+
+            // Customize the success message based on user type
+            $message = ($request->user_type == 'tl') ? 'TL added and stored successfully' : 'Member added and stored successfully';
+
+            return response()->json(['message' => $message], 200);
+        } else {
+            return response()->json(['message' => 'Member not found'], 404);
+        }
+    }
+    public function reject(Request $request)
+    {
+        // Validate request
+        $request->validate([
+            'personal_email' => 'required|email|exists:members,personal_email',
+        ]);
+
+        // Find the member record by email
+        $member = Member::where('personal_email', $request->personal_email)->first();
+
+        if ($member) {
+            // Update member status to "rejected"
+            $member->status = 'rejected'; // Update status to 'rejected'
+            $member->save();
+
+            // Find the user associated with the rejected member
+            $user = User::where('email', $request->personal_email)->first();
+
+            if ($user) {
+                // Update user status to "rejected"
+                $user->status = 'rejected';
+                $user->save();
+            }
+
+            return response()->json(['message' => 'Member rejected successfully'], 200);
+        } else {
+            return response()->json(['message' => 'Member not found'], 404);
+        }
+    }
+
+    
 }
