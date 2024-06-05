@@ -9,6 +9,8 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
     <!-- ===============================================-->
     <!--    Document Title-->
@@ -7952,7 +7954,7 @@
                                         <!-- Insert Form Here -->
                                         <div>
                                             <div class="col-xl-12">
-                                                <form class="row g-3 mb-6">
+                                                <form class="row g-3 mb-6" id="updateProjectForm">
                                                     <div class="col-sm-6 col-md-8">
                                                         <div class="form-floating">
                                                             <input class="form-control" id="floatingInputGrid"
@@ -7963,7 +7965,7 @@
                                                     </div>
                                                     <div class="col-sm-6 col-md-4">
                                                         <div class="form-floating">
-                                                            <select class="form-select" id="floatingSelectTask">
+                                                            <select class="form-select" id="floatingSelectTask" name="task_view">
                                                                 <option selected>Select task view
                                                                 </option>
                                                                 <option value="1">Technical</option>
@@ -8117,14 +8119,7 @@
                             </div>
                         </div>
 
-                        <script>
-                            $(document).ready(function () {
-                                $('#editButton').on('click', function (event) {
-                                    event.preventDefault();
-                                    $('#editModal').modal('show');
-                                });
-                            });
-                        </script>
+                        
                     </div>
 
                 </div>
@@ -8259,7 +8254,6 @@
                                     if (response.status == 200) {
                                         var project = response.project;
                                         $('#floatingInputGrid').val(project.project_title);
-                                        $('#floatingSelectAssignees').val(project.assignies);
                                         $('#floatingSelectTask').val(project.task_view);
                                         $('#floatingSelectPrivacy').val(project.privacy);
                                         $('#floatingInputStartDate').val(project.start_date);
@@ -8296,15 +8290,41 @@
                                         });
 
                                         // Fetch members and populate the assignees dropdown
+                                        $.ajax({
+                                            type: "GET",
+                                            url: "/get-members",
+                                            success: function (memberResponse) {
+                                                if (memberResponse.status == 200) {
+                                                    var members = memberResponse.members;
+                                                    var assigneesDropdown = $('#floatingSelectAssignees');
+                                                    assigneesDropdown.empty(); // Clear existing options
 
+                                                    members.forEach(function (member) {
+                                                        var option = $('<option></option>')
+                                                            .attr('value', member.id)
+                                                            .text(member.user_name);
+                                                        assigneesDropdown.append(option);
+                                                    });
+
+                                                    assigneesDropdown.val(project.assignies); // Set the current assignees value
+                                                } else {
+                                                    console.log("Error: " + memberResponse.message); // Log error message
+                                                }
+                                            },
+                                            error: function (xhr, status, error) {
+                                                console.error("AJAX Request Error:", error); // Log AJAX error
+                                            }
+                                        });
 
                                         // Update project data
-                                        $('#updateProjectForm').off('submit').on('submit', function (e) {
-                                            e.preventDefault();
+                                        $('#updateProjectForm').off('submit').on('submit', function (event) {
+                                            event.preventDefault(); // Prevent default form submission
+
+                                            // Collect form data
                                             var formData = {
                                                 project_title: $('#floatingInputGrid').val(),
                                                 assignies: $('#floatingSelectAssignees').val(),
-                                                task_view: $('#floatingSelectTask').val(),
+                                                task: $('#floatingSelectTask').val(),
                                                 privacy: $('#floatingSelectPrivacy').val(),
                                                 start_date: $('#floatingInputStartDate').val(),
                                                 deadline: $('#floatingInputDeadline').val(),
@@ -8314,20 +8334,35 @@
                                                 team: $('#floatingSelectTeam').val()
                                             };
 
+                                            // Send AJAX request to update project
                                             $.ajax({
-                                                type: "PUT",
-                                                url: "/update-project/" + id,
+                                                type: 'PUT',
+                                                url: '/update-project/' + id, // Use the fetched project ID
                                                 data: formData,
                                                 success: function (response) {
-                                                    if (response.status == 200) {
-                                                        alert(response.message); // Notify success
-                                                        location.reload(); // Reload the page or update the UI
+                                                    if (response.status === 200) {
+                                                        alert(response.message); // Show success message
+                                                        location.reload(); // Optionally, reload the page or update the UI
                                                     } else {
-                                                        console.log("Error: " + response.message); // Log error message
+                                                        alert('Error: ' + response.message); // Show error message
                                                     }
                                                 },
                                                 error: function (xhr, status, error) {
-                                                    console.error("AJAX Request Error:", error); // Log AJAX error
+                                                    // Handle validation errors
+                                                    if (xhr.status === 400 && xhr.responseJSON && xhr.responseJSON.errors) {
+                                                        var errors = xhr.responseJSON.errors;
+                                                        var errorMessage = '';
+                                                        for (var key in errors) {
+                                                            if (errors.hasOwnProperty(key)) {
+                                                                errorMessage += errors[key][0] + '\n';
+                                                            }
+                                                        }
+                                                        alert(errorMessage);
+                                                    } else if (xhr.status === 500 && xhr.responseJSON) {
+                                                        alert('Error: ' + xhr.responseJSON.message); // Show server error message
+                                                    } else {
+                                                        console.error('AJAX Request Error:', error); // Log other AJAX errors
+                                                    }
                                                 }
                                             });
                                         });

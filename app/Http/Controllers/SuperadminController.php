@@ -7,6 +7,7 @@ use App\Models\Project;
 use Validator;
 use App\Models\Team;
 use App\Models\Member;
+use App\Models\Role;
 
 class SuperadminController extends Controller
 {
@@ -139,7 +140,8 @@ class SuperadminController extends Controller
         ]);
     }
 
-    public function show_team(){
+    public function show_team()
+    {
         return view('superadmin.addteam');
     }
     public function store(Request $request)
@@ -156,57 +158,95 @@ class SuperadminController extends Controller
         // Redirect back with success message
         return redirect()->back()->with('success', 'Team added successfully!');
     }
-    
+
     public function updateProject(Request $request, $id)
     {
+        $validator = Validator::make($request->all(), [
+            'project_title' => 'required|max:255',
+            'assignies' => 'required',
+            'task' => 'required',
+            // 'privacy' => 'required',
+            // 'start_date' => 'required|date',
+            // 'deadline' => 'required|date',
+            'project_description' => 'required',
+            // 'client' => 'required',
+            // 'budget' => 'required|numeric',
+            'team' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->messages()
+            ]);
+        }
+
         try {
             $project = Project::find($id);
 
-            if ($project) {
-                $project->project_title = $request->project_title;
-                $project->assignies = $request->assignies;
-                $project->task_view = $request->task_view;
-                $project->privacy = $request->privacy;
-                $project->start_date = $request->start_date;
-                $project->deadline = $request->deadline;
-                $project->project_description = $request->project_description;
-                $project->client = $request->client;
-                $project->budget = $request->budget;
-                $project->team = $request->team;
-
-                $project->save();
-
-                return response()->json([
-                    'status' => 200,
-                    'message' => 'Project updated successfully'
-                ]);
-            } else {
+            if (!$project) {
                 return response()->json([
                     'status' => 404,
                     'message' => 'Project not found'
                 ]);
             }
+
+            $project->project_title = $request->input('project_title');
+            $project->assignies = $request->input('assignies');
+            $project->task = $request->input('task');
+            // $project->privacy = $request->input('privacy');
+            // $project->start_date = $request->input('start_date');
+            // $project->deadline = $request->input('deadline');
+            $project->project_description = $request->input('project_description');
+            // $project->client = $request->input('client');
+            // $project->budget = $request->input('budget');
+            $project->team = $request->input('team');
+
+            $project->save();
+
+            return response()->json([
+                'status' => 200,
+                'message' => 'Project updated successfully'
+            ]);
         } catch (\Exception $e) {
-            \Log::error('Error updating project: ' . $e->getMessage());
             return response()->json([
                 'status' => 500,
-                'message' => 'Internal Server Error'
+                'message' => 'Internal Server Error',
+                'error' => $e->getMessage()
             ]);
         }
     }
-    public function getMembers($id)
+
+    public function getMembers()
     {
-        $member = Member::find($id);
-        if ($member) {
-            return response()->json([
-                'status' => 200,
-                'member' => $member,
-            ]);
+        $members = Member::all();
+        return response()->json([
+            'status' => 200,
+            'members' => $members
+        ]);
+    }
+
+
+    public function add_roles(){
+        return view('superadmin.addroles');
+    }
+
+    public function addRole(Request $request)
+    {
+        // Validate the request data
+        $request->validate([
+            'role_name' => 'required|string|max:255|unique:roles,role_name', // Example validation rules
+        ]);
+
+        // Create a new role
+        $role = new Role();
+        $role->role_name = $request->role_name;
+        
+        // Save the role to the database
+        if ($role->save()) {
+            return response()->json(['success' => true, 'message' => 'Role added successfully'], 200);
         } else {
-            return response()->json([
-                'status' => 404,
-                'message' => 'No Member Found.'
-            ]);
+            return response()->json(['success' => false, 'message' => 'An error occurred while adding the role'], 500);
         }
     }
 }

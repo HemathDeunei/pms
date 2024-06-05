@@ -12,7 +12,7 @@ class StudentController extends Controller
     public function show_student()
     {
         $student = Student::all();
-        return view('admin.student', compact('student'));
+        // return view('admin.student', compact('student'));
     }
     public function student_register()
     {

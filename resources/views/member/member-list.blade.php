@@ -6412,6 +6412,13 @@
                             <label for="team">Team</label>
                           </div>
                         </div>
+                        <div class="col-sm-6 col-md-4">
+                          <div class="form-floating">
+                            <input class="form-control" id="roles" name="roles" type="text" placeholder="Roles"
+                              required>
+                            <label for="team">Roles</label>
+                          </div>
+                        </div>
                       </div>
 
                       <div class="text-center">
@@ -6565,6 +6572,23 @@
                         $('#designation').val(member.designation);
                         $('#date_of_joining').val(member.date_of_joining);
                         $('#team').val(member.team);
+                        $.ajax({
+                          type: "GET",
+                          url: "{{ route('get_roles') }}",
+                          dataType: "json",
+                          success: function (response) {
+                            if (response.roles && response.roles.length) {
+                              var rolesDropdown = $('#roles');
+                              rolesDropdown.empty(); // Clear existing options
+                              $.each(response.roles, function (index, role) {
+                                rolesDropdown.append('<option value="' + role.id + '">' + role.name + '</option>');
+                              });
+                            }
+                          },
+                          error: function (xhr, status, error) {
+                            console.error('Error fetching roles:', error);
+                          }
+                        });
                       } else {
                         console.log("Error: " + response.message); // Log error message
                       }

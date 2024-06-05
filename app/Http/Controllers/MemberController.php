@@ -7,6 +7,7 @@ use Validator;
 use App\Models\Member;
 use App\Models\User;
 use App\Models\Team;
+use App\Models\Role;
 
 
 class MemberController extends Controller
@@ -236,6 +237,10 @@ class MemberController extends Controller
             return response()->json(['message' => 'Member not found'], 404);
         }
     }
-
+    public function getRoles()
+    {
+        $roles = Role::all();
+        return response()->json(['roles' => $roles]);
+    }
     
 }

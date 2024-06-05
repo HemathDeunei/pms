@@ -106,18 +106,6 @@
                             </div>
                             <div id="batch_year-error" class="error"></div> <!-- Error placeholder -->
                         </div>
-                        <div class="col-sm-6 col-md-12">
-                            <div class="form-floating">
-                                <input class="form-control" id="project_title" type="text" name="project_title" placeholder="Project Title" required>
-                                <label for="project_title">Project Title</label>
-                            </div>
-                            <div id="project_title-error" class="error"></div> <!-- Error placeholder -->
-                        </div>
-                        <div class="form-floating col-sm-12 col-md-12">
-                            <textarea class="form-control" id="project_description" name="project_description" placeholder="Leave a comment here" style="height: 224px;" required></textarea>
-                            <label for="project_description">Project Description</label>
-                            <div id="project_description-error" class="error"></div> <!-- Error placeholder -->
-                        </div>
                         <div class="col-sm-6 col-md-4">
                             <div class="form-floating">
                                 <input class="form-control" id="mentor_name" type="text" name="mentor_name" placeholder="Mentor Name" required>

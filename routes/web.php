@@ -39,6 +39,7 @@ require __DIR__.'/auth.php';
 
 Route::get('/',[HomeController::class,'home']);
 Route::get('/homepage',[LoginController::class,'login']);
+// Route::get('/homepage',[LoginController::class,'role_login']);
 
 //super Admin
 Route::get('/superadmin_home',[SuperadminController::class,'superadmin_home']);
@@ -49,12 +50,15 @@ Route::post('/project_store',[SuperadminController::class,'project_store'])->nam
 Route::post('/projects_accept', [SuperadminController::class, 'accept'])->name('project_accept');
 Route::post('/reject-project', [SuperadminController::class, 'reject']);
 Route::get('/add-team', [SuperadminController::class, 'show_team'])->name('show_team');
+Route::get('/add-roles',[SuperadminController::class,'add_roles'])->name('add_roles');
 Route::get('get_team',[SuperadminController::class,'display_team']);
 Route::post('/store-team', [SuperadminController::class, 'store'])->name('store_team');
 Route::get('/get-project/{id}', [SuperadminController::class, 'getProject']);
 Route::get('/get-teams', [SuperadminController::class, 'getTeams']);
+Route::get('/get-members', [SuperadminController::class, 'getMembers']);
 Route::put('/update-project/{id}', [SuperadminController::class, 'updateProject']);
-// Route::get('/get-members', [SuperadminController::class, 'getMembers']);
+Route::post('/add_roles', [SuperadminController::class, 'addRole'])->name('add_roles');
+
 
 
 
@@ -67,6 +71,8 @@ Route::get('/get-member/{id}', [MemberController::class, 'getMember']);
 Route::post('/update-member/{id}', [MemberController::class, 'updateMember']);
 Route::post('/accept', [MemberController::class, 'accept'])->name('accept');
 Route::post('/reject', [MemberController::class, 'reject'])->name('reject');
+Route::get('/get-roles', [MemberController::class, 'getRoles'])->name('get_roles');
+
 // Route::get('get-team',[MemberController::class,'getteam']);
 
 
