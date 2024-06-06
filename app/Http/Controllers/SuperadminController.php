@@ -8,6 +8,7 @@ use Validator;
 use App\Models\Team;
 use App\Models\Member;
 use App\Models\Role;
+use App\Models\Batch;
 
 class SuperadminController extends Controller
 {
@@ -248,5 +249,33 @@ class SuperadminController extends Controller
         } else {
             return response()->json(['success' => false, 'message' => 'An error occurred while adding the role'], 500);
         }
+    }
+
+    public function getRoles()
+    {
+        $roles = Role::all();
+        return response()->json(['roles' => $roles]);
+    }
+
+
+    public function show_batch(){
+        return view('superadmin.addbatch');
+    }
+    public function addBatch(Request $request)
+    {
+        // Validate the incoming request data
+        $validatedData = $request->validate([
+            'batch_name' => 'required|string|max:255',
+            // Add validation rules for other fields if needed
+        ]);
+
+        // Create a new batch using the Batch model
+        $batch = new Batch();
+        $batch->batch_name = $validatedData['batch_name'];
+        // Set other properties if needed
+        $batch->save();
+
+        // Return a success response
+        return response()->json(['message' => 'Batch added successfully'], 200);
     }
 }

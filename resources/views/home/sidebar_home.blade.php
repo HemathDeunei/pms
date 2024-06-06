@@ -44,6 +44,11 @@
                         <div class="d-flex align-items-center"><span class="nav-link-text">Add Roles</span></div>
                     </a><!-- more inner pages-->
                 </li>
+                <li class="nav-item"><a class="nav-link" href="{{route('show_batch')}}" data-bs-toggle=""
+                        aria-expanded="false">
+                        <div class="d-flex align-items-center"><span class="nav-link-text">Add Batch</span></div>
+                    </a><!-- more inner pages-->
+                </li>
                 
             </ul>
         </div>

@@ -23,6 +23,7 @@
                                             class="nav-link-text-wrapper"><span
                                                 class="nav-link-text">Project details</span></span></div>
                                 </a></div>
+                                
                             <div class="nav-item-wrapper"><a class="nav-link dropdown-indicator label-1"
                                     href="#nv-e-commerce" role="button" data-bs-toggle="collapse" aria-expanded="false"
                                     aria-controls="nv-e-commerce">

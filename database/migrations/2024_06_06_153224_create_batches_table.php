@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('members', function (Blueprint $table) {
-            //
-        
+        Schema::create('batches', function (Blueprint $table) {
+            $table->id();
+            $table->string('batch_name');
+            $table->timestamps();
         });
     }
 
@@ -22,8 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('members', function (Blueprint $table) {
-            $table->dropColumn('team');
-        });
+        Schema::dropIfExists('batches');
     }
 };

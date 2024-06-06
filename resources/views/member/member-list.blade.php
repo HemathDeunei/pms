@@ -593,6 +593,24 @@
               </div>
             </div>
           </li>
+          <li class="nav-item">
+                        <form method="post" action="{{ route('logout') }}">
+                            @csrf
+                            <!-- Add any additional form fields if needed -->
+
+                            <!-- Check if the user is authenticated and display the user type -->
+                            @if (Auth::check())
+                                <button type="submit" class="btn btn-primary">
+                                    LOGOUT ({{ Auth::user()->usertype }})
+                                </button>
+                            @else
+                                <!-- Optionally, you can handle the case when no user is logged in -->
+                                <button type="submit" class="btn btn-primary" disabled>
+                                    LOGOUT
+                                </button>
+                            @endif
+                        </form>
+                    </li>
         </ul>
       </div>
     </nav>
@@ -6414,9 +6432,10 @@
                         </div>
                         <div class="col-sm-6 col-md-4">
                           <div class="form-floating">
-                            <input class="form-control" id="roles" name="roles" type="text" placeholder="Roles"
-                              required>
-                            <label for="team">Roles</label>
+                            <select id="roles" name="roles_name" class="form-control">
+                              <option value="">Select a role</option>
+                            </select>
+                            <label for="roles">Select a role</label>
                           </div>
                         </div>
                       </div>
@@ -6459,29 +6478,29 @@
                     if (response.members && response.members.length) {
                       response.members.forEach(function (member) {
                         var data = `<tr>
-                        <td>${member.bio_id}</td>
-                        <td>${member.employee_id}</td>
-                        <td >${member.user_name}</td>
-                        <td>${member.personal_email}</td>
-                        <td>${member.mobile_number}</td>
-                        <td>${member.date_of_joining}</td>
-                        <td class="align-middle text-end white-space-nowrap pe-0 action">
-                            <div class="font-sans-serif btn-reveal-trigger position-static">
-                                <button class="btn btn-sm dropdown-toggle dropdown-caret-none transition-none btn-reveal fs--2" type="button" data-bs-toggle="dropdown" data-boundary="window" aria-haspopup="true" aria-expanded="false" data-bs-reference="parent">
-                                    <svg class="svg-inline--fa fa-ellipsis fs--2" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="ellipsis" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
-                                        <path fill="currentColor" d="M120 256C120 286.9 94.93 312 64 312C33.07 312 8 286.9 8 256C8 225.1 33.07 200 64 200C94.93 200 120 225.1 120 256zM280 256C280 286.9 254.9 312 224 312C193.1 312 168 286.9 168 256C168 225.1 193.1 200 224 200C254.9 200 280 225.1 280 256zM328 256C328 225.1 353.1 200 384 200C414.9 200 440 225.1 440 256C440 286.9 414.9 312 384 312C353.1 312 328 286.9 328 256z"></path>
-                                    </svg>
-                                </button>
-                                <div class="dropdown-menu dropdown-menu-end py-2">
-    <a class="accept-btn dropdown-item" href="#!" data-personal_email="${member.personal_email}" data-user_type="tl">Accept as TL</a>
-    <a class="accept-btn dropdown-item" href="#!" data-personal_email="${member.personal_email}" data-user_type="member">Accept as Member</a>
-    <a class="reject-btn dropdown-item" href="#!" data-personal_email="${member.personal_email}">Reject</a>
-    <div class="dropdown-divider"></div>
-    <a class="dropdown-item text-danger editbtn" href="#!" data-bs-toggle="modal" data-bs-target="#editModal" data-id="${member.bio_id}">Edit</a>
-</div>
-                            </div>
-                        </td>
-                    </tr>`;
+              <td>${member.bio_id}</td>
+              <td>${member.employee_id}</td>
+              <td>${member.user_name}</td>
+              <td>${member.personal_email}</td>
+              <td>${member.mobile_number}</td>
+              <td>${member.date_of_joining}</td>
+              <td class="align-middle text-end white-space-nowrap pe-0 action">
+                <div class="font-sans-serif btn-reveal-trigger position-static">
+                  <button class="btn btn-sm dropdown-toggle dropdown-caret-none transition-none btn-reveal fs--2" type="button" data-bs-toggle="dropdown" data-boundary="window" aria-haspopup="true" aria-expanded="false" data-bs-reference="parent">
+                    <svg class="svg-inline--fa fa-ellipsis fs--2" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="ellipsis" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                      <path fill="currentColor" d="M120 256C120 286.9 94.93 312 64 312C33.07 312 8 286.9 8 256C8 225.1 33.07 200 64 200C94.93 200 120 225.1 120 256zM280 256C280 286.9 254.9 312 224 312C193.1 312 168 286.9 168 256C168 225.1 193.1 200 224 200C254.9 200 280 225.1 280 256zM328 256C328 225.1 353.1 200 384 200C414.9 200 440 225.1 440 256C440 286.9 414.9 312 384 312C353.1 312 328 286.9 328 256z"></path>
+                    </svg>
+                  </button>
+                  <div class="dropdown-menu dropdown-menu-end py-2">
+                    <a class="accept-btn dropdown-item" href="#!" data-personal_email="${member.personal_email}" data-user_type="tl">Accept as TL</a>
+                    <a class="accept-btn dropdown-item" href="#!" data-personal_email="${member.personal_email}" data-user_type="member">Accept as Member</a>
+                    <a class="reject-btn dropdown-item" href="#!" data-personal_email="${member.personal_email}">Reject</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item text-danger editbtn" href="#!" data-bs-toggle="modal" data-bs-target="#editModal" data-id="${member.bio_id}">Edit</a>
+                  </div>
+                </div>
+              </td>
+            </tr>`;
                         tableBody.append(data);
                       });
                     }
@@ -6497,7 +6516,6 @@
 
                   let personalEmail = $(this).data('personal_email');
                   let userType = $(this).data('user_type');
-                  let csrfToken = $('meta[name="csrf-token"]').attr('content');
 
                   $.ajax({
                     url: '/accept',
@@ -6505,9 +6523,6 @@
                     data: {
                       personal_email: personalEmail,
                       user_type: userType
-                    },
-                    headers: {
-                      'X-CSRF-TOKEN': csrfToken
                     },
                     success: function (response) {
                       alert(response.message);
@@ -6572,6 +6587,8 @@
                         $('#designation').val(member.designation);
                         $('#date_of_joining').val(member.date_of_joining);
                         $('#team').val(member.team);
+
+                        // Fetch roles and populate the dropdown
                         $.ajax({
                           type: "GET",
                           url: "{{ route('get_roles') }}",
@@ -6581,20 +6598,20 @@
                               var rolesDropdown = $('#roles');
                               rolesDropdown.empty(); // Clear existing options
                               $.each(response.roles, function (index, role) {
-                                rolesDropdown.append('<option value="' + role.id + '">' + role.name + '</option>');
+                                rolesDropdown.append('<option value="' + role.role_name + '">' + role.role_name + '</option>');
                               });
+                            } else {
+                              console.log("No roles found.");
                             }
                           },
                           error: function (xhr, status, error) {
                             console.error('Error fetching roles:', error);
                           }
                         });
-                      } else {
-                        console.log("Error: " + response.message); // Log error message
                       }
                     },
                     error: function (xhr, status, error) {
-                      console.error("AJAX Request Error:", error); // Log AJAX error
+                      console.error('Error fetching member:', error);
                     }
                   });
                 });
@@ -6627,8 +6644,8 @@
                   });
                 });
               });
-
             </script>
+
 
 
           </div>
