@@ -19,7 +19,7 @@ class MemberController extends Controller
     }
 
     public function member_list()
-    {
+    {  
         $members = Member::all();
         if (request()->expectsJson()) {
             return response()->json([

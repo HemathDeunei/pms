@@ -56,6 +56,8 @@ Route::post('/store-team', [SuperadminController::class, 'store'])->name('store_
 Route::get('/get-project/{id}', [SuperadminController::class, 'getProject']);
 Route::get('/get-teams', [SuperadminController::class, 'getTeams']);
 Route::get('/get-members', [SuperadminController::class, 'getMembers']);
+Route::get('/get-students',[SuperadminController::class,'getstudents']);
+Route::get('/get-batches', [SuperadminController::class, 'getBatches']);
 Route::put('/update-project/{id}', [SuperadminController::class, 'updateProject']);
 Route::post('/add_roles', [SuperadminController::class, 'addRole'])->name('add_roles');
 Route::get('/get_roles', [SuperadminController::class, 'getroles'])->name('get_roles');

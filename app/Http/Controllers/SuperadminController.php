@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Student;
 use Illuminate\Http\Request;
 use App\Models\Project;
 use Validator;
@@ -162,19 +163,20 @@ class SuperadminController extends Controller
 
     public function updateProject(Request $request, $id)
     {
+        // Validate the request data
         $validator = Validator::make($request->all(), [
-            'project_title' => 'required|max:255',
-            'assignies' => 'required',
-            'task' => 'required',
-            // 'privacy' => 'required',
-            // 'start_date' => 'required|date',
-            // 'deadline' => 'required|date',
-            'project_description' => 'required',
-            // 'client' => 'required',
-            // 'budget' => 'required|numeric',
-            'team' => 'required'
+            'project_title' => 'required|string|max:255',
+            'assignies' => 'required|string|max:255',
+            'batch' => 'required|string|max:255',
+            'team' => 'required|string|max:255',
+            'platform' => 'required|string|max:255',
+            'student' => 'required|string|max:255',
+            'start_date' => 'required|date',
+            'deadline' => 'required|date',
+            'project_description' => 'required|string|max:1500',
         ]);
 
+        // Check if validation fails
         if ($validator->fails()) {
             return response()->json([
                 'status' => 400,
@@ -183,8 +185,10 @@ class SuperadminController extends Controller
         }
 
         try {
+            // Find the project by ID
             $project = Project::find($id);
 
+            // Check if project exists
             if (!$project) {
                 return response()->json([
                     'status' => 404,
@@ -192,17 +196,18 @@ class SuperadminController extends Controller
                 ]);
             }
 
+            // Update project attributes
             $project->project_title = $request->input('project_title');
-            $project->assignies = $request->input('assignies');
-            $project->task = $request->input('task');
-            // $project->privacy = $request->input('privacy');
-            // $project->start_date = $request->input('start_date');
-            // $project->deadline = $request->input('deadline');
-            $project->project_description = $request->input('project_description');
-            // $project->client = $request->input('client');
-            // $project->budget = $request->input('budget');
+            $project->batch = $request->input('batch');
             $project->team = $request->input('team');
+            $project->assignies = $request->input('assignies');
+            $project->platform = $request->input('platform');
+            $project->student = $request->input('student');
+            $project->start_date = $request->input('start_date');
+            $project->deadline = $request->input('deadline');
+            $project->project_description = $request->input('project_description');
 
+            // Save the updated project
             $project->save();
 
             return response()->json([
@@ -210,6 +215,7 @@ class SuperadminController extends Controller
                 'message' => 'Project updated successfully'
             ]);
         } catch (\Exception $e) {
+            // Handle any exceptions
             return response()->json([
                 'status' => 500,
                 'message' => 'Internal Server Error',
@@ -218,17 +224,8 @@ class SuperadminController extends Controller
         }
     }
 
-    public function getMembers()
+    public function add_roles()
     {
-        $members = Member::all();
-        return response()->json([
-            'status' => 200,
-            'members' => $members
-        ]);
-    }
-
-
-    public function add_roles(){
         return view('superadmin.addroles');
     }
 
@@ -242,7 +239,7 @@ class SuperadminController extends Controller
         // Create a new role
         $role = new Role();
         $role->role_name = $request->role_name;
-        
+
         // Save the role to the database
         if ($role->save()) {
             return response()->json(['success' => true, 'message' => 'Role added successfully'], 200);
@@ -258,7 +255,8 @@ class SuperadminController extends Controller
     }
 
 
-    public function show_batch(){
+    public function show_batch()
+    {
         return view('superadmin.addbatch');
     }
     public function addBatch(Request $request)
@@ -277,5 +275,27 @@ class SuperadminController extends Controller
 
         // Return a success response
         return response()->json(['message' => 'Batch added successfully'], 200);
+    }
+
+    public function getMembers()
+    {
+        $members = Member::all();
+        return response()->json(['status' => 200, 'members' => $members]);
+    }
+
+    public function getStudents()
+    {
+        $students = Student::all();
+        return response()->json(['status' => 200, 'students' => $students]);
+    }
+
+    public function getBatches()
+    {
+        $batches = Batch::all(); // Assuming you have a Batch model with a 'name' attribute
+
+        return response()->json([
+            'status' => 200,
+            'batches' => $batches
+        ]);
     }
 }

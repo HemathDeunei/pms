@@ -10,6 +10,8 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
 
 
     <!-- ===============================================-->
@@ -7918,17 +7920,17 @@
                                     <th class="sort white-space-nowrap align-middle ps-0" scope="col"
                                         data-sort="projectName" style="width:30%;">PROJECT TITLE</th>
                                     <th class="sort align-middle ps-3" scope="col" data-sort="assigness"
-                                        style="width:10%;">ASSIGNESS</th>
+                                        style="width:10%;">DEVELOPERS</th>
                                     <th class="sort align-middle ps-3" scope="col" data-sort="start" style="width:10%;">
                                         START DATE</th>
                                     <th class="sort align-middle ps-3" scope="col" data-sort="deadline"
                                         style="width:15%;">DEADLINE</th>
                                     <th class="sort align-middle ps-3" scope="col" data-sort="task" style="width:12%;">
-                                        TASK</th>
+                                        STUDENT NAME</th>
                                     <th class="sort align-middle ps-3" scope="col" data-sort="projectprogress"
-                                        style="width:5%;">PROGRESS</th>
+                                        style="width:5%;">PLATFORM</th>
                                     <th class="sort align-middle text-end" scope="col" data-sort="statuses"
-                                        style="width:10%;">STATUS</th>
+                                        style="width:10%;">BATCH/YEAR</th>
                                     <th class="sort align-middle text-end" scope="col" style="width:10%;">ACTION</th>
                                 </tr>
                             </thead>
@@ -7944,8 +7946,7 @@
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="editModalLabel">Edit Project
-                                        </h5>
+                                        <h5 class="modal-title" id="editModalLabel">Edit Project</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
@@ -7955,158 +7956,122 @@
                                         <div>
                                             <div class="col-xl-12">
                                                 <form class="row g-3 mb-6" id="updateProjectForm">
+                                                    <!-- Project Title -->
                                                     <div class="col-sm-6 col-md-8">
                                                         <div class="form-floating">
                                                             <input class="form-control" id="floatingInputGrid"
-                                                                type="text" placeholder="Project title">
-                                                            <label for="floatingInputGrid">Project
-                                                                title</label>
+                                                                type="text" placeholder="Project title"
+                                                                name="project_title">
+                                                            <label for="floatingInputGrid">Project Title</label>
                                                         </div>
                                                     </div>
+
+                                                    <!-- Batch -->
                                                     <div class="col-sm-6 col-md-4">
                                                         <div class="form-floating">
-                                                            <select class="form-select" id="floatingSelectTask" name="task_view">
-                                                                <option selected>Select task view
-                                                                </option>
-                                                                <option value="1">Technical</option>
-                                                                <option value="2">External</option>
-                                                                <option value="3">Organizational
-                                                                </option>
+                                                            <select class="form-select" id="floatingSelectBatch"
+                                                                aria-label="Batch" name="batch">
+                                                                <!-- Options will be populated dynamically via JavaScript -->
                                                             </select>
-                                                            <label for="floatingSelectTask">Default
-                                                                task view</label>
+                                                            <label for="floatingSelectBatch">Batch</label>
                                                         </div>
                                                     </div>
+
+
+                                                    <!-- Team -->
                                                     <div class="col-sm-6 col-md-4">
                                                         <div class="form-floating">
-                                                            <select class="form-select" id="floatingSelectPrivacy">
-                                                                <option selected>Select privacy
-                                                                </option>
-                                                                <option value="1">Data Privacy One
-                                                                </option>
-                                                                <option value="2">Data Privacy Two
-                                                                </option>
-                                                                <option value="3">Data Privacy Three
-                                                                </option>
-                                                            </select>
-                                                            <label for="floatingSelectPrivacy">Project
-                                                                privacy</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-6 col-md-4">
-                                                        <div class="form-floating">
-                                                            <select class="form-select" id="floatingSelectTeam">
-                                                                <option selected>Select team
-                                                                </option>
-                                                                <option value="1">Team One</option>
-                                                                <option value="2">Team Two</option>
-                                                                <option value="3">Team Three
-                                                                </option>
+                                                            <select class="form-select" id="floatingSelectTeam"
+                                                                aria-label="Team" name="team">
+                                                                <!-- Options will be populated dynamically via JavaScript -->
                                                             </select>
                                                             <label for="floatingSelectTeam">Team</label>
                                                         </div>
                                                     </div>
+
+
+                                                    <!-- Developers -->
                                                     <div class="col-sm-6 col-md-4">
                                                         <div class="form-floating">
-                                                            <select class="form-select" id="floatingSelectAssignees">
-                                                                <option selected>Select assignees
-                                                                </option>
-                                                                <option value="1">One</option>
-                                                                <option value="2">Two</option>
-                                                                <option value="3">Three</option>
+                                                            <select class="form-select" id="floatingSelectDevelopers"
+                                                                aria-label="Developers" name="assignies">
+                                                                <!-- <option value="">Select a Developer</option> -->
                                                             </select>
-                                                            <label for="floatingSelectAssignees">People</label>
+                                                            <label for="floatingSelectDevelopers">Developers</label>
                                                         </div>
                                                     </div>
+
+                                                    <!-- Platform -->
                                                     <div class="col-sm-6 col-md-4">
                                                         <div class="form-floating">
-                                                            <select class="form-select" id="floatingSelectAdmin">
-                                                                <option selected>Select admin
-                                                                </option>
-                                                                <option value="1">Data Privacy One
-                                                                </option>
-                                                                <option value="2">Data Privacy Two
-                                                                </option>
-                                                                <option value="3">Data Privacy Three
-                                                                </option>
-                                                            </select>
-                                                            <label for="floatingSelectAdmin">Project
-                                                                Lead</label>
+                                                            <input class="form-control" id="floatingPlatform"
+                                                                type="text" placeholder="Platform" name="platform">
+                                                            <label for="floatingPlatform">Platform</label>
                                                         </div>
                                                     </div>
+
+                                                    <!-- Student -->
+                                                    <div class="col-sm-6 col-md-4">
+                                                        <div class="form-floating">
+                                                            <select class="form-select" id="floatingSelectStudent"
+                                                                aria-label="Student" name="student">
+                                                                <!-- Options will be dynamically populated using JavaScript -->
+                                                            </select>
+                                                            <label for="floatingSelectStudent">Student</label>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Start Date -->
                                                     <div class="col-sm-6 col-md-4">
                                                         <div class="flatpickr-input-container">
                                                             <div class="form-floating">
                                                                 <input
                                                                     class="form-control datetimepicker flatpickr-input"
                                                                     id="floatingInputStartDate" type="text"
-                                                                    placeholder="Start date"
-                                                                    data-options="{&quot;disableMobile&quot;:true}"
-                                                                    readonly>
+                                                                    placeholder="Start date" name="start_date">
                                                                 <label class="ps-6" for="floatingInputStartDate">Start
-                                                                    date</label>
+                                                                    Date</label>
                                                                 <span
                                                                     class="uil uil-calendar-alt flatpickr-icon text-700"></span>
                                                             </div>
                                                         </div>
                                                     </div>
+
+                                                    <!-- End Date -->
                                                     <div class="col-sm-6 col-md-4">
                                                         <div class="flatpickr-input-container">
                                                             <div class="form-floating">
                                                                 <input
                                                                     class="form-control datetimepicker flatpickr-input"
-                                                                    id="floatingInputDeadline" type="text"
-                                                                    placeholder="Deadline"
-                                                                    data-options="{&quot;disableMobile&quot;:true}"
-                                                                    readonly>
-                                                                <label class="ps-6"
-                                                                    for="floatingInputDeadline">Deadline</label>
+                                                                    id="floatingInputEndDate" type="text"
+                                                                    placeholder="End date" name="deadline">
+                                                                <label class="ps-6" for="floatingInputEndDate">End
+                                                                    Date</label>
                                                                 <span
                                                                     class="uil uil-calendar-alt flatpickr-icon text-700"></span>
                                                             </div>
                                                         </div>
                                                     </div>
+
+                                                    <!-- Description -->
                                                     <div class="col-12 gy-6">
                                                         <div class="form-floating">
                                                             <textarea class="form-control" id="floatingProjectOverview"
-                                                                placeholder="Leave a comment here"
-                                                                style="height: 100px"></textarea>
-                                                            <label for="floatingProjectOverview">Project
-                                                                overview</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6 gy-6">
-                                                        <div class="form-floating">
-                                                            <select class="form-select" id="floatingSelectClient">
-                                                                <option selected>Select client
-                                                                </option>
-                                                                <option value="1">Client One
-                                                                </option>
-                                                                <option value="2">Client Two
-                                                                </option>
-                                                                <option value="3">Client Three
-                                                                </option>
-                                                            </select>
-                                                            <label for="floatingSelectClient">Client</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6 gy-6">
-                                                        <div class="form-floating">
-                                                            <input class="form-control" id="floatingInputBudget"
-                                                                type="text" placeholder="Budget">
-                                                            <label for="floatingInputBudget">Budget</label>
+                                                                placeholder="Project Description" style="height: 100px"
+                                                                name="project_description"></textarea>
+                                                            <label for="floatingProjectOverview">Description</label>
                                                         </div>
                                                     </div>
 
                                                     <div class="col-12 gy-6">
                                                         <div class="row g-3 justify-content-end">
                                                             <div class="col-auto">
-                                                                <button class="btn btn-phoenix-primary px-5"
+                                                                <button class="btn btn-secondary px-5"
                                                                     data-dismiss="modal">Cancel</button>
                                                             </div>
                                                             <div class="col-auto">
                                                                 <button class="btn btn-primary px-5 px-sm-15"
-                                                                    type="submit">Upadte
+                                                                    id="updateProjectForm" type="submit">Update
                                                                     Project</button>
                                                             </div>
                                                         </div>
@@ -8119,297 +8084,343 @@
                             </div>
                         </div>
 
-                        
                     </div>
-
-                </div>
-                <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-                <script>
-                    $(document).ready(function () {
-                        // Setup CSRF token for AJAX requests
-                        $.ajaxSetup({
-                            headers: {
-                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                            }
-                        });
-
-                        // Fetch and display the project list
-                        $.ajax({
-                            type: "GET",
-                            url: "/project-list",
-                            dataType: "json",
-                            success: function (response) {
-                                console.log("AJAX response:", response);
-                                var tableBody = $('#project-list-table-body');
-                                tableBody.empty(); // Clear existing rows
-
-                                if (response.projects && response.projects.length) {
-                                    response.projects.forEach(function (project) {
-                                        var data = `
-                        <tr>
-                            <td>${project.project_title}</td>
-                            <td><div class="avatar-group avatar-group-dense"><a class="dropdown-toggle dropdown-caret-none d-inline-block" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-                          <div class="avatar avatar-s  rounded-circle">
-                            <img class="rounded-circle " src="../../assets/img/team/34.webp" alt="">
-                          </div>
-                        </a>
-                        
-                        ${project.assignies}
-                      </div></td>
-                            <td>${project.start_date}</td>
-                            <td>${project.deadline}</td>
-                            <td>${project.task}</td>
-                            <td>${project.progress}</td>
-                            <td>${project.status}</td>
-                            <td class="align-middle text-end white-space-nowrap pe-0 action">
-                                <div class="font-sans-serif btn-reveal-trigger position-static">
-                                    <button class="btn btn-sm dropdown-toggle dropdown-caret-none transition-none btn-reveal fs--2" type="button" data-bs-toggle="dropdown" data-boundary="window" aria-haspopup="true" aria-expanded="false" data-bs-reference="parent">
-                                        <svg class="svg-inline--fa fa-ellipsis fs--2" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="ellipsis" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
-                                            <path fill="currentColor" d="M120 256C120 286.9 94.93 312 64 312C33.07 312 8 286.9 8 256C8 225.1 33.07 200 64 200C94.93 200 120 225.1 120 256zM280 256C280 286.9 254.9 312 224 312C193.1 312 168 286.9 168 256C168 225.1 193.1 200 224 200C254.9 200 280 225.1 280 256zM328 256C328 225.1 353.1 200 384 200C414.9 200 440 225.1 440 256C440 286.9 414.9 312 384 312C353.1 312 328 286.9 328 256z"></path>
-                                        </svg>
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-end py-2">
-                                        <a class="accept-btn dropdown-item" href="#!" data-id="${project.project_title}">Accept</a>
-                                        <a class="reject-btn dropdown-item" href="#!" data-id="${project.project_title}">Reject</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="editbtn dropdown-item text-danger" href="#" data-bs-toggle="modal" data-bs-target="#editModal" data-id="${project.id}">Edit</a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>`;
-                                        tableBody.append(data);
-                                    });
+                    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                    <script>
+                        $(document).ready(function () {
+                            // Setup CSRF token for AJAX requests
+                            $.ajaxSetup({
+                                headers: {
+                                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                                 }
-                            },
-                            error: function (xhr, status, error) {
-                                console.error("AJAX error:", xhr.responseText);
-                            }
-                        });
+                            });
 
-                        // Handle click event on accept button
-                        $(document).on('click', '.accept-btn', function (e) {
-                            e.preventDefault();
-
-                            var project_title = $(this).data('id'); // Get project title from data attribute
-
+                            // Fetch and display the project list
                             $.ajax({
-                                type: "POST",
-                                url: "{{ route('project_accept') }}", // Define the route for accepting the project
-                                data: {
-                                    'project_title': project_title
-                                },
+                                type: "GET",
+                                url: "/project-list",
                                 dataType: "json",
                                 success: function (response) {
-                                    if (response.success) {
-                                        alert(response.message);
-                                        // Optionally, update the UI to reflect the status change
-                                        // e.g., change the button text, disable the button, etc.
-                                    } else {
-                                        alert('Error: ' + (response.message || 'Unable to accept project'));
+                                    console.log("AJAX response:", response);
+                                    var tableBody = $('#project-list-table-body');
+                                    tableBody.empty(); // Clear existing rows
+
+                                    if (response.projects && response.projects.length) {
+                                        response.projects.forEach(function (project) {
+                                            var data = `
+                                <tr>
+                                    <td>${project.project_title}</td>
+                                    <td>
+                                        <div class="avatar-group avatar-group-dense">
+                                            <a class="dropdown-toggle dropdown-caret-none d-inline-block" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                                                <div class="avatar avatar-s rounded-circle">
+                                                    <img class="rounded-circle" src="../../assets/img/team/34.webp" alt="">
+                                                </div>
+                                            </a>
+                                            ${project.assignies}
+                                        </div>
+                                    </td>
+                                    <td>${project.start_date}</td>
+                                    <td>${project.deadline}</td>
+                                    <td>${project.student}</td>
+                                    <td>${project.platform}</td>
+                                    <td>${project.batch}</td>
+                                    <td class="align-middle text-end white-space-nowrap pe-0 action">
+                                        <div class="font-sans-serif btn-reveal-trigger position-static">
+                                            <button class="btn btn-sm dropdown-toggle dropdown-caret-none transition-none btn-reveal fs--2" type="button" data-bs-toggle="dropdown" data-boundary="window" aria-haspopup="true" aria-expanded="false" data-bs-reference="parent">
+                                                <svg class="svg-inline--fa fa-ellipsis fs--2" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="ellipsis" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                                                    <path fill="currentColor" d="M120 256C120 286.9 94.93 312 64 312C33.07 312 8 286.9 8 256C8 225.1 33.07 200 64 200C94.93 200 120 225.1 120 256zM280 256C280 286.9 254.9 312 224 312C193.1 312 168 286.9 168 256C168 225.1 193.1 200 224 200C254.9 200 280 225.1 280 256zM328 256C328 225.1 353.1 200 384 200C414.9 200 440 225.1 440 256C440 286.9 414.9 312 384 312C353.1 312 328 286.9 328 256z"></path>
+                                                </svg>
+                                            </button>
+                                            <div class="dropdown-menu dropdown-menu-end py-2">
+                                                <a class="accept-btn dropdown-item" href="#!" data-id="${project.project_title}">Accept</a>
+                                                <a class="reject-btn dropdown-item" href="#!" data-id="${project.project_title}">Reject</a>
+                                                <div class="dropdown-divider"></div>
+                                                <a class="editbtn dropdown-item text-danger" href="#" data-bs-toggle="modal" data-bs-target="#editModal" data-id="${project.id}">Edit</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>`;
+                                            tableBody.append(data);
+                                        });
                                     }
                                 },
                                 error: function (xhr, status, error) {
-                                    alert('An error occurred. Please try again.');
-                                    console.error(xhr.responseText);
+                                    console.error("AJAX error:", xhr.responseText);
                                 }
                             });
-                        });
 
-                        // Handle click event on reject button
-                        $(document).on('click', '.reject-btn', function (e) {
-                            e.preventDefault();
+                            // Handle click event on accept button
+                            $(document).on('click', '.accept-btn', function (e) {
+                                e.preventDefault();
+                                var project_title = $(this).data('id'); // Get project title from data attribute
 
-                            var projectTitle = $(this).data('id'); // Get the project title from data-id attribute
-
-                            // Make AJAX request to reject the project
-                            $.ajax({
-                                url: '/reject-project',
-                                method: 'POST',
-                                data: {
-                                    project_title: projectTitle
-                                },
-                                success: function (response) {
-                                    console.log(response);
-                                    alert('Project rejected successfully');
-                                    // Optionally, you can perform additional actions after rejecting the project
-                                },
-                                error: function (xhr, status, error) {
-                                    console.error(xhr.responseText);
-                                    alert('Error: ' + xhr.responseText);
-                                }
+                                $.ajax({
+                                    type: "POST",
+                                    url: "{{ route('project_accept') }}", // Define the route for accepting the project
+                                    data: {
+                                        'project_title': project_title
+                                    },
+                                    dataType: "json",
+                                    success: function (response) {
+                                        if (response.success) {
+                                            alert(response.message);
+                                            location.reload(); // Optionally, reload the page or update the UI
+                                        } else {
+                                            alert('Error: ' + (response.message || 'Unable to accept project'));
+                                        }
+                                    },
+                                    error: function (xhr, status, error) {
+                                        alert('An error occurred. Please try again.');
+                                        console.error(xhr.responseText);
+                                    }
+                                });
                             });
-                        });
 
-                        // Handle click event on edit button
-                        $(document).on('click', '.editbtn', function (e) {
-                            e.preventDefault();
-                            var id = $(this).data('id'); // Retrieve the value of data-id attribute
+                            // Handle click event on reject button
+                            $(document).on('click', '.reject-btn', function (e) {
+                                e.preventDefault();
+                                var projectTitle = $(this).data('id'); // Get the project title from data-id attribute
 
-                            // Fetch project data
-                            $.ajax({
-                                type: "GET",
-                                url: "/get-project/" + id,
-                                success: function (response) {
-                                    if (response.status == 200) {
-                                        var project = response.project;
-                                        $('#floatingInputGrid').val(project.project_title);
-                                        $('#floatingSelectTask').val(project.task_view);
-                                        $('#floatingSelectPrivacy').val(project.privacy);
-                                        $('#floatingInputStartDate').val(project.start_date);
-                                        $('#floatingInputDeadline').val(project.deadline);
-                                        $('#floatingProjectOverview').val(project.project_description);
-                                        $('#floatingSelectClient').val(project.client);
-                                        $('#floatingInputBudget').val(project.budget);
+                                $.ajax({
+                                    url: '/reject-project',
+                                    method: 'POST',
+                                    data: {
+                                        project_title: projectTitle
+                                    },
+                                    success: function (response) {
+                                        alert('Project rejected successfully');
+                                        location.reload(); // Optionally, reload the page or update the UI
+                                    },
+                                    error: function (xhr, status, error) {
+                                        console.error(xhr.responseText);
+                                        alert('Error: ' + xhr.responseText);
+                                    }
+                                });
+                            });
 
-                                        // Fetch teams and populate the team dropdown
-                                        $.ajax({
-                                            type: "GET",
-                                            url: "/get-teams",
-                                            success: function (teamResponse) {
-                                                if (teamResponse.status == 200) {
-                                                    var teams = teamResponse.teams;
-                                                    var teamDropdown = $('#floatingSelectTeam');
-                                                    teamDropdown.empty(); // Clear existing options
+                            // Handle click event on edit button
+                            $(document).on('click', '.editbtn', function (e) {
+                                e.preventDefault();
+                                var id = $(this).data('id'); // Retrieve the value of data-id attribute
 
-                                                    teams.forEach(function (team) {
-                                                        var option = $('<option></option>')
-                                                            .attr('value', team.id)
-                                                            .text(team.name);
-                                                        teamDropdown.append(option);
-                                                    });
+                                // Fetch project data
+                                $.ajax({
+                                    type: "GET",
+                                    url: "/get-project/" + id,
+                                    success: function (response) {
+                                        if (response.status == 200) {
+                                            var project = response.project;
+                                            $('#floatingInputGrid').val(project.project_title);
+                                            $('#floatingSelectBatch').val(project.batch);
+                                            $('#floatingSelectTeam').val(project.team);
+                                            $('#floatingSelectDevelopers').val(project.assignies);
+                                            $('#floatingSelectPlatform').val(project.platform);
+                                            $('#floatingSelectStudent').val(project.student);
+                                            $('#floatingInputStartDate').val(project.start_date);
+                                            $('#floatingInputEndDate').val(project.deadline);
+                                            $('#floatingProjectOverview').val(project.project_description);
 
-                                                    teamDropdown.val(project.team); // Set the current team value
-                                                } else {
-                                                    console.log("Error: " + teamResponse.message); // Log error message
-                                                }
-                                            },
-                                            error: function (xhr, status, error) {
-                                                console.error("AJAX Request Error:", error); // Log AJAX error
-                                            }
-                                        });
-
-                                        // Fetch members and populate the assignees dropdown
-                                        $.ajax({
-                                            type: "GET",
-                                            url: "/get-members",
-                                            success: function (memberResponse) {
-                                                if (memberResponse.status == 200) {
-                                                    var members = memberResponse.members;
-                                                    var assigneesDropdown = $('#floatingSelectAssignees');
-                                                    assigneesDropdown.empty(); // Clear existing options
-
-                                                    members.forEach(function (member) {
-                                                        var option = $('<option></option>')
-                                                            .attr('value', member.id)
-                                                            .text(member.user_name);
-                                                        assigneesDropdown.append(option);
-                                                    });
-
-                                                    assigneesDropdown.val(project.assignies); // Set the current assignees value
-                                                } else {
-                                                    console.log("Error: " + memberResponse.message); // Log error message
-                                                }
-                                            },
-                                            error: function (xhr, status, error) {
-                                                console.error("AJAX Request Error:", error); // Log AJAX error
-                                            }
-                                        });
-
-                                        // Update project data
-                                        $('#updateProjectForm').off('submit').on('submit', function (event) {
-                                            event.preventDefault(); // Prevent default form submission
-
-                                            // Collect form data
-                                            var formData = {
-                                                project_title: $('#floatingInputGrid').val(),
-                                                assignies: $('#floatingSelectAssignees').val(),
-                                                task: $('#floatingSelectTask').val(),
-                                                privacy: $('#floatingSelectPrivacy').val(),
-                                                start_date: $('#floatingInputStartDate').val(),
-                                                deadline: $('#floatingInputDeadline').val(),
-                                                project_description: $('#floatingProjectOverview').val(),
-                                                client: $('#floatingSelectClient').val(),
-                                                budget: $('#floatingInputBudget').val(),
-                                                team: $('#floatingSelectTeam').val()
-                                            };
-
-                                            // Send AJAX request to update project
+                                            // Fetch teams and populate the team dropdown
                                             $.ajax({
-                                                type: 'PUT',
-                                                url: '/update-project/' + id, // Use the fetched project ID
-                                                data: formData,
-                                                success: function (response) {
-                                                    if (response.status === 200) {
-                                                        alert(response.message); // Show success message
-                                                        location.reload(); // Optionally, reload the page or update the UI
+                                                type: "GET",
+                                                url: "/get-teams",
+                                                success: function (teamResponse) {
+                                                    if (teamResponse.status == 200) {
+                                                        var teams = teamResponse.teams;
+                                                        var teamDropdown = $('#floatingSelectTeam');
+                                                        teamDropdown.empty(); // Clear existing options
+
+                                                        teams.forEach(function (team) {
+                                                            var option = $('<option></option>')
+                                                                .attr('value', team.id)
+                                                                .text(team.name);
+                                                            teamDropdown.append(option);
+                                                        });
+
+                                                        teamDropdown.val(project.team); // Set the current team value
                                                     } else {
-                                                        alert('Error: ' + response.message); // Show error message
+                                                        console.log("Error: " + teamResponse.message); // Log error message
                                                     }
                                                 },
                                                 error: function (xhr, status, error) {
-                                                    // Handle validation errors
-                                                    if (xhr.status === 400 && xhr.responseJSON && xhr.responseJSON.errors) {
-                                                        var errors = xhr.responseJSON.errors;
-                                                        var errorMessage = '';
-                                                        for (var key in errors) {
-                                                            if (errors.hasOwnProperty(key)) {
-                                                                errorMessage += errors[key][0] + '\n';
-                                                            }
-                                                        }
-                                                        alert(errorMessage);
-                                                    } else if (xhr.status === 500 && xhr.responseJSON) {
-                                                        alert('Error: ' + xhr.responseJSON.message); // Show server error message
-                                                    } else {
-                                                        console.error('AJAX Request Error:', error); // Log other AJAX errors
-                                                    }
+                                                    console.error("AJAX Request Error:", error); // Log AJAX error
                                                 }
                                             });
-                                        });
 
-                                    } else {
-                                        console.log("Error: " + response.message); // Log error message
+                                            // Fetch batches and populate the batch dropdown
+                                            $.ajax({
+                                                type: "GET",
+                                                url: "/get-batches",
+                                                success: function (batchResponse) {
+                                                    if (batchResponse.status == 200) {
+                                                        var batches = batchResponse.batches;
+                                                        var batchDropdown = $('#floatingSelectBatch');
+                                                        batchDropdown.empty(); // Clear existing options
+
+                                                        batches.forEach(function (batch) {
+                                                            var option = $('<option></option>')
+                                                                .attr('value', batch.batch_name)
+                                                                .text(batch.batch_name); // Adjust this to the appropriate property in your batch object
+                                                            batchDropdown.append(option);
+                                                        });
+
+                                                        batchDropdown.val(project.batch); // Set the current batch value
+                                                    } else {
+                                                        console.log("Error: " + batchResponse.message); // Log error message
+                                                    }
+                                                },
+                                                error: function (xhr, status, error) {
+                                                    console.error("AJAX Request Error:", error); // Log AJAX error
+                                                }
+                                            });
+
+                                            // Fetch developers and populate the developers dropdown
+                                            $.ajax({
+                                                type: "GET",
+                                                url: "/get-members",
+                                                success: function (memberResponse) {
+                                                    if (memberResponse.status == 200) {
+                                                        var members = memberResponse.members;
+                                                        var membersDropdown = $('#floatingSelectDevelopers');
+                                                        membersDropdown.empty(); // Clear existing options
+
+                                                        members.forEach(function (member) {
+                                                            var option = $('<option></option>')
+                                                                .attr('value', member.user_name) // Change to member.user_name
+                                                                .text(member.user_name);
+                                                            membersDropdown.append(option);
+                                                        });
+
+                                                        console.log("Project Assignies:", project.assignies); // Log project assignies
+
+                                                        membersDropdown.val(project.assignies); // Set the current developers value
+                                                    } else {
+                                                        console.log("Error: " + memberResponse.message); // Log error message
+                                                    }
+                                                },
+                                                error: function (xhr, status, error) {
+                                                    console.error("AJAX Request Error:", error); // Log AJAX error
+                                                }
+                                            });
+
+                                            // Fetch students and populate the student dropdown
+                                            $.ajax({
+                                                type: "GET",
+                                                url: "/get-students",
+                                                success: function (studentResponse) {
+                                                    if (studentResponse.status == 200) {
+                                                        var students = studentResponse.students;
+                                                        var studentDropdown = $('#floatingSelectStudent');
+                                                        studentDropdown.empty(); // Clear existing options
+
+                                                        students.forEach(function (student) {
+                                                            var option = $('<option></option>')
+                                                                .attr('value', student.name)
+                                                                .text(student.name);
+                                                            studentDropdown.append(option);
+                                                        });
+
+                                                        studentDropdown.val(project.student); // Set the current student value
+                                                    } else {
+                                                        console.log("Error: " + studentResponse.message); // Log error message
+                                                    }
+                                                },
+                                                error: function (xhr, status, error) {
+                                                    console.error("AJAX Request Error:", error); // Log AJAX error
+                                                }
+                                            });
+
+                                            // Update project data
+                                            $('#updateProjectForm').off('submit').on('submit', function (event) {
+                                                event.preventDefault(); // Prevent default form submission
+
+                                                // Collect form data
+                                                var formData = {
+                                                    project_title: $('[name="project_title"]').val(),
+                                                    batch: $('[name="batch"]').val(),
+                                                    team: $('[name="team"]').val(),
+                                                    assignies: $('[name="assignies"]').val(),
+                                                    platform: $('[name="platform"]').val(),
+                                                    student: $('[name="student"]').val(),
+                                                    start_date: $('[name="start_date"]').val(),
+                                                    deadline: $('[name="deadline"]').val(),
+                                                    project_description: $('[name="project_description"]').val()
+                                                };
+
+                                                // Send AJAX request to update project
+                                                $.ajax({
+                                                    type: 'PUT',
+                                                    url: '/update-project/' + id, // Use the fetched project ID
+                                                    data: JSON.stringify(formData), // Convert formData to JSON string
+                                                    contentType: 'application/json', // Set content type to JSON
+                                                    success: function (response) {
+                                                        if (response.status === 200) {
+                                                            alert(response.message); // Show success message
+                                                            location.reload(); // Optionally, reload the page or update the UI
+                                                        } else {
+                                                            alert('Error: ' + response.message); // Show error message
+                                                        }
+                                                    },
+                                                    error: function (xhr, status, error) {
+                                                        if (xhr.status === 400 && xhr.responseJSON && xhr.responseJSON.errors) {
+                                                            var errors = xhr.responseJSON.errors;
+                                                            var errorMessage = 'Validation errors:\n';
+                                                            for (var key in errors) {
+                                                                if (errors.hasOwnProperty(key)) {
+                                                                    errorMessage += '- ' + errors[key][0] + '\n';
+                                                                }
+                                                            }
+                                                            alert(errorMessage);
+                                                        } else if (xhr.status === 500 && xhr.responseJSON) {
+                                                            alert('Error: ' + xhr.responseJSON.message); // Show server error message
+                                                        } else {
+                                                            console.error('AJAX Request Error:', error); // Log other AJAX errors
+                                                        }
+                                                    }
+                                                });
+                                            });
+                                        }
+                                    },
+                                    error: function (xhr, status, error) {
+                                        console.error("AJAX Request Error:", error); // Log AJAX error
                                     }
-                                },
-                                error: function (xhr, status, error) {
-                                    console.error("AJAX Request Error:", error); // Log AJAX error
-                                }
+                                });
                             });
                         });
-                    });
-                </script>
-
-
-                <div
-                    class="d-flex flex-wrap align-items-center justify-content-between py-3 pe-0 fs--1 border-bottom border-200">
-                    <div class="d-flex">
-                        <p class="mb-0 d-none d-sm-block me-3 fw-semi-bold text-900" data-list-info="data-list-info">
-                        </p><a class="fw-semi-bold" href="#!" data-list-view="*">View all<span
-                                class="fas fa-angle-right ms-1" data-fa-transform="down-1"></span></a><a
-                            class="fw-semi-bold d-none" href="#!" data-list-view="less">View Less<span
-                                class="fas fa-angle-right ms-1" data-fa-transform="down-1"></span></a>
-                    </div>
-                    <div class="d-flex"><button class="page-link" data-list-pagination="prev"><span
-                                class="fas fa-chevron-left"></span></button>
-                        <ul class="mb-0 pagination"></ul><button class="page-link pe-0"
-                            data-list-pagination="next"><span class="fas fa-chevron-right"></span></button>
+                    </script>
+                    <div
+                        class="d-flex flex-wrap align-items-center justify-content-between py-3 pe-0 fs--1 border-bottom border-200">
+                        <div class="d-flex">
+                            <p class="mb-0 d-none d-sm-block me-3 fw-semi-bold text-900"
+                                data-list-info="data-list-info">
+                            </p><a class="fw-semi-bold" href="#!" data-list-view="*">View all<span
+                                    class="fas fa-angle-right ms-1" data-fa-transform="down-1"></span></a><a
+                                class="fw-semi-bold d-none" href="#!" data-list-view="less">View Less<span
+                                    class="fas fa-angle-right ms-1" data-fa-transform="down-1"></span></a>
+                        </div>
+                        <div class="d-flex"><button class="page-link" data-list-pagination="prev"><span
+                                    class="fas fa-chevron-left"></span></button>
+                            <ul class="mb-0 pagination"></ul><button class="page-link pe-0"
+                                data-list-pagination="next"><span class="fas fa-chevron-right"></span></button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <footer class="footer position-absolute">
-            <div class="row g-0 justify-content-between align-items-center h-100">
-                <div class="col-12 col-sm-auto text-center">
-                    <p class="mb-0 mt-2 mt-sm-0 text-900">Thank you for creating with Phoenix<span
-                            class="d-none d-sm-inline-block"></span><span
-                            class="d-none d-sm-inline-block mx-1">|</span><br class="d-sm-none" />2023 &copy;<a
-                            class="mx-1" href="https://themewagon.com/">Themewagon</a></p>
+            <footer class="footer position-absolute">
+                <div class="row g-0 justify-content-between align-items-center h-100">
+                    <div class="col-12 col-sm-auto text-center">
+                        <p class="mb-0 mt-2 mt-sm-0 text-900">Thank you for creating with Phoenix<span
+                                class="d-none d-sm-inline-block"></span><span
+                                class="d-none d-sm-inline-block mx-1">|</span><br class="d-sm-none" />2023 &copy;<a
+                                class="mx-1" href="https://themewagon.com/">Themewagon</a></p>
+                    </div>
+                    <div class="col-12 col-sm-auto text-center">
+                        <p class="mb-0 text-600">v1.13.0</p>
+                    </div>
                 </div>
-                <div class="col-12 col-sm-auto text-center">
-                    <p class="mb-0 text-600">v1.13.0</p>
-                </div>
-            </div>
-        </footer>
+            </footer>
         </div>
         <div class="support-chat-container">
             <div class="container-fluid support-chat">

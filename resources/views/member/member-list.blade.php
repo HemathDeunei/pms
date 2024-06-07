@@ -6469,7 +6469,7 @@
                 $.ajax({
                   type: "GET",
                   url: "/member-list",
-                  dataType: "json",
+                  dataType: "json",      
                   success: function (response) {
                     console.log("AJAX response:", response);
                     var tableBody = $('#members-table-body');
