@@ -70,18 +70,21 @@
       </script>
       <div class="collapse navbar-collapse" id="navbarVerticalCollapse">
         <!-- scrollbar removed-->
-        <div class="navbar-vertical-content">
-          <ul class="navbar-nav flex-column" id="navbarVerticalNav">
-            <!-- the home content in sie bar page here -->
-            @include('home.sidebar_home')
-            <!--end of the home content in sie bar page here -->
-            <!-- the apps content in side bar page here -->
-            @include('home.sidebar_apps')
-            <!--end of the apps content in side bar page here -->
-            @include('home.sidebar_page')
-            @include('home.sidebar_modules')
-            @include('home.sidebar_documentation')
-          </ul>
+        <div class="collapse navbar-collapse" id="navbarVerticalCollapse">
+          <!-- scrollbar removed-->
+          <div class="navbar-vertical-content">
+            <ul class="navbar-nav flex-column" id="navbarVerticalNav">
+              <!-- the home content in sie bar page here -->
+              @include('home.sidebar_home')
+              <!--end of the home content in sie bar page here -->
+              <!-- the apps content in side bar page here -->
+              @include('home.sidebar_apps')
+              <!--end of the apps content in side bar page here -->
+              @include('home.sidebar_page')
+              @include('home.sidebar_modules')
+              @include('home.sidebar_documentation')
+            </ul>
+          </div>
         </div>
       </div>
       <div class="navbar-vertical-footer"><button
@@ -920,7 +923,6 @@
               </div>
             </div>
           </li>
-
         </ul>
       </div>
     </nav>
@@ -2882,7 +2884,6 @@
             </div>
           </div>
         </li>
-        
       </ul>
     </nav>
     <nav class="navbar navbar-top fixed-top navbar-expand-lg" id="navbarCombo" data-navbar-top="combo"
@@ -3867,7 +3868,6 @@
             </div>
           </div>
         </li>
-        
       </ul>
     </nav>
     <nav class="navbar navbar-top fixed-top navbar-slim justify-content-between navbar-expand-lg" id="navbarComboSlim"
@@ -6233,7 +6233,7 @@
           <div class="px-4 px-lg-6 pt-6 pb-9">
             <div class="mb-5">
               <div class="d-flex justify-content-between">
-                <h2 class="text-black fw-bolder mb-2">Project Report</h2>
+                <h2 class="text-black fw-bolder mb-2">Retrieving Old Repos to Redirect to a new URL</h2>
                 <div class="font-sans-serif btn-reveal-trigger"><button
                     class="btn btn-sm dropdown-toggle dropdown-caret-none transition-none btn-reveal" type="button"
                     data-bs-toggle="dropdown" data-boundary="window" aria-haspopup="true" aria-expanded="false"
@@ -6246,20 +6246,35 @@
                   class="ms-1 uil uil-stopwatch"></span></span>
             </div>
             <div class="row gx-0 gx-sm-5 gy-8 mb-8">
-              <div class="col-12 col-xl-3 col-xxl-4 pe-xl-0">
+              <div class="col-12 col-lg-3">
                 <div class="mb-4 mb-xl-7">
                   <div class="row gx-0 gx-sm-7">
                     <div class="col-12 col-sm-auto">
                       <table class="lh-sm mb-4 mb-sm-0 mb-xl-4">
                         <tbody>
-
+                          <tr>
+                            <td class="py-1" colspan="2">
+                              <div class="d-flex"><span class="fa-solid fa-earth-americas me-2 text-700 fs--1"></span>
+                                <h5 class="text-900">Public project</h5>
+                              </div>
+                            </td>
+                          </tr>
                           <tr>
                             <td class="align-top py-1">
                               <div class="d-flex"><span class="fa-solid fa-user me-2 text-700 fs--1"></span>
-                                <h5 class="text-900 mb-0 text-nowrap">Student:</h5>
+                                <h5 class="text-900 mb-0 text-nowrap">Client :</h5>
                               </div>
                             </td>
-                            <td class="ps-1 py-1"><a class="fw-semi-bold d-block lh-sm" href="#!">Dhatchu</a></td>
+                            <td class="ps-1 py-1"><a class="fw-semi-bold d-block lh-sm" href="#!">Gobble the Bleep
+                                Inc</a></td>
+                          </tr>
+                          <tr>
+                            <td class="align-top py-1">
+                              <div class="d-flex"><span class="fa-regular fa-credit-card me-2 text-700 fs--1"></span>
+                                <h5 class="text-900 mb-0 text-nowrap">Budget : </h5>
+                              </div>
+                            </td>
+                            <td class="fw-bold ps-1 py-1 text-1000">$8,742</td>
                           </tr>
                         </tbody>
                       </table>
@@ -6293,337 +6308,520 @@
                   </div>
                 </div>
               </div>
+              <div class="col-12 col-lg-3">
+                <div class="mb-5">
+                  <h4 class="text-black">Work loads</h4>
+                  <h6 class="text-700">Last 7 days</h6>
+                </div>
+                <div class="echart-top-coupons mb-5" style="height:115px;width:100%;"></div>
+                <div class="row justify-content-center">
+                  <div class="col-auto col-sm-12">
+                    <div class="row justify-content-center justify-content-sm-between g-5 g-sm-0 mb-2">
+                      <div class="col">
+                        <div class="d-flex align-items-center">
+                          <div class="bullet-item me-2 bg-primary"></div>
+                          <h6 class="text-900 fw-semi-bold flex-1 mb-0">Shantinan Mekalan</h6>
+                        </div>
+                      </div>
+                      <div class="col-auto">
+                        <h6 class="text-900 fw-semi-bold mb-0">72%</h6>
+                      </div>
+                    </div>
+                    <div class="row justify-content-center justify-content-sm-between g-5 g-sm-0 mb-2">
+                      <div class="col">
+                        <div class="d-flex align-items-center">
+                          <div class="bullet-item me-2 bg-primary-200"></div>
+                          <h6 class="text-900 fw-semi-bold flex-1 mb-0">Makena Zikonn</h6>
+                        </div>
+                      </div>
+                      <div class="col-auto">
+                        <h6 class="text-900 fw-semi-bold mb-0">18%</h6>
+                      </div>
+                    </div>
+                    <div class="row justify-content-center justify-content-sm-between g-5 g-sm-0 mb-2">
+                      <div class="col">
+                        <div class="d-flex align-items-center">
+                          <div class="bullet-item me-2 bg-info"></div>
+                          <h6 class="text-900 fw-semi-bold flex-1 mb-0">Meena Kumari</h6>
+                        </div>
+                      </div>
+                      <div class="col-auto">
+                        <h6 class="text-900 fw-semi-bold mb-0">10%</h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-lg-4">
+                <h4 class="text-1100 mb-4">Team members</h4>
+                <div class="d-flex mb-8">
+                  <div class="dropdown"><a class="dropdown-toggle dropdown-caret-none d-inline-block outline-none"
+                      href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                      data-bs-auto-close="outside">
+                      <div class="avatar avatar-xl  me-1">
+                        <img class="rounded-circle " src="../../assets/img/team/33.webp" alt="" />
+                      </div>
+                    </a>
+                    <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
+                      <div class="position-relative">
+                        <div class="bg-holder z-index--1"
+                          style="background-image:url(../../assets/img/bg/bg-32.png);background-size: auto;"></div>
+                        <!--/.bg-holder-->
+                        <div class="p-3">
+                          <div class="text-end"><button class="btn p-0 me-2"><span
+                                class="fa-solid fa-user-plus text-white light"></span></button><button
+                              class="btn p-0"><span class="fa-solid fa-ellipsis text-white light"></span></button></div>
+                          <div class="text-center">
+                            <div class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2"><img
+                                class="rounded-circle border border-white" src="../../assets/img/team/33.webp" alt="" />
+                            </div>
+                            <h6 class="text-white light">Tyrion Lannister</h6>
+                            <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
+                            <div class="d-flex flex-center mb-3">
+                              <h6 class="text-white light mb-0">224 <span class="fw-normal text-300">connections</span>
+                              </h6><span class="fa-solid fa-circle text-700 mx-1"
+                                data-fa-transform="shrink-10 up-2"></span>
+                              <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span></h6>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="bg-white">
+                        <div class="p-3 border-bottom">
+                          <div class="d-flex justify-content-between">
+                            <div class="d-flex"><button
+                                class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                  class="fa-solid fa-phone"></span></button><button
+                                class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                  class="fa-solid fa-message"></span></button><button
+                                class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
+                                  class="fa-solid fa-video"></span></button></div><button
+                              class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
+                              Email</button>
+                          </div>
+                        </div>
+                        <ul class="nav d-flex flex-column py-3 border-bottom">
+                          <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!"> <span
+                                class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
+                                class="text-1000 flex-1">Assigned Projects</span><span
+                                class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                          <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!"> <span
+                                class="me-2 text-900" data-feather="pie-chart"></span><span
+                                class="text-1000 flex-1">View activiy</span><span
+                                class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                        </ul>
+                      </div>
+                      <div class="p-3 d-flex justify-content-between"><a class="btn btn-link p-0 text-decoration-none"
+                          href="#!">Details </a><a class="btn btn-link p-0 text-decoration-none text-danger"
+                          href="#!">Unassign </a></div>
+                    </div>
+                  </div>
+                  <div class="dropdown"><a class="dropdown-toggle dropdown-caret-none d-inline-block outline-none"
+                      href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                      data-bs-auto-close="outside">
+                      <div class="avatar avatar-xl  me-1">
+                        <img class="rounded-circle " src="../../assets/img/team/30.webp" alt="" />
+                      </div>
+                    </a>
+                    <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
+                      <div class="position-relative">
+                        <div class="bg-holder z-index--1"
+                          style="background-image:url(../../assets/img/bg/bg-32.png);background-size: auto;"></div>
+                        <!--/.bg-holder-->
+                        <div class="p-3">
+                          <div class="text-end"><button class="btn p-0 me-2"><span
+                                class="fa-solid fa-user-plus text-white light"></span></button><button
+                              class="btn p-0"><span class="fa-solid fa-ellipsis text-white light"></span></button></div>
+                          <div class="text-center">
+                            <div class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2"><img
+                                class="rounded-circle border border-white" src="../../assets/img/team/30.webp" alt="" />
+                            </div>
+                            <h6 class="text-white light">Milind Mikuja</h6>
+                            <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
+                            <div class="d-flex flex-center mb-3">
+                              <h6 class="text-white light mb-0">224 <span class="fw-normal text-300">connections</span>
+                              </h6><span class="fa-solid fa-circle text-700 mx-1"
+                                data-fa-transform="shrink-10 up-2"></span>
+                              <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span></h6>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="bg-white">
+                        <div class="p-3 border-bottom">
+                          <div class="d-flex justify-content-between">
+                            <div class="d-flex"><button
+                                class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                  class="fa-solid fa-phone"></span></button><button
+                                class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                  class="fa-solid fa-message"></span></button><button
+                                class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
+                                  class="fa-solid fa-video"></span></button></div><button
+                              class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
+                              Email</button>
+                          </div>
+                        </div>
+                        <ul class="nav d-flex flex-column py-3 border-bottom">
+                          <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!"> <span
+                                class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
+                                class="text-1000 flex-1">Assigned Projects</span><span
+                                class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                          <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!"> <span
+                                class="me-2 text-900" data-feather="pie-chart"></span><span
+                                class="text-1000 flex-1">View activiy</span><span
+                                class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                        </ul>
+                      </div>
+                      <div class="p-3 d-flex justify-content-between"><a class="btn btn-link p-0 text-decoration-none"
+                          href="#!">Details </a><a class="btn btn-link p-0 text-decoration-none text-danger"
+                          href="#!">Unassign </a></div>
+                    </div>
+                  </div>
+                  <div class="dropdown"><a class="dropdown-toggle dropdown-caret-none d-inline-block outline-none"
+                      href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                      data-bs-auto-close="outside">
+                      <div class="avatar avatar-xl  me-1">
+                        <img class="rounded-circle " src="../../assets/img/team/31.webp" alt="" />
+                      </div>
+                    </a>
+                    <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
+                      <div class="position-relative">
+                        <div class="bg-holder z-index--1"
+                          style="background-image:url(../../assets/img/bg/bg-32.png);background-size: auto;"></div>
+                        <!--/.bg-holder-->
+                        <div class="p-3">
+                          <div class="text-end"><button class="btn p-0 me-2"><span
+                                class="fa-solid fa-user-plus text-white light"></span></button><button
+                              class="btn p-0"><span class="fa-solid fa-ellipsis text-white light"></span></button></div>
+                          <div class="text-center">
+                            <div class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2"><img
+                                class="rounded-circle border border-white" src="../../assets/img/team/31.webp" alt="" />
+                            </div>
+                            <h6 class="text-white light">Stanly Drinkwater</h6>
+                            <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
+                            <div class="d-flex flex-center mb-3">
+                              <h6 class="text-white light mb-0">224 <span class="fw-normal text-300">connections</span>
+                              </h6><span class="fa-solid fa-circle text-700 mx-1"
+                                data-fa-transform="shrink-10 up-2"></span>
+                              <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span></h6>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="bg-white">
+                        <div class="p-3 border-bottom">
+                          <div class="d-flex justify-content-between">
+                            <div class="d-flex"><button
+                                class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                  class="fa-solid fa-phone"></span></button><button
+                                class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                  class="fa-solid fa-message"></span></button><button
+                                class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
+                                  class="fa-solid fa-video"></span></button></div><button
+                              class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
+                              Email</button>
+                          </div>
+                        </div>
+                        <ul class="nav d-flex flex-column py-3 border-bottom">
+                          <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!"> <span
+                                class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
+                                class="text-1000 flex-1">Assigned Projects</span><span
+                                class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                          <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!"> <span
+                                class="me-2 text-900" data-feather="pie-chart"></span><span
+                                class="text-1000 flex-1">View activiy</span><span
+                                class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                        </ul>
+                      </div>
+                      <div class="p-3 d-flex justify-content-between"><a class="btn btn-link p-0 text-decoration-none"
+                          href="#!">Details </a><a class="btn btn-link p-0 text-decoration-none text-danger"
+                          href="#!">Unassign </a></div>
+                    </div>
+                  </div>
+                  <div class="dropdown"><a class="dropdown-toggle dropdown-caret-none d-inline-block outline-none"
+                      href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                      data-bs-auto-close="outside">
+                      <div class="avatar avatar-xl  me-1">
+                        <img class="rounded-circle " src="../../assets/img/team/60.webp" alt="" />
+                      </div>
+                    </a>
+                    <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
+                      <div class="position-relative">
+                        <div class="bg-holder z-index--1"
+                          style="background-image:url(../../assets/img/bg/bg-32.png);background-size: auto;"></div>
+                        <!--/.bg-holder-->
+                        <div class="p-3">
+                          <div class="text-end"><button class="btn p-0 me-2"><span
+                                class="fa-solid fa-user-plus text-white light"></span></button><button
+                              class="btn p-0"><span class="fa-solid fa-ellipsis text-white light"></span></button></div>
+                          <div class="text-center">
+                            <div class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2"><img
+                                class="rounded-circle border border-white" src="../../assets/img/team/60.webp" alt="" />
+                            </div>
+                            <h6 class="text-white light">Josef Stravinsky</h6>
+                            <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
+                            <div class="d-flex flex-center mb-3">
+                              <h6 class="text-white light mb-0">224 <span class="fw-normal text-300">connections</span>
+                              </h6><span class="fa-solid fa-circle text-700 mx-1"
+                                data-fa-transform="shrink-10 up-2"></span>
+                              <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span></h6>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="bg-white">
+                        <div class="p-3 border-bottom">
+                          <div class="d-flex justify-content-between">
+                            <div class="d-flex"><button
+                                class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                  class="fa-solid fa-phone"></span></button><button
+                                class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                  class="fa-solid fa-message"></span></button><button
+                                class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
+                                  class="fa-solid fa-video"></span></button></div><button
+                              class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
+                              Email</button>
+                          </div>
+                        </div>
+                        <ul class="nav d-flex flex-column py-3 border-bottom">
+                          <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!"> <span
+                                class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
+                                class="text-1000 flex-1">Assigned Projects</span><span
+                                class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                          <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!"> <span
+                                class="me-2 text-900" data-feather="pie-chart"></span><span
+                                class="text-1000 flex-1">View activiy</span><span
+                                class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                        </ul>
+                      </div>
+                      <div class="p-3 d-flex justify-content-between"><a class="btn btn-link p-0 text-decoration-none"
+                          href="#!">Details </a><a class="btn btn-link p-0 text-decoration-none text-danger"
+                          href="#!">Unassign </a></div>
+                    </div>
+                  </div>
+                  <div class="dropdown"><a class="dropdown-toggle dropdown-caret-none d-inline-block outline-none"
+                      href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                      data-bs-auto-close="outside">
+                      <div class="avatar avatar-xl  me-1">
+                        <img class="rounded-circle " src="../../assets/img/team/65.webp" alt="" />
+                      </div>
+                    </a>
+                    <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
+                      <div class="position-relative">
+                        <div class="bg-holder z-index--1"
+                          style="background-image:url(../../assets/img/bg/bg-32.png);background-size: auto;"></div>
+                        <!--/.bg-holder-->
+                        <div class="p-3">
+                          <div class="text-end"><button class="btn p-0 me-2"><span
+                                class="fa-solid fa-user-plus text-white light"></span></button><button
+                              class="btn p-0"><span class="fa-solid fa-ellipsis text-white light"></span></button></div>
+                          <div class="text-center">
+                            <div class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2"><img
+                                class="rounded-circle border border-white" src="../../assets/img/team/65.webp" alt="" />
+                            </div>
+                            <h6 class="text-white light">Igor Borvibson</h6>
+                            <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
+                            <div class="d-flex flex-center mb-3">
+                              <h6 class="text-white light mb-0">224 <span class="fw-normal text-300">connections</span>
+                              </h6><span class="fa-solid fa-circle text-700 mx-1"
+                                data-fa-transform="shrink-10 up-2"></span>
+                              <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span></h6>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="bg-white">
+                        <div class="p-3 border-bottom">
+                          <div class="d-flex justify-content-between">
+                            <div class="d-flex"><button
+                                class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                  class="fa-solid fa-phone"></span></button><button
+                                class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                  class="fa-solid fa-message"></span></button><button
+                                class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
+                                  class="fa-solid fa-video"></span></button></div><button
+                              class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
+                              Email</button>
+                          </div>
+                        </div>
+                        <ul class="nav d-flex flex-column py-3 border-bottom">
+                          <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!"> <span
+                                class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
+                                class="text-1000 flex-1">Assigned Projects</span><span
+                                class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                          <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!"> <span
+                                class="me-2 text-900" data-feather="pie-chart"></span><span
+                                class="text-1000 flex-1">View activiy</span><span
+                                class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                        </ul>
+                      </div>
+                      <div class="p-3 d-flex justify-content-between"><a class="btn btn-link p-0 text-decoration-none"
+                          href="#!">Details </a><a class="btn btn-link p-0 text-decoration-none text-danger"
+                          href="#!">Unassign </a></div>
+                    </div>
+                  </div>
+                </div>
+                <h4 class="text-1100 mb-4">Tags</h4><span class="badge badge-tag me-2 mb-1">Unused_brain</span><span
+                  class="badge badge-tag me-2 mb-1">Machine</span><span
+                  class="badge badge-tag me-2 mb-1">Coding</span><span
+                  class="badge badge-tag me-2 mb-1">Meseeks</span><span
+                  class="badge badge-tag me-2 mb-1">Smithpeople</span><span
+                  class="badge badge-tag me-2 mb-1">Rick</span><span
+                  class="badge badge-tag me-2 mb-1">Biology</span><span
+                  class="badge badge-tag me-2 mb-1">Neurology</span><span
+                  class="badge badge-tag me-2 mb-1">Brainlessness</span><span
+                  class="badge badge-tag me-2 mb-1">Stupidity</span><span
+                  class="badge badge-tag me-2 mb-1">Jerry</span><span class="badge badge-tag me-2 mb-1">Not
+                  _the_mouse</span>
+              </div>
+              <div class="col-12 col-lg-2">
+                <h4 class="text-1100 mb-4">Actions</h4>
 
-              <div class="echart-completed-task-chart" style="min-height:200px;width:100%"></div>
+                <span class="badge badge-tag w-100 mb-2 text-start px-3 py-2"><svg
+                    class="svg-inline--fa fa-user-plus me-2" aria-hidden="true" focusable="false" data-prefix="fas"
+                    data-icon="user-plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"
+                    data-fa-i2svg="">
+                    <path fill="currentColor"
+                      d="M224 256c70.7 0 128-57.31 128-128S294.7 0 224 0C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3C0 496.5 15.52 512 34.66 512h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304zM616 200h-48v-48C568 138.8 557.3 128 544 128s-24 10.75-24 24v48h-48C458.8 200 448 210.8 448 224s10.75 24 24 24h48v48C520 309.3 530.8 320 544 320s24-10.75 24-24v-48h48C629.3 248 640 237.3 640 224S629.3 200 616 200z">
+                    </path>
+                  </svg> Assignee</span>
+                <span class="badge badge-tag w-100 mb-2 text-start px-3 py-2"><svg class="svg-inline--fa fa-tag me-2"
+                    aria-hidden="true" focusable="false" data-prefix="fas" data-icon="tag" role="img"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                    <path fill="currentColor"
+                      d="M48 32H197.5C214.5 32 230.7 38.74 242.7 50.75L418.7 226.7C443.7 251.7 443.7 292.3 418.7 317.3L285.3 450.7C260.3 475.7 219.7 475.7 194.7 450.7L18.75 274.7C6.743 262.7 0 246.5 0 229.5V80C0 53.49 21.49 32 48 32L48 32zM112 176C129.7 176 144 161.7 144 144C144 126.3 129.7 112 112 112C94.33 112 80 126.3 80 144C80 161.7 94.33 176 112 176z">
+                    </path>
+                  </svg> Labels</span>
+                <span class="badge badge-tag w-100 mb-2 text-start px-3 py-2"><svg
+                    class="svg-inline--fa fa-paperclip me-2" aria-hidden="true" focusable="false" data-prefix="fas"
+                    data-icon="paperclip" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                    data-fa-i2svg="">
+                    <path fill="currentColor"
+                      d="M364.2 83.8C339.8 59.39 300.2 59.39 275.8 83.8L91.8 267.8C49.71 309.9 49.71 378.1 91.8 420.2C133.9 462.3 202.1 462.3 244.2 420.2L396.2 268.2C407.1 257.3 424.9 257.3 435.8 268.2C446.7 279.1 446.7 296.9 435.8 307.8L283.8 459.8C219.8 523.8 116.2 523.8 52.2 459.8C-11.75 395.8-11.75 292.2 52.2 228.2L236.2 44.2C282.5-2.08 357.5-2.08 403.8 44.2C450.1 90.48 450.1 165.5 403.8 211.8L227.8 387.8C199.2 416.4 152.8 416.4 124.2 387.8C95.59 359.2 95.59 312.8 124.2 284.2L268.2 140.2C279.1 129.3 296.9 129.3 307.8 140.2C318.7 151.1 318.7 168.9 307.8 179.8L163.8 323.8C157.1 330.5 157.1 341.5 163.8 348.2C170.5 354.9 181.5 354.9 188.2 348.2L364.2 172.2C388.6 147.8 388.6 108.2 364.2 83.8V83.8z">
+                    </path>
+                  </svg> Attachments</span>
+                <span class="badge badge-tag w-100 mb-2 text-start px-3 py-2"><svg
+                    class="svg-inline--fa fa-square-check me-2" aria-hidden="true" focusable="false" data-prefix="fas"
+                    data-icon="square-check" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                    data-fa-i2svg="">
+                    <path fill="currentColor"
+                      d="M384 32C419.3 32 448 60.65 448 96V416C448 451.3 419.3 480 384 480H64C28.65 480 0 451.3 0 416V96C0 60.65 28.65 32 64 32H384zM339.8 211.8C350.7 200.9 350.7 183.1 339.8 172.2C328.9 161.3 311.1 161.3 300.2 172.2L192 280.4L147.8 236.2C136.9 225.3 119.1 225.3 108.2 236.2C97.27 247.1 97.27 264.9 108.2 275.8L172.2 339.8C183.1 350.7 200.9 350.7 211.8 339.8L339.8 211.8z">
+                    </path>
+                  </svg> Checklist</span>
+                <span class="badge badge-tag w-100 mb-2 text-start px-3 py-2"><svg
+                    class="svg-inline--fa fa-calendar-days me-2" aria-hidden="true" focusable="false" data-prefix="fas"
+                    data-icon="calendar-days" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                    data-fa-i2svg="">
+                    <path fill="currentColor"
+                      d="M160 32V64H288V32C288 14.33 302.3 0 320 0C337.7 0 352 14.33 352 32V64H400C426.5 64 448 85.49 448 112V160H0V112C0 85.49 21.49 64 48 64H96V32C96 14.33 110.3 0 128 0C145.7 0 160 14.33 160 32zM0 192H448V464C448 490.5 426.5 512 400 512H48C21.49 512 0 490.5 0 464V192zM64 304C64 312.8 71.16 320 80 320H112C120.8 320 128 312.8 128 304V272C128 263.2 120.8 256 112 256H80C71.16 256 64 263.2 64 272V304zM192 304C192 312.8 199.2 320 208 320H240C248.8 320 256 312.8 256 304V272C256 263.2 248.8 256 240 256H208C199.2 256 192 263.2 192 272V304zM336 256C327.2 256 320 263.2 320 272V304C320 312.8 327.2 320 336 320H368C376.8 320 384 312.8 384 304V272C384 263.2 376.8 256 368 256H336zM64 432C64 440.8 71.16 448 80 448H112C120.8 448 128 440.8 128 432V400C128 391.2 120.8 384 112 384H80C71.16 384 64 391.2 64 400V432zM208 384C199.2 384 192 391.2 192 400V432C192 440.8 199.2 448 208 448H240C248.8 448 256 440.8 256 432V400C256 391.2 248.8 384 240 384H208zM320 432C320 440.8 327.2 448 336 448H368C376.8 448 384 440.8 384 432V400C384 391.2 376.8 384 368 384H336C327.2 384 320 391.2 320 400V432z">
+                    </path>
+                  </svg> Dates</span>
+              </div>
             </div>
-
+            <h3 class="text-1100 mb-4">Project overview</h3>
+            <p class="text-800 mb-4">The new redirection team is happy to announce that we’ve fixed all our unresponsive
+              URLs and redirected them to new URLs. The tremendous assistance from our support team and the dev team, as
+              well as that of the team lead’s, this team has made an impossible possible within a week. They didn’t stop
+              for a moment, and we got our pages working again for all the valuable users. </p>
+            <p class="text-800 mb-0">Join us in celebrating the massive success of data transferring and getting us a
+              huge revenue by eating out. Free public viewing and a buffet is offered for the great team as well as for
+              the other teams working with us. We’ll be checking out places for the best option available at hands and
+              we’ll let you know the schedule once we decide on one.<a class="fw-semi-bold" href="#!">read more </a></p>
           </div>
-          <div class="col-12 col-sm-7 col-lg-8 col-xl-5">
-            <h4 class="text-1100 mb-4">Team members</h4>
-            <div class="d-flex mb-8">
-              <div class="dropdown"><a class="dropdown-toggle dropdown-caret-none d-inline-block outline-none" href="#"
-                  role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-                  <div class="avatar avatar-xl  me-1">
-                    <img class="rounded-circle " src="../../assets/img/team/33.webp" alt="" />
-                  </div>
-                </a>
-                <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
-                  <div class="position-relative">
-                    <div class="bg-holder z-index--1"
-                      style="background-image:url(../../assets/img/bg/bg-32.png);background-size: auto;"></div>
-                    <!--/.bg-holder-->
-                    <div class="p-3">
-                      <div class="text-end"><button class="btn p-0 me-2"><span
-                            class="fa-solid fa-user-plus text-white light"></span></button><button class="btn p-0"><span
-                            class="fa-solid fa-ellipsis text-white light"></span></button></div>
-                      <div class="text-center">
-                        <div class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2"><img
-                            class="rounded-circle border border-white" src="../../assets/img/team/33.webp" alt="" />
+        </div>
+        <div class="col-12 col-xxl-4 px-0 border-start-xxl border-300 border-top-sm">
+          <div class="h-100">
+            <div class="bg-light dark__bg-1100 h-100">
+              <div class="p-4 p-lg-6">
+                <h3 class="text-1000 mb-4 fw-bold">Project Reviews</h3>
+                <div class="timeline-vertical timeline-with-details">
+                  <div class="timeline-item position-relative">
+                    <div class="row g-md-3">
+                      <div class="col-12 col-md-auto d-flex">
+                        <div class="timeline-item-date order-1 order-md-0 me-md-4">
+                          <p class="fs--2 fw-semi-bold text-600 text-end">01 DEC, 2023<br class="d-none d-md-block" />
+                            10:30 AM</p>
                         </div>
-                        <h6 class="text-white light">Tyrion Lannister</h6>
-                        <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
-                        <div class="d-flex flex-center mb-3">
-                          <h6 class="text-white light mb-0">224 <span class="fw-normal text-300">connections</span></h6>
-                          <span class="fa-solid fa-circle text-700 mx-1" data-fa-transform="shrink-10 up-2"></span>
-                          <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span></h6>
+                        <div class="timeline-item-bar position-md-relative me-3 me-md-0 border-400">
+                          <div class="icon-item icon-item-sm rounded-7 shadow-none bg-primary-100"><span
+                              class="fa-solid fa-chess text-primary-600 fs--2 dark__text-primary-300"></span></div><span
+                            class="timeline-bar border-end border-dashed border-400"></span>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="timeline-item-content ps-6 ps-md-3">
+                          <h5 class="fs--1 lh-sm">Phoenix Template: Unleashing Creative Possibilities</h5>
+                          <p class="fs--1">by <a class="fw-semi-bold" href="#!">Shantinon Mekalan</a></p>
+                          <p class="fs--1 text-800 mb-5">Discover limitless creativity with the Phoenix template! Our
+                            latest update offers an array of innovative features and design options.</p>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div class="bg-white">
-                    <div class="p-3 border-bottom">
-                      <div class="d-flex justify-content-between">
-                        <div class="d-flex"><button class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                              class="fa-solid fa-phone"></span></button><button
-                            class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                              class="fa-solid fa-message"></span></button><button
-                            class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
-                              class="fa-solid fa-video"></span></button></div><button
-                          class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
-                          Email</button>
+                  <div class="timeline-item position-relative">
+                    <div class="row g-md-3">
+                      <div class="col-12 col-md-auto d-flex">
+                        <div class="timeline-item-date order-1 order-md-0 me-md-4">
+                          <p class="fs--2 fw-semi-bold text-600 text-end">05 DEC, 2023<br class="d-none d-md-block" />
+                            12:30 AM</p>
+                        </div>
+                        <div class="timeline-item-bar position-md-relative me-3 me-md-0 border-400">
+                          <div class="icon-item icon-item-sm rounded-7 shadow-none bg-primary-100"><span
+                              class="fa-solid fa-dove text-primary-600 fs--2 dark__text-primary-300"></span></div><span
+                            class="timeline-bar border-end border-dashed border-400"></span>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="timeline-item-content ps-6 ps-md-3">
+                          <h5 class="fs--1 lh-sm">Empower Your Digital Presence: The Phoenix Template Unveiled</h5>
+                          <p class="fs--1">by <a class="fw-semi-bold" href="#!">Bookworm22</a></p>
+                          <p class="fs--1 text-800 mb-5">Unveiling the Phoenix template, a game-changer for your digital
+                            presence. With its powerful features and sleek design,</p>
+                        </div>
                       </div>
                     </div>
-                    <ul class="nav d-flex flex-column py-3 border-bottom">
-                      <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!"> <span
-                            class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
-                            class="text-1000 flex-1">Assigned Projects</span><span
-                            class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                      <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!"> <span
-                            class="me-2 text-900" data-feather="pie-chart"></span><span class="text-1000 flex-1">View
-                            activiy</span><span class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                    </ul>
                   </div>
-                  <div class="p-3 d-flex justify-content-between"><a class="btn btn-link p-0 text-decoration-none"
-                      href="#!">Details </a><a class="btn btn-link p-0 text-decoration-none text-danger"
-                      href="#!">Unassign </a></div>
+                  <div class="timeline-item position-relative">
+                    <div class="row g-md-3">
+                      <div class="col-12 col-md-auto d-flex">
+                        <div class="timeline-item-date order-1 order-md-0 me-md-4">
+                          <p class="fs--2 fw-semi-bold text-600 text-end">15 DEC, 2023<br class="d-none d-md-block" />
+                            2:30 AM</p>
+                        </div>
+                        <div class="timeline-item-bar position-md-relative me-3 me-md-0 border-400">
+                          <div class="icon-item icon-item-sm rounded-7 shadow-none bg-primary-100"><span
+                              class="fa-solid fa-dungeon text-primary-600 fs--2 dark__text-primary-300"></span></div>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="timeline-item-content ps-6 ps-md-3">
+                          <h5 class="fs--1 lh-sm">Phoenix Template: Simplified Design, Maximum Impact</h5>
+                          <p class="fs--1">by <a class="fw-semi-bold" href="#!">Sharuka Nijibum</a></p>
+                          <p class="fs--1 text-800 mb-0">Introducing the Phoenix template, where simplified design meets
+                            maximum impact. Elevate your digital presence with its sleek and intuitive features.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="dropdown"><a class="dropdown-toggle dropdown-caret-none d-inline-block outline-none" href="#"
-                  role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-                  <div class="avatar avatar-xl  me-1">
-                    <img class="rounded-circle " src="../../assets/img/team/30.webp" alt="" />
-                  </div>
-                </a>
-                <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
-                  <div class="position-relative">
-                    <div class="bg-holder z-index--1"
-                      style="background-image:url(../../assets/img/bg/bg-32.png);background-size: auto;"></div>
-                    <!--/.bg-holder-->
-                    <div class="p-3">
-                      <div class="text-end"><button class="btn p-0 me-2"><span
-                            class="fa-solid fa-user-plus text-white light"></span></button><button class="btn p-0"><span
-                            class="fa-solid fa-ellipsis text-white light"></span></button></div>
-                      <div class="text-center">
-                        <div class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2"><img
-                            class="rounded-circle border border-white" src="../../assets/img/team/30.webp" alt="" />
-                        </div>
-                        <h6 class="text-white light">Milind Mikuja</h6>
-                        <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
-                        <div class="d-flex flex-center mb-3">
-                          <h6 class="text-white light mb-0">224 <span class="fw-normal text-300">connections</span></h6>
-                          <span class="fa-solid fa-circle text-700 mx-1" data-fa-transform="shrink-10 up-2"></span>
-                          <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span></h6>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="bg-white">
-                    <div class="p-3 border-bottom">
-                      <div class="d-flex justify-content-between">
-                        <div class="d-flex"><button class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                              class="fa-solid fa-phone"></span></button><button
-                            class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                              class="fa-solid fa-message"></span></button><button
-                            class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
-                              class="fa-solid fa-video"></span></button></div><button
-                          class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
-                          Email</button>
-                      </div>
-                    </div>
-                    <ul class="nav d-flex flex-column py-3 border-bottom">
-                      <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!"> <span
-                            class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
-                            class="text-1000 flex-1">Assigned Projects</span><span
-                            class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                      <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!"> <span
-                            class="me-2 text-900" data-feather="pie-chart"></span><span class="text-1000 flex-1">View
-                            activiy</span><span class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                    </ul>
-                  </div>
-                  <div class="p-3 d-flex justify-content-between"><a class="btn btn-link p-0 text-decoration-none"
-                      href="#!">Details </a><a class="btn btn-link p-0 text-decoration-none text-danger"
-                      href="#!">Unassign </a></div>
-                </div>
-              </div>
-              <div class="dropdown"><a class="dropdown-toggle dropdown-caret-none d-inline-block outline-none" href="#"
-                  role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-                  <div class="avatar avatar-xl  me-1">
-                    <img class="rounded-circle " src="../../assets/img/team/31.webp" alt="" />
-                  </div>
-                </a>
-                <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
-                  <div class="position-relative">
-                    <div class="bg-holder z-index--1"
-                      style="background-image:url(../../assets/img/bg/bg-32.png);background-size: auto;"></div>
-                    <!--/.bg-holder-->
-                    <div class="p-3">
-                      <div class="text-end"><button class="btn p-0 me-2"><span
-                            class="fa-solid fa-user-plus text-white light"></span></button><button class="btn p-0"><span
-                            class="fa-solid fa-ellipsis text-white light"></span></button></div>
-                      <div class="text-center">
-                        <div class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2"><img
-                            class="rounded-circle border border-white" src="../../assets/img/team/31.webp" alt="" />
-                        </div>
-                        <h6 class="text-white light">Stanly Drinkwater</h6>
-                        <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
-                        <div class="d-flex flex-center mb-3">
-                          <h6 class="text-white light mb-0">224 <span class="fw-normal text-300">connections</span></h6>
-                          <span class="fa-solid fa-circle text-700 mx-1" data-fa-transform="shrink-10 up-2"></span>
-                          <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span></h6>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="bg-white">
-                    <div class="p-3 border-bottom">
-                      <div class="d-flex justify-content-between">
-                        <div class="d-flex"><button class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                              class="fa-solid fa-phone"></span></button><button
-                            class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                              class="fa-solid fa-message"></span></button><button
-                            class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
-                              class="fa-solid fa-video"></span></button></div><button
-                          class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
-                          Email</button>
-                      </div>
-                    </div>
-                    <ul class="nav d-flex flex-column py-3 border-bottom">
-                      <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!"> <span
-                            class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
-                            class="text-1000 flex-1">Assigned Projects</span><span
-                            class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                      <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!"> <span
-                            class="me-2 text-900" data-feather="pie-chart"></span><span class="text-1000 flex-1">View
-                            activiy</span><span class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                    </ul>
-                  </div>
-                  <div class="p-3 d-flex justify-content-between"><a class="btn btn-link p-0 text-decoration-none"
-                      href="#!">Details </a><a class="btn btn-link p-0 text-decoration-none text-danger"
-                      href="#!">Unassign </a></div>
-                </div>
-              </div>
-              <div class="dropdown"><a class="dropdown-toggle dropdown-caret-none d-inline-block outline-none" href="#"
-                  role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-                  <div class="avatar avatar-xl  me-1">
-                    <img class="rounded-circle " src="../../assets/img/team/60.webp" alt="" />
-                  </div>
-                </a>
-                <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
-                  <div class="position-relative">
-                    <div class="bg-holder z-index--1"
-                      style="background-image:url(../../assets/img/bg/bg-32.png);background-size: auto;"></div>
-                    <!--/.bg-holder-->
-                    <div class="p-3">
-                      <div class="text-end"><button class="btn p-0 me-2"><span
-                            class="fa-solid fa-user-plus text-white light"></span></button><button class="btn p-0"><span
-                            class="fa-solid fa-ellipsis text-white light"></span></button></div>
-                      <div class="text-center">
-                        <div class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2"><img
-                            class="rounded-circle border border-white" src="../../assets/img/team/60.webp" alt="" />
-                        </div>
-                        <h6 class="text-white light">Josef Stravinsky</h6>
-                        <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
-                        <div class="d-flex flex-center mb-3">
-                          <h6 class="text-white light mb-0">224 <span class="fw-normal text-300">connections</span></h6>
-                          <span class="fa-solid fa-circle text-700 mx-1" data-fa-transform="shrink-10 up-2"></span>
-                          <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span></h6>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="bg-white">
-                    <div class="p-3 border-bottom">
-                      <div class="d-flex justify-content-between">
-                        <div class="d-flex"><button class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                              class="fa-solid fa-phone"></span></button><button
-                            class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                              class="fa-solid fa-message"></span></button><button
-                            class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
-                              class="fa-solid fa-video"></span></button></div><button
-                          class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
-                          Email</button>
-                      </div>
-                    </div>
-                    <ul class="nav d-flex flex-column py-3 border-bottom">
-                      <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!"> <span
-                            class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
-                            class="text-1000 flex-1">Assigned Projects</span><span
-                            class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                      <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!"> <span
-                            class="me-2 text-900" data-feather="pie-chart"></span><span class="text-1000 flex-1">View
-                            activiy</span><span class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                    </ul>
-                  </div>
-                  <div class="p-3 d-flex justify-content-between"><a class="btn btn-link p-0 text-decoration-none"
-                      href="#!">Details </a><a class="btn btn-link p-0 text-decoration-none text-danger"
-                      href="#!">Unassign </a></div>
-                </div>
-              </div>
-              <div class="dropdown"><a class="dropdown-toggle dropdown-caret-none d-inline-block outline-none" href="#"
-                  role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-                  <div class="avatar avatar-xl  me-1">
-                    <img class="rounded-circle " src="../../assets/img/team/65.webp" alt="" />
-                  </div>
-                </a>
-                <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
-                  <div class="position-relative">
-                    <div class="bg-holder z-index--1"
-                      style="background-image:url(../../assets/img/bg/bg-32.png);background-size: auto;"></div>
-                    <!--/.bg-holder-->
-                    <div class="p-3">
-                      <div class="text-end"><button class="btn p-0 me-2"><span
-                            class="fa-solid fa-user-plus text-white light"></span></button><button class="btn p-0"><span
-                            class="fa-solid fa-ellipsis text-white light"></span></button></div>
-                      <div class="text-center">
-                        <div class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2"><img
-                            class="rounded-circle border border-white" src="../../assets/img/team/65.webp" alt="" />
-                        </div>
-                        <h6 class="text-white light">Igor Borvibson</h6>
-                        <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
-                        <div class="d-flex flex-center mb-3">
-                          <h6 class="text-white light mb-0">224 <span class="fw-normal text-300">connections</span></h6>
-                          <span class="fa-solid fa-circle text-700 mx-1" data-fa-transform="shrink-10 up-2"></span>
-                          <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span></h6>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="bg-white">
-                    <div class="p-3 border-bottom">
-                      <div class="d-flex justify-content-between">
-                        <div class="d-flex"><button class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                              class="fa-solid fa-phone"></span></button><button
-                            class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                              class="fa-solid fa-message"></span></button><button
-                            class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
-                              class="fa-solid fa-video"></span></button></div><button
-                          class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
-                          Email</button>
-                      </div>
-                    </div>
-                    <ul class="nav d-flex flex-column py-3 border-bottom">
-                      <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!"> <span
-                            class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
-                            class="text-1000 flex-1">Assigned Projects</span><span
-                            class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                      <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!"> <span
-                            class="me-2 text-900" data-feather="pie-chart"></span><span class="text-1000 flex-1">View
-                            activiy</span><span class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                    </ul>
-                  </div>
-                  <div class="p-3 d-flex justify-content-between"><a class="btn btn-link p-0 text-decoration-none"
-                      href="#!">Details </a><a class="btn btn-link p-0 text-decoration-none text-danger"
-                      href="#!">Unassign </a></div>
-                </div>
-              </div>
+
             </div>
-            <h4 class="text-1100 mb-4">Tags</h4><span class="badge badge-tag me-2 mb-1">Unused_brain</span><span
-              class="badge badge-tag me-2 mb-1">Machine</span><span class="badge badge-tag me-2 mb-1">Coding</span><span
-              class="badge badge-tag me-2 mb-1">Meseeks</span><span
-              class="badge badge-tag me-2 mb-1">Smithpeople</span><span
-              class="badge badge-tag me-2 mb-1">Rick</span><span class="badge badge-tag me-2 mb-1">Biology</span><span
-              class="badge badge-tag me-2 mb-1">Neurology</span><span
-              class="badge badge-tag me-2 mb-1">Brainlessness</span><span
-              class="badge badge-tag me-2 mb-1">Stupidity</span><span
-              class="badge badge-tag me-2 mb-1">Jerry</span><span class="badge badge-tag me-2 mb-1">Not
-              _the_mouse</span>
           </div>
         </div>
-        <h3 class="text-1100 mb-4">Project overview</h3>
-        <p class="text-800 mb-4">The new redirection team is happy to announce that we’ve fixed all our unresponsive
-          URLs and redirected them to new URLs. The tremendous assistance from our support team and the dev team, as
-          well as that of the team lead’s, this team has made an impossible possible within a week. They didn’t stop for
-          a moment, and we got our pages working again for all the valuable users. </p>
-        <p class="text-800 mb-0">Join us in celebrating the massive success of data transferring and getting us a huge
-          revenue by eating out. Free public viewing and a buffet is offered for the great team as well as for the other
-          teams working with us. We’ll be checking out places for the best option available at hands and we’ll let you
-          know the schedule once we decide on one.<a class="fw-semi-bold" href="#!">read more </a></p>
       </div>
-    </div>
-
-    </div>
-    <footer class="footer position-absolute">
-      <div class="row g-0 justify-content-between align-items-center h-100">
-        <div class="col-12 col-sm-auto text-center">
-          <p class="mb-0 mt-2 mt-sm-0 text-900">Thank you for creating with Phoenix<span
-              class="d-none d-sm-inline-block"></span><span class="d-none d-sm-inline-block mx-1">|</span><br
-              class="d-sm-none" />2023 &copy;<a class="mx-1" href="https://themewagon.com/">Themewagon</a></p>
+      <footer class="footer position-absolute">
+        <div class="row g-0 justify-content-between align-items-center h-100">
+          <div class="col-12 col-sm-auto text-center">
+            <p class="mb-0 mt-2 mt-sm-0 text-900">Thank you for creating with Phoenix<span
+                class="d-none d-sm-inline-block"></span><span class="d-none d-sm-inline-block mx-1">|</span><br
+                class="d-sm-none" />2023 &copy;<a class="mx-1" href="https://themewagon.com/">Themewagon</a></p>
+          </div>
+          <div class="col-12 col-sm-auto text-center">
+            <p class="mb-0 text-600">v1.13.0</p>
+          </div>
         </div>
-        <div class="col-12 col-sm-auto text-center">
-          <p class="mb-0 text-600">v1.13.0</p>
-        </div>
-      </div>
-    </footer>
+      </footer>
     </div>
     <div class="support-chat-container">
       <div class="container-fluid support-chat">
@@ -6833,7 +7031,18 @@
         template</a>
     </div>
   </div><a class="card setting-toggle" href="#settings-offcanvas" data-bs-toggle="offcanvas">
-
+    <div class="card-body d-flex align-items-center px-2 py-1">
+      <div class="position-relative rounded-start" style="height:34px;width:28px">
+        <div class="settings-popover"><span class="ripple"><span
+              class="fa-spin position-absolute all-0 d-flex flex-center"><span
+                class="icon-spin position-absolute all-0 d-flex flex-center"><svg width="20" height="20"
+                  viewBox="0 0 20 20" fill="#ffffff" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M19.7369 12.3941L19.1989 12.1065C18.4459 11.7041 18.0843 10.8487 18.0843 9.99495C18.0843 9.14118 18.4459 8.28582 19.1989 7.88336L19.7369 7.59581C19.9474 7.47484 20.0316 7.23291 19.9474 7.03131C19.4842 5.57973 18.6843 4.28943 17.6738 3.20075C17.5053 3.03946 17.2527 2.99914 17.0422 3.12011L16.393 3.46714C15.6883 3.84379 14.8377 3.74529 14.1476 3.3427C14.0988 3.31422 14.0496 3.28621 14.0002 3.25868C13.2568 2.84453 12.7055 2.10629 12.7055 1.25525V0.70081C12.7055 0.499202 12.5371 0.297594 12.2845 0.257272C10.7266 -0.105622 9.16879 -0.0653007 7.69516 0.257272C7.44254 0.297594 7.31623 0.499202 7.31623 0.70081V1.23474C7.31623 2.09575 6.74999 2.8362 5.99824 3.25599C5.95774 3.27861 5.91747 3.30159 5.87744 3.32493C5.15643 3.74527 4.26453 3.85902 3.53534 3.45302L2.93743 3.12011C2.72691 2.99914 2.47429 3.03946 2.30587 3.20075C1.29538 4.28943 0.495411 5.57973 0.0322686 7.03131C-0.051939 7.23291 0.0322686 7.47484 0.242788 7.59581L0.784376 7.8853C1.54166 8.29007 1.92694 9.13627 1.92694 9.99495C1.92694 10.8536 1.54166 11.6998 0.784375 12.1046L0.242788 12.3941C0.0322686 12.515 -0.051939 12.757 0.0322686 12.9586C0.495411 14.4102 1.29538 15.7005 2.30587 16.7891C2.47429 16.9504 2.72691 16.9907 2.93743 16.8698L3.58669 16.5227C4.29133 16.1461 5.14131 16.2457 5.8331 16.6455C5.88713 16.6767 5.94159 16.7074 5.99648 16.7375C6.75162 17.1511 7.31623 17.8941 7.31623 18.7552V19.2891C7.31623 19.4425 7.41373 19.5959 7.55309 19.696C7.64066 19.7589 7.74815 19.7843 7.85406 19.8046C9.35884 20.0925 10.8609 20.0456 12.2845 19.7729C12.5371 19.6923 12.7055 19.4907 12.7055 19.2891V18.7346C12.7055 17.8836 13.2568 17.1454 14.0002 16.7312C14.0496 16.7037 14.0988 16.6757 14.1476 16.6472C14.8377 16.2446 15.6883 16.1461 16.393 16.5227L17.0422 16.8698C17.2527 16.9907 17.5053 16.9504 17.6738 16.7891C18.7264 15.7005 19.4842 14.4102 19.9895 12.9586C20.0316 12.757 19.9474 12.515 19.7369 12.3941ZM10.0109 13.2005C8.1162 13.2005 6.64257 11.7893 6.64257 9.97478C6.64257 8.20063 8.1162 6.74905 10.0109 6.74905C11.8634 6.74905 13.3792 8.20063 13.3792 9.97478C13.3792 11.7893 11.8634 13.2005 10.0109 13.2005Z"
+                    fill="#2A7BE4"></path>
+                </svg></span></span></span></div>
+      </div><small class="text-uppercase text-700 fw-bold py-2 pe-2 ps-1 rounded-end">customize</small>
+    </div>
   </a>
 
   <!-- ===============================================-->

@@ -11,27 +11,9 @@
         <div class="parent-wrapper label-1">
             <ul class="nav collapse parent show" data-bs-parent="#navbarVerticalCollapse" id="nv-home">
                 <li class="collapsed-nav-item-title d-none">Home</li>
-                <li class="nav-item"><a class="nav-link active" href="index-2.html" data-bs-toggle=""
+                <li class="nav-item"><a class="nav-link active" href="{{route('show_dashboard')}}" data-bs-toggle=""
                         aria-expanded="false">
                         <div class="d-flex align-items-center"><span class="nav-link-text">Dashboard</span></div>
-                    </a><!-- more inner pages-->
-                </li>
-                <li class="nav-item"><a class="nav-link" href="dashboard/project-management.html" data-bs-toggle=""
-                        aria-expanded="false">
-                        <div class="d-flex align-items-center"><span class="nav-link-text">Project management</span>
-                        </div>
-                    </a><!-- more inner pages-->
-                </li>
-                <li class="nav-item"><a class="nav-link" href="dashboard/crm.html" data-bs-toggle=""
-                        aria-expanded="false">
-                        <div class="d-flex align-items-center"><span class="nav-link-text">CRM</span><span
-                                class="badge ms-2 badge badge-phoenix badge-phoenix-info ">New</span>
-                        </div>
-                    </a><!-- more inner pages-->
-                </li>
-                <li class="nav-item"><a class="nav-link" href="apps/social/feed.html" data-bs-toggle=""
-                        aria-expanded="false">
-                        <div class="d-flex align-items-center"><span class="nav-link-text">Social feed</span></div>
                     </a><!-- more inner pages-->
                 </li>
                 <li class="nav-item"><a class="nav-link" href="{{route('show_team')}}" data-bs-toggle=""

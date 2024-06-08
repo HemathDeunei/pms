@@ -23,6 +23,11 @@ class SuperadminController extends Controller
         // Return the view first
         return view('superadmin.project-create');
     }
+
+
+    public function show_dashboard(){
+        return view('superadmin.dashboard');
+    }
     public function project_list()
     {
         $projects = Project::all();

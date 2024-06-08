@@ -222,7 +222,6 @@ class MemberController extends Controller
 
         // Find the member record by email
         $member = Member::where('personal_email', $request->personal_email)->first();
-
         if ($member) {
             // Update member status to "rejected"
             $member->status = 'rejected'; // Update status to 'rejected'

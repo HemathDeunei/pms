@@ -5,12 +5,6 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="csrf-token" content="{{ csrf_token() }}">
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
   <!-- ===============================================-->
   <!--    Document Title-->
@@ -34,6 +28,9 @@
   <!-- ===============================================-->
   <!--    Stylesheets-->
   <!-- ===============================================-->
+  <link href="../template/vendors/choices/choices.min.css" rel="stylesheet">
+  <link href="../template/vendors/dhtmlx-gantt/dhtmlxgantt.css" rel="stylesheet">
+  <link href="../template/vendors/flatpickr/flatpickr.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com/">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&amp;display=swap"
@@ -59,25 +56,6 @@
       userLinkRTL.setAttribute('disabled', true);
     }
   </script>
-  <style>
-    .col-form-label {
-      width: 100%;
-      text-align: left;
-    }
-
-    thead,
-    tbody,
-    tfoot,
-    tr,
-    td,
-    th {
-      padding: 10px;
-      border-bottom: 1px solid #c5c0c0;
-    }
-
-
-    }
-  </style>
 </head>
 
 <body>
@@ -94,18 +72,21 @@
       </script>
       <div class="collapse navbar-collapse" id="navbarVerticalCollapse">
         <!-- scrollbar removed-->
-        <div class="navbar-vertical-content">
-          <ul class="navbar-nav flex-column" id="navbarVerticalNav">
-            <!-- the home content in sie bar page here -->
-            @include('home.sidebar_home')
-            <!--end of the home content in sie bar page here -->
-            <!-- the apps content in side bar page here -->
-            @include('home.sidebar_apps')
-            <!--end of the apps content in side bar page here -->
-            @include('home.sidebar_page')
-            @include('home.sidebar_modules')
-            @include('home.sidebar_documentation')
-          </ul>
+        <div class="collapse navbar-collapse" id="navbarVerticalCollapse">
+          <!-- scrollbar removed-->
+          <div class="navbar-vertical-content">
+            <ul class="navbar-nav flex-column" id="navbarVerticalNav">
+              <!-- the home content in sie bar page here -->
+              @include('home.sidebar_home')
+              <!--end of the home content in sie bar page here -->
+              <!-- the apps content in side bar page here -->
+              @include('home.sidebar_apps')
+              <!--end of the apps content in side bar page here -->
+              @include('home.sidebar_page')
+              @include('home.sidebar_modules')
+              @include('home.sidebar_documentation')
+            </ul>
+          </div>
         </div>
       </div>
       <div class="navbar-vertical-footer"><button
@@ -218,7 +199,7 @@
                 </div>
                 <hr class="text-200 my-0" />
                 <h6 class="dropdown-header text-1000 fs--1 border-bottom border-200 py-2 lh-sm">Members</h6>
-                <div class="py-2"><a class="dropdown-item py-2 d-flex align-items-center" href="members.html">
+                <div class="py-2"><a class="dropdown-item py-2 d-flex align-items-center" href="../pages/members.html">
                     <div class="avatar avatar-l status-online  me-2 text-900">
                       <img class="rounded-circle " src="../assets/img/team/40x40/10.webp" alt="" />
                     </div>
@@ -227,7 +208,7 @@
                       <p class="fs--2 mb-0 d-flex text-700">anna@technext.it</p>
                     </div>
                   </a>
-                  <a class="dropdown-item py-2 d-flex align-items-center" href="members.html">
+                  <a class="dropdown-item py-2 d-flex align-items-center" href="../pages/members.html">
                     <div class="avatar avatar-l  me-2 text-900">
                       <img class="rounded-circle " src="../assets/img/team/40x40/12.webp" alt="" />
                     </div>
@@ -442,7 +423,7 @@
                 </div>
                 <div class="card-footer p-0 border-top border-0">
                   <div class="my-2 text-center fw-bold fs--2 text-600"><a class="fw-bolder"
-                      href="notifications.html">Notification history</a></div>
+                      href="../pages/notifications.html">Notification history</a></div>
                 </div>
               </div>
             </div>
@@ -593,24 +574,6 @@
               </div>
             </div>
           </li>
-          <li class="nav-item">
-                        <form method="post" action="{{ route('logout') }}">
-                            @csrf
-                            <!-- Add any additional form fields if needed -->
-
-                            <!-- Check if the user is authenticated and display the user type -->
-                            @if (Auth::check())
-                                <button type="submit" class="btn btn-primary">
-                                    LOGOUT ({{ Auth::user()->usertype }})
-                                </button>
-                            @else
-                                <!-- Optionally, you can handle the case when no user is logged in -->
-                                <button type="submit" class="btn btn-primary" disabled>
-                                    LOGOUT
-                                </button>
-                            @endif
-                        </form>
-                    </li>
         </ul>
       </div>
     </nav>
@@ -812,7 +775,7 @@
                 </div>
                 <div class="card-footer p-0 border-top border-0">
                   <div class="my-2 text-center fw-bold fs--2 text-600"><a class="fw-bolder"
-                      href="notifications.html">Notification history</a></div>
+                      href="../pages/notifications.html">Notification history</a></div>
                 </div>
               </div>
             </div>
@@ -988,11 +951,11 @@
                   <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="shopping-cart"></span>E
                     commerce</div>
                 </a></li>
-              <li><a class="dropdown-item" href="../dashboard/project-management.html">
+              <li><a class="dropdown-item active" href="project-management.html">
                   <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="clipboard"></span>Project
                     management</div>
                 </a></li>
-              <li><a class="dropdown-item" href="../dashboard/crm.html">
+              <li><a class="dropdown-item" href="crm.html">
                   <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="phone"></span>CRM</div>
                 </a></li>
               <li><a class="dropdown-item" href="../apps/social/feed.html">
@@ -1226,7 +1189,7 @@
               data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false"><span
                 class="uil fs-0 me-2 uil-files-landscapes-alt"></span>Pages</a>
             <ul class="dropdown-menu navbar-dropdown-caret">
-              <li><a class="dropdown-item" href="starter.html">
+              <li><a class="dropdown-item" href="../pages/starter.html">
                   <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="compass"></span>Starter</div>
                 </a></li>
               <li class="dropdown"><a class="dropdown-item dropdown-toggle" id="faq" href="#" data-bs-toggle="dropdown"
@@ -1236,10 +1199,10 @@
                         data-feather="help-circle"></span>Faq</span></div>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="faq/faq-accordion.html">
+                  <li><a class="dropdown-item" href="../pages/faq/faq-accordion.html">
                       <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Faq accordion</div>
                     </a></li>
-                  <li><a class="dropdown-item" href="faq/faq-tab.html">
+                  <li><a class="dropdown-item" href="../pages/faq/faq-tab.html">
                       <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Faq tab</div>
                     </a></li>
                 </ul>
@@ -1251,10 +1214,10 @@
                         data-feather="globe"></span>Landing</span></div>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="landing/default.html">
+                  <li><a class="dropdown-item" href="../pages/landing/default.html">
                       <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Default</div>
                     </a></li>
-                  <li><a class="dropdown-item" href="landing/alternate.html">
+                  <li><a class="dropdown-item" href="../pages/landing/alternate.html">
                       <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Alternate</div>
                     </a></li>
                 </ul>
@@ -1266,22 +1229,22 @@
                         data-feather="tag"></span>Pricing</span></div>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="pricing/pricing-column.html">
+                  <li><a class="dropdown-item" href="../pages/pricing/pricing-column.html">
                       <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Pricing column</div>
                     </a></li>
-                  <li><a class="dropdown-item" href="pricing/pricing-grid.html">
+                  <li><a class="dropdown-item" href="../pages/pricing/pricing-grid.html">
                       <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Pricing grid</div>
                     </a></li>
                 </ul>
               </li>
-              <li><a class="dropdown-item" href="notifications.html">
+              <li><a class="dropdown-item" href="../pages/notifications.html">
                   <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="bell"></span>Notifications
                   </div>
                 </a></li>
-              <li><a class="dropdown-item active" href="members.html">
+              <li><a class="dropdown-item" href="../pages/members.html">
                   <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="users"></span>Members</div>
                 </a></li>
-              <li><a class="dropdown-item" href="timeline.html">
+              <li><a class="dropdown-item" href="../pages/timeline.html">
                   <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="clock"></span>Timeline</div>
                 </a></li>
               <li class="dropdown"><a class="dropdown-item dropdown-toggle" id="errors" href="#"
@@ -1291,13 +1254,13 @@
                         data-feather="alert-triangle"></span>Errors</span></div>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="errors/404.html">
+                  <li><a class="dropdown-item" href="../pages/errors/404.html">
                       <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>404</div>
                     </a></li>
-                  <li><a class="dropdown-item" href="errors/403.html">
+                  <li><a class="dropdown-item" href="../pages/errors/403.html">
                       <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>403</div>
                     </a></li>
-                  <li><a class="dropdown-item" href="errors/500.html">
+                  <li><a class="dropdown-item" href="../pages/errors/500.html">
                       <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>500</div>
                     </a></li>
                 </ul>
@@ -1316,25 +1279,25 @@
                             class="me-2 uil"></span>Simple</span></div>
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="authentication/simple/sign-in.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/simple/sign-in.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sign in</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/simple/sign-up.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/simple/sign-up.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sign up</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/simple/sign-out.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/simple/sign-out.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sign out</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/simple/forgot-password.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/simple/forgot-password.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Forgot password</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/simple/reset-password.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/simple/reset-password.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Reset password</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/simple/lock-screen.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/simple/lock-screen.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Lock screen</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/simple/2FA.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/simple/2FA.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>2FA</div>
                         </a></li>
                     </ul>
@@ -1346,25 +1309,25 @@
                             class="me-2 uil"></span>Split</span></div>
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="authentication/split/sign-in.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/split/sign-in.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sign in</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/split/sign-up.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/split/sign-up.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sign up</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/split/sign-out.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/split/sign-out.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sign out</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/split/forgot-password.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/split/forgot-password.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Forgot password</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/split/reset-password.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/split/reset-password.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Reset password</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/split/lock-screen.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/split/lock-screen.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Lock screen</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/split/2FA.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/split/2FA.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>2FA</div>
                         </a></li>
                     </ul>
@@ -1376,25 +1339,25 @@
                             class="me-2 uil"></span>Card</span></div>
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="authentication/card/sign-in.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/card/sign-in.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sign in</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/card/sign-up.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/card/sign-up.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sign up</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/card/sign-out.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/card/sign-out.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sign out</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/card/forgot-password.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/card/forgot-password.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Forgot password</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/card/reset-password.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/card/reset-password.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Reset password</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/card/lock-screen.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/card/lock-screen.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Lock screen</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/card/2FA.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/card/2FA.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>2FA</div>
                         </a></li>
                     </ul>
@@ -1806,7 +1769,7 @@
               </div>
               <div class="card-footer p-0 border-top border-0">
                 <div class="my-2 text-center fw-bold fs--2 text-600"><a class="fw-bolder"
-                    href="notifications.html">Notification history</a></div>
+                    href="../pages/notifications.html">Notification history</a></div>
               </div>
             </div>
           </div>
@@ -1966,11 +1929,11 @@
                   <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="shopping-cart"></span>E
                     commerce</div>
                 </a></li>
-              <li><a class="dropdown-item" href="../dashboard/project-management.html">
+              <li><a class="dropdown-item active" href="project-management.html">
                   <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="clipboard"></span>Project
                     management</div>
                 </a></li>
-              <li><a class="dropdown-item" href="../dashboard/crm.html">
+              <li><a class="dropdown-item" href="crm.html">
                   <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="phone"></span>CRM</div>
                 </a></li>
               <li><a class="dropdown-item" href="../apps/social/feed.html">
@@ -2204,7 +2167,7 @@
               data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false"><span
                 class="uil fs-0 me-2 uil-files-landscapes-alt"></span>Pages</a>
             <ul class="dropdown-menu navbar-dropdown-caret">
-              <li><a class="dropdown-item" href="starter.html">
+              <li><a class="dropdown-item" href="../pages/starter.html">
                   <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="compass"></span>Starter</div>
                 </a></li>
               <li class="dropdown"><a class="dropdown-item dropdown-toggle" id="faq" href="#" data-bs-toggle="dropdown"
@@ -2214,10 +2177,10 @@
                         data-feather="help-circle"></span>Faq</span></div>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="faq/faq-accordion.html">
+                  <li><a class="dropdown-item" href="../pages/faq/faq-accordion.html">
                       <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Faq accordion</div>
                     </a></li>
-                  <li><a class="dropdown-item" href="faq/faq-tab.html">
+                  <li><a class="dropdown-item" href="../pages/faq/faq-tab.html">
                       <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Faq tab</div>
                     </a></li>
                 </ul>
@@ -2229,10 +2192,10 @@
                         data-feather="globe"></span>Landing</span></div>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="landing/default.html">
+                  <li><a class="dropdown-item" href="../pages/landing/default.html">
                       <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Default</div>
                     </a></li>
-                  <li><a class="dropdown-item" href="landing/alternate.html">
+                  <li><a class="dropdown-item" href="../pages/landing/alternate.html">
                       <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Alternate</div>
                     </a></li>
                 </ul>
@@ -2244,22 +2207,22 @@
                         data-feather="tag"></span>Pricing</span></div>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="pricing/pricing-column.html">
+                  <li><a class="dropdown-item" href="../pages/pricing/pricing-column.html">
                       <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Pricing column</div>
                     </a></li>
-                  <li><a class="dropdown-item" href="pricing/pricing-grid.html">
+                  <li><a class="dropdown-item" href="../pages/pricing/pricing-grid.html">
                       <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Pricing grid</div>
                     </a></li>
                 </ul>
               </li>
-              <li><a class="dropdown-item" href="notifications.html">
+              <li><a class="dropdown-item" href="../pages/notifications.html">
                   <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="bell"></span>Notifications
                   </div>
                 </a></li>
-              <li><a class="dropdown-item active" href="members.html">
+              <li><a class="dropdown-item" href="../pages/members.html">
                   <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="users"></span>Members</div>
                 </a></li>
-              <li><a class="dropdown-item" href="timeline.html">
+              <li><a class="dropdown-item" href="../pages/timeline.html">
                   <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="clock"></span>Timeline</div>
                 </a></li>
               <li class="dropdown"><a class="dropdown-item dropdown-toggle" id="errors" href="#"
@@ -2269,13 +2232,13 @@
                         data-feather="alert-triangle"></span>Errors</span></div>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="errors/404.html">
+                  <li><a class="dropdown-item" href="../pages/errors/404.html">
                       <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>404</div>
                     </a></li>
-                  <li><a class="dropdown-item" href="errors/403.html">
+                  <li><a class="dropdown-item" href="../pages/errors/403.html">
                       <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>403</div>
                     </a></li>
-                  <li><a class="dropdown-item" href="errors/500.html">
+                  <li><a class="dropdown-item" href="../pages/errors/500.html">
                       <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>500</div>
                     </a></li>
                 </ul>
@@ -2294,25 +2257,25 @@
                             class="me-2 uil"></span>Simple</span></div>
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="authentication/simple/sign-in.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/simple/sign-in.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sign in</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/simple/sign-up.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/simple/sign-up.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sign up</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/simple/sign-out.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/simple/sign-out.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sign out</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/simple/forgot-password.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/simple/forgot-password.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Forgot password</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/simple/reset-password.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/simple/reset-password.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Reset password</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/simple/lock-screen.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/simple/lock-screen.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Lock screen</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/simple/2FA.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/simple/2FA.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>2FA</div>
                         </a></li>
                     </ul>
@@ -2324,25 +2287,25 @@
                             class="me-2 uil"></span>Split</span></div>
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="authentication/split/sign-in.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/split/sign-in.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sign in</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/split/sign-up.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/split/sign-up.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sign up</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/split/sign-out.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/split/sign-out.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sign out</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/split/forgot-password.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/split/forgot-password.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Forgot password</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/split/reset-password.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/split/reset-password.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Reset password</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/split/lock-screen.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/split/lock-screen.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Lock screen</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/split/2FA.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/split/2FA.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>2FA</div>
                         </a></li>
                     </ul>
@@ -2354,25 +2317,25 @@
                             class="me-2 uil"></span>Card</span></div>
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="authentication/card/sign-in.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/card/sign-in.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sign in</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/card/sign-up.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/card/sign-up.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sign up</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/card/sign-out.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/card/sign-out.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sign out</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/card/forgot-password.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/card/forgot-password.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Forgot password</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/card/reset-password.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/card/reset-password.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Reset password</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/card/lock-screen.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/card/lock-screen.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Lock screen</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/card/2FA.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/card/2FA.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>2FA</div>
                         </a></li>
                     </ul>
@@ -2786,7 +2749,7 @@
               </div>
               <div class="card-footer p-0 border-top border-0">
                 <div class="my-2 text-center fw-bold fs--2 text-600"><a class="fw-bolder"
-                    href="notifications.html">Notification history</a></div>
+                    href="../pages/notifications.html">Notification history</a></div>
               </div>
             </div>
           </div>
@@ -2948,11 +2911,11 @@
                   <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="shopping-cart"></span>E
                     commerce</div>
                 </a></li>
-              <li><a class="dropdown-item" href="../dashboard/project-management.html">
+              <li><a class="dropdown-item active" href="project-management.html">
                   <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="clipboard"></span>Project
                     management</div>
                 </a></li>
-              <li><a class="dropdown-item" href="../dashboard/crm.html">
+              <li><a class="dropdown-item" href="crm.html">
                   <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="phone"></span>CRM</div>
                 </a></li>
               <li><a class="dropdown-item" href="../apps/social/feed.html">
@@ -3186,7 +3149,7 @@
               data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false"><span
                 class="uil fs-0 me-2 uil-files-landscapes-alt"></span>Pages</a>
             <ul class="dropdown-menu navbar-dropdown-caret">
-              <li><a class="dropdown-item" href="starter.html">
+              <li><a class="dropdown-item" href="../pages/starter.html">
                   <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="compass"></span>Starter</div>
                 </a></li>
               <li class="dropdown"><a class="dropdown-item dropdown-toggle" id="faq" href="#" data-bs-toggle="dropdown"
@@ -3196,10 +3159,10 @@
                         data-feather="help-circle"></span>Faq</span></div>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="faq/faq-accordion.html">
+                  <li><a class="dropdown-item" href="../pages/faq/faq-accordion.html">
                       <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Faq accordion</div>
                     </a></li>
-                  <li><a class="dropdown-item" href="faq/faq-tab.html">
+                  <li><a class="dropdown-item" href="../pages/faq/faq-tab.html">
                       <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Faq tab</div>
                     </a></li>
                 </ul>
@@ -3211,10 +3174,10 @@
                         data-feather="globe"></span>Landing</span></div>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="landing/default.html">
+                  <li><a class="dropdown-item" href="../pages/landing/default.html">
                       <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Default</div>
                     </a></li>
-                  <li><a class="dropdown-item" href="landing/alternate.html">
+                  <li><a class="dropdown-item" href="../pages/landing/alternate.html">
                       <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Alternate</div>
                     </a></li>
                 </ul>
@@ -3226,22 +3189,22 @@
                         data-feather="tag"></span>Pricing</span></div>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="pricing/pricing-column.html">
+                  <li><a class="dropdown-item" href="../pages/pricing/pricing-column.html">
                       <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Pricing column</div>
                     </a></li>
-                  <li><a class="dropdown-item" href="pricing/pricing-grid.html">
+                  <li><a class="dropdown-item" href="../pages/pricing/pricing-grid.html">
                       <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Pricing grid</div>
                     </a></li>
                 </ul>
               </li>
-              <li><a class="dropdown-item" href="notifications.html">
+              <li><a class="dropdown-item" href="../pages/notifications.html">
                   <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="bell"></span>Notifications
                   </div>
                 </a></li>
-              <li><a class="dropdown-item active" href="members.html">
+              <li><a class="dropdown-item" href="../pages/members.html">
                   <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="users"></span>Members</div>
                 </a></li>
-              <li><a class="dropdown-item" href="timeline.html">
+              <li><a class="dropdown-item" href="../pages/timeline.html">
                   <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="clock"></span>Timeline</div>
                 </a></li>
               <li class="dropdown"><a class="dropdown-item dropdown-toggle" id="errors" href="#"
@@ -3251,13 +3214,13 @@
                         data-feather="alert-triangle"></span>Errors</span></div>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="errors/404.html">
+                  <li><a class="dropdown-item" href="../pages/errors/404.html">
                       <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>404</div>
                     </a></li>
-                  <li><a class="dropdown-item" href="errors/403.html">
+                  <li><a class="dropdown-item" href="../pages/errors/403.html">
                       <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>403</div>
                     </a></li>
-                  <li><a class="dropdown-item" href="errors/500.html">
+                  <li><a class="dropdown-item" href="../pages/errors/500.html">
                       <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>500</div>
                     </a></li>
                 </ul>
@@ -3276,25 +3239,25 @@
                             class="me-2 uil"></span>Simple</span></div>
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="authentication/simple/sign-in.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/simple/sign-in.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sign in</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/simple/sign-up.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/simple/sign-up.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sign up</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/simple/sign-out.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/simple/sign-out.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sign out</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/simple/forgot-password.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/simple/forgot-password.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Forgot password</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/simple/reset-password.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/simple/reset-password.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Reset password</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/simple/lock-screen.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/simple/lock-screen.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Lock screen</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/simple/2FA.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/simple/2FA.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>2FA</div>
                         </a></li>
                     </ul>
@@ -3306,25 +3269,25 @@
                             class="me-2 uil"></span>Split</span></div>
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="authentication/split/sign-in.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/split/sign-in.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sign in</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/split/sign-up.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/split/sign-up.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sign up</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/split/sign-out.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/split/sign-out.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sign out</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/split/forgot-password.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/split/forgot-password.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Forgot password</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/split/reset-password.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/split/reset-password.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Reset password</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/split/lock-screen.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/split/lock-screen.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Lock screen</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/split/2FA.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/split/2FA.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>2FA</div>
                         </a></li>
                     </ul>
@@ -3336,25 +3299,25 @@
                             class="me-2 uil"></span>Card</span></div>
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="authentication/card/sign-in.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/card/sign-in.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sign in</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/card/sign-up.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/card/sign-up.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sign up</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/card/sign-out.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/card/sign-out.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sign out</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/card/forgot-password.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/card/forgot-password.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Forgot password</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/card/reset-password.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/card/reset-password.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Reset password</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/card/lock-screen.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/card/lock-screen.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Lock screen</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/card/2FA.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/card/2FA.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>2FA</div>
                         </a></li>
                     </ul>
@@ -3766,7 +3729,7 @@
               </div>
               <div class="card-footer p-0 border-top border-0">
                 <div class="my-2 text-center fw-bold fs--2 text-600"><a class="fw-bolder"
-                    href="notifications.html">Notification history</a></div>
+                    href="../pages/notifications.html">Notification history</a></div>
               </div>
             </div>
           </div>
@@ -3926,11 +3889,11 @@
                   <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="shopping-cart"></span>E
                     commerce</div>
                 </a></li>
-              <li><a class="dropdown-item" href="../dashboard/project-management.html">
+              <li><a class="dropdown-item active" href="project-management.html">
                   <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="clipboard"></span>Project
                     management</div>
                 </a></li>
-              <li><a class="dropdown-item" href="../dashboard/crm.html">
+              <li><a class="dropdown-item" href="crm.html">
                   <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="phone"></span>CRM</div>
                 </a></li>
               <li><a class="dropdown-item" href="../apps/social/feed.html">
@@ -4164,7 +4127,7 @@
               data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false"><span
                 class="uil fs-0 me-2 uil-files-landscapes-alt"></span>Pages</a>
             <ul class="dropdown-menu navbar-dropdown-caret">
-              <li><a class="dropdown-item" href="starter.html">
+              <li><a class="dropdown-item" href="../pages/starter.html">
                   <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="compass"></span>Starter</div>
                 </a></li>
               <li class="dropdown"><a class="dropdown-item dropdown-toggle" id="faq" href="#" data-bs-toggle="dropdown"
@@ -4174,10 +4137,10 @@
                         data-feather="help-circle"></span>Faq</span></div>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="faq/faq-accordion.html">
+                  <li><a class="dropdown-item" href="../pages/faq/faq-accordion.html">
                       <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Faq accordion</div>
                     </a></li>
-                  <li><a class="dropdown-item" href="faq/faq-tab.html">
+                  <li><a class="dropdown-item" href="../pages/faq/faq-tab.html">
                       <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Faq tab</div>
                     </a></li>
                 </ul>
@@ -4189,10 +4152,10 @@
                         data-feather="globe"></span>Landing</span></div>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="landing/default.html">
+                  <li><a class="dropdown-item" href="../pages/landing/default.html">
                       <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Default</div>
                     </a></li>
-                  <li><a class="dropdown-item" href="landing/alternate.html">
+                  <li><a class="dropdown-item" href="../pages/landing/alternate.html">
                       <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Alternate</div>
                     </a></li>
                 </ul>
@@ -4204,22 +4167,22 @@
                         data-feather="tag"></span>Pricing</span></div>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="pricing/pricing-column.html">
+                  <li><a class="dropdown-item" href="../pages/pricing/pricing-column.html">
                       <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Pricing column</div>
                     </a></li>
-                  <li><a class="dropdown-item" href="pricing/pricing-grid.html">
+                  <li><a class="dropdown-item" href="../pages/pricing/pricing-grid.html">
                       <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Pricing grid</div>
                     </a></li>
                 </ul>
               </li>
-              <li><a class="dropdown-item" href="notifications.html">
+              <li><a class="dropdown-item" href="../pages/notifications.html">
                   <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="bell"></span>Notifications
                   </div>
                 </a></li>
-              <li><a class="dropdown-item active" href="members.html">
+              <li><a class="dropdown-item" href="../pages/members.html">
                   <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="users"></span>Members</div>
                 </a></li>
-              <li><a class="dropdown-item" href="timeline.html">
+              <li><a class="dropdown-item" href="../pages/timeline.html">
                   <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="clock"></span>Timeline</div>
                 </a></li>
               <li class="dropdown"><a class="dropdown-item dropdown-toggle" id="errors" href="#"
@@ -4229,13 +4192,13 @@
                         data-feather="alert-triangle"></span>Errors</span></div>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="errors/404.html">
+                  <li><a class="dropdown-item" href="../pages/errors/404.html">
                       <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>404</div>
                     </a></li>
-                  <li><a class="dropdown-item" href="errors/403.html">
+                  <li><a class="dropdown-item" href="../pages/errors/403.html">
                       <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>403</div>
                     </a></li>
-                  <li><a class="dropdown-item" href="errors/500.html">
+                  <li><a class="dropdown-item" href="../pages/errors/500.html">
                       <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>500</div>
                     </a></li>
                 </ul>
@@ -4254,25 +4217,25 @@
                             class="me-2 uil"></span>Simple</span></div>
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="authentication/simple/sign-in.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/simple/sign-in.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sign in</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/simple/sign-up.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/simple/sign-up.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sign up</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/simple/sign-out.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/simple/sign-out.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sign out</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/simple/forgot-password.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/simple/forgot-password.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Forgot password</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/simple/reset-password.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/simple/reset-password.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Reset password</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/simple/lock-screen.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/simple/lock-screen.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Lock screen</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/simple/2FA.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/simple/2FA.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>2FA</div>
                         </a></li>
                     </ul>
@@ -4284,25 +4247,25 @@
                             class="me-2 uil"></span>Split</span></div>
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="authentication/split/sign-in.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/split/sign-in.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sign in</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/split/sign-up.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/split/sign-up.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sign up</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/split/sign-out.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/split/sign-out.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sign out</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/split/forgot-password.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/split/forgot-password.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Forgot password</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/split/reset-password.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/split/reset-password.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Reset password</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/split/lock-screen.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/split/lock-screen.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Lock screen</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/split/2FA.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/split/2FA.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>2FA</div>
                         </a></li>
                     </ul>
@@ -4314,25 +4277,25 @@
                             class="me-2 uil"></span>Card</span></div>
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="authentication/card/sign-in.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/card/sign-in.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sign in</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/card/sign-up.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/card/sign-up.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sign up</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/card/sign-out.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/card/sign-out.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sign out</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/card/forgot-password.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/card/forgot-password.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Forgot password</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/card/reset-password.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/card/reset-password.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Reset password</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/card/lock-screen.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/card/lock-screen.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Lock screen</div>
                         </a></li>
-                      <li><a class="dropdown-item" href="authentication/card/2FA.html">
+                      <li><a class="dropdown-item" href="../pages/authentication/card/2FA.html">
                           <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>2FA</div>
                         </a></li>
                     </ul>
@@ -4746,7 +4709,7 @@
               </div>
               <div class="card-footer p-0 border-top border-0">
                 <div class="my-2 text-center fw-bold fs--2 text-600"><a class="fw-bolder"
-                    href="notifications.html">Notification history</a></div>
+                    href="../pages/notifications.html">Notification history</a></div>
               </div>
             </div>
           </div>
@@ -4990,7 +4953,8 @@
                   </div>
                   <hr class="text-200 my-0" />
                   <h6 class="dropdown-header text-1000 fs--1 border-bottom border-200 py-2 lh-sm">Members</h6>
-                  <div class="py-2"><a class="dropdown-item py-2 d-flex align-items-center" href="members.html">
+                  <div class="py-2"><a class="dropdown-item py-2 d-flex align-items-center"
+                      href="../pages/members.html">
                       <div class="avatar avatar-l status-online  me-2 text-900">
                         <img class="rounded-circle " src="../assets/img/team/40x40/10.webp" alt="" />
                       </div>
@@ -4999,7 +4963,7 @@
                         <p class="fs--2 mb-0 d-flex text-700">anna@technext.it</p>
                       </div>
                     </a>
-                    <a class="dropdown-item py-2 d-flex align-items-center" href="members.html">
+                    <a class="dropdown-item py-2 d-flex align-items-center" href="../pages/members.html">
                       <div class="avatar avatar-l  me-2 text-900">
                         <img class="rounded-circle " src="../assets/img/team/40x40/12.webp" alt="" />
                       </div>
@@ -5218,7 +5182,7 @@
                   </div>
                   <div class="card-footer p-0 border-top border-0">
                     <div class="my-2 text-center fw-bold fs--2 text-600"><a class="fw-bolder"
-                        href="notifications.html">Notification history</a></div>
+                        href="../pages/notifications.html">Notification history</a></div>
                   </div>
                 </div>
               </div>
@@ -5381,11 +5345,11 @@
                     <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="shopping-cart"></span>E
                       commerce</div>
                   </a></li>
-                <li><a class="dropdown-item" href="../dashboard/project-management.html">
+                <li><a class="dropdown-item active" href="project-management.html">
                     <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="clipboard"></span>Project
                       management</div>
                   </a></li>
-                <li><a class="dropdown-item" href="../dashboard/crm.html">
+                <li><a class="dropdown-item" href="crm.html">
                     <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="phone"></span>CRM</div>
                   </a></li>
                 <li><a class="dropdown-item" href="../apps/social/feed.html">
@@ -5619,7 +5583,7 @@
                 data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false"><span
                   class="uil fs-0 me-2 uil-files-landscapes-alt"></span>Pages</a>
               <ul class="dropdown-menu navbar-dropdown-caret">
-                <li><a class="dropdown-item" href="starter.html">
+                <li><a class="dropdown-item" href="../pages/starter.html">
                     <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="compass"></span>Starter
                     </div>
                   </a></li>
@@ -5630,10 +5594,10 @@
                           class="me-2 uil" data-feather="help-circle"></span>Faq</span></div>
                   </a>
                   <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="faq/faq-accordion.html">
+                    <li><a class="dropdown-item" href="../pages/faq/faq-accordion.html">
                         <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Faq accordion</div>
                       </a></li>
-                    <li><a class="dropdown-item" href="faq/faq-tab.html">
+                    <li><a class="dropdown-item" href="../pages/faq/faq-tab.html">
                         <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Faq tab</div>
                       </a></li>
                   </ul>
@@ -5645,10 +5609,10 @@
                           class="me-2 uil" data-feather="globe"></span>Landing</span></div>
                   </a>
                   <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="landing/default.html">
+                    <li><a class="dropdown-item" href="../pages/landing/default.html">
                         <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Default</div>
                       </a></li>
-                    <li><a class="dropdown-item" href="landing/alternate.html">
+                    <li><a class="dropdown-item" href="../pages/landing/alternate.html">
                         <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Alternate</div>
                       </a></li>
                   </ul>
@@ -5660,22 +5624,22 @@
                           class="me-2 uil" data-feather="tag"></span>Pricing</span></div>
                   </a>
                   <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="pricing/pricing-column.html">
+                    <li><a class="dropdown-item" href="../pages/pricing/pricing-column.html">
                         <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Pricing column</div>
                       </a></li>
-                    <li><a class="dropdown-item" href="pricing/pricing-grid.html">
+                    <li><a class="dropdown-item" href="../pages/pricing/pricing-grid.html">
                         <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Pricing grid</div>
                       </a></li>
                   </ul>
                 </li>
-                <li><a class="dropdown-item" href="notifications.html">
+                <li><a class="dropdown-item" href="../pages/notifications.html">
                     <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="bell"></span>Notifications
                     </div>
                   </a></li>
-                <li><a class="dropdown-item active" href="members.html">
+                <li><a class="dropdown-item" href="../pages/members.html">
                     <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="users"></span>Members</div>
                   </a></li>
-                <li><a class="dropdown-item" href="timeline.html">
+                <li><a class="dropdown-item" href="../pages/timeline.html">
                     <div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="clock"></span>Timeline</div>
                   </a></li>
                 <li class="dropdown"><a class="dropdown-item dropdown-toggle" id="errors" href="#"
@@ -5685,13 +5649,13 @@
                           class="me-2 uil" data-feather="alert-triangle"></span>Errors</span></div>
                   </a>
                   <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="errors/404.html">
+                    <li><a class="dropdown-item" href="../pages/errors/404.html">
                         <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>404</div>
                       </a></li>
-                    <li><a class="dropdown-item" href="errors/403.html">
+                    <li><a class="dropdown-item" href="../pages/errors/403.html">
                         <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>403</div>
                       </a></li>
-                    <li><a class="dropdown-item" href="errors/500.html">
+                    <li><a class="dropdown-item" href="../pages/errors/500.html">
                         <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>500</div>
                       </a></li>
                   </ul>
@@ -5710,25 +5674,25 @@
                               class="me-2 uil"></span>Simple</span></div>
                       </a>
                       <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="authentication/simple/sign-in.html">
+                        <li><a class="dropdown-item" href="../pages/authentication/simple/sign-in.html">
                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sign in</div>
                           </a></li>
-                        <li><a class="dropdown-item" href="authentication/simple/sign-up.html">
+                        <li><a class="dropdown-item" href="../pages/authentication/simple/sign-up.html">
                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sign up</div>
                           </a></li>
-                        <li><a class="dropdown-item" href="authentication/simple/sign-out.html">
+                        <li><a class="dropdown-item" href="../pages/authentication/simple/sign-out.html">
                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sign out</div>
                           </a></li>
-                        <li><a class="dropdown-item" href="authentication/simple/forgot-password.html">
+                        <li><a class="dropdown-item" href="../pages/authentication/simple/forgot-password.html">
                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Forgot password</div>
                           </a></li>
-                        <li><a class="dropdown-item" href="authentication/simple/reset-password.html">
+                        <li><a class="dropdown-item" href="../pages/authentication/simple/reset-password.html">
                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Reset password</div>
                           </a></li>
-                        <li><a class="dropdown-item" href="authentication/simple/lock-screen.html">
+                        <li><a class="dropdown-item" href="../pages/authentication/simple/lock-screen.html">
                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Lock screen</div>
                           </a></li>
-                        <li><a class="dropdown-item" href="authentication/simple/2FA.html">
+                        <li><a class="dropdown-item" href="../pages/authentication/simple/2FA.html">
                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>2FA</div>
                           </a></li>
                       </ul>
@@ -5740,25 +5704,25 @@
                               class="me-2 uil"></span>Split</span></div>
                       </a>
                       <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="authentication/split/sign-in.html">
+                        <li><a class="dropdown-item" href="../pages/authentication/split/sign-in.html">
                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sign in</div>
                           </a></li>
-                        <li><a class="dropdown-item" href="authentication/split/sign-up.html">
+                        <li><a class="dropdown-item" href="../pages/authentication/split/sign-up.html">
                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sign up</div>
                           </a></li>
-                        <li><a class="dropdown-item" href="authentication/split/sign-out.html">
+                        <li><a class="dropdown-item" href="../pages/authentication/split/sign-out.html">
                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sign out</div>
                           </a></li>
-                        <li><a class="dropdown-item" href="authentication/split/forgot-password.html">
+                        <li><a class="dropdown-item" href="../pages/authentication/split/forgot-password.html">
                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Forgot password</div>
                           </a></li>
-                        <li><a class="dropdown-item" href="authentication/split/reset-password.html">
+                        <li><a class="dropdown-item" href="../pages/authentication/split/reset-password.html">
                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Reset password</div>
                           </a></li>
-                        <li><a class="dropdown-item" href="authentication/split/lock-screen.html">
+                        <li><a class="dropdown-item" href="../pages/authentication/split/lock-screen.html">
                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Lock screen</div>
                           </a></li>
-                        <li><a class="dropdown-item" href="authentication/split/2FA.html">
+                        <li><a class="dropdown-item" href="../pages/authentication/split/2FA.html">
                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>2FA</div>
                           </a></li>
                       </ul>
@@ -5770,25 +5734,25 @@
                               class="me-2 uil"></span>Card</span></div>
                       </a>
                       <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="authentication/card/sign-in.html">
+                        <li><a class="dropdown-item" href="../pages/authentication/card/sign-in.html">
                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sign in</div>
                           </a></li>
-                        <li><a class="dropdown-item" href="authentication/card/sign-up.html">
+                        <li><a class="dropdown-item" href="../pages/authentication/card/sign-up.html">
                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sign up</div>
                           </a></li>
-                        <li><a class="dropdown-item" href="authentication/card/sign-out.html">
+                        <li><a class="dropdown-item" href="../pages/authentication/card/sign-out.html">
                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Sign out</div>
                           </a></li>
-                        <li><a class="dropdown-item" href="authentication/card/forgot-password.html">
+                        <li><a class="dropdown-item" href="../pages/authentication/card/forgot-password.html">
                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Forgot password</div>
                           </a></li>
-                        <li><a class="dropdown-item" href="authentication/card/reset-password.html">
+                        <li><a class="dropdown-item" href="../pages/authentication/card/reset-password.html">
                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Reset password</div>
                           </a></li>
-                        <li><a class="dropdown-item" href="authentication/card/lock-screen.html">
+                        <li><a class="dropdown-item" href="../pages/authentication/card/lock-screen.html">
                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>Lock screen</div>
                           </a></li>
-                        <li><a class="dropdown-item" href="authentication/card/2FA.html">
+                        <li><a class="dropdown-item" href="../pages/authentication/card/2FA.html">
                             <div class="dropdown-item-wrapper"><span class="me-2 uil"></span>2FA</div>
                           </a></li>
                       </ul>
@@ -6119,7 +6083,8 @@
                     </div>
                     <hr class="text-200 my-0" />
                     <h6 class="dropdown-header text-1000 fs--1 border-bottom border-200 py-2 lh-sm">Members</h6>
-                    <div class="py-2"><a class="dropdown-item py-2 d-flex align-items-center" href="members.html">
+                    <div class="py-2"><a class="dropdown-item py-2 d-flex align-items-center"
+                        href="../pages/members.html">
                         <div class="avatar avatar-l status-online  me-2 text-900">
                           <img class="rounded-circle " src="../assets/img/team/40x40/10.webp" alt="" />
                         </div>
@@ -6128,7 +6093,7 @@
                           <p class="fs--2 mb-0 d-flex text-700">anna@technext.it</p>
                         </div>
                       </a>
-                      <a class="dropdown-item py-2 d-flex align-items-center" href="members.html">
+                      <a class="dropdown-item py-2 d-flex align-items-center" href="../pages/members.html">
                         <div class="avatar avatar-l  me-2 text-900">
                           <img class="rounded-circle " src="../assets/img/team/40x40/12.webp" alt="" />
                         </div>
@@ -6260,409 +6225,2560 @@
       }
     </script>
     <div class="content">
-      <nav class="mb-2" aria-label="breadcrumb">
-        <ol class="breadcrumb mb-0">
-          <li class="breadcrumb-item"><a href="#!">Member</a></li>
-          <li class="breadcrumb-item active">Member List</li>
-        </ol>
-      </nav>
-      <h2 class="text-bold text-1100 mb-5">Members</h2>
-      <div id="members"
-        data-list='{"valueNames":["customer","email","mobile_number","city","last_active","joined"],"page":10,"pagination":true}'>
-        <div class="row align-items-center justify-content-between g-3 mb-4">
-          <div class="col col-auto">
-            <div class="search-box">
-              <form class="position-relative" data-bs-toggle="search" data-bs-display="static"><input
-                  class="form-control search-input search" type="search" placeholder="Search members"
-                  aria-label="Search" />
-                <span class="fas fa-search search-box-icon"></span>
-              </form>
+      <div class="row gy-3 mb-6 justify-content-between">
+        <div class="col-md-9 col-auto">
+          <h2 class="mb-2 text-1100">Projects Dashboard</h2>
+          <h5 class="text-700 fw-semi-bold">Here’s what’s going on at your business right now</h5>
+        </div>
+        <div class="col-md-3 col-auto">
+          <div class="flatpickr-input-container"><input class="form-control ps-6 datetimepicker" id="datepicker"
+              type="text"
+              data-options='{"dateFormat":"M j, Y","disableMobile":true,"defaultDate":"Mar 1, 2022"}' /><span
+              class="uil uil-calendar-alt flatpickr-icon text-700"></span></div>
+        </div>
+      </div>
+      <div class="row mb-3 gy-6">
+        <div class="col-12 col-xxl-2">
+          <div class="row align-items-center g-3 g-xxl-0 h-100 align-content-between">
+            <div class="col-12 col-sm-6 col-md-3 col-lg-6 col-xl-3 col-xxl-12">
+              <div class="d-flex align-items-center"><span class="fs-4 lh-1 uil uil-books text-primary-500"></span>
+                <div class="ms-2">
+                  <div class="d-flex align-items-end">
+                    <h2 class="mb-0 me-2">32</h2><span class="fs-1 fw-semi-bold text-900">Projects</span>
+                  </div>
+                  <p class="text-800 fs--1 mb-0">Awating processing</p>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="col-auto">
-            <div class="d-flex align-items-center">
-              <button class="btn btn-link text-900 me-4 px-0"><a href="{{route('member_register')}}">
-                  <span class="fa-solid fa-file-export fs--1 me-2"></span>Export</button><button
-                class="btn btn-primary"><span class="fas fa-plus me-2"></span>Add member</button>
+            <div class="col-12 col-sm-6 col-md-3 col-lg-6 col-xl-3 col-xxl-12">
+              <div class="d-flex align-items-center"><span class="fs-4 lh-1 uil uil-users-alt text-success-500"></span>
+                <div class="ms-2">
+                  <div class="d-flex align-items-end">
+                    <h2 class="mb-0 me-2">94</h2><span class="fs-1 fw-semi-bold text-900">Members</span>
+                  </div>
+                  <p class="text-800 fs--1 mb-0">Working hard</p>
+                </div>
+              </div>
             </div>
-
-            </a>
+            <div class="col-12 col-sm-6 col-md-3 col-lg-6 col-xl-3 col-xxl-12">
+              <div class="d-flex align-items-center"><span class="fs-4 lh-1 uil uil-invoice text-warning-500"></span>
+                <div class="ms-2">
+                  <div class="d-flex align-items-end">
+                    <h2 class="mb-0 me-2">23</h2><span class="fs-1 fw-semi-bold text-900">Invoices</span>
+                  </div>
+                  <p class="text-800 fs--1 mb-0">Soon to be cleared</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-3 col-lg-6 col-xl-3 col-xxl-12">
+              <div class="d-flex align-items-center"><span class="fs-4 lh-1 uil uil-refresh text-danger-500"></span>
+                <div class="ms-2">
+                  <div class="d-flex align-items-end">
+                    <h2 class="mb-0 me-2">3</h2><span class="fs-1 fw-semi-bold text-900">Refunds</span>
+                  </div>
+                  <p class="text-800 fs--1 mb-0">Fresh start</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="mx-n4 mx-lg-n6 px-4 px-lg-6 mb-9 bg-white border-y border-300 mt-2 position-relative top-1">
-          <div class="table-responsive scrollbar ms-n1 ps-1">
-            <table id="members-table">
-              <thead>
-                <tr>
-                  <th class="sort align-middle" scope="col" data-sort="bio_id" style="width:15%; min-width:87px;">Bio
-                    ID</th>
-                  <th class="sort align-middle" scope="col" data-sort="employee_id" style="width:15%; min-width:200px;">
-                    Employee ID</th>
-                  <th class="sort align-middle" scope="col" data-sort="user_name" style="width:15%; min-width:200px;">
-                    User Name</th>
-                  <th class="sort align-middle" scope="col" data-sort="personal_email"
-                    style="width:15%; min-width:200px;">Personal Email</th>
-                  <th class="sort align-middle" scope="col" data-sort="mobile_number"
-                    style="width:20%; min-width:200px;">Mobile Number</th>
-                  <th class="sort align-middle" scope="col" data-sort="date_of_joining"
-                    style="width:19%; min-width:120px;">Date of Joining</th>
-                  <th class="sort align-middle" scope="col" data-sort="action">Action</th>
-                </tr>
-              </thead>
-              <tbody id="members-table-body">
-                <!-- Member data will be inserted here dynamically -->
-              </tbody>
-            </table>
-            <!-- edit model form -->
-            <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="editModalLabel">Update Member</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="col-12 col-xl-6 col-xxl-5">
+          <div class="mx-xxl-0">
+            <h3>Project: zero Roadmap</h3>
+            <p class="text-700">Phase 2 is now ongoing</p>
+            <div class="gantt-zero-roadmap">
+              <div class="row g-2 flex-between-center mb-3">
+                <div class="col-12 col-sm-auto">
+                  <div class="d-flex">
+                    <div class="d-flex align-items-end me-3"><label class="form-check-label mb-0 me-2 lh-1 text-900"
+                        for="progress">Progress</label>
+                      <div class="form-check form-switch min-h-auto mb-0"><input class="form-check-input" id="progress"
+                          type="checkbox" checked="" data-gantt-progress="data-gantt-progress" /></div>
+                    </div>
+                    <div class="d-flex align-items-end flex-1"><label class="form-check-label mb-0 me-2 lh-1 text-900"
+                        for="links">Links</label>
+                      <div class="form-check form-switch min-h-auto flex-1 mb-0"><input class="form-check-input"
+                          id="links" type="checkbox" checked="" data-gantt-links="data-gantt-links" /></div>
+                    </div>
                   </div>
-                  <div class="modal-body">
-                    <form method="POST" id="member-form" action="{{ url('/add-member') }}">
-                      @csrf
-                      <div class="form-row mb-4">
-                        <div class="col-sm-6 col-md-4">
-                          <div class="form-floating">
-                            <input class="form-control" id="bio_id" name="bio_id" type="text" placeholder="Bio ID"
-                              required>
-                            <label for="bio_id">Bio ID</label>
-                          </div>
+                </div>
+                <div class="col-12 col-sm-auto">
+                  <div class="btn-group" role="group" data-gantt-scale="data-gantt-scale"><input class="btn-check"
+                      id="weekView" type="radio" name="scaleView" value="week" checked="" /><label
+                      class="btn btn-phoenix-secondary hover-bg-100 fs--2 py-1 mb-0" for="weekView">Week</label><input
+                      class="btn-check" id="monthView" type="radio" name="scaleView" value="month" /><label
+                      class="btn btn-phoenix-secondary hover-bg-100 fs--2 py-1 mb-0" for="monthView">Month</label><input
+                      class="btn-check" id="yearView" type="radio" name="scaleView" value="year" /><label
+                      class="btn btn-phoenix-secondary hover-bg-100 fs--2 py-1 mb-0" for="yearView">Year</label></div>
+                </div>
+              </div>
+              <div class="gantt-zero-roadmap-chart"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-xl-6 col-xxl-5">
+          <div class="card border border-300 h-100 w-100 overflow-hidden">
+            <div class="bg-holder d-block bg-card"
+              style="background-image:url(../assets/img/spot-illustrations/32.png);background-position: top right;">
+            </div>
+            <!--/.bg-holder-->
+            <div class="d-dark-none">
+              <div class="bg-holder d-none d-sm-block d-xl-none d-xxl-block bg-card"
+                style="background-image:url(../assets/img/spot-illustrations/21.png);background-position: bottom right; background-size: auto;">
+              </div>
+              <!--/.bg-holder-->
+            </div>
+            <div class="d-light-none">
+              <div class="bg-holder d-none d-sm-block d-xl-none d-xxl-block bg-card"
+                style="background-image:url(../assets/img/spot-illustrations/dark_21.png);background-position: bottom right; background-size: auto;">
+              </div>
+              <!--/.bg-holder-->
+            </div>
+            <div class="card-body px-5 position-relative">
+              <div class="badge badge-phoenix fs--2 badge-phoenix-warning mb-4"><span class="fw-bold">Coming
+                  soon</span><span class="fa-solid fa-award ms-1"></span></div>
+              <h3 class="mb-5">Early bird gets the warm leads!</h3>
+              <p class="text-700 fw-semi-bold">Phoenix CRM Dashboard is coming to <br class="d-none d-sm-block" />market
+                soon for fulfilling your every <br class="d-none d-sm-block" />CRM related needs. </p>
+            </div>
+            <div class="card-footer border-0 py-0 px-5 z-index-1">
+              <p class="text-700 fw-semi-bold">Follow <a href="https://themewagon.com/">ThemeWagon </a>at <br
+                  class="d-none d-xxl-block" />Bootstrap Marketplace for updates.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mx-n4 px-4 mx-lg-n6 px-lg-6 bg-white pt-7 pb-3 border-y border-300">
+        <div class="row">
+          <div class="col-12 col-xl-7 col-xxl-6">
+            <div class="row g-3 mb-3">
+              <div class="col-12 col-md-6">
+                <h3 class="text-1100 text-nowrap">Issues Discovered</h3>
+                <p class="text-700 mb-md-7">Newly found and yet to be solved</p>
+                <div class="d-flex align-items-center justify-content-between">
+                  <p class="mb-0 fw-bold">Issue type </p>
+                  <p class="mb-0 fs--1">Total count <span class="fw-bold">257</span></p>
+                </div>
+                <hr class="bg-200 mb-2 mt-2" />
+                <div class="d-flex align-items-center mb-1"><span
+                    class="d-inline-block bg-info-300 bullet-item me-2"></span>
+                  <p class="mb-0 fw-semi-bold text-900 lh-sm flex-1">Product design</p>
+                  <h5 class="mb-0 text-900">78</h5>
+                </div>
+                <div class="d-flex align-items-center mb-1"><span
+                    class="d-inline-block bg-warning-300 bullet-item me-2"></span>
+                  <p class="mb-0 fw-semi-bold text-900 lh-sm flex-1">Development</p>
+                  <h5 class="mb-0 text-900">63</h5>
+                </div>
+                <div class="d-flex align-items-center mb-1"><span
+                    class="d-inline-block bg-danger-300 bullet-item me-2"></span>
+                  <p class="mb-0 fw-semi-bold text-900 lh-sm flex-1">QA &amp; Testing</p>
+                  <h5 class="mb-0 text-900">56</h5>
+                </div>
+                <div class="d-flex align-items-center mb-1"><span
+                    class="d-inline-block bg-success-300 bullet-item me-2"></span>
+                  <p class="mb-0 fw-semi-bold text-900 lh-sm flex-1">Customer queries</p>
+                  <h5 class="mb-0 text-900">36</h5>
+                </div>
+                <div class="d-flex align-items-center"><span class="d-inline-block bg-primary bullet-item me-2"></span>
+                  <p class="mb-0 fw-semi-bold text-900 lh-sm flex-1">R &amp; D</p>
+                  <h5 class="mb-0 text-900">24</h5>
+                </div><button class="btn btn-outline-primary mt-5">See Details<span
+                    class="fas fa-angle-right ms-2 fs--2 text-center"></span></button>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="position-relative mb-sm-4 mb-xl-0">
+                  <div class="echart-issue-chart" style="min-height:390px;width:100%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-xl-5 col-xxl-6">
+            <h3>Project: eleven Progress</h3>
+            <p class="text-700 mb-0 mb-xl-3">Deadline &amp; progress</p>
+            <div class="echart-zero-burnout-chart" style="min-height:320px;width:100%"></div>
+          </div>
+        </div>
+      </div>
+      <div class="mx-lg-n4 mt-3">
+        <div class="row g-3">
+          <div class="col-12 col-xl-6 col-xxl-7">
+            <div class="card todo-list h-100">
+              <div class="card-header border-bottom-0 pb-0">
+                <div class="row justify-content-between align-items-center mb-4">
+                  <div class="col-auto">
+                    <h3 class="text-1100">To do</h3>
+                    <p class="mb-0 text-700">Task assigned to me</p>
+                  </div>
+                  <div class="col-auto w-100 w-md-auto">
+                    <div class="row align-items-center g-0 justify-content-between">
+                      <div class="col-12 col-sm-auto">
+                        <div class="search-box w-100 mb-2 mb-sm-0" style="max-width:30rem;">
+                          <form class="position-relative" data-bs-toggle="search" data-bs-display="static"><input
+                              class="form-control search-input search" type="search" placeholder="Search tasks"
+                              aria-label="Search" />
+                            <span class="fas fa-search search-box-icon"></span>
+                          </form>
                         </div>
-                        <div class="col-sm-6 col-md-4">
-                          <div class="form-floating">
-                            <input class="form-control" id="user_name" name="user_name" type="text"
-                              placeholder="User Name" required>
-                            <label for="user_name">User Name</label>
-                          </div>
+                      </div>
+                      <div class="col-auto d-flex">
+                        <p class="mb-0 ms-sm-3 fs--1 text-700 fw-bold"><span
+                            class="fas fa-filter me-1 fw-extra-bold fs--2"></span>23 tasks</p><button
+                          class="btn btn-link p-0 ms-3 fs--1 text-primary fw-bold"><span
+                            class="fas fa-sort me-1 fw-extra-bold fs--2"></span>Sorting</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body py-0 scrollbar to-do-list-body">
+                <div class="d-flex hover-actions-trigger py-3 border-top"><input
+                    class="form-check-input form-check-input-todolist flex-shrink-0 my-1 me-2 form-check-input-undefined"
+                    type="checkbox" id="checkbox-todo-0"
+                    data-event-propagation-prevent="data-event-propagation-prevent" />
+                  <div
+                    class="row justify-content-between align-items-md-center btn-reveal-trigger border-200 gx-0 flex-1 cursor-pointer"
+                    data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <div class="col-12 col-md-auto col-xl-12 col-xxl-auto">
+                      <div class="mb-1 mb-md-0 d-flex align-items-center lh-1"><label
+                          class="form-check-label mb-1 mb-md-0 mb-xl-1 mb-xxl-0 fs-0 me-2 line-clamp-1 text-900 cursor-pointer">Designing
+                          the dungeon</label><span
+                          class="badge badge-phoenix ms-auto fs--2 badge-phoenix-primary">DRAFT</span></div>
+                    </div>
+                    <div class="col-12 col-md-auto col-xl-12 col-xxl-auto">
+                      <div class="d-flex lh-1 align-items-center"><a class="text-700 fw-bold fs--2 me-2" href="#!"><span
+                            class="fas fa-paperclip me-1"></span>2</a>
+                        <p class="text-700 fs--2 mb-md-0 me-2 me-md-3 me-xl-2 me-xxl-3 mb-0">12 Nov, 2021</p>
+                        <div class="hover-md-hide hover-xl-show hover-xxl-hide">
+                          <p
+                            class="text-700 fs--2 fw-bold mb-md-0 mb-0 ps-md-3 ps-xl-0 ps-xxl-3 border-start-md border-xl-0 border-start-xxl border-300">
+                            12:00 PM</p>
                         </div>
-                        <div class="col-sm-6 col-md-4">
-                          <div class="form-floating">
-                            <input class="form-control" id="password" name="password" type="password"
-                              placeholder="Password" required>
-                            <label for="password">Password</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-none d-md-block d-xl-none d-xxl-block end-0 position-absolute" style="top: 23%;"
+                    data-event-propagation-prevent="data-event-propagation-prevent">
+                    <div class="hover-actions end-0" data-event-propagation-prevent="data-event-propagation-prevent">
+                      <button class="btn btn-phoenix-secondary btn-icon me-1 fs--2 text-900 px-0 me-1"
+                        data-event-propagation-prevent="data-event-propagation-prevent"><span
+                          class="fas fa-edit"></span></button><button
+                        class="btn btn-phoenix-secondary btn-icon fs--2 text-danger px-0"
+                        data-event-propagation-prevent="data-event-propagation-prevent"><span
+                          class="fas fa-trash"></span></button></div>
+                  </div>
+                </div>
+                <div class="d-flex hover-actions-trigger py-3 border-top"><input
+                    class="form-check-input form-check-input-todolist flex-shrink-0 my-1 me-2 form-check-input-undefined"
+                    type="checkbox" id="checkbox-todo-1"
+                    data-event-propagation-prevent="data-event-propagation-prevent" />
+                  <div
+                    class="row justify-content-between align-items-md-center btn-reveal-trigger border-200 gx-0 flex-1 cursor-pointer"
+                    data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <div class="col-12 col-md-auto col-xl-12 col-xxl-auto">
+                      <div class="mb-1 mb-md-0 d-flex align-items-center lh-1"><label
+                          class="form-check-label mb-1 mb-md-0 mb-xl-1 mb-xxl-0 fs-0 me-2 line-clamp-1 text-900 cursor-pointer">Hiring
+                          a motion graphic designer</label><span
+                          class="badge badge-phoenix ms-auto fs--2 badge-phoenix-warning">URGENT</span></div>
+                    </div>
+                    <div class="col-12 col-md-auto col-xl-12 col-xxl-auto">
+                      <div class="d-flex lh-1 align-items-center"><a class="text-700 fw-bold fs--2 me-2" href="#!"><span
+                            class="fas fa-paperclip me-1"></span>2</a><a class="text-warning fw-bold fs--2 me-2"
+                          href="#!"><span class="fas fa-tasks me-1"></span>3</a>
+                        <p class="text-700 fs--2 mb-md-0 me-2 me-md-3 me-xl-2 me-xxl-3 mb-0">12 Nov, 2021</p>
+                        <div class="hover-md-hide hover-xl-show hover-xxl-hide">
+                          <p
+                            class="text-700 fs--2 fw-bold mb-md-0 mb-0 ps-md-3 ps-xl-0 ps-xxl-3 border-start-md border-xl-0 border-start-xxl border-300">
+                            12:00 PM</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-none d-md-block d-xl-none d-xxl-block end-0 position-absolute" style="top: 23%;"
+                    data-event-propagation-prevent="data-event-propagation-prevent">
+                    <div class="hover-actions end-0" data-event-propagation-prevent="data-event-propagation-prevent">
+                      <button class="btn btn-phoenix-secondary btn-icon me-1 fs--2 text-900 px-0 me-1"
+                        data-event-propagation-prevent="data-event-propagation-prevent"><span
+                          class="fas fa-edit"></span></button><button
+                        class="btn btn-phoenix-secondary btn-icon fs--2 text-danger px-0"
+                        data-event-propagation-prevent="data-event-propagation-prevent"><span
+                          class="fas fa-trash"></span></button></div>
+                  </div>
+                </div>
+                <div class="d-flex hover-actions-trigger py-3 border-top"><input
+                    class="form-check-input form-check-input-todolist flex-shrink-0 my-1 me-2 form-check-input-undefined"
+                    type="checkbox" id="checkbox-todo-2"
+                    data-event-propagation-prevent="data-event-propagation-prevent" />
+                  <div
+                    class="row justify-content-between align-items-md-center btn-reveal-trigger border-200 gx-0 flex-1 cursor-pointer"
+                    data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <div class="col-12 col-md-auto col-xl-12 col-xxl-auto">
+                      <div class="mb-1 mb-md-0 d-flex align-items-center lh-1"><label
+                          class="form-check-label mb-1 mb-md-0 mb-xl-1 mb-xxl-0 fs-0 me-2 line-clamp-1 text-900 cursor-pointer">Daily
+                          Meetings Purpose, participants</label><span
+                          class="badge badge-phoenix ms-auto fs--2 badge-phoenix-info">ON PROCESS</span></div>
+                    </div>
+                    <div class="col-12 col-md-auto col-xl-12 col-xxl-auto">
+                      <div class="d-flex lh-1 align-items-center"><a class="text-700 fw-bold fs--2 me-2" href="#!"><span
+                            class="fas fa-paperclip me-1"></span>4</a>
+                        <p class="text-700 fs--2 mb-md-0 me-2 me-md-3 me-xl-2 me-xxl-3 mb-0">12 Dec, 2021</p>
+                        <div class="hover-md-hide hover-xl-show hover-xxl-hide">
+                          <p
+                            class="text-700 fs--2 fw-bold mb-md-0 mb-0 ps-md-3 ps-xl-0 ps-xxl-3 border-start-md border-xl-0 border-start-xxl border-300">
+                            05:00 AM</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-none d-md-block d-xl-none d-xxl-block end-0 position-absolute" style="top: 23%;"
+                    data-event-propagation-prevent="data-event-propagation-prevent">
+                    <div class="hover-actions end-0" data-event-propagation-prevent="data-event-propagation-prevent">
+                      <button class="btn btn-phoenix-secondary btn-icon me-1 fs--2 text-900 px-0 me-1"
+                        data-event-propagation-prevent="data-event-propagation-prevent"><span
+                          class="fas fa-edit"></span></button><button
+                        class="btn btn-phoenix-secondary btn-icon fs--2 text-danger px-0"
+                        data-event-propagation-prevent="data-event-propagation-prevent"><span
+                          class="fas fa-trash"></span></button></div>
+                  </div>
+                </div>
+                <div class="d-flex hover-actions-trigger py-3 border-top"><input
+                    class="form-check-input form-check-input-todolist flex-shrink-0 my-1 me-2 form-check-input-undefined"
+                    type="checkbox" id="checkbox-todo-3"
+                    data-event-propagation-prevent="data-event-propagation-prevent" />
+                  <div
+                    class="row justify-content-between align-items-md-center btn-reveal-trigger border-200 gx-0 flex-1 cursor-pointer"
+                    data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <div class="col-12 col-md-auto col-xl-12 col-xxl-auto">
+                      <div class="mb-1 mb-md-0 d-flex align-items-center lh-1"><label
+                          class="form-check-label mb-1 mb-md-0 mb-xl-1 mb-xxl-0 fs-0 me-2 line-clamp-1 text-900 cursor-pointer">Finalizing
+                          the geometric shapes</label></div>
+                    </div>
+                    <div class="col-12 col-md-auto col-xl-12 col-xxl-auto">
+                      <div class="d-flex lh-1 align-items-center"><a class="text-700 fw-bold fs--2 me-2" href="#!"><span
+                            class="fas fa-paperclip me-1"></span>3</a>
+                        <p class="text-700 fs--2 mb-md-0 me-2 me-md-3 me-xl-2 me-xxl-3 mb-0">12 Nov, 2021</p>
+                        <div class="hover-md-hide hover-xl-show hover-xxl-hide">
+                          <p
+                            class="text-700 fs--2 fw-bold mb-md-0 mb-0 ps-md-3 ps-xl-0 ps-xxl-3 border-start-md border-xl-0 border-start-xxl border-300">
+                            12:00 PM</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-none d-md-block d-xl-none d-xxl-block end-0 position-absolute" style="top: 23%;"
+                    data-event-propagation-prevent="data-event-propagation-prevent">
+                    <div class="hover-actions end-0" data-event-propagation-prevent="data-event-propagation-prevent">
+                      <button class="btn btn-phoenix-secondary btn-icon me-1 fs--2 text-900 px-0 me-1"
+                        data-event-propagation-prevent="data-event-propagation-prevent"><span
+                          class="fas fa-edit"></span></button><button
+                        class="btn btn-phoenix-secondary btn-icon fs--2 text-danger px-0"
+                        data-event-propagation-prevent="data-event-propagation-prevent"><span
+                          class="fas fa-trash"></span></button></div>
+                  </div>
+                </div>
+                <div class="d-flex hover-actions-trigger py-3 border-top"><input
+                    class="form-check-input form-check-input-todolist flex-shrink-0 my-1 me-2 form-check-input-undefined"
+                    type="checkbox" id="checkbox-todo-4"
+                    data-event-propagation-prevent="data-event-propagation-prevent" />
+                  <div
+                    class="row justify-content-between align-items-md-center btn-reveal-trigger border-200 gx-0 flex-1 cursor-pointer"
+                    data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <div class="col-12 col-md-auto col-xl-12 col-xxl-auto">
+                      <div class="mb-1 mb-md-0 d-flex align-items-center lh-1"><label
+                          class="form-check-label mb-1 mb-md-0 mb-xl-1 mb-xxl-0 fs-0 me-2 line-clamp-1 text-900 cursor-pointer">Daily
+                          meeting with team members</label></div>
+                    </div>
+                    <div class="col-12 col-md-auto col-xl-12 col-xxl-auto">
+                      <div class="d-flex lh-1 align-items-center">
+                        <p class="text-700 fs--2 mb-md-0 me-2 me-md-3 me-xl-2 me-xxl-3 mb-0">1 Nov, 2021</p>
+                        <div class="hover-md-hide hover-xl-show hover-xxl-hide">
+                          <p
+                            class="text-700 fs--2 fw-bold mb-md-0 mb-0 ps-md-3 ps-xl-0 ps-xxl-3 border-start-md border-xl-0 border-start-xxl border-300">
+                            12:00 PM</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-none d-md-block d-xl-none d-xxl-block end-0 position-absolute" style="top: 23%;"
+                    data-event-propagation-prevent="data-event-propagation-prevent">
+                    <div class="hover-actions end-0" data-event-propagation-prevent="data-event-propagation-prevent">
+                      <button class="btn btn-phoenix-secondary btn-icon me-1 fs--2 text-900 px-0 me-1"
+                        data-event-propagation-prevent="data-event-propagation-prevent"><span
+                          class="fas fa-edit"></span></button><button
+                        class="btn btn-phoenix-secondary btn-icon fs--2 text-danger px-0"
+                        data-event-propagation-prevent="data-event-propagation-prevent"><span
+                          class="fas fa-trash"></span></button></div>
+                  </div>
+                </div>
+                <div class="d-flex hover-actions-trigger py-3 border-top"><input
+                    class="form-check-input form-check-input-todolist flex-shrink-0 my-1 me-2 form-check-input-undefined"
+                    type="checkbox" id="checkbox-todo-5"
+                    data-event-propagation-prevent="data-event-propagation-prevent" />
+                  <div
+                    class="row justify-content-between align-items-md-center btn-reveal-trigger border-200 gx-0 flex-1 cursor-pointer"
+                    data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <div class="col-12 col-md-auto col-xl-12 col-xxl-auto">
+                      <div class="mb-1 mb-md-0 d-flex align-items-center lh-1"><label
+                          class="form-check-label mb-1 mb-md-0 mb-xl-1 mb-xxl-0 fs-0 me-2 line-clamp-1 text-900 cursor-pointer">Daily
+                          Standup Meetings</label></div>
+                    </div>
+                    <div class="col-12 col-md-auto col-xl-12 col-xxl-auto">
+                      <div class="d-flex lh-1 align-items-center"><a class="text-warning fw-bold fs--2 me-2"
+                          href="#!"><span class="fas fa-tasks me-1"></span>4</a>
+                        <p class="text-700 fs--2 mb-md-0 me-2 me-md-3 me-xl-2 me-xxl-3 mb-0">13 Nov, 2021</p>
+                        <div class="hover-md-hide hover-xl-show hover-xxl-hide">
+                          <p
+                            class="text-700 fs--2 fw-bold mb-md-0 mb-0 ps-md-3 ps-xl-0 ps-xxl-3 border-start-md border-xl-0 border-start-xxl border-300">
+                            10:00 PM</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-none d-md-block d-xl-none d-xxl-block end-0 position-absolute" style="top: 23%;"
+                    data-event-propagation-prevent="data-event-propagation-prevent">
+                    <div class="hover-actions end-0" data-event-propagation-prevent="data-event-propagation-prevent">
+                      <button class="btn btn-phoenix-secondary btn-icon me-1 fs--2 text-900 px-0 me-1"
+                        data-event-propagation-prevent="data-event-propagation-prevent"><span
+                          class="fas fa-edit"></span></button><button
+                        class="btn btn-phoenix-secondary btn-icon fs--2 text-danger px-0"
+                        data-event-propagation-prevent="data-event-propagation-prevent"><span
+                          class="fas fa-trash"></span></button></div>
+                  </div>
+                </div>
+                <div class="d-flex hover-actions-trigger py-3 border-top"><input
+                    class="form-check-input form-check-input-todolist flex-shrink-0 my-1 me-2 form-check-input-undefined"
+                    type="checkbox" id="checkbox-todo-6"
+                    data-event-propagation-prevent="data-event-propagation-prevent" />
+                  <div
+                    class="row justify-content-between align-items-md-center btn-reveal-trigger border-200 gx-0 flex-1 cursor-pointer"
+                    data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <div class="col-12 col-md-auto col-xl-12 col-xxl-auto">
+                      <div class="mb-1 mb-md-0 d-flex align-items-center lh-1"><label
+                          class="form-check-label mb-1 mb-md-0 mb-xl-1 mb-xxl-0 fs-0 me-2 line-clamp-1 text-900 cursor-pointer">Procrastinate
+                          for a month</label><span class="badge badge-phoenix ms-auto fs--2 badge-phoenix-info">ON
+                          PROCESS</span></div>
+                    </div>
+                    <div class="col-12 col-md-auto col-xl-12 col-xxl-auto">
+                      <div class="d-flex lh-1 align-items-center"><a class="text-700 fw-bold fs--2 me-2" href="#!"><span
+                            class="fas fa-paperclip me-1"></span>3</a>
+                        <p class="text-700 fs--2 mb-md-0 me-2 me-md-3 me-xl-2 me-xxl-3 mb-0">12 Nov, 2021</p>
+                        <div class="hover-md-hide hover-xl-show hover-xxl-hide">
+                          <p
+                            class="text-700 fs--2 fw-bold mb-md-0 mb-0 ps-md-3 ps-xl-0 ps-xxl-3 border-start-md border-xl-0 border-start-xxl border-300">
+                            12:00 PM</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-none d-md-block d-xl-none d-xxl-block end-0 position-absolute" style="top: 23%;"
+                    data-event-propagation-prevent="data-event-propagation-prevent">
+                    <div class="hover-actions end-0" data-event-propagation-prevent="data-event-propagation-prevent">
+                      <button class="btn btn-phoenix-secondary btn-icon me-1 fs--2 text-900 px-0 me-1"
+                        data-event-propagation-prevent="data-event-propagation-prevent"><span
+                          class="fas fa-edit"></span></button><button
+                        class="btn btn-phoenix-secondary btn-icon fs--2 text-danger px-0"
+                        data-event-propagation-prevent="data-event-propagation-prevent"><span
+                          class="fas fa-trash"></span></button></div>
+                  </div>
+                </div>
+                <div class="d-flex hover-actions-trigger py-3 border-top"><input
+                    class="form-check-input form-check-input-todolist flex-shrink-0 my-1 me-2 form-check-input-undefined"
+                    type="checkbox" id="checkbox-todo-7"
+                    data-event-propagation-prevent="data-event-propagation-prevent" />
+                  <div
+                    class="row justify-content-between align-items-md-center btn-reveal-trigger border-200 gx-0 flex-1 cursor-pointer"
+                    data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <div class="col-12 col-md-auto col-xl-12 col-xxl-auto">
+                      <div class="mb-1 mb-md-0 d-flex align-items-center lh-1"><label
+                          class="form-check-label mb-1 mb-md-0 mb-xl-1 mb-xxl-0 fs-0 me-2 line-clamp-1 text-900 cursor-pointer">warming
+                          up</label><span class="badge badge-phoenix ms-auto fs--2 badge-phoenix-secondary">CLOSE</span>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-auto col-xl-12 col-xxl-auto">
+                      <div class="d-flex lh-1 align-items-center"><a class="text-700 fw-bold fs--2 me-2" href="#!"><span
+                            class="fas fa-paperclip me-1"></span>3</a>
+                        <p class="text-700 fs--2 mb-md-0 me-2 me-md-3 me-xl-2 me-xxl-3 mb-0">12 Nov, 2021</p>
+                        <div class="hover-md-hide hover-xl-show hover-xxl-hide">
+                          <p
+                            class="text-700 fs--2 fw-bold mb-md-0 mb-0 ps-md-3 ps-xl-0 ps-xxl-3 border-start-md border-xl-0 border-start-xxl border-300">
+                            12:00 PM</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-none d-md-block d-xl-none d-xxl-block end-0 position-absolute" style="top: 23%;"
+                    data-event-propagation-prevent="data-event-propagation-prevent">
+                    <div class="hover-actions end-0" data-event-propagation-prevent="data-event-propagation-prevent">
+                      <button class="btn btn-phoenix-secondary btn-icon me-1 fs--2 text-900 px-0 me-1"
+                        data-event-propagation-prevent="data-event-propagation-prevent"><span
+                          class="fas fa-edit"></span></button><button
+                        class="btn btn-phoenix-secondary btn-icon fs--2 text-danger px-0"
+                        data-event-propagation-prevent="data-event-propagation-prevent"><span
+                          class="fas fa-trash"></span></button></div>
+                  </div>
+                </div>
+                <div class="d-flex hover-actions-trigger py-3 border-top"><input
+                    class="form-check-input form-check-input-todolist flex-shrink-0 my-1 me-2 form-check-input-undefined"
+                    type="checkbox" id="checkbox-todo-8"
+                    data-event-propagation-prevent="data-event-propagation-prevent" />
+                  <div
+                    class="row justify-content-between align-items-md-center btn-reveal-trigger border-200 gx-0 flex-1 cursor-pointer"
+                    data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <div class="col-12 col-md-auto col-xl-12 col-xxl-auto">
+                      <div class="mb-1 mb-md-0 d-flex align-items-center lh-1"><label
+                          class="form-check-label mb-1 mb-md-0 mb-xl-1 mb-xxl-0 fs-0 me-2 line-clamp-1 text-900 cursor-pointer">Make
+                          ready for release</label></div>
+                    </div>
+                    <div class="col-12 col-md-auto col-xl-12 col-xxl-auto">
+                      <div class="d-flex lh-1 align-items-center"><a class="text-700 fw-bold fs--2 me-2" href="#!"><span
+                            class="fas fa-paperclip me-1"></span>2</a><a class="text-warning fw-bold fs--2 me-2"
+                          href="#!"><span class="fas fa-tasks me-1"></span>2</a>
+                        <p class="text-700 fs--2 mb-md-0 me-2 me-md-3 me-xl-2 me-xxl-3 mb-0">2o Nov, 2021</p>
+                        <div class="hover-md-hide hover-xl-show hover-xxl-hide">
+                          <p
+                            class="text-700 fs--2 fw-bold mb-md-0 mb-0 ps-md-3 ps-xl-0 ps-xxl-3 border-start-md border-xl-0 border-start-xxl border-300">
+                            1:00 AM</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-none d-md-block d-xl-none d-xxl-block end-0 position-absolute" style="top: 23%;"
+                    data-event-propagation-prevent="data-event-propagation-prevent">
+                    <div class="hover-actions end-0" data-event-propagation-prevent="data-event-propagation-prevent">
+                      <button class="btn btn-phoenix-secondary btn-icon me-1 fs--2 text-900 px-0 me-1"
+                        data-event-propagation-prevent="data-event-propagation-prevent"><span
+                          class="fas fa-edit"></span></button><button
+                        class="btn btn-phoenix-secondary btn-icon fs--2 text-danger px-0"
+                        data-event-propagation-prevent="data-event-propagation-prevent"><span
+                          class="fas fa-trash"></span></button></div>
+                  </div>
+                </div>
+                <div class="d-flex hover-actions-trigger py-3 border-top"><input
+                    class="form-check-input form-check-input-todolist flex-shrink-0 my-1 me-2 form-check-input-undefined"
+                    type="checkbox" id="checkbox-todo-9"
+                    data-event-propagation-prevent="data-event-propagation-prevent" />
+                  <div
+                    class="row justify-content-between align-items-md-center btn-reveal-trigger border-200 gx-0 flex-1 cursor-pointer"
+                    data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <div class="col-12 col-md-auto col-xl-12 col-xxl-auto">
+                      <div class="mb-1 mb-md-0 d-flex align-items-center lh-1"><label
+                          class="form-check-label mb-1 mb-md-0 mb-xl-1 mb-xxl-0 fs-0 me-2 line-clamp-1 text-900 cursor-pointer">Modify
+                          the component</label></div>
+                    </div>
+                    <div class="col-12 col-md-auto col-xl-12 col-xxl-auto">
+                      <div class="d-flex lh-1 align-items-center"><a class="text-700 fw-bold fs--2 me-2" href="#!"><span
+                            class="fas fa-paperclip me-1"></span>4</a>
+                        <p class="text-700 fs--2 mb-md-0 me-2 me-md-3 me-xl-2 me-xxl-3 mb-0">22 Nov, 2021</p>
+                        <div class="hover-md-hide hover-xl-show hover-xxl-hide">
+                          <p
+                            class="text-700 fs--2 fw-bold mb-md-0 mb-0 ps-md-3 ps-xl-0 ps-xxl-3 border-start-md border-xl-0 border-start-xxl border-300">
+                            1:00 AM</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-none d-md-block d-xl-none d-xxl-block end-0 position-absolute" style="top: 23%;"
+                    data-event-propagation-prevent="data-event-propagation-prevent">
+                    <div class="hover-actions end-0" data-event-propagation-prevent="data-event-propagation-prevent">
+                      <button class="btn btn-phoenix-secondary btn-icon me-1 fs--2 text-900 px-0 me-1"
+                        data-event-propagation-prevent="data-event-propagation-prevent"><span
+                          class="fas fa-edit"></span></button><button
+                        class="btn btn-phoenix-secondary btn-icon fs--2 text-danger px-0"
+                        data-event-propagation-prevent="data-event-propagation-prevent"><span
+                          class="fas fa-trash"></span></button></div>
+                  </div>
+                </div>
+                <div class="d-flex hover-actions-trigger py-3 border-top border-bottom"><input
+                    class="form-check-input form-check-input-todolist flex-shrink-0 my-1 me-2 form-check-input-undefined"
+                    type="checkbox" id="checkbox-todo-10"
+                    data-event-propagation-prevent="data-event-propagation-prevent" />
+                  <div
+                    class="row justify-content-between align-items-md-center btn-reveal-trigger border-200 gx-0 flex-1 cursor-pointer"
+                    data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <div class="col-12 col-md-auto col-xl-12 col-xxl-auto">
+                      <div class="mb-1 mb-md-0 d-flex align-items-center lh-1"><label
+                          class="form-check-label mb-1 mb-md-0 mb-xl-1 mb-xxl-0 fs-0 me-2 line-clamp-1 text-900 cursor-pointer">Delete
+                          overlapping tasks and articles</label><span
+                          class="badge badge-phoenix ms-auto fs--2 badge-phoenix-secondary">CLOSE</span></div>
+                    </div>
+                    <div class="col-12 col-md-auto col-xl-12 col-xxl-auto">
+                      <div class="d-flex lh-1 align-items-center"><a class="text-700 fw-bold fs--2 me-2" href="#!"><span
+                            class="fas fa-paperclip me-1"></span>2</a>
+                        <p class="text-700 fs--2 mb-md-0 me-2 me-md-3 me-xl-2 me-xxl-3 mb-0">25 Nov, 2021</p>
+                        <div class="hover-md-hide hover-xl-show hover-xxl-hide">
+                          <p
+                            class="text-700 fs--2 fw-bold mb-md-0 mb-0 ps-md-3 ps-xl-0 ps-xxl-3 border-start-md border-xl-0 border-start-xxl border-300">
+                            1:00 AM</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-none d-md-block d-xl-none d-xxl-block end-0 position-absolute" style="top: 23%;"
+                    data-event-propagation-prevent="data-event-propagation-prevent">
+                    <div class="hover-actions end-0" data-event-propagation-prevent="data-event-propagation-prevent">
+                      <button class="btn btn-phoenix-secondary btn-icon me-1 fs--2 text-900 px-0 me-1"
+                        data-event-propagation-prevent="data-event-propagation-prevent"><span
+                          class="fas fa-edit"></span></button><button
+                        class="btn btn-phoenix-secondary btn-icon fs--2 text-danger px-0"
+                        data-event-propagation-prevent="data-event-propagation-prevent"><span
+                          class="fas fa-trash"></span></button></div>
+                  </div>
+                </div>
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-hidden="true">
+                  <div class="modal-dialog modal-xl">
+                    <div class="modal-content bg-soft overflow-hidden">
+                      <div class="modal-header px-6 py-5 border-300 pe-sm-5 px-md-6 dark__bg-1100">
+                        <h3 class="text-1000 fw-bolder mb-0">Designing the Dungeon Blueprint</h3><button
+                          class="btn btn-phoenix-secondary btn-icon btn-icon-xl flex-shrink-0" type="button"
+                          data-bs-dismiss="modal" aria-label="Close"><span class="fa-solid fa-xmark"></span></button>
+                      </div>
+                      <div class="modal-body bg-100 px-6 py-0">
+                        <div class="row gx-14">
+                          <div class="col-12 col-lg-7 border-end-lg border-300">
+                            <div class="py-6">
+                              <div class="mb-7">
+                                <div class="d-flex align-items-center mb-3">
+                                  <h4 class="text-900 me-3">Description</h4><a
+                                    class="btn btn-link text-decoration-none p-0" href="#!"><span
+                                      class="fa-solid fa-pen"></span></a>
+                                </div>
+                                <p class="text-1000 mb-0">The female circus horse-rider is a recurring subject in
+                                  Chagall’s work. In 1926 the art dealer Ambroise Vollard invited Chagall to make a
+                                  project based on the circus. They visited Paris’s historic Cirque d’Hiver Bouglione
+                                  together; Vollard lent Chagall his private box seats. Chagall completed 19 gouaches
+                                  Chagall’s work. In 1926 the art dealer Ambroise Vollard invited Chagall to make a
+                                  project based on the circus.</p>
+                              </div>
+                              <div class="mb-7">
+                                <h4 class="mb-3">Subtasks</h4>
+                                <div
+                                  class="d-flex flex-between-center hover-actions-trigger border-300 py-3 border-top">
+                                  <div class="form-check mb-1 mb-md-0 d-flex align-items-center lh-1 min-h-auto"><input
+                                      class="subtask-checkbox form-check-input form-check-line-through mt-0 me-3"
+                                      type="checkbox" id="subtaskundefined1" /><label class="form-check-label mb-0 fs-0"
+                                      for="subtaskundefined1">Study Dragons</label></div>
+                                  <div class="hover-actions end-0"><button
+                                      class="btn btn-sm me-1 fs--2 text-700 px-0 me-3"><span
+                                        class="fa-solid fa-pencil"></span></button><button
+                                      class="btn btn-sm text-700 px-0"><span
+                                        class="fa-solid fa-xmark fs-0"></span></button></div>
+                                </div>
+                                <div
+                                  class="d-flex flex-between-center hover-actions-trigger border-300 py-3 border-top">
+                                  <div class="form-check mb-1 mb-md-0 d-flex align-items-center lh-1 min-h-auto"><input
+                                      class="subtask-checkbox form-check-input form-check-line-through mt-0 me-3"
+                                      type="checkbox" id="subtaskundefined2" /><label class="form-check-label mb-0 fs-0"
+                                      for="subtaskundefined2">Procrastinate a bit</label></div>
+                                  <div class="hover-actions end-0"><button
+                                      class="btn btn-sm me-1 fs--2 text-700 px-0 me-3"><span
+                                        class="fa-solid fa-pencil"></span></button><button
+                                      class="btn btn-sm text-700 px-0"><span
+                                        class="fa-solid fa-xmark fs-0"></span></button></div>
+                                </div>
+                                <div
+                                  class="d-flex flex-between-center hover-actions-trigger border-300 py-3 border-top border-bottom mb-3">
+                                  <div class="form-check mb-1 mb-md-0 d-flex align-items-center lh-1 min-h-auto"><input
+                                      class="subtask-checkbox form-check-input form-check-line-through mt-0 me-3"
+                                      type="checkbox" id="subtaskundefined3" /><label class="form-check-label mb-0 fs-0"
+                                      for="subtaskundefined3">Staring at the notebook for 5 mins</label></div>
+                                  <div class="hover-actions end-0"><button
+                                      class="btn btn-sm me-1 fs--2 text-700 px-0 me-3"><span
+                                        class="fa-solid fa-pencil"></span></button><button
+                                      class="btn btn-sm text-700 px-0"><span
+                                        class="fa-solid fa-xmark fs-0"></span></button></div>
+                                </div><a class="fw-bold fs--1" href="#!"><span class="fas fa-plus me-1"></span>Add
+                                  subtask</a>
+                              </div>
+                              <div class="mb-3">
+                                <div>
+                                  <h4 class="mb-3">Files</h4>
+                                </div>
+                                <div class="border-top border-300 px-0 pt-4 pb-3">
+                                  <div class="me-n3">
+                                    <div class="d-flex flex-between-center">
+                                      <div class="d-flex mb-1"><span
+                                          class="fa-solid fa-image me-2 text-700 fs--1"></span>
+                                        <p class="text-1000 mb-0 lh-1">Silly_sight_1.png</p>
+                                      </div>
+                                      <div class="font-sans-serif btn-reveal-trigger"><button
+                                          class="btn btn-sm dropdown-toggle dropdown-caret-none transition-none btn-reveal"
+                                          type="button" data-bs-toggle="dropdown" data-boundary="window"
+                                          aria-haspopup="true" aria-expanded="false" data-bs-reference="parent"><span
+                                            class="fas fa-ellipsis-h"></span></button>
+                                        <div class="dropdown-menu dropdown-menu-end py-2"><a class="dropdown-item"
+                                            href="#!">Edit</a><a class="dropdown-item text-danger"
+                                            href="#!">Delete</a><a class="dropdown-item" href="#!">Download</a><a
+                                            class="dropdown-item" href="#!">Report abuse</a></div>
+                                      </div>
+                                    </div>
+                                    <div class="d-flex fs--1 text-700 mb-2 flex-wrap"><span>768 kb</span><span
+                                        class="text-400 mx-1">| </span><a href="#!">Shantinan Mekalan </a><span
+                                        class="text-400 mx-1">| </span><span class="text-nowrap">21st Dec, 12:56
+                                        PM</span></div><img class="rounded-2" src="../assets/img/generic/40.png" alt=""
+                                      style="max-width:230px" />
+                                  </div>
+                                </div>
+                                <div class="border-top border-300 px-0 pt-4 pb-3">
+                                  <div class="me-n3">
+                                    <div class="d-flex flex-between-center">
+                                      <div>
+                                        <div class="d-flex align-items-center mb-1"><span
+                                            class="fa-solid fa-image me-2 fs--1 text-700"></span>
+                                          <p class="text-1000 mb-0 lh-1">All_images.zip</p>
+                                        </div>
+                                        <div class="d-flex fs--1 text-700 mb-0 flex-wrap"><span>12.8 mb</span><span
+                                            class="text-400 mx-1">| </span><a href="#!">Yves Tanguy </a><span
+                                            class="text-400 mx-1">| </span><span class="text-nowrap">19th Dec, 08:56
+                                            PM</span></div>
+                                      </div>
+                                      <div class="font-sans-serif btn-reveal-trigger"><button
+                                          class="btn btn-sm dropdown-toggle dropdown-caret-none transition-none btn-reveal"
+                                          type="button" data-bs-toggle="dropdown" data-boundary="window"
+                                          aria-haspopup="true" aria-expanded="false" data-bs-reference="parent"><span
+                                            class="fas fa-ellipsis-h"></span></button>
+                                        <div class="dropdown-menu dropdown-menu-end py-2"><a class="dropdown-item"
+                                            href="#!">Edit</a><a class="dropdown-item text-danger"
+                                            href="#!">Delete</a><a class="dropdown-item" href="#!">Download</a><a
+                                            class="dropdown-item" href="#!">Report abuse</a></div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="border-top border-bottom border-300 px-0 pt-4 pb-3">
+                                  <div class="me-n3">
+                                    <div class="d-flex flex-between-center">
+                                      <div>
+                                        <div class="d-flex align-items-center mb-1 flex-wrap"><span
+                                            class="fa-solid fa-file-lines me-2 fs--1 text-700"></span>
+                                          <p class="text-1000 mb-0 lh-1">Project.txt</p>
+                                        </div>
+                                        <div class="d-flex fs--1 text-700 mb-0 flex-wrap"><span>123 kb</span><span
+                                            class="text-400 mx-1">| </span><a href="#!">Shantinan Mekalan </a><span
+                                            class="text-400 mx-1">| </span><span class="text-nowrap">12th Dec, 12:56
+                                            PM</span></div>
+                                      </div>
+                                      <div class="font-sans-serif btn-reveal-trigger"><button
+                                          class="btn btn-sm dropdown-toggle dropdown-caret-none transition-none btn-reveal"
+                                          type="button" data-bs-toggle="dropdown" data-boundary="window"
+                                          aria-haspopup="true" aria-expanded="false" data-bs-reference="parent"><span
+                                            class="fas fa-ellipsis-h"></span></button>
+                                        <div class="dropdown-menu dropdown-menu-end py-2"><a class="dropdown-item"
+                                            href="#!">Edit</a><a class="dropdown-item text-danger"
+                                            href="#!">Delete</a><a class="dropdown-item" href="#!">Download</a><a
+                                            class="dropdown-item" href="#!">Report abuse</a></div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div><a class="fw-bold fs--1" href="#!"><span class="fas fa-plus me-1"></span>Add
+                                file(s)</a>
+                            </div>
+                          </div>
+                          <div class="col-12 col-lg-5">
+                            <div class="py-6">
+                              <h4 class="mb-4 text-black">Others Information</h4>
+                              <h5 class="text-1000 mb-2">Status</h5><select class="form-select mb-4"
+                                aria-label="Default select example">
+                                <option selected="">Select</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                              </select>
+                              <h5 class="text-1000 mb-2">Due Date</h5>
+                              <div class="flatpickr-input-container mb-4"><input
+                                  class="form-control datetimepicker ps-6" type="text" placeholder="Set the due date"
+                                  data-options='{"disableMobile":true}' /><span
+                                  class="uil uil-calendar-alt flatpickr-icon text-700"></span></div>
+                              <h5 class="text-1000 mb-2">Reminder</h5>
+                              <div class="flatpickr-input-container mb-4"><input
+                                  class="form-control datetimepicker ps-6" type="text" placeholder="Reminder"
+                                  data-options='{"enableTime":true,"noCalendar":true,"dateFormat":"H:i","disableMobile":true,"static":true}' /><span
+                                  class="uil uil-bell-school flatpickr-icon text-700"></span></div>
+                              <h5 class="text-1000 mb-2">Tag</h5>
+                              <div class="choices-select-container mb-6"><select class="form-select"
+                                  data-choices="data-choices" multiple="multiple"
+                                  data-options='{"removeItemButton":true,"placeholder":true}'>
+                                  <option value="">Select organizer...</option>
+                                  <option>Massachusetts Institute of Technology</option>
+                                  <option>University of Chicago</option>
+                                  <option>GSAS Open Labs At Harvard</option>
+                                  <option>California Institute of Technology</option>
+                                </select><span class="uil uil-tag-alt choices-icon text-700" style="top: 26%;"></span>
+                              </div>
+                              <div class="text-end mb-9"><button class="btn btn-phoenix-danger">Delete Task</button>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
-                      <div class="form-row mb-4">
-                        <div class="col-sm-6 col-md-4">
-                          <div class="form-floating">
-                            <input class="form-control" id="personal_email" name="personal_email" type="email"
-                              placeholder="Personal Email" required>
-                            <label for="personal_email">Personal Email</label>
-                          </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer border-0"><a class="fw-bold fs--1 mt-4" href="#!"><span
+                    class="fas fa-plus me-1"></span>Add new task</a></div>
+            </div>
+          </div>
+          <div class="col-12 col-xl-6 col-xxl-5">
+            <div class="card h-100">
+              <div class="card-body">
+                <div class="card-title mb-1">
+                  <h3 class="text-1100">Activity</h3>
+                </div>
+                <p class="text-700 mb-4">Recent activity across all projects</p>
+                <div class="timeline-vertical timeline-with-details">
+                  <div class="timeline-item position-relative">
+                    <div class="row g-md-3">
+                      <div class="col-12 col-md-auto d-flex">
+                        <div class="timeline-item-date order-1 order-md-0 me-md-4">
+                          <p class="fs--2 fw-semi-bold text-600 text-end">01 DEC, 2023<br class="d-none d-md-block" />
+                            10:30 AM</p>
                         </div>
-                        <div class="col-sm-6 col-md-4">
-                          <div class="form-floating">
-                            <input class="form-control" id="official_email" name="official_email" type="email"
-                              placeholder="Official Email" required>
-                            <label for="official_email">Official Email</label>
-                          </div>
-                        </div>
-                        <div class="col-sm-6 col-md-4">
-                          <div class="form-floating">
-                            <input class="form-control" id="employee_id" name="employee_id" type="text"
-                              placeholder="Employee ID" required>
-                            <label for="employee_id">Employee ID</label>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="form-row mb-4">
-                        <div class="col-sm-6 col-md-4">
-                          <div class="form-floating">
-                            <input class="form-control" id="experience" name="experience" type="text"
-                              placeholder="Experience" required>
-                            <label for="experience">Experience</label>
-                          </div>
-                        </div>
-                        <div class="col-sm-6 col-md-4">
-                          <div class="form-floating">
-                            <input class="form-control" id="linkedin" name="linkedin" type="text" placeholder="LinkedIn"
-                              required>
-                            <label for="linkedin">LinkedIn</label>
-                          </div>
-                        </div>
-                        <div class="col-sm-6 col-md-4">
-                          <div class="form-floating">
-                            <input class="form-control" id="portfolio" name="portfolio" type="text"
-                              placeholder="Portfolio" required>
-                            <label for="portfolio">Portfolio</label>
-                          </div>
+                        <div class="timeline-item-bar position-md-relative me-3 me-md-0 border-400">
+                          <div class="icon-item icon-item-sm rounded-7 shadow-none bg-primary-100"><span
+                              class="fa-solid fa-chess text-primary-600 fs--2 dark__text-primary-300"></span></div><span
+                            class="timeline-bar border-end border-dashed border-400"></span>
                         </div>
                       </div>
-                      <div class="form-row mb-4">
-                        <div class="col-sm-6 col-md-4">
-                          <div class="form-floating">
-                            <input class="form-control" id="mobile_number" name="mobile_number" type="text"
-                              placeholder="Mobile Number" required>
-                            <label for="mobile_number">Mobile Number</label>
-                          </div>
-                        </div>
-                        <div class="col-sm-6 col-md-4">
-                          <div class="form-floating">
-                            <input class="form-control" id="tech_stack" name="tech_stack" type="text"
-                              placeholder="Tech Stack" required>
-                            <label for="tech_stack">Tech Stack</label>
-                          </div>
-                        </div>
-                        <div class="col-sm-6 col-md-4">
-                          <div class="form-floating">
-                            <input class="form-control" id="designation" name="designation" type="text"
-                              placeholder="Designation" required>
-                            <label for="designation">Designation</label>
-                          </div>
+                      <div class="col">
+                        <div class="timeline-item-content ps-6 ps-md-3">
+                          <h5 class="fs--1 lh-sm">Phoenix Template: Unleashing Creative Possibilities</h5>
+                          <p class="fs--1">by <a class="fw-semi-bold" href="#!">Shantinon Mekalan</a></p>
+                          <p class="fs--1 text-800 mb-5">Discover limitless creativity with the Phoenix template! Our
+                            latest update offers an array of innovative features and design options.</p>
                         </div>
                       </div>
-                      <div class="form-row mb-4">
-                        <div class="col-sm-6 col-md-4">
-                          <div class="form-floating">
-                            <input class="form-control" id="date_of_joining" name="date_of_joining" type="date"
-                              placeholder="Date of Joining" required>
-                            <label for="date_of_joining">Date of Joining</label>
-                          </div>
+                    </div>
+                  </div>
+                  <div class="timeline-item position-relative">
+                    <div class="row g-md-3">
+                      <div class="col-12 col-md-auto d-flex">
+                        <div class="timeline-item-date order-1 order-md-0 me-md-4">
+                          <p class="fs--2 fw-semi-bold text-600 text-end">05 DEC, 2023<br class="d-none d-md-block" />
+                            12:30 AM</p>
                         </div>
-                        <div class="col-sm-6 col-md-4">
-                          <div class="form-floating">
-                            <input class="form-control" id="team" name="team" type="text" placeholder="Team" required>
-                            <label for="team">Team</label>
-                          </div>
-                        </div>
-                        <div class="col-sm-6 col-md-4">
-                          <div class="form-floating">
-                            <select id="roles" name="roles_name" class="form-control">
-                              <option value="">Select a role</option>
-                            </select>
-                            <label for="roles">Select a role</label>
-                          </div>
+                        <div class="timeline-item-bar position-md-relative me-3 me-md-0 border-400">
+                          <div class="icon-item icon-item-sm rounded-7 shadow-none bg-primary-100"><span
+                              class="fa-solid fa-dove text-primary-600 fs--2 dark__text-primary-300"></span></div><span
+                            class="timeline-bar border-end border-dashed border-400"></span>
                         </div>
                       </div>
-
-                      <div class="text-center">
-                        <button type="submit" class="btn btn-primary mt-4"><i class="fas fa-paper-plane"></i>
-                          Update</button>
+                      <div class="col">
+                        <div class="timeline-item-content ps-6 ps-md-3">
+                          <h5 class="fs--1 lh-sm">Empower Your Digital Presence: The Phoenix Template Unveiled</h5>
+                          <p class="fs--1">by <a class="fw-semi-bold" href="#!">Bookworm22</a></p>
+                          <p class="fs--1 text-800 mb-5">Unveiling the Phoenix template, a game-changer for your digital
+                            presence. With its powerful features and sleek design,</p>
+                        </div>
                       </div>
-                    </form>
+                    </div>
+                  </div>
+                  <div class="timeline-item position-relative">
+                    <div class="row g-md-3">
+                      <div class="col-12 col-md-auto d-flex">
+                        <div class="timeline-item-date order-1 order-md-0 me-md-4">
+                          <p class="fs--2 fw-semi-bold text-600 text-end">15 DEC, 2023<br class="d-none d-md-block" />
+                            2:30 AM</p>
+                        </div>
+                        <div class="timeline-item-bar position-md-relative me-3 me-md-0 border-400">
+                          <div class="icon-item icon-item-sm rounded-7 shadow-none bg-primary-100"><span
+                              class="fa-solid fa-dungeon text-primary-600 fs--2 dark__text-primary-300"></span></div>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="timeline-item-content ps-6 ps-md-3">
+                          <h5 class="fs--1 lh-sm">Phoenix Template: Simplified Design, Maximum Impact</h5>
+                          <p class="fs--1">by <a class="fw-semi-bold" href="#!">Sharuka Nijibum</a></p>
+                          <p class="fs--1 text-800 mb-0">Introducing the Phoenix template, where simplified design meets
+                            maximum impact. Elevate your digital presence with its sleek and intuitive features.</p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-            <!-- end of edit model form -->
-            <script src="script.js"></script>
-            <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-            <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-              integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
-            <script>
-              $(document).ready(function () {
-                // Setup CSRF token for AJAX requests
-                $.ajaxSetup({
-                  headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                  }
-                });
-
-                // Fetch and display the member list
-                $.ajax({
-                  type: "GET",
-                  url: "/member-list",
-                  dataType: "json",      
-                  success: function (response) {
-                    console.log("AJAX response:", response);
-                    var tableBody = $('#members-table-body');
-                    tableBody.empty(); // Clear existing rows
-
-                    if (response.members && response.members.length) {
-                      response.members.forEach(function (member) {
-                        var data = `<tr>
-              <td>${member.bio_id}</td>
-              <td>${member.employee_id}</td>
-              <td>${member.user_name}</td>
-              <td>${member.personal_email}</td>
-              <td>${member.mobile_number}</td>
-              <td>${member.date_of_joining}</td>
-              <td class="align-middle text-end white-space-nowrap pe-0 action">
-                <div class="font-sans-serif btn-reveal-trigger position-static">
-                  <button class="btn btn-sm dropdown-toggle dropdown-caret-none transition-none btn-reveal fs--2" type="button" data-bs-toggle="dropdown" data-boundary="window" aria-haspopup="true" aria-expanded="false" data-bs-reference="parent">
-                    <svg class="svg-inline--fa fa-ellipsis fs--2" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="ellipsis" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
-                      <path fill="currentColor" d="M120 256C120 286.9 94.93 312 64 312C33.07 312 8 286.9 8 256C8 225.1 33.07 200 64 200C94.93 200 120 225.1 120 256zM280 256C280 286.9 254.9 312 224 312C193.1 312 168 286.9 168 256C168 225.1 193.1 200 224 200C254.9 200 280 225.1 280 256zM328 256C328 225.1 353.1 200 384 200C414.9 200 440 225.1 440 256C440 286.9 414.9 312 384 312C353.1 312 328 286.9 328 256z"></path>
-                    </svg>
-                  </button>
-                  <div class="dropdown-menu dropdown-menu-end py-2">
-                    <a class="accept-btn dropdown-item" href="#!" data-personal_email="${member.personal_email}" data-user_type="tl">Accept as TL</a>
-                    <a class="accept-btn dropdown-item" href="#!" data-personal_email="${member.personal_email}" data-user_type="member">Accept as Member</a>
-                    <a class="reject-btn dropdown-item" href="#!" data-personal_email="${member.personal_email}">Reject</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item text-danger editbtn" href="#!" data-bs-toggle="modal" data-bs-target="#editModal" data-id="${member.bio_id}">Edit</a>
-                  </div>
-                </div>
-              </td>
-            </tr>`;
-                        tableBody.append(data);
-                      });
-                    }
-                  },
-                  error: function (xhr, status, error) {  
-                    console.error("AJAX error:", xhr.responseText);
-                  }
-                });
-
-                // Handle accept button click
-                $(document).on('click', '.accept-btn', function (event) {
-                  event.preventDefault();
-
-                  let personalEmail = $(this).data('personal_email');
-                  let userType = $(this).data('user_type');
-
-                  $.ajax({
-                    url: '/accept',
-                    type: 'POST',
-                    data: {
-                      personal_email: personalEmail,
-                      user_type: userType
-                    },
-                    success: function (response) {
-                      alert(response.message);
-                      console.log(response);
-                    },
-                    error: function (xhr) {
-                      let response = xhr.responseJSON;
-                      alert(response.message || 'Error accepting the request');
-                      console.log(xhr);
-                    }
-                  });
-                });
-
-                // Handle reject button click
-                $(document).on('click', '.reject-btn', function (event) {
-                  event.preventDefault();
-
-                  let personalEmail = $(this).data('personal_email');
-
-                  $.ajax({
-                    url: '/reject',
-                    type: 'POST',
-                    data: {
-                      personal_email: personalEmail
-                    },
-                    success: function (response) {
-                      alert(response.message);
-                      console.log(response);
-                    },
-                    error: function (xhr) {
-                      let response = xhr.responseJSON;
-                      alert(response.message || 'Error rejecting the request');
-                      console.log(xhr);
-                    }
-                  });
-                });
-
-                // Handle edit button click
-                $(document).on('click', '.editbtn', function (e) {
-                  e.preventDefault();
-                  var id = $(this).data('id'); // Retrieve the value of data-id attribute
-
-                  // Perform AJAX request to fetch data for the given ID
-                  $.ajax({
-                    type: "GET",
-                    url: "/get-member/" + id,
-                    success: function (response) {
-                      if (response.status == 200) {
-                        // If data is successfully fetched, populate the edit form
-                        var member = response.member;
-                        $('#bio_id').val(member.bio_id);
-                        $('#user_name').val(member.user_name);
-                        $('#password').val(member.password);
-                        $('#personal_email').val(member.personal_email);
-                        $('#official_email').val(member.official_email);
-                        $('#employee_id').val(member.employee_id);
-                        $('#experience').val(member.experience);
-                        $('#linkedin').val(member.linkedin);
-                        $('#portfolio').val(member.portfolio);
-                        $('#mobile_number').val(member.mobile_number);
-                        $('#tech_stack').val(member.tech_stack);
-                        $('#designation').val(member.designation);
-                        $('#date_of_joining').val(member.date_of_joining);
-                        $('#team').val(member.team);
-
-                        // Fetch roles and populate the dropdown
-                        $.ajax({
-                          type: "GET",
-                          url: "{{ route('get_roles') }}",
-                          dataType: "json",
-                          success: function (response) {
-                            if (response.roles && response.roles.length) {
-                              var rolesDropdown = $('#roles');
-                              rolesDropdown.empty(); // Clear existing options
-                              $.each(response.roles, function (index, role) {
-                                rolesDropdown.append('<option value="' + role.role_name + '">' + role.role_name + '</option>');
-                              });
-                            } else {
-                              console.log("No roles found.");
-                            }
-                          },
-                          error: function (xhr, status, error) {
-                            console.error('Error fetching roles:', error);
-                          }
-                        });
-                      }
-                    },
-                    error: function (xhr, status, error) {
-                      console.error('Error fetching member:', error);
-                    }
-                  });
-                });
-
-                // Handle form submission for updating member
-                $('#member-form').on('submit', function (e) {
-                  e.preventDefault(); // Prevent the default form submission
-
-                  // Serialize the form data
-                  var formData = $(this).serialize() + '&_token={{ csrf_token() }}';
-
-                  // Send AJAX request to update member data
-                  $.ajax({
-                    type: "POST",
-                    url: "/update-member/" + $('#bio_id').val(), // Use the bio_id as the member ID
-                    data: formData,
-                    success: function (response) {
-                      if (response.status == 'success') {
-                        console.log("Member data updated successfully!");
-                        // Optionally, you can perform actions after successful update
-                      } else {
-                        console.log("Error: " + response.message);
-                        // Optionally, handle errors or display error messages
-                      }
-                    },
-                    error: function (xhr, status, error) {
-                      console.error("AJAX Request Error:", error);
-                      // Optionally, handle AJAX errors
-                    }
-                  });
-                });
-              });
-            </script>
-
-
-
           </div>
-
-
-          <div class="row align-items-center justify-content-between py-2 pe-0 fs--1">
-            <div class="col-auto d-flex">
-              <p class="mb-0 d-none d-sm-block me-3 fw-semi-bold text-900" data-list-info="data-list-info"></p><a
-                class="fw-semi-bold" href="#!" data-list-view="*">View all<span class="fas fa-angle-right ms-1"
-                  data-fa-transform="down-1"></span></a><a class="fw-semi-bold d-none" href="#!"
-                data-list-view="less">View Less<span class="fas fa-angle-right ms-1"
-                  data-fa-transform="down-1"></span></a>
-            </div>
-            <div class="col-auto d-flex"><button class="page-link" data-list-pagination="prev"><span
-                  class="fas fa-chevron-left"></span></button>
-              <ul class="mb-0 pagination"></ul><button class="page-link pe-0" data-list-pagination="next"><span
-                  class="fas fa-chevron-right"></span></button>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-12">
+          <div class="mx-n4 px-4 mx-lg-n6 px-lg-6 bg-white pt-6 border-top border-300">
+            <div id="projectSummary"
+              data-list='{"valueNames":["project","assigness","start","deadline","calculation","projectprogress","status","action"],"page":6,"pagination":true}'>
+              <div class="row align-items-end justify-content-between pb-4 g-3">
+                <div class="col-auto">
+                  <h3>Projects</h3>
+                  <p class="text-700 lh-sm mb-0">Brief summary of all projects</p>
+                </div>
+              </div>
+              <div class="table-responsive ms-n1 ps-1 scrollbar">
+                <table class="table fs--1 mb-0 border-top border-200">
+                  <thead>
+                    <tr>
+                      <th class="sort white-space-nowrap align-middle ps-0" scope="col" data-sort="project"
+                        style="width:30%;">PROJECT NAME</th>
+                      <th class="sort align-middle ps-3" scope="col" data-sort="assigness" style="width:10%;">ASSIGNESS
+                      </th>
+                      <th class="sort align-middle ps-3" scope="col" data-sort="start" style="width:10%;">START DATE
+                      </th>
+                      <th class="sort align-middle ps-3" scope="col" data-sort="deadline" style="width:15%;">DEADLINE
+                      </th>
+                      <th class="sort align-middle ps-3" scope="col" data-sort="calculation" style="width:12%;">
+                        CALCULATION</th>
+                      <th class="sort align-middle ps-3" scope="col" data-sort="projectprogress" style="width:5%;">
+                        PROGRESS</th>
+                      <th class="sort align-middle ps-8" scope="col" data-sort="status" style="width:10%;">STATUS</th>
+                      <th class="sort align-middle text-end" scope="col" style="width:10%;"></th>
+                    </tr>
+                  </thead>
+                  <tbody class="list" id="project-summary-table-body">
+                    <tr class="position-static">
+                      <td class="align-middle time white-space-nowrap ps-0 project"><a class="fw-bold fs-0"
+                          href="#">Making the Butterflies shoot each other dead</a></td>
+                      <td class="align-middle white-space-nowrap assigness ps-3">
+                        <div class="avatar-group avatar-group-dense"><a
+                            class="dropdown-toggle dropdown-caret-none d-inline-block" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                            <div class="avatar avatar-s  rounded-circle">
+                              <img class="rounded-circle " src="../assets/img/team/9.webp" alt="" />
+                            </div>
+                          </a>
+                          <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
+                            <div class="position-relative">
+                              <div class="bg-holder z-index--1"
+                                style="background-image:url(../assets/img/bg/bg-32.png);background-size: auto;"></div>
+                              <!--/.bg-holder-->
+                              <div class="p-3">
+                                <div class="text-end"><button class="btn p-0 me-2"><span
+                                      class="fa-solid fa-user-plus text-white light"></span></button><button
+                                    class="btn p-0"><span class="fa-solid fa-ellipsis text-white light"></span></button>
+                                </div>
+                                <div class="text-center">
+                                  <div
+                                    class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2">
+                                    <img class="rounded-circle border border-white" src="../assets/img/team/9.webp"
+                                      alt="" /></div>
+                                  <h6 class="text-white light">Michael Jenkins</h6>
+                                  <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
+                                  <div class="d-flex flex-center mb-3">
+                                    <h6 class="text-white light mb-0">224 <span
+                                        class="fw-normal text-300">connections</span></h6><span
+                                      class="fa-solid fa-circle text-700 mx-1"
+                                      data-fa-transform="shrink-10 up-2"></span>
+                                    <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span>
+                                    </h6>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="bg-white">
+                              <div class="p-3 border-bottom">
+                                <div class="d-flex justify-content-between">
+                                  <div class="d-flex"><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                        class="fa-solid fa-phone"></span></button><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                        class="fa-solid fa-message"></span></button><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
+                                        class="fa-solid fa-video"></span></button></div><button
+                                    class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
+                                    Email</button>
+                                </div>
+                              </div>
+                              <ul class="nav d-flex flex-column py-3 border-bottom">
+                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
+                                    <span class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
+                                      class="text-1000 flex-1">Assigned Projects</span><span
+                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
+                                    <span class="me-2 text-900" data-feather="pie-chart"></span><span
+                                      class="text-1000 flex-1">View activiy</span><span
+                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                              </ul>
+                            </div>
+                            <div class="p-3 d-flex justify-content-between"><a
+                                class="btn btn-link p-0 text-decoration-none" href="#!">Details </a><a
+                                class="btn btn-link p-0 text-decoration-none text-danger" href="#!">Unassign </a></div>
+                          </div><a class="dropdown-toggle dropdown-caret-none d-inline-block" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                            <div class="avatar avatar-s  rounded-circle">
+                              <img class="rounded-circle " src="../assets/img/team/25.webp" alt="" />
+                            </div>
+                          </a>
+                          <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
+                            <div class="position-relative">
+                              <div class="bg-holder z-index--1"
+                                style="background-image:url(../assets/img/bg/bg-32.png);background-size: auto;"></div>
+                              <!--/.bg-holder-->
+                              <div class="p-3">
+                                <div class="text-end"><button class="btn p-0 me-2"><span
+                                      class="fa-solid fa-user-plus text-white light"></span></button><button
+                                    class="btn p-0"><span class="fa-solid fa-ellipsis text-white light"></span></button>
+                                </div>
+                                <div class="text-center">
+                                  <div
+                                    class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2">
+                                    <img class="rounded-circle border border-white" src="../assets/img/team/25.webp"
+                                      alt="" /></div>
+                                  <h6 class="text-white light">Ansolo Lazinatov</h6>
+                                  <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
+                                  <div class="d-flex flex-center mb-3">
+                                    <h6 class="text-white light mb-0">224 <span
+                                        class="fw-normal text-300">connections</span></h6><span
+                                      class="fa-solid fa-circle text-700 mx-1"
+                                      data-fa-transform="shrink-10 up-2"></span>
+                                    <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span>
+                                    </h6>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="bg-white">
+                              <div class="p-3 border-bottom">
+                                <div class="d-flex justify-content-between">
+                                  <div class="d-flex"><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                        class="fa-solid fa-phone"></span></button><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                        class="fa-solid fa-message"></span></button><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
+                                        class="fa-solid fa-video"></span></button></div><button
+                                    class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
+                                    Email</button>
+                                </div>
+                              </div>
+                              <ul class="nav d-flex flex-column py-3 border-bottom">
+                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
+                                    <span class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
+                                      class="text-1000 flex-1">Assigned Projects</span><span
+                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
+                                    <span class="me-2 text-900" data-feather="pie-chart"></span><span
+                                      class="text-1000 flex-1">View activiy</span><span
+                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                              </ul>
+                            </div>
+                            <div class="p-3 d-flex justify-content-between"><a
+                                class="btn btn-link p-0 text-decoration-none" href="#!">Details </a><a
+                                class="btn btn-link p-0 text-decoration-none text-danger" href="#!">Unassign </a></div>
+                          </div><a class="dropdown-toggle dropdown-caret-none d-inline-block" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                            <div class="avatar avatar-s  rounded-circle">
+                              <img class="rounded-circle " src="../assets/img/team/32.webp" alt="" />
+                            </div>
+                          </a>
+                          <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
+                            <div class="position-relative">
+                              <div class="bg-holder z-index--1"
+                                style="background-image:url(../assets/img/bg/bg-32.png);background-size: auto;"></div>
+                              <!--/.bg-holder-->
+                              <div class="p-3">
+                                <div class="text-end"><button class="btn p-0 me-2"><span
+                                      class="fa-solid fa-user-plus text-white light"></span></button><button
+                                    class="btn p-0"><span class="fa-solid fa-ellipsis text-white light"></span></button>
+                                </div>
+                                <div class="text-center">
+                                  <div
+                                    class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2">
+                                    <img class="rounded-circle border border-white" src="../assets/img/team/32.webp"
+                                      alt="" /></div>
+                                  <h6 class="text-white light">Jennifer Schramm</h6>
+                                  <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
+                                  <div class="d-flex flex-center mb-3">
+                                    <h6 class="text-white light mb-0">224 <span
+                                        class="fw-normal text-300">connections</span></h6><span
+                                      class="fa-solid fa-circle text-700 mx-1"
+                                      data-fa-transform="shrink-10 up-2"></span>
+                                    <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span>
+                                    </h6>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="bg-white">
+                              <div class="p-3 border-bottom">
+                                <div class="d-flex justify-content-between">
+                                  <div class="d-flex"><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                        class="fa-solid fa-phone"></span></button><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                        class="fa-solid fa-message"></span></button><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
+                                        class="fa-solid fa-video"></span></button></div><button
+                                    class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
+                                    Email</button>
+                                </div>
+                              </div>
+                              <ul class="nav d-flex flex-column py-3 border-bottom">
+                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
+                                    <span class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
+                                      class="text-1000 flex-1">Assigned Projects</span><span
+                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
+                                    <span class="me-2 text-900" data-feather="pie-chart"></span><span
+                                      class="text-1000 flex-1">View activiy</span><span
+                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                              </ul>
+                            </div>
+                            <div class="p-3 d-flex justify-content-between"><a
+                                class="btn btn-link p-0 text-decoration-none" href="#!">Details </a><a
+                                class="btn btn-link p-0 text-decoration-none text-danger" href="#!">Unassign </a></div>
+                          </div><a class="dropdown-toggle dropdown-caret-none d-inline-block" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                            <div class="avatar avatar-s  rounded-circle">
+                              <img class="rounded-circle avatar-placeholder" src="../assets/img/team/avatar.webp"
+                                alt="" />
+                            </div>
+                          </a>
+                          <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
+                            <div class="position-relative">
+                              <div class="bg-holder z-index--1"
+                                style="background-image:url(../assets/img/bg/bg-32.png);background-size: auto;"></div>
+                              <!--/.bg-holder-->
+                              <div class="p-3">
+                                <div class="text-end"><button class="btn p-0 me-2"><span
+                                      class="fa-solid fa-user-plus text-white light"></span></button><button
+                                    class="btn p-0"><span class="fa-solid fa-ellipsis text-white light"></span></button>
+                                </div>
+                                <div class="text-center">
+                                  <div
+                                    class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2">
+                                    <img class="rounded-circle border border-white" src="../assets/img/team/avatar.webp"
+                                      alt="" /></div>
+                                  <h6 class="text-white light">Kristine Cadena</h6>
+                                  <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
+                                  <div class="d-flex flex-center mb-3">
+                                    <h6 class="text-white light mb-0">224 <span
+                                        class="fw-normal text-300">connections</span></h6><span
+                                      class="fa-solid fa-circle text-700 mx-1"
+                                      data-fa-transform="shrink-10 up-2"></span>
+                                    <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span>
+                                    </h6>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="bg-white">
+                              <div class="p-3 border-bottom">
+                                <div class="d-flex justify-content-between">
+                                  <div class="d-flex"><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                        class="fa-solid fa-phone"></span></button><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                        class="fa-solid fa-message"></span></button><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
+                                        class="fa-solid fa-video"></span></button></div><button
+                                    class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
+                                    Email</button>
+                                </div>
+                              </div>
+                              <ul class="nav d-flex flex-column py-3 border-bottom">
+                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
+                                    <span class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
+                                      class="text-1000 flex-1">Assigned Projects</span><span
+                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
+                                    <span class="me-2 text-900" data-feather="pie-chart"></span><span
+                                      class="text-1000 flex-1">View activiy</span><span
+                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                              </ul>
+                            </div>
+                            <div class="p-3 d-flex justify-content-between"><a
+                                class="btn btn-link p-0 text-decoration-none" href="#!">Details </a><a
+                                class="btn btn-link p-0 text-decoration-none text-danger" href="#!">Unassign </a></div>
+                          </div>
+                          <div class="avatar avatar-s  rounded-circle">
+                            <div class="avatar-name rounded-circle "><span>+3</span></div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="align-middle white-space-nowrap start ps-3">
+                        <p class="mb-0 fs--1 text-900">Dec 12, 2018</p>
+                      </td>
+                      <td class="align-middle white-space-nowrap deadline ps-3">
+                        <p class="mb-0 fs--1 text-900">Dec 12, 2026</p>
+                      </td>
+                      <td class="align-middle white-space-nowrap calculation ps-3">
+                        <p class="fw-bold text-1100 fs--1 mb-0">$4</p>
+                        <p class="fw-semi-bold fs--2 text-700 mb-0">Cost</p>
+                      </td>
+                      <td class="align-middle white-space-nowrap ps-3 projectprogress">
+                        <p class="text-800 fs--2 mb-0">145 / 145</p>
+                        <div class="progress" style="height:3px;">
+                          <div class="progress-bar bg-success" style="width: 100%" aria-valuenow="25" aria-valuemin="0"
+                            aria-valuemax="100" role="progressbar"></div>
+                        </div>
+                      </td>
+                      <td class="align-middle white-space-nowrap ps-8 status">
+                        <div class="progress progress-stack mt-3" style="height:3px;">
+                          <div class="progress-bar bg-info" style="width:30%" aria-valuenow="25" aria-valuemin="0"
+                            aria-valuemax="100" role="progressbar"></div>
+                          <div class="progress-bar bg-danger" style="width:5%" aria-valuenow="25" aria-valuemin="0"
+                            aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" title="5% Damage"
+                            role="progressbar"></div>
+                          <div class="progress-bar bg-warning" style="width:45%" aria-valuenow="25" aria-valuemin="0"
+                            aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" title="45% Damage"
+                            role="progressbar"></div>
+                          <div class="progress-bar bg-success" style="width:15%" aria-valuenow="25" aria-valuemin="0"
+                            aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" title="15% Damage"
+                            role="progressbar"></div>
+                        </div>
+                      </td>
+                      <td class="align-middle text-end white-space-nowrap pe-0 action">
+                        <div class="font-sans-serif btn-reveal-trigger position-static"><button
+                            class="btn btn-sm dropdown-toggle dropdown-caret-none transition-none btn-reveal fs--2"
+                            type="button" data-bs-toggle="dropdown" data-boundary="window" aria-haspopup="true"
+                            aria-expanded="false" data-bs-reference="parent"><span
+                              class="fas fa-ellipsis-h fs--2"></span></button>
+                          <div class="dropdown-menu dropdown-menu-end py-2"><a class="dropdown-item"
+                              href="#!">View</a><a class="dropdown-item" href="#!">Export</a>
+                            <div class="dropdown-divider"></div><a class="dropdown-item text-danger"
+                              href="#!">Remove</a>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="position-static">
+                      <td class="align-middle time white-space-nowrap ps-0 project"><a class="fw-bold fs-0"
+                          href="#">Project Doughnut Dungeon</a></td>
+                      <td class="align-middle white-space-nowrap assigness ps-3">
+                        <div class="avatar-group avatar-group-dense"><a
+                            class="dropdown-toggle dropdown-caret-none d-inline-block" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                            <div class="avatar avatar-s  rounded-circle">
+                              <img class="rounded-circle " src="../assets/img/team/22.webp" alt="" />
+                            </div>
+                          </a>
+                          <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
+                            <div class="position-relative">
+                              <div class="bg-holder z-index--1"
+                                style="background-image:url(../assets/img/bg/bg-32.png);background-size: auto;"></div>
+                              <!--/.bg-holder-->
+                              <div class="p-3">
+                                <div class="text-end"><button class="btn p-0 me-2"><span
+                                      class="fa-solid fa-user-plus text-white light"></span></button><button
+                                    class="btn p-0"><span class="fa-solid fa-ellipsis text-white light"></span></button>
+                                </div>
+                                <div class="text-center">
+                                  <div
+                                    class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2">
+                                    <img class="rounded-circle border border-white" src="../assets/img/team/22.webp"
+                                      alt="" /></div>
+                                  <h6 class="text-white light">Woodrow Burton</h6>
+                                  <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
+                                  <div class="d-flex flex-center mb-3">
+                                    <h6 class="text-white light mb-0">224 <span
+                                        class="fw-normal text-300">connections</span></h6><span
+                                      class="fa-solid fa-circle text-700 mx-1"
+                                      data-fa-transform="shrink-10 up-2"></span>
+                                    <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span>
+                                    </h6>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="bg-white">
+                              <div class="p-3 border-bottom">
+                                <div class="d-flex justify-content-between">
+                                  <div class="d-flex"><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                        class="fa-solid fa-phone"></span></button><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                        class="fa-solid fa-message"></span></button><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
+                                        class="fa-solid fa-video"></span></button></div><button
+                                    class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
+                                    Email</button>
+                                </div>
+                              </div>
+                              <ul class="nav d-flex flex-column py-3 border-bottom">
+                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
+                                    <span class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
+                                      class="text-1000 flex-1">Assigned Projects</span><span
+                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
+                                    <span class="me-2 text-900" data-feather="pie-chart"></span><span
+                                      class="text-1000 flex-1">View activiy</span><span
+                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                              </ul>
+                            </div>
+                            <div class="p-3 d-flex justify-content-between"><a
+                                class="btn btn-link p-0 text-decoration-none" href="#!">Details </a><a
+                                class="btn btn-link p-0 text-decoration-none text-danger" href="#!">Unassign </a></div>
+                          </div><a class="dropdown-toggle dropdown-caret-none d-inline-block" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                            <div class="avatar avatar-s  rounded-circle">
+                              <img class="rounded-circle " src="../assets/img/team/28.webp" alt="" />
+                            </div>
+                          </a>
+                          <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
+                            <div class="position-relative">
+                              <div class="bg-holder z-index--1"
+                                style="background-image:url(../assets/img/bg/bg-32.png);background-size: auto;"></div>
+                              <!--/.bg-holder-->
+                              <div class="p-3">
+                                <div class="text-end"><button class="btn p-0 me-2"><span
+                                      class="fa-solid fa-user-plus text-white light"></span></button><button
+                                    class="btn p-0"><span class="fa-solid fa-ellipsis text-white light"></span></button>
+                                </div>
+                                <div class="text-center">
+                                  <div
+                                    class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2">
+                                    <img class="rounded-circle border border-white" src="../assets/img/team/28.webp"
+                                      alt="" /></div>
+                                  <h6 class="text-white light">Ashley Garrett</h6>
+                                  <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
+                                  <div class="d-flex flex-center mb-3">
+                                    <h6 class="text-white light mb-0">224 <span
+                                        class="fw-normal text-300">connections</span></h6><span
+                                      class="fa-solid fa-circle text-700 mx-1"
+                                      data-fa-transform="shrink-10 up-2"></span>
+                                    <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span>
+                                    </h6>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="bg-white">
+                              <div class="p-3 border-bottom">
+                                <div class="d-flex justify-content-between">
+                                  <div class="d-flex"><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                        class="fa-solid fa-phone"></span></button><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                        class="fa-solid fa-message"></span></button><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
+                                        class="fa-solid fa-video"></span></button></div><button
+                                    class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
+                                    Email</button>
+                                </div>
+                              </div>
+                              <ul class="nav d-flex flex-column py-3 border-bottom">
+                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
+                                    <span class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
+                                      class="text-1000 flex-1">Assigned Projects</span><span
+                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
+                                    <span class="me-2 text-900" data-feather="pie-chart"></span><span
+                                      class="text-1000 flex-1">View activiy</span><span
+                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                              </ul>
+                            </div>
+                            <div class="p-3 d-flex justify-content-between"><a
+                                class="btn btn-link p-0 text-decoration-none" href="#!">Details </a><a
+                                class="btn btn-link p-0 text-decoration-none text-danger" href="#!">Unassign </a></div>
+                          </div><a class="dropdown-toggle dropdown-caret-none d-inline-block" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                            <div class="avatar avatar-s">
+                              <div class="avatar-name rounded-circle"><span>R</span></div>
+                            </div>
+                          </a>
+                          <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
+                            <div class="position-relative">
+                              <div class="bg-holder z-index--1"
+                                style="background-image:url(../assets/img/bg/bg-32.png);background-size: auto;"></div>
+                              <!--/.bg-holder-->
+                              <div class="p-3">
+                                <div class="text-end"><button class="btn p-0 me-2"><span
+                                      class="fa-solid fa-user-plus text-white light"></span></button><button
+                                    class="btn p-0"><span class="fa-solid fa-ellipsis text-white light"></span></button>
+                                </div>
+                                <div class="text-center">
+                                  <div
+                                    class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2">
+                                    <div class="avatar-name rounded-circle"><span>R</span></div>
+                                  </div>
+                                  <h6 class="text-white light">Raymond Mims</h6>
+                                  <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
+                                  <div class="d-flex flex-center mb-3">
+                                    <h6 class="text-white light mb-0">224 <span
+                                        class="fw-normal text-300">connections</span></h6><span
+                                      class="fa-solid fa-circle text-700 mx-1"
+                                      data-fa-transform="shrink-10 up-2"></span>
+                                    <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span>
+                                    </h6>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="bg-white">
+                              <div class="p-3 border-bottom">
+                                <div class="d-flex justify-content-between">
+                                  <div class="d-flex"><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                        class="fa-solid fa-phone"></span></button><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                        class="fa-solid fa-message"></span></button><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
+                                        class="fa-solid fa-video"></span></button></div><button
+                                    class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
+                                    Email</button>
+                                </div>
+                              </div>
+                              <ul class="nav d-flex flex-column py-3 border-bottom">
+                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
+                                    <span class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
+                                      class="text-1000 flex-1">Assigned Projects</span><span
+                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
+                                    <span class="me-2 text-900" data-feather="pie-chart"></span><span
+                                      class="text-1000 flex-1">View activiy</span><span
+                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                              </ul>
+                            </div>
+                            <div class="p-3 d-flex justify-content-between"><a
+                                class="btn btn-link p-0 text-decoration-none" href="#!">Details </a><a
+                                class="btn btn-link p-0 text-decoration-none text-danger" href="#!">Unassign </a></div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="align-middle white-space-nowrap start ps-3">
+                        <p class="mb-0 fs--1 text-900">Jan 9, 2019</p>
+                      </td>
+                      <td class="align-middle white-space-nowrap deadline ps-3">
+                        <p class="mb-0 fs--1 text-900">Dec 9, 2022</p>
+                      </td>
+                      <td class="align-middle white-space-nowrap calculation ps-3"><button
+                          class="btn btn-phoenix-secondary square-icon-btn"><span class="fas fa-plus"></span></button>
+                      </td>
+                      <td class="align-middle white-space-nowrap ps-3 projectprogress">
+                        <p class="text-800 fs--2 mb-0">148 / 223</p>
+                        <div class="progress" style="height:3px;">
+                          <div class="progress-bar bg-success" style="width: 66.3677130044843%" aria-valuenow="25"
+                            aria-valuemin="0" aria-valuemax="100" role="progressbar"></div>
+                        </div>
+                      </td>
+                      <td class="align-middle white-space-nowrap ps-8 status">
+                        <div class="progress progress-stack mt-3" style="height:3px;">
+                          <div class="progress-bar bg-info" style="width:20%" aria-valuenow="25" aria-valuemin="0"
+                            aria-valuemax="100" role="progressbar"></div>
+                          <div class="progress-bar bg-danger" style="width:15%" aria-valuenow="25" aria-valuemin="0"
+                            aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" title="5% Damage"
+                            role="progressbar"></div>
+                          <div class="progress-bar bg-warning" style="width:45%" aria-valuenow="25" aria-valuemin="0"
+                            aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" title="45% Damage"
+                            role="progressbar"></div>
+                          <div class="progress-bar bg-success" style="width:30%" aria-valuenow="25" aria-valuemin="0"
+                            aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" title="15% Damage"
+                            role="progressbar"></div>
+                        </div>
+                      </td>
+                      <td class="align-middle text-end white-space-nowrap pe-0 action">
+                        <div class="font-sans-serif btn-reveal-trigger position-static"><button
+                            class="btn btn-sm dropdown-toggle dropdown-caret-none transition-none btn-reveal fs--2"
+                            type="button" data-bs-toggle="dropdown" data-boundary="window" aria-haspopup="true"
+                            aria-expanded="false" data-bs-reference="parent"><span
+                              class="fas fa-ellipsis-h fs--2"></span></button>
+                          <div class="dropdown-menu dropdown-menu-end py-2"><a class="dropdown-item"
+                              href="#!">View</a><a class="dropdown-item" href="#!">Export</a>
+                            <div class="dropdown-divider"></div><a class="dropdown-item text-danger"
+                              href="#!">Remove</a>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="position-static">
+                      <td class="align-middle time white-space-nowrap ps-0 project"><a class="fw-bold fs-0" href="#">The
+                          Chewing Gum Attack</a></td>
+                      <td class="align-middle white-space-nowrap assigness ps-3">
+                        <div class="avatar-group avatar-group-dense"><a
+                            class="dropdown-toggle dropdown-caret-none d-inline-block" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                            <div class="avatar avatar-s  rounded-circle">
+                              <img class="rounded-circle " src="../assets/img/team/34.webp" alt="" />
+                            </div>
+                          </a>
+                          <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
+                            <div class="position-relative">
+                              <div class="bg-holder z-index--1"
+                                style="background-image:url(../assets/img/bg/bg-32.png);background-size: auto;"></div>
+                              <!--/.bg-holder-->
+                              <div class="p-3">
+                                <div class="text-end"><button class="btn p-0 me-2"><span
+                                      class="fa-solid fa-user-plus text-white light"></span></button><button
+                                    class="btn p-0"><span class="fa-solid fa-ellipsis text-white light"></span></button>
+                                </div>
+                                <div class="text-center">
+                                  <div
+                                    class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2">
+                                    <img class="rounded-circle border border-white" src="../assets/img/team/34.webp"
+                                      alt="" /></div>
+                                  <h6 class="text-white light">Jean Renoir</h6>
+                                  <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
+                                  <div class="d-flex flex-center mb-3">
+                                    <h6 class="text-white light mb-0">224 <span
+                                        class="fw-normal text-300">connections</span></h6><span
+                                      class="fa-solid fa-circle text-700 mx-1"
+                                      data-fa-transform="shrink-10 up-2"></span>
+                                    <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span>
+                                    </h6>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="bg-white">
+                              <div class="p-3 border-bottom">
+                                <div class="d-flex justify-content-between">
+                                  <div class="d-flex"><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                        class="fa-solid fa-phone"></span></button><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                        class="fa-solid fa-message"></span></button><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
+                                        class="fa-solid fa-video"></span></button></div><button
+                                    class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
+                                    Email</button>
+                                </div>
+                              </div>
+                              <ul class="nav d-flex flex-column py-3 border-bottom">
+                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
+                                    <span class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
+                                      class="text-1000 flex-1">Assigned Projects</span><span
+                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
+                                    <span class="me-2 text-900" data-feather="pie-chart"></span><span
+                                      class="text-1000 flex-1">View activiy</span><span
+                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                              </ul>
+                            </div>
+                            <div class="p-3 d-flex justify-content-between"><a
+                                class="btn btn-link p-0 text-decoration-none" href="#!">Details </a><a
+                                class="btn btn-link p-0 text-decoration-none text-danger" href="#!">Unassign </a></div>
+                          </div><a class="dropdown-toggle dropdown-caret-none d-inline-block" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                            <div class="avatar avatar-s  rounded-circle">
+                              <img class="rounded-circle " src="../assets/img/team/59.webp" alt="" />
+                            </div>
+                          </a>
+                          <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
+                            <div class="position-relative">
+                              <div class="bg-holder z-index--1"
+                                style="background-image:url(../assets/img/bg/bg-32.png);background-size: auto;"></div>
+                              <!--/.bg-holder-->
+                              <div class="p-3">
+                                <div class="text-end"><button class="btn p-0 me-2"><span
+                                      class="fa-solid fa-user-plus text-white light"></span></button><button
+                                    class="btn p-0"><span class="fa-solid fa-ellipsis text-white light"></span></button>
+                                </div>
+                                <div class="text-center">
+                                  <div
+                                    class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2">
+                                    <img class="rounded-circle border border-white" src="../assets/img/team/59.webp"
+                                      alt="" /></div>
+                                  <h6 class="text-white light">Katerina Karenin</h6>
+                                  <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
+                                  <div class="d-flex flex-center mb-3">
+                                    <h6 class="text-white light mb-0">224 <span
+                                        class="fw-normal text-300">connections</span></h6><span
+                                      class="fa-solid fa-circle text-700 mx-1"
+                                      data-fa-transform="shrink-10 up-2"></span>
+                                    <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span>
+                                    </h6>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="bg-white">
+                              <div class="p-3 border-bottom">
+                                <div class="d-flex justify-content-between">
+                                  <div class="d-flex"><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                        class="fa-solid fa-phone"></span></button><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                        class="fa-solid fa-message"></span></button><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
+                                        class="fa-solid fa-video"></span></button></div><button
+                                    class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
+                                    Email</button>
+                                </div>
+                              </div>
+                              <ul class="nav d-flex flex-column py-3 border-bottom">
+                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
+                                    <span class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
+                                      class="text-1000 flex-1">Assigned Projects</span><span
+                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
+                                    <span class="me-2 text-900" data-feather="pie-chart"></span><span
+                                      class="text-1000 flex-1">View activiy</span><span
+                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                              </ul>
+                            </div>
+                            <div class="p-3 d-flex justify-content-between"><a
+                                class="btn btn-link p-0 text-decoration-none" href="#!">Details </a><a
+                                class="btn btn-link p-0 text-decoration-none text-danger" href="#!">Unassign </a></div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="align-middle white-space-nowrap start ps-3">
+                        <p class="mb-0 fs--1 text-900">Sep 4, 2019</p>
+                      </td>
+                      <td class="align-middle white-space-nowrap deadline ps-3">
+                        <p class="mb-0 fs--1 text-900">Dec 4, 2021</p>
+                      </td>
+                      <td class="align-middle white-space-nowrap calculation ps-3">
+                        <p class="fw-bold text-1100 fs--1 mb-0">$657k</p>
+                        <p class="fw-semi-bold fs--2 text-700 mb-0">Estimation</p>
+                      </td>
+                      <td class="align-middle white-space-nowrap ps-3 projectprogress">
+                        <p class="text-800 fs--2 mb-0">277 / 539</p>
+                        <div class="progress" style="height:3px;">
+                          <div class="progress-bar bg-success" style="width: 51.39146567717996%" aria-valuenow="25"
+                            aria-valuemin="0" aria-valuemax="100" role="progressbar"></div>
+                        </div>
+                      </td>
+                      <td class="align-middle white-space-nowrap ps-8 status">
+                        <div class="progress progress-stack mt-3" style="height:3px;">
+                          <div class="progress-bar bg-info" style="width:10%" aria-valuenow="25" aria-valuemin="0"
+                            aria-valuemax="100" role="progressbar"></div>
+                          <div class="progress-bar bg-danger" style="width:10%" aria-valuenow="25" aria-valuemin="0"
+                            aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" title="5% Damage"
+                            role="progressbar"></div>
+                          <div class="progress-bar bg-warning" style="width:35%" aria-valuenow="25" aria-valuemin="0"
+                            aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" title="45% Damage"
+                            role="progressbar"></div>
+                          <div class="progress-bar bg-success" style="width:45%" aria-valuenow="25" aria-valuemin="0"
+                            aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" title="15% Damage"
+                            role="progressbar"></div>
+                        </div>
+                      </td>
+                      <td class="align-middle text-end white-space-nowrap pe-0 action">
+                        <div class="font-sans-serif btn-reveal-trigger position-static"><button
+                            class="btn btn-sm dropdown-toggle dropdown-caret-none transition-none btn-reveal fs--2"
+                            type="button" data-bs-toggle="dropdown" data-boundary="window" aria-haspopup="true"
+                            aria-expanded="false" data-bs-reference="parent"><span
+                              class="fas fa-ellipsis-h fs--2"></span></button>
+                          <div class="dropdown-menu dropdown-menu-end py-2"><a class="dropdown-item"
+                              href="#!">View</a><a class="dropdown-item" href="#!">Export</a>
+                            <div class="dropdown-divider"></div><a class="dropdown-item text-danger"
+                              href="#!">Remove</a>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="position-static">
+                      <td class="align-middle time white-space-nowrap ps-0 project"><a class="fw-bold fs-0"
+                          href="#">Execution of Micky the foul mouse</a></td>
+                      <td class="align-middle white-space-nowrap assigness ps-3">
+                        <div class="avatar-group avatar-group-dense"><a
+                            class="dropdown-toggle dropdown-caret-none d-inline-block" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                            <div class="avatar avatar-s  rounded-circle">
+                              <img class="rounded-circle " src="../assets/img/team/1.webp" alt="" />
+                            </div>
+                          </a>
+                          <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
+                            <div class="position-relative">
+                              <div class="bg-holder z-index--1"
+                                style="background-image:url(../assets/img/bg/bg-32.png);background-size: auto;"></div>
+                              <!--/.bg-holder-->
+                              <div class="p-3">
+                                <div class="text-end"><button class="btn p-0 me-2"><span
+                                      class="fa-solid fa-user-plus text-white light"></span></button><button
+                                    class="btn p-0"><span class="fa-solid fa-ellipsis text-white light"></span></button>
+                                </div>
+                                <div class="text-center">
+                                  <div
+                                    class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2">
+                                    <img class="rounded-circle border border-white" src="../assets/img/team/1.webp"
+                                      alt="" /></div>
+                                  <h6 class="text-white light">Luis Bunuel</h6>
+                                  <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
+                                  <div class="d-flex flex-center mb-3">
+                                    <h6 class="text-white light mb-0">224 <span
+                                        class="fw-normal text-300">connections</span></h6><span
+                                      class="fa-solid fa-circle text-700 mx-1"
+                                      data-fa-transform="shrink-10 up-2"></span>
+                                    <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span>
+                                    </h6>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="bg-white">
+                              <div class="p-3 border-bottom">
+                                <div class="d-flex justify-content-between">
+                                  <div class="d-flex"><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                        class="fa-solid fa-phone"></span></button><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                        class="fa-solid fa-message"></span></button><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
+                                        class="fa-solid fa-video"></span></button></div><button
+                                    class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
+                                    Email</button>
+                                </div>
+                              </div>
+                              <ul class="nav d-flex flex-column py-3 border-bottom">
+                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
+                                    <span class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
+                                      class="text-1000 flex-1">Assigned Projects</span><span
+                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
+                                    <span class="me-2 text-900" data-feather="pie-chart"></span><span
+                                      class="text-1000 flex-1">View activiy</span><span
+                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                              </ul>
+                            </div>
+                            <div class="p-3 d-flex justify-content-between"><a
+                                class="btn btn-link p-0 text-decoration-none" href="#!">Details </a><a
+                                class="btn btn-link p-0 text-decoration-none text-danger" href="#!">Unassign </a></div>
+                          </div><a class="dropdown-toggle dropdown-caret-none d-inline-block" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                            <div class="avatar avatar-s  rounded-circle">
+                              <img class="rounded-circle avatar-placeholder" src="../assets/img/team/avatar.webp"
+                                alt="" />
+                            </div>
+                          </a>
+                          <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
+                            <div class="position-relative">
+                              <div class="bg-holder z-index--1"
+                                style="background-image:url(../assets/img/bg/bg-32.png);background-size: auto;"></div>
+                              <!--/.bg-holder-->
+                              <div class="p-3">
+                                <div class="text-end"><button class="btn p-0 me-2"><span
+                                      class="fa-solid fa-user-plus text-white light"></span></button><button
+                                    class="btn p-0"><span class="fa-solid fa-ellipsis text-white light"></span></button>
+                                </div>
+                                <div class="text-center">
+                                  <div
+                                    class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2">
+                                    <img class="rounded-circle border border-white" src="../assets/img/team/avatar.webp"
+                                      alt="" /></div>
+                                  <h6 class="text-white light">Kristine Cadena</h6>
+                                  <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
+                                  <div class="d-flex flex-center mb-3">
+                                    <h6 class="text-white light mb-0">224 <span
+                                        class="fw-normal text-300">connections</span></h6><span
+                                      class="fa-solid fa-circle text-700 mx-1"
+                                      data-fa-transform="shrink-10 up-2"></span>
+                                    <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span>
+                                    </h6>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="bg-white">
+                              <div class="p-3 border-bottom">
+                                <div class="d-flex justify-content-between">
+                                  <div class="d-flex"><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                        class="fa-solid fa-phone"></span></button><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                        class="fa-solid fa-message"></span></button><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
+                                        class="fa-solid fa-video"></span></button></div><button
+                                    class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
+                                    Email</button>
+                                </div>
+                              </div>
+                              <ul class="nav d-flex flex-column py-3 border-bottom">
+                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
+                                    <span class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
+                                      class="text-1000 flex-1">Assigned Projects</span><span
+                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
+                                    <span class="me-2 text-900" data-feather="pie-chart"></span><span
+                                      class="text-1000 flex-1">View activiy</span><span
+                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                              </ul>
+                            </div>
+                            <div class="p-3 d-flex justify-content-between"><a
+                                class="btn btn-link p-0 text-decoration-none" href="#!">Details </a><a
+                                class="btn btn-link p-0 text-decoration-none text-danger" href="#!">Unassign </a></div>
+                          </div><a class="dropdown-toggle dropdown-caret-none d-inline-block" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                            <div class="avatar avatar-s  rounded-circle">
+                              <img class="rounded-circle " src="../assets/img/team/5.webp" alt="" />
+                            </div>
+                          </a>
+                          <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
+                            <div class="position-relative">
+                              <div class="bg-holder z-index--1"
+                                style="background-image:url(../assets/img/bg/bg-32.png);background-size: auto;"></div>
+                              <!--/.bg-holder-->
+                              <div class="p-3">
+                                <div class="text-end"><button class="btn p-0 me-2"><span
+                                      class="fa-solid fa-user-plus text-white light"></span></button><button
+                                    class="btn p-0"><span class="fa-solid fa-ellipsis text-white light"></span></button>
+                                </div>
+                                <div class="text-center">
+                                  <div
+                                    class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2">
+                                    <img class="rounded-circle border border-white" src="../assets/img/team/5.webp"
+                                      alt="" /></div>
+                                  <h6 class="text-white light">Ricky Antony</h6>
+                                  <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
+                                  <div class="d-flex flex-center mb-3">
+                                    <h6 class="text-white light mb-0">224 <span
+                                        class="fw-normal text-300">connections</span></h6><span
+                                      class="fa-solid fa-circle text-700 mx-1"
+                                      data-fa-transform="shrink-10 up-2"></span>
+                                    <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span>
+                                    </h6>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="bg-white">
+                              <div class="p-3 border-bottom">
+                                <div class="d-flex justify-content-between">
+                                  <div class="d-flex"><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                        class="fa-solid fa-phone"></span></button><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                        class="fa-solid fa-message"></span></button><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
+                                        class="fa-solid fa-video"></span></button></div><button
+                                    class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
+                                    Email</button>
+                                </div>
+                              </div>
+                              <ul class="nav d-flex flex-column py-3 border-bottom">
+                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
+                                    <span class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
+                                      class="text-1000 flex-1">Assigned Projects</span><span
+                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
+                                    <span class="me-2 text-900" data-feather="pie-chart"></span><span
+                                      class="text-1000 flex-1">View activiy</span><span
+                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                              </ul>
+                            </div>
+                            <div class="p-3 d-flex justify-content-between"><a
+                                class="btn btn-link p-0 text-decoration-none" href="#!">Details </a><a
+                                class="btn btn-link p-0 text-decoration-none text-danger" href="#!">Unassign </a></div>
+                          </div><a class="dropdown-toggle dropdown-caret-none d-inline-block" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                            <div class="avatar avatar-s  rounded-circle">
+                              <img class="rounded-circle " src="../assets/img/team/11.webp" alt="" />
+                            </div>
+                          </a>
+                          <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
+                            <div class="position-relative">
+                              <div class="bg-holder z-index--1"
+                                style="background-image:url(../assets/img/bg/bg-32.png);background-size: auto;"></div>
+                              <!--/.bg-holder-->
+                              <div class="p-3">
+                                <div class="text-end"><button class="btn p-0 me-2"><span
+                                      class="fa-solid fa-user-plus text-white light"></span></button><button
+                                    class="btn p-0"><span class="fa-solid fa-ellipsis text-white light"></span></button>
+                                </div>
+                                <div class="text-center">
+                                  <div
+                                    class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2">
+                                    <img class="rounded-circle border border-white" src="../assets/img/team/11.webp"
+                                      alt="" /></div>
+                                  <h6 class="text-white light">Roy Anderson</h6>
+                                  <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
+                                  <div class="d-flex flex-center mb-3">
+                                    <h6 class="text-white light mb-0">224 <span
+                                        class="fw-normal text-300">connections</span></h6><span
+                                      class="fa-solid fa-circle text-700 mx-1"
+                                      data-fa-transform="shrink-10 up-2"></span>
+                                    <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span>
+                                    </h6>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="bg-white">
+                              <div class="p-3 border-bottom">
+                                <div class="d-flex justify-content-between">
+                                  <div class="d-flex"><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                        class="fa-solid fa-phone"></span></button><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                        class="fa-solid fa-message"></span></button><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
+                                        class="fa-solid fa-video"></span></button></div><button
+                                    class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
+                                    Email</button>
+                                </div>
+                              </div>
+                              <ul class="nav d-flex flex-column py-3 border-bottom">
+                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
+                                    <span class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
+                                      class="text-1000 flex-1">Assigned Projects</span><span
+                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
+                                    <span class="me-2 text-900" data-feather="pie-chart"></span><span
+                                      class="text-1000 flex-1">View activiy</span><span
+                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                              </ul>
+                            </div>
+                            <div class="p-3 d-flex justify-content-between"><a
+                                class="btn btn-link p-0 text-decoration-none" href="#!">Details </a><a
+                                class="btn btn-link p-0 text-decoration-none text-danger" href="#!">Unassign </a></div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="align-middle white-space-nowrap start ps-3">
+                        <p class="mb-0 fs--1 text-900">Nov 1, 2019</p>
+                      </td>
+                      <td class="align-middle white-space-nowrap deadline ps-3">
+                        <p class="mb-0 fs--1 text-900">Dec 1, 2024</p>
+                      </td>
+                      <td class="align-middle white-space-nowrap calculation ps-3"><button
+                          class="btn btn-phoenix-secondary square-icon-btn"><span class="fas fa-plus"></span></button>
+                      </td>
+                      <td class="align-middle white-space-nowrap ps-3 projectprogress">
+                        <p class="text-800 fs--2 mb-0">16 / 56</p>
+                        <div class="progress" style="height:3px;">
+                          <div class="progress-bar bg-success" style="width: 28.57142857142857%" aria-valuenow="25"
+                            aria-valuemin="0" aria-valuemax="100" role="progressbar"></div>
+                        </div>
+                      </td>
+                      <td class="align-middle white-space-nowrap ps-8 status">
+                        <div class="progress progress-stack mt-3" style="height:3px;">
+                          <div class="progress-bar bg-info" style="width:45%" aria-valuenow="25" aria-valuemin="0"
+                            aria-valuemax="100" role="progressbar"></div>
+                          <div class="progress-bar bg-danger" style="width:15%" aria-valuenow="25" aria-valuemin="0"
+                            aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" title="5% Damage"
+                            role="progressbar"></div>
+                          <div class="progress-bar bg-warning" style="width:20%" aria-valuenow="25" aria-valuemin="0"
+                            aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" title="45% Damage"
+                            role="progressbar"></div>
+                          <div class="progress-bar bg-success" style="width:20%" aria-valuenow="25" aria-valuemin="0"
+                            aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" title="15% Damage"
+                            role="progressbar"></div>
+                        </div>
+                      </td>
+                      <td class="align-middle text-end white-space-nowrap pe-0 action">
+                        <div class="font-sans-serif btn-reveal-trigger position-static"><button
+                            class="btn btn-sm dropdown-toggle dropdown-caret-none transition-none btn-reveal fs--2"
+                            type="button" data-bs-toggle="dropdown" data-boundary="window" aria-haspopup="true"
+                            aria-expanded="false" data-bs-reference="parent"><span
+                              class="fas fa-ellipsis-h fs--2"></span></button>
+                          <div class="dropdown-menu dropdown-menu-end py-2"><a class="dropdown-item"
+                              href="#!">View</a><a class="dropdown-item" href="#!">Export</a>
+                            <div class="dropdown-divider"></div><a class="dropdown-item text-danger"
+                              href="#!">Remove</a>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="position-static">
+                      <td class="align-middle time white-space-nowrap ps-0 project"><a class="fw-bold fs-0"
+                          href="#">Harnessing stupidity from Jerry</a></td>
+                      <td class="align-middle white-space-nowrap assigness ps-3">
+                        <div class="avatar-group avatar-group-dense"><a
+                            class="dropdown-toggle dropdown-caret-none d-inline-block" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                            <div class="avatar avatar-s  rounded-circle">
+                              <img class="rounded-circle " src="../assets/img/team/21.webp" alt="" />
+                            </div>
+                          </a>
+                          <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
+                            <div class="position-relative">
+                              <div class="bg-holder z-index--1"
+                                style="background-image:url(../assets/img/bg/bg-32.png);background-size: auto;"></div>
+                              <!--/.bg-holder-->
+                              <div class="p-3">
+                                <div class="text-end"><button class="btn p-0 me-2"><span
+                                      class="fa-solid fa-user-plus text-white light"></span></button><button
+                                    class="btn p-0"><span class="fa-solid fa-ellipsis text-white light"></span></button>
+                                </div>
+                                <div class="text-center">
+                                  <div
+                                    class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2">
+                                    <img class="rounded-circle border border-white" src="../assets/img/team/21.webp"
+                                      alt="" /></div>
+                                  <h6 class="text-white light">Michael Jenkins</h6>
+                                  <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
+                                  <div class="d-flex flex-center mb-3">
+                                    <h6 class="text-white light mb-0">224 <span
+                                        class="fw-normal text-300">connections</span></h6><span
+                                      class="fa-solid fa-circle text-700 mx-1"
+                                      data-fa-transform="shrink-10 up-2"></span>
+                                    <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span>
+                                    </h6>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="bg-white">
+                              <div class="p-3 border-bottom">
+                                <div class="d-flex justify-content-between">
+                                  <div class="d-flex"><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                        class="fa-solid fa-phone"></span></button><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                        class="fa-solid fa-message"></span></button><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
+                                        class="fa-solid fa-video"></span></button></div><button
+                                    class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
+                                    Email</button>
+                                </div>
+                              </div>
+                              <ul class="nav d-flex flex-column py-3 border-bottom">
+                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
+                                    <span class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
+                                      class="text-1000 flex-1">Assigned Projects</span><span
+                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
+                                    <span class="me-2 text-900" data-feather="pie-chart"></span><span
+                                      class="text-1000 flex-1">View activiy</span><span
+                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                              </ul>
+                            </div>
+                            <div class="p-3 d-flex justify-content-between"><a
+                                class="btn btn-link p-0 text-decoration-none" href="#!">Details </a><a
+                                class="btn btn-link p-0 text-decoration-none text-danger" href="#!">Unassign </a></div>
+                          </div><a class="dropdown-toggle dropdown-caret-none d-inline-block" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                            <div class="avatar avatar-s  rounded-circle">
+                              <img class="rounded-circle " src="../assets/img/team/23.webp" alt="" />
+                            </div>
+                          </a>
+                          <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
+                            <div class="position-relative">
+                              <div class="bg-holder z-index--1"
+                                style="background-image:url(../assets/img/bg/bg-32.png);background-size: auto;"></div>
+                              <!--/.bg-holder-->
+                              <div class="p-3">
+                                <div class="text-end"><button class="btn p-0 me-2"><span
+                                      class="fa-solid fa-user-plus text-white light"></span></button><button
+                                    class="btn p-0"><span class="fa-solid fa-ellipsis text-white light"></span></button>
+                                </div>
+                                <div class="text-center">
+                                  <div
+                                    class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2">
+                                    <img class="rounded-circle border border-white" src="../assets/img/team/23.webp"
+                                      alt="" /></div>
+                                  <h6 class="text-white light">Kristine Cadena</h6>
+                                  <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
+                                  <div class="d-flex flex-center mb-3">
+                                    <h6 class="text-white light mb-0">224 <span
+                                        class="fw-normal text-300">connections</span></h6><span
+                                      class="fa-solid fa-circle text-700 mx-1"
+                                      data-fa-transform="shrink-10 up-2"></span>
+                                    <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span>
+                                    </h6>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="bg-white">
+                              <div class="p-3 border-bottom">
+                                <div class="d-flex justify-content-between">
+                                  <div class="d-flex"><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                        class="fa-solid fa-phone"></span></button><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                        class="fa-solid fa-message"></span></button><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
+                                        class="fa-solid fa-video"></span></button></div><button
+                                    class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
+                                    Email</button>
+                                </div>
+                              </div>
+                              <ul class="nav d-flex flex-column py-3 border-bottom">
+                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
+                                    <span class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
+                                      class="text-1000 flex-1">Assigned Projects</span><span
+                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
+                                    <span class="me-2 text-900" data-feather="pie-chart"></span><span
+                                      class="text-1000 flex-1">View activiy</span><span
+                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                              </ul>
+                            </div>
+                            <div class="p-3 d-flex justify-content-between"><a
+                                class="btn btn-link p-0 text-decoration-none" href="#!">Details </a><a
+                                class="btn btn-link p-0 text-decoration-none text-danger" href="#!">Unassign </a></div>
+                          </div><a class="dropdown-toggle dropdown-caret-none d-inline-block" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                            <div class="avatar avatar-s  rounded-circle">
+                              <img class="rounded-circle " src="../assets/img/team/25.webp" alt="" />
+                            </div>
+                          </a>
+                          <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
+                            <div class="position-relative">
+                              <div class="bg-holder z-index--1"
+                                style="background-image:url(../assets/img/bg/bg-32.png);background-size: auto;"></div>
+                              <!--/.bg-holder-->
+                              <div class="p-3">
+                                <div class="text-end"><button class="btn p-0 me-2"><span
+                                      class="fa-solid fa-user-plus text-white light"></span></button><button
+                                    class="btn p-0"><span class="fa-solid fa-ellipsis text-white light"></span></button>
+                                </div>
+                                <div class="text-center">
+                                  <div
+                                    class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2">
+                                    <img class="rounded-circle border border-white" src="../assets/img/team/25.webp"
+                                      alt="" /></div>
+                                  <h6 class="text-white light">Ricky Antony</h6>
+                                  <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
+                                  <div class="d-flex flex-center mb-3">
+                                    <h6 class="text-white light mb-0">224 <span
+                                        class="fw-normal text-300">connections</span></h6><span
+                                      class="fa-solid fa-circle text-700 mx-1"
+                                      data-fa-transform="shrink-10 up-2"></span>
+                                    <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span>
+                                    </h6>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="bg-white">
+                              <div class="p-3 border-bottom">
+                                <div class="d-flex justify-content-between">
+                                  <div class="d-flex"><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                        class="fa-solid fa-phone"></span></button><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                        class="fa-solid fa-message"></span></button><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
+                                        class="fa-solid fa-video"></span></button></div><button
+                                    class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
+                                    Email</button>
+                                </div>
+                              </div>
+                              <ul class="nav d-flex flex-column py-3 border-bottom">
+                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
+                                    <span class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
+                                      class="text-1000 flex-1">Assigned Projects</span><span
+                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
+                                    <span class="me-2 text-900" data-feather="pie-chart"></span><span
+                                      class="text-1000 flex-1">View activiy</span><span
+                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                              </ul>
+                            </div>
+                            <div class="p-3 d-flex justify-content-between"><a
+                                class="btn btn-link p-0 text-decoration-none" href="#!">Details </a><a
+                                class="btn btn-link p-0 text-decoration-none text-danger" href="#!">Unassign </a></div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="align-middle white-space-nowrap start ps-3">
+                        <p class="mb-0 fs--1 text-900">Dec 28, 2019</p>
+                      </td>
+                      <td class="align-middle white-space-nowrap deadline ps-3">
+                        <p class="mb-0 fs--1 text-900">Nov 28, 2021</p>
+                      </td>
+                      <td class="align-middle white-space-nowrap calculation ps-3"><button
+                          class="btn btn-phoenix-secondary square-icon-btn"><span class="fas fa-plus"></span></button>
+                      </td>
+                      <td class="align-middle white-space-nowrap ps-3 projectprogress">
+                        <p class="text-800 fs--2 mb-0">169 / 394</p>
+                        <div class="progress" style="height:3px;">
+                          <div class="progress-bar bg-success" style="width: 42.89340101522843%" aria-valuenow="25"
+                            aria-valuemin="0" aria-valuemax="100" role="progressbar"></div>
+                        </div>
+                      </td>
+                      <td class="align-middle white-space-nowrap ps-8 status">
+                        <div class="progress progress-stack mt-3" style="height:3px;">
+                          <div class="progress-bar bg-info" style="width:25%" aria-valuenow="25" aria-valuemin="0"
+                            aria-valuemax="100" role="progressbar"></div>
+                          <div class="progress-bar bg-danger" style="width:35%" aria-valuenow="25" aria-valuemin="0"
+                            aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" title="5% Damage"
+                            role="progressbar"></div>
+                          <div class="progress-bar bg-warning" style="width:20%" aria-valuenow="25" aria-valuemin="0"
+                            aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" title="45% Damage"
+                            role="progressbar"></div>
+                          <div class="progress-bar bg-success" style="width:15%" aria-valuenow="25" aria-valuemin="0"
+                            aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" title="15% Damage"
+                            role="progressbar"></div>
+                        </div>
+                      </td>
+                      <td class="align-middle text-end white-space-nowrap pe-0 action">
+                        <div class="font-sans-serif btn-reveal-trigger position-static"><button
+                            class="btn btn-sm dropdown-toggle dropdown-caret-none transition-none btn-reveal fs--2"
+                            type="button" data-bs-toggle="dropdown" data-boundary="window" aria-haspopup="true"
+                            aria-expanded="false" data-bs-reference="parent"><span
+                              class="fas fa-ellipsis-h fs--2"></span></button>
+                          <div class="dropdown-menu dropdown-menu-end py-2"><a class="dropdown-item"
+                              href="#!">View</a><a class="dropdown-item" href="#!">Export</a>
+                            <div class="dropdown-divider"></div><a class="dropdown-item text-danger"
+                              href="#!">Remove</a>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="position-static">
+                      <td class="align-middle time white-space-nowrap ps-0 project"><a class="fw-bold fs-0"
+                          href="#">Water resistant mosquito killer gun</a></td>
+                      <td class="align-middle white-space-nowrap assigness ps-3">
+                        <div class="avatar-group avatar-group-dense"><a
+                            class="dropdown-toggle dropdown-caret-none d-inline-block" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                            <div class="avatar avatar-s  rounded-circle">
+                              <img class="rounded-circle " src="../assets/img/team/30.webp" alt="" />
+                            </div>
+                          </a>
+                          <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
+                            <div class="position-relative">
+                              <div class="bg-holder z-index--1"
+                                style="background-image:url(../assets/img/bg/bg-32.png);background-size: auto;"></div>
+                              <!--/.bg-holder-->
+                              <div class="p-3">
+                                <div class="text-end"><button class="btn p-0 me-2"><span
+                                      class="fa-solid fa-user-plus text-white light"></span></button><button
+                                    class="btn p-0"><span class="fa-solid fa-ellipsis text-white light"></span></button>
+                                </div>
+                                <div class="text-center">
+                                  <div
+                                    class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2">
+                                    <img class="rounded-circle border border-white" src="../assets/img/team/30.webp"
+                                      alt="" /></div>
+                                  <h6 class="text-white light">Stanly Drinkwater</h6>
+                                  <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
+                                  <div class="d-flex flex-center mb-3">
+                                    <h6 class="text-white light mb-0">224 <span
+                                        class="fw-normal text-300">connections</span></h6><span
+                                      class="fa-solid fa-circle text-700 mx-1"
+                                      data-fa-transform="shrink-10 up-2"></span>
+                                    <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span>
+                                    </h6>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="bg-white">
+                              <div class="p-3 border-bottom">
+                                <div class="d-flex justify-content-between">
+                                  <div class="d-flex"><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                        class="fa-solid fa-phone"></span></button><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                        class="fa-solid fa-message"></span></button><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
+                                        class="fa-solid fa-video"></span></button></div><button
+                                    class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
+                                    Email</button>
+                                </div>
+                              </div>
+                              <ul class="nav d-flex flex-column py-3 border-bottom">
+                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
+                                    <span class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
+                                      class="text-1000 flex-1">Assigned Projects</span><span
+                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
+                                    <span class="me-2 text-900" data-feather="pie-chart"></span><span
+                                      class="text-1000 flex-1">View activiy</span><span
+                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                              </ul>
+                            </div>
+                            <div class="p-3 d-flex justify-content-between"><a
+                                class="btn btn-link p-0 text-decoration-none" href="#!">Details </a><a
+                                class="btn btn-link p-0 text-decoration-none text-danger" href="#!">Unassign </a></div>
+                          </div><a class="dropdown-toggle dropdown-caret-none d-inline-block" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                            <div class="avatar avatar-s  rounded-circle">
+                              <img class="rounded-circle avatar-placeholder" src="../assets/img/team/avatar.webp"
+                                alt="" />
+                            </div>
+                          </a>
+                          <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
+                            <div class="position-relative">
+                              <div class="bg-holder z-index--1"
+                                style="background-image:url(../assets/img/bg/bg-32.png);background-size: auto;"></div>
+                              <!--/.bg-holder-->
+                              <div class="p-3">
+                                <div class="text-end"><button class="btn p-0 me-2"><span
+                                      class="fa-solid fa-user-plus text-white light"></span></button><button
+                                    class="btn p-0"><span class="fa-solid fa-ellipsis text-white light"></span></button>
+                                </div>
+                                <div class="text-center">
+                                  <div
+                                    class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2">
+                                    <img class="rounded-circle border border-white" src="../assets/img/team/avatar.webp"
+                                      alt="" /></div>
+                                  <h6 class="text-white light">Kristine Cadena</h6>
+                                  <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
+                                  <div class="d-flex flex-center mb-3">
+                                    <h6 class="text-white light mb-0">224 <span
+                                        class="fw-normal text-300">connections</span></h6><span
+                                      class="fa-solid fa-circle text-700 mx-1"
+                                      data-fa-transform="shrink-10 up-2"></span>
+                                    <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span>
+                                    </h6>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="bg-white">
+                              <div class="p-3 border-bottom">
+                                <div class="d-flex justify-content-between">
+                                  <div class="d-flex"><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                        class="fa-solid fa-phone"></span></button><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                        class="fa-solid fa-message"></span></button><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
+                                        class="fa-solid fa-video"></span></button></div><button
+                                    class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
+                                    Email</button>
+                                </div>
+                              </div>
+                              <ul class="nav d-flex flex-column py-3 border-bottom">
+                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
+                                    <span class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
+                                      class="text-1000 flex-1">Assigned Projects</span><span
+                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
+                                    <span class="me-2 text-900" data-feather="pie-chart"></span><span
+                                      class="text-1000 flex-1">View activiy</span><span
+                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                              </ul>
+                            </div>
+                            <div class="p-3 d-flex justify-content-between"><a
+                                class="btn btn-link p-0 text-decoration-none" href="#!">Details </a><a
+                                class="btn btn-link p-0 text-decoration-none text-danger" href="#!">Unassign </a></div>
+                          </div><a class="dropdown-toggle dropdown-caret-none d-inline-block" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                            <div class="avatar avatar-s  rounded-circle">
+                              <img class="rounded-circle " src="../assets/img/team/59.webp" alt="" />
+                            </div>
+                          </a>
+                          <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
+                            <div class="position-relative">
+                              <div class="bg-holder z-index--1"
+                                style="background-image:url(../assets/img/bg/bg-32.png);background-size: auto;"></div>
+                              <!--/.bg-holder-->
+                              <div class="p-3">
+                                <div class="text-end"><button class="btn p-0 me-2"><span
+                                      class="fa-solid fa-user-plus text-white light"></span></button><button
+                                    class="btn p-0"><span class="fa-solid fa-ellipsis text-white light"></span></button>
+                                </div>
+                                <div class="text-center">
+                                  <div
+                                    class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2">
+                                    <img class="rounded-circle border border-white" src="../assets/img/team/59.webp"
+                                      alt="" /></div>
+                                  <h6 class="text-white light">Katerina Karenin</h6>
+                                  <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
+                                  <div class="d-flex flex-center mb-3">
+                                    <h6 class="text-white light mb-0">224 <span
+                                        class="fw-normal text-300">connections</span></h6><span
+                                      class="fa-solid fa-circle text-700 mx-1"
+                                      data-fa-transform="shrink-10 up-2"></span>
+                                    <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span>
+                                    </h6>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="bg-white">
+                              <div class="p-3 border-bottom">
+                                <div class="d-flex justify-content-between">
+                                  <div class="d-flex"><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                        class="fa-solid fa-phone"></span></button><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                        class="fa-solid fa-message"></span></button><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
+                                        class="fa-solid fa-video"></span></button></div><button
+                                    class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
+                                    Email</button>
+                                </div>
+                              </div>
+                              <ul class="nav d-flex flex-column py-3 border-bottom">
+                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
+                                    <span class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
+                                      class="text-1000 flex-1">Assigned Projects</span><span
+                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
+                                    <span class="me-2 text-900" data-feather="pie-chart"></span><span
+                                      class="text-1000 flex-1">View activiy</span><span
+                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                              </ul>
+                            </div>
+                            <div class="p-3 d-flex justify-content-between"><a
+                                class="btn btn-link p-0 text-decoration-none" href="#!">Details </a><a
+                                class="btn btn-link p-0 text-decoration-none text-danger" href="#!">Unassign </a></div>
+                          </div><a class="dropdown-toggle dropdown-caret-none d-inline-block" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                            <div class="avatar avatar-s  rounded-circle">
+                              <img class="rounded-circle " src="../assets/img/team/31.webp" alt="" />
+                            </div>
+                          </a>
+                          <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
+                            <div class="position-relative">
+                              <div class="bg-holder z-index--1"
+                                style="background-image:url(../assets/img/bg/bg-32.png);background-size: auto;"></div>
+                              <!--/.bg-holder-->
+                              <div class="p-3">
+                                <div class="text-end"><button class="btn p-0 me-2"><span
+                                      class="fa-solid fa-user-plus text-white light"></span></button><button
+                                    class="btn p-0"><span class="fa-solid fa-ellipsis text-white light"></span></button>
+                                </div>
+                                <div class="text-center">
+                                  <div
+                                    class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2">
+                                    <img class="rounded-circle border border-white" src="../assets/img/team/31.webp"
+                                      alt="" /></div>
+                                  <h6 class="text-white light">Martina scorcese</h6>
+                                  <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
+                                  <div class="d-flex flex-center mb-3">
+                                    <h6 class="text-white light mb-0">224 <span
+                                        class="fw-normal text-300">connections</span></h6><span
+                                      class="fa-solid fa-circle text-700 mx-1"
+                                      data-fa-transform="shrink-10 up-2"></span>
+                                    <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span>
+                                    </h6>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="bg-white">
+                              <div class="p-3 border-bottom">
+                                <div class="d-flex justify-content-between">
+                                  <div class="d-flex"><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                        class="fa-solid fa-phone"></span></button><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                        class="fa-solid fa-message"></span></button><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
+                                        class="fa-solid fa-video"></span></button></div><button
+                                    class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
+                                    Email</button>
+                                </div>
+                              </div>
+                              <ul class="nav d-flex flex-column py-3 border-bottom">
+                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
+                                    <span class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
+                                      class="text-1000 flex-1">Assigned Projects</span><span
+                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
+                                    <span class="me-2 text-900" data-feather="pie-chart"></span><span
+                                      class="text-1000 flex-1">View activiy</span><span
+                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                              </ul>
+                            </div>
+                            <div class="p-3 d-flex justify-content-between"><a
+                                class="btn btn-link p-0 text-decoration-none" href="#!">Details </a><a
+                                class="btn btn-link p-0 text-decoration-none text-danger" href="#!">Unassign </a></div>
+                          </div><a class="dropdown-toggle dropdown-caret-none d-inline-block" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                            <div class="avatar avatar-s">
+                              <div class="avatar-name rounded-circle"><span>R</span></div>
+                            </div>
+                          </a>
+                          <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
+                            <div class="position-relative">
+                              <div class="bg-holder z-index--1"
+                                style="background-image:url(../assets/img/bg/bg-32.png);background-size: auto;"></div>
+                              <!--/.bg-holder-->
+                              <div class="p-3">
+                                <div class="text-end"><button class="btn p-0 me-2"><span
+                                      class="fa-solid fa-user-plus text-white light"></span></button><button
+                                    class="btn p-0"><span class="fa-solid fa-ellipsis text-white light"></span></button>
+                                </div>
+                                <div class="text-center">
+                                  <div
+                                    class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2">
+                                    <div class="avatar-name rounded-circle"><span>R</span></div>
+                                  </div>
+                                  <h6 class="text-white light">Roy Anderson</h6>
+                                  <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
+                                  <div class="d-flex flex-center mb-3">
+                                    <h6 class="text-white light mb-0">224 <span
+                                        class="fw-normal text-300">connections</span></h6><span
+                                      class="fa-solid fa-circle text-700 mx-1"
+                                      data-fa-transform="shrink-10 up-2"></span>
+                                    <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span>
+                                    </h6>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="bg-white">
+                              <div class="p-3 border-bottom">
+                                <div class="d-flex justify-content-between">
+                                  <div class="d-flex"><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                        class="fa-solid fa-phone"></span></button><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
+                                        class="fa-solid fa-message"></span></button><button
+                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
+                                        class="fa-solid fa-video"></span></button></div><button
+                                    class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
+                                    Email</button>
+                                </div>
+                              </div>
+                              <ul class="nav d-flex flex-column py-3 border-bottom">
+                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
+                                    <span class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
+                                      class="text-1000 flex-1">Assigned Projects</span><span
+                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
+                                    <span class="me-2 text-900" data-feather="pie-chart"></span><span
+                                      class="text-1000 flex-1">View activiy</span><span
+                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
+                              </ul>
+                            </div>
+                            <div class="p-3 d-flex justify-content-between"><a
+                                class="btn btn-link p-0 text-decoration-none" href="#!">Details </a><a
+                                class="btn btn-link p-0 text-decoration-none text-danger" href="#!">Unassign </a></div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="align-middle white-space-nowrap start ps-3">
+                        <p class="mb-0 fs--1 text-900">Feb 24, 2020</p>
+                      </td>
+                      <td class="align-middle white-space-nowrap deadline ps-3">
+                        <p class="mb-0 fs--1 text-900">Nov 24, 2021</p>
+                      </td>
+                      <td class="align-middle white-space-nowrap calculation ps-3">
+                        <p class="fw-bold text-1100 fs--1 mb-0">$55k</p>
+                        <p class="fw-semi-bold fs--2 text-700 mb-0">Budget</p>
+                      </td>
+                      <td class="align-middle white-space-nowrap ps-3 projectprogress">
+                        <p class="text-800 fs--2 mb-0">600 / 600</p>
+                        <div class="progress" style="height:3px;">
+                          <div class="progress-bar bg-success" style="width: 100%" aria-valuenow="25" aria-valuemin="0"
+                            aria-valuemax="100" role="progressbar"></div>
+                        </div>
+                      </td>
+                      <td class="align-middle white-space-nowrap ps-8 status">
+                        <div class="progress progress-stack mt-3" style="height:3px;">
+                          <div class="progress-bar bg-info" style="width:24%" aria-valuenow="25" aria-valuemin="0"
+                            aria-valuemax="100" role="progressbar"></div>
+                          <div class="progress-bar bg-danger" style="width:5%" aria-valuenow="25" aria-valuemin="0"
+                            aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" title="5% Damage"
+                            role="progressbar"></div>
+                          <div class="progress-bar bg-warning" style="width:35%" aria-valuenow="25" aria-valuemin="0"
+                            aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" title="45% Damage"
+                            role="progressbar"></div>
+                          <div class="progress-bar bg-success" style="width:35%" aria-valuenow="25" aria-valuemin="0"
+                            aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" title="15% Damage"
+                            role="progressbar"></div>
+                        </div>
+                      </td>
+                      <td class="align-middle text-end white-space-nowrap pe-0 action">
+                        <div class="font-sans-serif btn-reveal-trigger position-static"><button
+                            class="btn btn-sm dropdown-toggle dropdown-caret-none transition-none btn-reveal fs--2"
+                            type="button" data-bs-toggle="dropdown" data-boundary="window" aria-haspopup="true"
+                            aria-expanded="false" data-bs-reference="parent"><span
+                              class="fas fa-ellipsis-h fs--2"></span></button>
+                          <div class="dropdown-menu dropdown-menu-end py-2"><a class="dropdown-item"
+                              href="#!">View</a><a class="dropdown-item" href="#!">Export</a>
+                            <div class="dropdown-divider"></div><a class="dropdown-item text-danger"
+                              href="#!">Remove</a>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="row align-items-center justify-content-between py-2 pe-0 fs--1">
+                <div class="col-auto d-flex">
+                  <p class="mb-0 d-none d-sm-block me-3 fw-semi-bold text-900" data-list-info="data-list-info"></p><a
+                    class="fw-semi-bold" href="#!" data-list-view="*">View all<span class="fas fa-angle-right ms-1"
+                      data-fa-transform="down-1"></span></a><a class="fw-semi-bold d-none" href="#!"
+                    data-list-view="less">View Less<span class="fas fa-angle-right ms-1"
+                      data-fa-transform="down-1"></span></a>
+                </div>
+                <div class="col-auto d-flex"><button class="page-link" data-list-pagination="prev"><span
+                      class="fas fa-chevron-left"></span></button>
+                  <ul class="mb-0 pagination"></ul><button class="page-link pe-0" data-list-pagination="next"><span
+                      class="fas fa-chevron-right"></span></button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -6887,25 +9003,39 @@
         href="https://themes.getbootstrap.com/product/phoenix-admin-dashboard-webapp-template/" target="_blank">Purchase
         template</a>
     </div>
+  </div><a class="card setting-toggle" href="#settings-offcanvas" data-bs-toggle="offcanvas">
+    <div class="card-body d-flex align-items-center px-2 py-1">
+      <div class="position-relative rounded-start" style="height:34px;width:28px">
+        <div class="settings-popover"><span class="ripple"><span
+              class="fa-spin position-absolute all-0 d-flex flex-center"><span
+                class="icon-spin position-absolute all-0 d-flex flex-center"><svg width="20" height="20"
+                  viewBox="0 0 20 20" fill="#ffffff" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M19.7369 12.3941L19.1989 12.1065C18.4459 11.7041 18.0843 10.8487 18.0843 9.99495C18.0843 9.14118 18.4459 8.28582 19.1989 7.88336L19.7369 7.59581C19.9474 7.47484 20.0316 7.23291 19.9474 7.03131C19.4842 5.57973 18.6843 4.28943 17.6738 3.20075C17.5053 3.03946 17.2527 2.99914 17.0422 3.12011L16.393 3.46714C15.6883 3.84379 14.8377 3.74529 14.1476 3.3427C14.0988 3.31422 14.0496 3.28621 14.0002 3.25868C13.2568 2.84453 12.7055 2.10629 12.7055 1.25525V0.70081C12.7055 0.499202 12.5371 0.297594 12.2845 0.257272C10.7266 -0.105622 9.16879 -0.0653007 7.69516 0.257272C7.44254 0.297594 7.31623 0.499202 7.31623 0.70081V1.23474C7.31623 2.09575 6.74999 2.8362 5.99824 3.25599C5.95774 3.27861 5.91747 3.30159 5.87744 3.32493C5.15643 3.74527 4.26453 3.85902 3.53534 3.45302L2.93743 3.12011C2.72691 2.99914 2.47429 3.03946 2.30587 3.20075C1.29538 4.28943 0.495411 5.57973 0.0322686 7.03131C-0.051939 7.23291 0.0322686 7.47484 0.242788 7.59581L0.784376 7.8853C1.54166 8.29007 1.92694 9.13627 1.92694 9.99495C1.92694 10.8536 1.54166 11.6998 0.784375 12.1046L0.242788 12.3941C0.0322686 12.515 -0.051939 12.757 0.0322686 12.9586C0.495411 14.4102 1.29538 15.7005 2.30587 16.7891C2.47429 16.9504 2.72691 16.9907 2.93743 16.8698L3.58669 16.5227C4.29133 16.1461 5.14131 16.2457 5.8331 16.6455C5.88713 16.6767 5.94159 16.7074 5.99648 16.7375C6.75162 17.1511 7.31623 17.8941 7.31623 18.7552V19.2891C7.31623 19.4425 7.41373 19.5959 7.55309 19.696C7.64066 19.7589 7.74815 19.7843 7.85406 19.8046C9.35884 20.0925 10.8609 20.0456 12.2845 19.7729C12.5371 19.6923 12.7055 19.4907 12.7055 19.2891V18.7346C12.7055 17.8836 13.2568 17.1454 14.0002 16.7312C14.0496 16.7037 14.0988 16.6757 14.1476 16.6472C14.8377 16.2446 15.6883 16.1461 16.393 16.5227L17.0422 16.8698C17.2527 16.9907 17.5053 16.9504 17.6738 16.7891C18.7264 15.7005 19.4842 14.4102 19.9895 12.9586C20.0316 12.757 19.9474 12.515 19.7369 12.3941ZM10.0109 13.2005C8.1162 13.2005 6.64257 11.7893 6.64257 9.97478C6.64257 8.20063 8.1162 6.74905 10.0109 6.74905C11.8634 6.74905 13.3792 8.20063 13.3792 9.97478C13.3792 11.7893 11.8634 13.2005 10.0109 13.2005Z"
+                    fill="#2A7BE4"></path>
+                </svg></span></span></span></div>
+      </div><small class="text-uppercase text-700 fw-bold py-2 pe-2 ps-1 rounded-end">customize</small>
+    </div>
+  </a>
 
-    </a>
-
-    <!-- ===============================================-->
-    <!--    JavaScripts-->
-    <!-- ===============================================-->
-    <script src="../template/vendors/popper/popper.min.js"></script>
-    <script src="../template/vendors/bootstrap/bootstrap.min.js"></script>
-    <script src="../template/vendors/anchorjs/anchor.min.js"></script>
-    <script src="../template/vendors/is/is.min.js"></script>
-    <script src="../template/vendors/fontawesome/all.min.js"></script>
-    <script src="../template/vendors/lodash/lodash.min.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
-    <script src="../template/vendors/list.js/list.min.js"></script>
-    <script src="../template/vendors/feather-icons/feather.min.js"></script>
-    <script src="../template/vendors/dayjs/dayjs.min.js"></script>
-    <script src="../template/assets/js/phoenix.js"></script>
-    <script src="../template/vendors/list.js/list.min.js"></script>
-
+  <!-- ===============================================-->
+  <!--    JavaScripts-->
+  <!-- ===============================================-->
+  <script src="../template/vendors/popper/popper.min.js"></script>
+  <script src="../template/vendors/bootstrap/bootstrap.min.js"></script>
+  <script src="../template/vendors/anchorjs/anchor.min.js"></script>
+  <script src="../template/vendors/is/is.min.js"></script>
+  <script src="../template/vendors/fontawesome/all.min.js"></script>
+  <script src="../template/vendors/lodash/lodash.min.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+  <script src="../template/vendors/list.js/list.min.js"></script>
+  <script src="../template/vendors/feather-icons/feather.min.js"></script>
+  <script src="../template/vendors/dayjs/dayjs.min.js"></script>
+  <script src="../template/vendors/choices/choices.min.js"></script>
+  <script src="../template/vendors/echarts/echarts.min.js"></script>
+  <script src="../template/vendors/dhtmlx-gantt/dhtmlxgantt.js"></script>
+  <script src="../template/assets/js/phoenix.js"></script>
+  <script src="../template/assets/js/projectmanagement-dashboard.js"></script>
 </body>
 
 </html>

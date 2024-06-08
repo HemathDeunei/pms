@@ -45,6 +45,7 @@ Route::get('/homepage',[LoginController::class,'login']);
 Route::get('/superadmin_home',[SuperadminController::class,'superadmin_home']);
 Route::get('/project-create',[SuperadminController::class,'project_create'])->name('project-create');
 Route::get('/project-list',[SuperadminController::class,'project_list'])->name('project-list');
+Route::get('/dashboard_show',[SuperadminController::class,'show_dashboard'])->name('show_dashboard');
 route::get('/project-details',[SuperadminController::class,'project_details'])->name('project-details');
 Route::post('/project_store',[SuperadminController::class,'project_store'])->name('project_store');
 Route::post('/projects_accept', [SuperadminController::class, 'accept'])->name('project_accept');
