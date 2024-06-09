@@ -10,13 +10,16 @@ use App\Models\Team;
 use App\Models\Member;
 use App\Models\Role;
 use App\Models\Batch;
+use Auth;
 
 class SuperadminController extends Controller
 {
     //
     public function superadmin_home()
     {
-        return view('superadmin.home');
+        $user = Auth::user();
+        dd($user);
+        return view('superadmin.home', compact('user'));
     }
     public function project_create(Request $request)
     {
@@ -149,7 +152,8 @@ class SuperadminController extends Controller
 
     public function show_team()
     {
-        return view('superadmin.addteam');
+        $team=Team::all();
+        return view('superadmin.addteam',compact('team'));
     }
     public function store(Request $request)
     {
@@ -231,7 +235,8 @@ class SuperadminController extends Controller
 
     public function add_roles()
     {
-        return view('superadmin.addroles');
+        $roles=Role::all();
+        return view('superadmin.addroles',compact('roles'));
     }
 
     public function addRole(Request $request)
@@ -262,7 +267,8 @@ class SuperadminController extends Controller
 
     public function show_batch()
     {
-        return view('superadmin.addbatch');
+        $batches=Batch::all();
+        return view('superadmin.addbatch',compact('batches'));
     }
     public function addBatch(Request $request)
     {

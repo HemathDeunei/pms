@@ -39,10 +39,13 @@ require __DIR__.'/auth.php';
 
 Route::get('/',[HomeController::class,'home']);
 Route::get('/homepage',[LoginController::class,'login']);
+
 // Route::get('/homepage',[LoginController::class,'role_login']);
 
 //super Admin
-Route::get('/superadmin_home',[SuperadminController::class,'superadmin_home']);
+// Route::get('/dashboard', 'DashboardController@showDashboard')->middleware('auth');
+
+Route::get('/superadmin_home',[SuperadminController::class,'superadmin_home'])->middleware('auth');
 Route::get('/project-create',[SuperadminController::class,'project_create'])->name('project-create');
 Route::get('/project-list',[SuperadminController::class,'project_list'])->name('project-list');
 Route::get('/dashboard_show',[SuperadminController::class,'show_dashboard'])->name('show_dashboard');
@@ -51,7 +54,7 @@ Route::post('/project_store',[SuperadminController::class,'project_store'])->nam
 Route::post('/projects_accept', [SuperadminController::class, 'accept'])->name('project_accept');
 Route::post('/reject-project', [SuperadminController::class, 'reject']);
 Route::get('/add-team', [SuperadminController::class, 'show_team'])->name('show_team');
-Route::get('/add-roles',[SuperadminController::class,'add_roles'])->name('add_roles');
+Route::get('/add-roles',[SuperadminController::class,'add_roles'])->name('show_roles');
 Route::get('get_team',[SuperadminController::class,'display_team']);
 Route::post('/store-team', [SuperadminController::class, 'store'])->name('store_team');
 Route::get('/get-project/{id}', [SuperadminController::class, 'getProject']);
@@ -64,7 +67,8 @@ Route::post('/add_roles', [SuperadminController::class, 'addRole'])->name('add_r
 Route::get('/get_roles', [SuperadminController::class, 'getroles'])->name('get_roles');
 Route::get('/show_batch',[SuperadminController::class,'show_batch'])->name('show_batch');
 Route::post('/add-batch', [SuperadminController::class, 'addBatch'])->name('add_batch');
-
+Route::post('/open-batch/{id}', [SuperadminController::class, 'open'])->name('open_batch')->middleware('auth');
+Route::post('/close-batch/{id}', [SuperadminController::class, 'close'])->name('close_batch')->middleware('auth');
 
 
 
