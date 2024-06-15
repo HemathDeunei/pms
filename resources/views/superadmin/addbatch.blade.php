@@ -7003,28 +7003,28 @@
                 navbarVertical.classList.add('navbar-darker');
             }
         </script>
-         <div class="content">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">Add Batch</div>
-                    <div class="card-body">
-                        <form id="add_batch_form" action="{{ route('add_batch') }}" method="POST">
-                            @csrf
-                            <div class="form-floating mb-4">
-                                <input type="text" class="form-control" id="batch_name" name="batch_name" placeholder="Batch Name" required>
-                                <label for="batch_name">Batch Name</label>
-                            </div>
-                            <!-- Add any additional fields related to batches if needed -->
-                            <button type="submit" class="btn btn-primary">Add Batch</button>
-                        </form>
+        <div class="content">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">Add Batch</div>
+                        <div class="card-body">
+                            <form id="add_batch_form" action="{{ route('add_batch') }}" method="POST">
+                                @csrf
+                                <div class="form-floating mb-4">
+                                    <input type="text" class="form-control" id="batch_name" name="batch_name"
+                                        placeholder="Batch Name" required>
+                                    <label for="batch_name">Batch Name</label>
+                                </div>
+                                <!-- Add any additional fields related to batches if needed -->
+                                <button type="button" class="btn btn-primary" id="submit_batch">Add Batch</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="row mt-4">
-            <div class="col-md-12">
+            <div class="col-md-12 mt-4">
                 <div class="card">
                     <div class="card-header">Batches</div>
                     <div class="card-body">
@@ -7032,50 +7032,122 @@
                             <thead>
                                 <tr>
                                     <th scope="col">Batch Name</th>
+                                    <th scope="col" class="batch-status">Actions</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                @foreach($batches as $batch)
-                                <tr>
-                                    <td>{{ $batch->batch_name }}</td>
-                                </tr>
-                                @endforeach
+                            <tbody id="batches-table">
+                                <!-- Data will be populated here by AJAX -->
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
-</div>
 
 
-        </div>
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    $(document).ready(function () {
-        $('#submit_batch').on('click', function () {
-            $.ajax({
-                url: $('#add_batch_form').attr('action'),
-                method: 'POST',
-                data: $('#add_batch_form').serialize(),
-                success: function (response) {
-                    // Handle success response
-                    console.log(response);
-                    // You can redirect or show a success message here
-                    alert('Batch added successfully!');
-                },
-                error: function (xhr, status, error) {
-                    // Handle error response
-                    console.error(xhr.responseText);
-                    // You can show an error message here
+        <script>
+            $(document).ready(function () {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                function fetchBatches() {
+                    $.ajax({
+                        type: "GET",
+                        url: "/get-batches", // Replace with your actual route
+                        dataType: "json",
+                        success: function (response) {
+                            console.log("AJAX response:", response);
+                            var tableBody = $('#batches-table');
+                            tableBody.empty(); // Clear existing rows
+
+                            if (response.batches && response.batches.length) {
+                                response.batches.forEach(function (batch) {
+                                    var data = `
+                                <tr data-batch-id="${batch.id}">
+                                    <td class="align-middle">${batch.batch_name}</td>
+                                    <td>
+                                        <button type="button" class="btn btn-success open-btn">Open</button>
+                                        <button type="button" class="btn btn-danger close-btn">Close</button>
+                                    </td>
+                                </tr>`;
+                                    tableBody.append(data);
+                                });
+
+                                // Event listener for Open button
+                                $('.open-btn').click(function () {
+                                    var batchId = $(this).closest('tr').data('batch-id');
+                                    
+                                    updateBatchStatus(batchId, 'open');
+                                });
+
+                                // Event listener for Close button
+                                $('.close-btn').click(function () {
+                                    var batchId = $(this).closest('tr').data('batch-id');
+                                    updateBatchStatus(batchId, 'close');
+                                });
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            console.error("AJAX error:", xhr.responseText);
+                        }
+                    });
                 }
+
+                // Function to update batch status
+                function updateBatchStatus(batchId, status) {
+                    $.ajax({
+                        url: '/update-batch-status', // Replace with your actual route
+                        method: 'POST',
+                        data: {
+                            '_token': $('meta[name="csrf-token"]').attr('content'),
+
+                            batch_id: batchId,
+                            status: status
+                        },
+                        success: function (response) {
+                            console.log("Update status response:", response);
+                            // Update status in the table row
+                            var row = $(`tr[data-batch-id="${batchId}"]`);
+                            row.find('.batch-status').text(status); // Assuming a class 'batch-status' for status cell
+
+                            alert(response.message);
+                        },
+                        error: function (xhr, status, error) {
+                            console.error("Update status error:", xhr.responseText);
+                        }
+                    });
+                }
+
+                // Event listener for submitting the batch form
+                $('#submit_batch').on('click', function () {
+                    $.ajax({
+                        url: $('#add_batch_form').attr('action'),
+                        method: 'POST',
+                        data: $('#add_batch_form').serialize(),
+                        success: function (response) {
+                            // Handle success response
+                            console.log(response);
+                            alert('Batch added successfully!');
+                            fetchBatches();
+                            $('#add_batch_form')[0].reset(); // Reset form fields
+                        },
+                        error: function (xhr, status, error) {
+                            // Handle error response
+                            console.error(xhr.responseText);
+                            alert('Failed to add batch: ' + xhr.responseText);
+                        }
+                    });
+                });
+
+                // Initial fetch of batches on page load
+                fetchBatches();
             });
-        });
-    });
-</script>
+        </script>
 
 
 

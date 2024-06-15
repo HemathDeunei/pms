@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('projects', function (Blueprint $table) {
+        Schema::table('batches', function (Blueprint $table) {
             //
-            $table->string('platform')->default('NA');
-
+            $table->string('batch_status')->default('open');
         });
     }
 
@@ -23,7 +22,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('projects', function (Blueprint $table) {
+        Schema::table('batches', function (Blueprint $table) {
             //
         });
     }

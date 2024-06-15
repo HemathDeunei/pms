@@ -101,14 +101,14 @@
         <div class="navbar-vertical-content">
           <ul class="navbar-nav flex-column" id="navbarVerticalNav">
             <!-- the home content in sie bar page here -->
-            @include('home.sidebar_home')
+            @include('superadmin.sidebar_home')
             <!--end of the home content in sie bar page here -->
             <!-- the apps content in side bar page here -->
-            @include('home.sidebar_apps')
+            @include('superadmin.sidebar_apps')
             <!--end of the apps content in side bar page here -->
-            @include('home.sidebar_page')
-            @include('home.sidebar_modules')
-            @include('home.sidebar_documentation')
+            @include('superadmin.sidebar_page')
+            @include('superadmin.sidebar_modules')
+            @include('superadmin.sidebar_documentation')
           </ul>
         </div>
       </div>
@@ -117,6 +117,7 @@
             class="uil uil-left-arrow-to-left fs-0"></span><span class="uil uil-arrow-from-right fs-0"></span><span
             class="navbar-vertical-footer-text ms-2">Collapsed View</span></button></div>
     </nav>
+    @include('superadmin.navbar')
     <nav class="navbar navbar-top fixed-top navbar-expand" id="navbarDefault" style="display:none;">
       <div class="collapse navbar-collapse justify-content-between">
         <div class="navbar-logo">
@@ -597,6 +598,24 @@
               </div>
             </div>
           </li>
+          <li class="nav-item">
+                    <form method="post" action="{{ route('logout') }}">
+                        @csrf
+                        <!-- Add any additional form fields if needed -->
+
+                        <!-- Check if the user is authenticated and display the user type -->
+                        @if (Auth::check())
+                            <button type="submit" class="btn btn-primary">
+                                LOGOUT ({{ Auth::user()->usertype }})
+                            </button>
+                        @else
+                            <!-- Optionally, you can handle the case when no user is logged in -->
+                            <button type="submit" class="btn btn-primary" disabled>
+                                LOGOUT
+                            </button>
+                        @endif
+                    </form>
+                </li>
         </ul>
       </div>
     </nav>

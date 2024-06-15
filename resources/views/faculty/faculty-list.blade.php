@@ -79,9 +79,6 @@
             padding: 10px;
             border-bottom: 1px solid #c5c0c0;
         }
-
-
-        }
     </style>
 </head>
 
@@ -102,14 +99,14 @@
                 <div class="navbar-vertical-content">
                     <ul class="navbar-nav flex-column" id="navbarVerticalNav">
                         <!-- the home content in sie bar page here -->
-                        @include('home.sidebar_home')
+                        @include('superadmin.sidebar_home')
                         <!--end of the home content in sie bar page here -->
                         <!-- the apps content in side bar page here -->
-                        @include('home.sidebar_apps')
+                        @include('superadmin.sidebar_apps')
                         <!--end of the apps content in side bar page here -->
-                        @include('home.sidebar_page')
-                        @include('home.sidebar_modules')
-                        @include('home.sidebar_documentation')
+                        @include('superadmin.sidebar_page')
+                        @include('superadmin.sidebar_modules')
+                        @include('superadmin.sidebar_documentation')
                     </ul>
                 </div>
             </div>
@@ -119,6 +116,7 @@
                         class="uil uil-arrow-from-right fs-0"></span><span
                         class="navbar-vertical-footer-text ms-2">Collapsed View</span></button></div>
         </nav>
+        @include('superadmin.navbar')
         <nav class="navbar navbar-top fixed-top navbar-expand" id="navbarDefault" style="display:none;">
             <div class="collapse navbar-collapse justify-content-between">
                 <div class="navbar-logo">
@@ -7869,7 +7867,9 @@
                                 <!-- Faculty data will be inserted here dynamically -->
                             </tbody>
                         </table>
-                        <!-- edit modal form -->
+
+                        <!-- Edit modal form -->
+                        <!-- Your table and modal structure -->
                         <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel"
                             aria-hidden="true">
                             <div class="modal-dialog modal-lg">
@@ -7930,9 +7930,11 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- end of edit modal form -->
+
+                        <!-- End of edit modal form -->
                     </div>
                 </div>
+
             </div>
         </div>
         </div>
@@ -8027,7 +8029,7 @@
                     // Send AJAX request to update faculty data
                     $.ajax({
                         type: "POST",
-                        url: "/update-faculty/" + $('#name').val(), // Use the name as the faculty ID (assuming it's unique)
+                        url: "/update-faculty/" + id, // Use the name as the faculty ID (assuming it's unique)
                         data: formData,
                         success: function (response) {
                             if (response.status == 'success') {

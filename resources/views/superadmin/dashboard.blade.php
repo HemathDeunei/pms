@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <!-- ===============================================-->
   <!--    Document Title-->
@@ -56,6 +57,7 @@
       userLinkRTL.setAttribute('disabled', true);
     }
   </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
 <body>
@@ -5758,26 +5760,69 @@
       <div class="row mb-3 gy-6">
         <div class="col-12 col-xxl-2">
           <div class="row align-items-center g-3 g-xxl-0 h-100 align-content-between">
+          <div class="col-12 col-sm-6 col-md-3 col-lg-6 col-xl-3 col-xxl-12">
+        <div class="d-flex align-items-center">
+            <span class="fs-4 lh-1 uil uil-books text-primary-500"></span>
+            <div class="ms-2">
+                <div class="d-flex align-items-end">
+                    <h2 class="mb-0 me-2" id="projectCount">Loading...</h2>
+                    <span class="fs-1 fw-semi-bold text-900">Projects</span>
+                </div>
+                <p class="text-800 fs--1 mb-0">Total Projects</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // Make an AJAX GET request to fetch project count
+            $.ajax({
+                url: '/project_count',
+                type: 'GET',
+                dataType: 'json',
+                success: function (data) {
+                    // Update the DOM with the fetched project count
+                    $('#projectCount').text(data.count);
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error fetching project count:', error);
+                    $('#projectCount').text('Error');
+                }
+            });
+        });
+    </script>
             <div class="col-12 col-sm-6 col-md-3 col-lg-6 col-xl-3 col-xxl-12">
-              <div class="d-flex align-items-center"><span class="fs-4 lh-1 uil uil-books text-primary-500"></span>
+              <div class="d-flex align-items-center">
+                <span class="fs-4 lh-1 uil uil-users-alt text-success-500"></span>
                 <div class="ms-2">
                   <div class="d-flex align-items-end">
-                    <h2 class="mb-0 me-2">32</h2><span class="fs-1 fw-semi-bold text-900">Projects</span>
+                    <h2 class="mb-0 me-2" id="memberCount">Loading...</h2>
+                    <span class="fs-1 fw-semi-bold text-900">Members</span>
                   </div>
-                  <p class="text-800 fs--1 mb-0">Awating processing</p>
+                  <p class="text-800 fs--1 mb-0">Total Members</p>
                 </div>
               </div>
             </div>
-            <div class="col-12 col-sm-6 col-md-3 col-lg-6 col-xl-3 col-xxl-12">
-              <div class="d-flex align-items-center"><span class="fs-4 lh-1 uil uil-users-alt text-success-500"></span>
-                <div class="ms-2">
-                  <div class="d-flex align-items-end">
-                    <h2 class="mb-0 me-2">94</h2><span class="fs-1 fw-semi-bold text-900">Members</span>
-                  </div>
-                  <p class="text-800 fs--1 mb-0">Working hard</p>
-                </div>
-              </div>
-            </div>
+            
+
+            <script>
+              $(document).ready(function () {
+                // Make an AJAX GET request to fetch member count
+                $.ajax({
+                  url: '/members/count',
+                  type: 'GET',
+                  dataType: 'json',
+                  success: function (data) {
+                    // Update the DOM with the fetched member count
+                    $('#memberCount').text(data.memberCount);
+                  },
+                  error: function (xhr, status, error) {
+                    console.error('Error fetching member count:', error);
+                    $('#memberCount').text('Error');
+                  }
+                });
+              });
+            </script>
             <div class="col-12 col-sm-6 col-md-3 col-lg-6 col-xl-3 col-xxl-12">
               <div class="d-flex align-items-center"><span class="fs-4 lh-1 uil uil-invoice text-warning-500"></span>
                 <div class="ms-2">
@@ -5983,7 +6028,8 @@
                           class="fas fa-edit"></span></button><button
                         class="btn btn-phoenix-secondary btn-icon fs--2 text-danger px-0"
                         data-event-propagation-prevent="data-event-propagation-prevent"><span
-                          class="fas fa-trash"></span></button></div>
+                          class="fas fa-trash"></span></button>
+                    </div>
                   </div>
                 </div>
                 <div class="d-flex hover-actions-trigger py-3 border-top"><input
@@ -6020,7 +6066,8 @@
                           class="fas fa-edit"></span></button><button
                         class="btn btn-phoenix-secondary btn-icon fs--2 text-danger px-0"
                         data-event-propagation-prevent="data-event-propagation-prevent"><span
-                          class="fas fa-trash"></span></button></div>
+                          class="fas fa-trash"></span></button>
+                    </div>
                   </div>
                 </div>
                 <div class="d-flex hover-actions-trigger py-3 border-top"><input
@@ -6056,7 +6103,8 @@
                           class="fas fa-edit"></span></button><button
                         class="btn btn-phoenix-secondary btn-icon fs--2 text-danger px-0"
                         data-event-propagation-prevent="data-event-propagation-prevent"><span
-                          class="fas fa-trash"></span></button></div>
+                          class="fas fa-trash"></span></button>
+                    </div>
                   </div>
                 </div>
                 <div class="d-flex hover-actions-trigger py-3 border-top"><input
@@ -6091,7 +6139,8 @@
                           class="fas fa-edit"></span></button><button
                         class="btn btn-phoenix-secondary btn-icon fs--2 text-danger px-0"
                         data-event-propagation-prevent="data-event-propagation-prevent"><span
-                          class="fas fa-trash"></span></button></div>
+                          class="fas fa-trash"></span></button>
+                    </div>
                   </div>
                 </div>
                 <div class="d-flex hover-actions-trigger py-3 border-top"><input
@@ -6125,7 +6174,8 @@
                           class="fas fa-edit"></span></button><button
                         class="btn btn-phoenix-secondary btn-icon fs--2 text-danger px-0"
                         data-event-propagation-prevent="data-event-propagation-prevent"><span
-                          class="fas fa-trash"></span></button></div>
+                          class="fas fa-trash"></span></button>
+                    </div>
                   </div>
                 </div>
                 <div class="d-flex hover-actions-trigger py-3 border-top"><input
@@ -6160,7 +6210,8 @@
                           class="fas fa-edit"></span></button><button
                         class="btn btn-phoenix-secondary btn-icon fs--2 text-danger px-0"
                         data-event-propagation-prevent="data-event-propagation-prevent"><span
-                          class="fas fa-trash"></span></button></div>
+                          class="fas fa-trash"></span></button>
+                    </div>
                   </div>
                 </div>
                 <div class="d-flex hover-actions-trigger py-3 border-top"><input
@@ -6196,7 +6247,8 @@
                           class="fas fa-edit"></span></button><button
                         class="btn btn-phoenix-secondary btn-icon fs--2 text-danger px-0"
                         data-event-propagation-prevent="data-event-propagation-prevent"><span
-                          class="fas fa-trash"></span></button></div>
+                          class="fas fa-trash"></span></button>
+                    </div>
                   </div>
                 </div>
                 <div class="d-flex hover-actions-trigger py-3 border-top"><input
@@ -6232,7 +6284,8 @@
                           class="fas fa-edit"></span></button><button
                         class="btn btn-phoenix-secondary btn-icon fs--2 text-danger px-0"
                         data-event-propagation-prevent="data-event-propagation-prevent"><span
-                          class="fas fa-trash"></span></button></div>
+                          class="fas fa-trash"></span></button>
+                    </div>
                   </div>
                 </div>
                 <div class="d-flex hover-actions-trigger py-3 border-top"><input
@@ -6268,7 +6321,8 @@
                           class="fas fa-edit"></span></button><button
                         class="btn btn-phoenix-secondary btn-icon fs--2 text-danger px-0"
                         data-event-propagation-prevent="data-event-propagation-prevent"><span
-                          class="fas fa-trash"></span></button></div>
+                          class="fas fa-trash"></span></button>
+                    </div>
                   </div>
                 </div>
                 <div class="d-flex hover-actions-trigger py-3 border-top"><input
@@ -6303,7 +6357,8 @@
                           class="fas fa-edit"></span></button><button
                         class="btn btn-phoenix-secondary btn-icon fs--2 text-danger px-0"
                         data-event-propagation-prevent="data-event-propagation-prevent"><span
-                          class="fas fa-trash"></span></button></div>
+                          class="fas fa-trash"></span></button>
+                    </div>
                   </div>
                 </div>
                 <div class="d-flex hover-actions-trigger py-3 border-top border-bottom"><input
@@ -6339,7 +6394,8 @@
                           class="fas fa-edit"></span></button><button
                         class="btn btn-phoenix-secondary btn-icon fs--2 text-danger px-0"
                         data-event-propagation-prevent="data-event-propagation-prevent"><span
-                          class="fas fa-trash"></span></button></div>
+                          class="fas fa-trash"></span></button>
+                    </div>
                   </div>
                 </div>
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-hidden="true">
@@ -6627,1692 +6683,483 @@
               <div class="row align-items-end justify-content-between pb-4 g-3">
                 <div class="col-auto">
                   <h3>Projects</h3>
-                  <p class="text-700 lh-sm mb-0">Brief summary of all projects</p>
+                  <!-- <p class="text-700 lh-sm mb-0">Brief summary of all projects</p> -->
                 </div>
               </div>
-              <div class="table-responsive ms-n1 ps-1 scrollbar">
+              <div class="table-responsive scrollbar">
                 <table class="table fs--1 mb-0 border-top border-200">
                   <thead>
                     <tr>
-                      <th class="sort white-space-nowrap align-middle ps-0" scope="col" data-sort="project"
-                        style="width:30%;">PROJECT NAME</th>
-                      <th class="sort align-middle ps-3" scope="col" data-sort="assigness" style="width:10%;">ASSIGNESS
+                      <th class="sort white-space-nowrap align-middle ps-0" scope="col" data-sort="projectName"
+                        style="width:30%;">PROJECT TITLE</th>
+                      <th class="sort align-middle ps-3" scope="col" data-sort="assigness" style="width:10%;">DEVELOPERS
                       </th>
-                      <th class="sort align-middle ps-3" scope="col" data-sort="start" style="width:10%;">START DATE
-                      </th>
+                      <th class="sort align-middle ps-3" scope="col" data-sort="start" style="width:10%;">
+                        START DATE</th>
                       <th class="sort align-middle ps-3" scope="col" data-sort="deadline" style="width:15%;">DEADLINE
                       </th>
-                      <th class="sort align-middle ps-3" scope="col" data-sort="calculation" style="width:12%;">
-                        CALCULATION</th>
+                      <th class="sort align-middle ps-3" scope="col" data-sort="task" style="width:12%;">
+                        STUDENT NAME</th>
                       <th class="sort align-middle ps-3" scope="col" data-sort="projectprogress" style="width:5%;">
-                        PROGRESS</th>
-                      <th class="sort align-middle ps-8" scope="col" data-sort="status" style="width:10%;">STATUS</th>
-                      <th class="sort align-middle text-end" scope="col" style="width:10%;"></th>
+                        PLATFORM</th>
+                      <th class="sort align-middle text-end" scope="col" data-sort="statuses" style="width:10%;">
+                        BATCH/YEAR</th>
+                      <th class="sort align-middle text-end" scope="col" style="width:10%;">ACTION</th>
                     </tr>
                   </thead>
-                  <tbody class="list" id="project-summary-table-body">
-                    <tr class="position-static">
-                      <td class="align-middle time white-space-nowrap ps-0 project"><a class="fw-bold fs-0"
-                          href="#">Making the Butterflies shoot each other dead</a></td>
-                      <td class="align-middle white-space-nowrap assigness ps-3">
-                        <div class="avatar-group avatar-group-dense"><a
-                            class="dropdown-toggle dropdown-caret-none d-inline-block" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-                            <div class="avatar avatar-s  rounded-circle">
-                              <img class="rounded-circle " src="../assets/img/team/9.webp" alt="" />
-                            </div>
-                          </a>
-                          <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
-                            <div class="position-relative">
-                              <div class="bg-holder z-index--1"
-                                style="background-image:url(../assets/img/bg/bg-32.png);background-size: auto;"></div>
-                              <!--/.bg-holder-->
-                              <div class="p-3">
-                                <div class="text-end"><button class="btn p-0 me-2"><span
-                                      class="fa-solid fa-user-plus text-white light"></span></button><button
-                                    class="btn p-0"><span class="fa-solid fa-ellipsis text-white light"></span></button>
-                                </div>
-                                <div class="text-center">
-                                  <div
-                                    class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2">
-                                    <img class="rounded-circle border border-white" src="../assets/img/team/9.webp"
-                                      alt="" /></div>
-                                  <h6 class="text-white light">Michael Jenkins</h6>
-                                  <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
-                                  <div class="d-flex flex-center mb-3">
-                                    <h6 class="text-white light mb-0">224 <span
-                                        class="fw-normal text-300">connections</span></h6><span
-                                      class="fa-solid fa-circle text-700 mx-1"
-                                      data-fa-transform="shrink-10 up-2"></span>
-                                    <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span>
-                                    </h6>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="bg-white">
-                              <div class="p-3 border-bottom">
-                                <div class="d-flex justify-content-between">
-                                  <div class="d-flex"><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                                        class="fa-solid fa-phone"></span></button><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                                        class="fa-solid fa-message"></span></button><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
-                                        class="fa-solid fa-video"></span></button></div><button
-                                    class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
-                                    Email</button>
-                                </div>
-                              </div>
-                              <ul class="nav d-flex flex-column py-3 border-bottom">
-                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
-                                    <span class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
-                                      class="text-1000 flex-1">Assigned Projects</span><span
-                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
-                                    <span class="me-2 text-900" data-feather="pie-chart"></span><span
-                                      class="text-1000 flex-1">View activiy</span><span
-                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                              </ul>
-                            </div>
-                            <div class="p-3 d-flex justify-content-between"><a
-                                class="btn btn-link p-0 text-decoration-none" href="#!">Details </a><a
-                                class="btn btn-link p-0 text-decoration-none text-danger" href="#!">Unassign </a></div>
-                          </div><a class="dropdown-toggle dropdown-caret-none d-inline-block" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-                            <div class="avatar avatar-s  rounded-circle">
-                              <img class="rounded-circle " src="../assets/img/team/25.webp" alt="" />
-                            </div>
-                          </a>
-                          <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
-                            <div class="position-relative">
-                              <div class="bg-holder z-index--1"
-                                style="background-image:url(../assets/img/bg/bg-32.png);background-size: auto;"></div>
-                              <!--/.bg-holder-->
-                              <div class="p-3">
-                                <div class="text-end"><button class="btn p-0 me-2"><span
-                                      class="fa-solid fa-user-plus text-white light"></span></button><button
-                                    class="btn p-0"><span class="fa-solid fa-ellipsis text-white light"></span></button>
-                                </div>
-                                <div class="text-center">
-                                  <div
-                                    class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2">
-                                    <img class="rounded-circle border border-white" src="../assets/img/team/25.webp"
-                                      alt="" /></div>
-                                  <h6 class="text-white light">Ansolo Lazinatov</h6>
-                                  <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
-                                  <div class="d-flex flex-center mb-3">
-                                    <h6 class="text-white light mb-0">224 <span
-                                        class="fw-normal text-300">connections</span></h6><span
-                                      class="fa-solid fa-circle text-700 mx-1"
-                                      data-fa-transform="shrink-10 up-2"></span>
-                                    <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span>
-                                    </h6>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="bg-white">
-                              <div class="p-3 border-bottom">
-                                <div class="d-flex justify-content-between">
-                                  <div class="d-flex"><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                                        class="fa-solid fa-phone"></span></button><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                                        class="fa-solid fa-message"></span></button><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
-                                        class="fa-solid fa-video"></span></button></div><button
-                                    class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
-                                    Email</button>
-                                </div>
-                              </div>
-                              <ul class="nav d-flex flex-column py-3 border-bottom">
-                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
-                                    <span class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
-                                      class="text-1000 flex-1">Assigned Projects</span><span
-                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
-                                    <span class="me-2 text-900" data-feather="pie-chart"></span><span
-                                      class="text-1000 flex-1">View activiy</span><span
-                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                              </ul>
-                            </div>
-                            <div class="p-3 d-flex justify-content-between"><a
-                                class="btn btn-link p-0 text-decoration-none" href="#!">Details </a><a
-                                class="btn btn-link p-0 text-decoration-none text-danger" href="#!">Unassign </a></div>
-                          </div><a class="dropdown-toggle dropdown-caret-none d-inline-block" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-                            <div class="avatar avatar-s  rounded-circle">
-                              <img class="rounded-circle " src="../assets/img/team/32.webp" alt="" />
-                            </div>
-                          </a>
-                          <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
-                            <div class="position-relative">
-                              <div class="bg-holder z-index--1"
-                                style="background-image:url(../assets/img/bg/bg-32.png);background-size: auto;"></div>
-                              <!--/.bg-holder-->
-                              <div class="p-3">
-                                <div class="text-end"><button class="btn p-0 me-2"><span
-                                      class="fa-solid fa-user-plus text-white light"></span></button><button
-                                    class="btn p-0"><span class="fa-solid fa-ellipsis text-white light"></span></button>
-                                </div>
-                                <div class="text-center">
-                                  <div
-                                    class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2">
-                                    <img class="rounded-circle border border-white" src="../assets/img/team/32.webp"
-                                      alt="" /></div>
-                                  <h6 class="text-white light">Jennifer Schramm</h6>
-                                  <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
-                                  <div class="d-flex flex-center mb-3">
-                                    <h6 class="text-white light mb-0">224 <span
-                                        class="fw-normal text-300">connections</span></h6><span
-                                      class="fa-solid fa-circle text-700 mx-1"
-                                      data-fa-transform="shrink-10 up-2"></span>
-                                    <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span>
-                                    </h6>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="bg-white">
-                              <div class="p-3 border-bottom">
-                                <div class="d-flex justify-content-between">
-                                  <div class="d-flex"><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                                        class="fa-solid fa-phone"></span></button><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                                        class="fa-solid fa-message"></span></button><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
-                                        class="fa-solid fa-video"></span></button></div><button
-                                    class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
-                                    Email</button>
-                                </div>
-                              </div>
-                              <ul class="nav d-flex flex-column py-3 border-bottom">
-                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
-                                    <span class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
-                                      class="text-1000 flex-1">Assigned Projects</span><span
-                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
-                                    <span class="me-2 text-900" data-feather="pie-chart"></span><span
-                                      class="text-1000 flex-1">View activiy</span><span
-                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                              </ul>
-                            </div>
-                            <div class="p-3 d-flex justify-content-between"><a
-                                class="btn btn-link p-0 text-decoration-none" href="#!">Details </a><a
-                                class="btn btn-link p-0 text-decoration-none text-danger" href="#!">Unassign </a></div>
-                          </div><a class="dropdown-toggle dropdown-caret-none d-inline-block" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-                            <div class="avatar avatar-s  rounded-circle">
-                              <img class="rounded-circle avatar-placeholder" src="../assets/img/team/avatar.webp"
-                                alt="" />
-                            </div>
-                          </a>
-                          <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
-                            <div class="position-relative">
-                              <div class="bg-holder z-index--1"
-                                style="background-image:url(../assets/img/bg/bg-32.png);background-size: auto;"></div>
-                              <!--/.bg-holder-->
-                              <div class="p-3">
-                                <div class="text-end"><button class="btn p-0 me-2"><span
-                                      class="fa-solid fa-user-plus text-white light"></span></button><button
-                                    class="btn p-0"><span class="fa-solid fa-ellipsis text-white light"></span></button>
-                                </div>
-                                <div class="text-center">
-                                  <div
-                                    class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2">
-                                    <img class="rounded-circle border border-white" src="../assets/img/team/avatar.webp"
-                                      alt="" /></div>
-                                  <h6 class="text-white light">Kristine Cadena</h6>
-                                  <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
-                                  <div class="d-flex flex-center mb-3">
-                                    <h6 class="text-white light mb-0">224 <span
-                                        class="fw-normal text-300">connections</span></h6><span
-                                      class="fa-solid fa-circle text-700 mx-1"
-                                      data-fa-transform="shrink-10 up-2"></span>
-                                    <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span>
-                                    </h6>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="bg-white">
-                              <div class="p-3 border-bottom">
-                                <div class="d-flex justify-content-between">
-                                  <div class="d-flex"><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                                        class="fa-solid fa-phone"></span></button><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                                        class="fa-solid fa-message"></span></button><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
-                                        class="fa-solid fa-video"></span></button></div><button
-                                    class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
-                                    Email</button>
-                                </div>
-                              </div>
-                              <ul class="nav d-flex flex-column py-3 border-bottom">
-                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
-                                    <span class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
-                                      class="text-1000 flex-1">Assigned Projects</span><span
-                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
-                                    <span class="me-2 text-900" data-feather="pie-chart"></span><span
-                                      class="text-1000 flex-1">View activiy</span><span
-                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                              </ul>
-                            </div>
-                            <div class="p-3 d-flex justify-content-between"><a
-                                class="btn btn-link p-0 text-decoration-none" href="#!">Details </a><a
-                                class="btn btn-link p-0 text-decoration-none text-danger" href="#!">Unassign </a></div>
-                          </div>
-                          <div class="avatar avatar-s  rounded-circle">
-                            <div class="avatar-name rounded-circle "><span>+3</span></div>
-                          </div>
-                        </div>
-                      </td>
-                      <td class="align-middle white-space-nowrap start ps-3">
-                        <p class="mb-0 fs--1 text-900">Dec 12, 2018</p>
-                      </td>
-                      <td class="align-middle white-space-nowrap deadline ps-3">
-                        <p class="mb-0 fs--1 text-900">Dec 12, 2026</p>
-                      </td>
-                      <td class="align-middle white-space-nowrap calculation ps-3">
-                        <p class="fw-bold text-1100 fs--1 mb-0">$4</p>
-                        <p class="fw-semi-bold fs--2 text-700 mb-0">Cost</p>
-                      </td>
-                      <td class="align-middle white-space-nowrap ps-3 projectprogress">
-                        <p class="text-800 fs--2 mb-0">145 / 145</p>
-                        <div class="progress" style="height:3px;">
-                          <div class="progress-bar bg-success" style="width: 100%" aria-valuenow="25" aria-valuemin="0"
-                            aria-valuemax="100" role="progressbar"></div>
-                        </div>
-                      </td>
-                      <td class="align-middle white-space-nowrap ps-8 status">
-                        <div class="progress progress-stack mt-3" style="height:3px;">
-                          <div class="progress-bar bg-info" style="width:30%" aria-valuenow="25" aria-valuemin="0"
-                            aria-valuemax="100" role="progressbar"></div>
-                          <div class="progress-bar bg-danger" style="width:5%" aria-valuenow="25" aria-valuemin="0"
-                            aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" title="5% Damage"
-                            role="progressbar"></div>
-                          <div class="progress-bar bg-warning" style="width:45%" aria-valuenow="25" aria-valuemin="0"
-                            aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" title="45% Damage"
-                            role="progressbar"></div>
-                          <div class="progress-bar bg-success" style="width:15%" aria-valuenow="25" aria-valuemin="0"
-                            aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" title="15% Damage"
-                            role="progressbar"></div>
-                        </div>
-                      </td>
-                      <td class="align-middle text-end white-space-nowrap pe-0 action">
-                        <div class="font-sans-serif btn-reveal-trigger position-static"><button
-                            class="btn btn-sm dropdown-toggle dropdown-caret-none transition-none btn-reveal fs--2"
-                            type="button" data-bs-toggle="dropdown" data-boundary="window" aria-haspopup="true"
-                            aria-expanded="false" data-bs-reference="parent"><span
-                              class="fas fa-ellipsis-h fs--2"></span></button>
-                          <div class="dropdown-menu dropdown-menu-end py-2"><a class="dropdown-item"
-                              href="#!">View</a><a class="dropdown-item" href="#!">Export</a>
-                            <div class="dropdown-divider"></div><a class="dropdown-item text-danger"
-                              href="#!">Remove</a>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr class="position-static">
-                      <td class="align-middle time white-space-nowrap ps-0 project"><a class="fw-bold fs-0"
-                          href="#">Project Doughnut Dungeon</a></td>
-                      <td class="align-middle white-space-nowrap assigness ps-3">
-                        <div class="avatar-group avatar-group-dense"><a
-                            class="dropdown-toggle dropdown-caret-none d-inline-block" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-                            <div class="avatar avatar-s  rounded-circle">
-                              <img class="rounded-circle " src="../assets/img/team/22.webp" alt="" />
-                            </div>
-                          </a>
-                          <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
-                            <div class="position-relative">
-                              <div class="bg-holder z-index--1"
-                                style="background-image:url(../assets/img/bg/bg-32.png);background-size: auto;"></div>
-                              <!--/.bg-holder-->
-                              <div class="p-3">
-                                <div class="text-end"><button class="btn p-0 me-2"><span
-                                      class="fa-solid fa-user-plus text-white light"></span></button><button
-                                    class="btn p-0"><span class="fa-solid fa-ellipsis text-white light"></span></button>
-                                </div>
-                                <div class="text-center">
-                                  <div
-                                    class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2">
-                                    <img class="rounded-circle border border-white" src="../assets/img/team/22.webp"
-                                      alt="" /></div>
-                                  <h6 class="text-white light">Woodrow Burton</h6>
-                                  <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
-                                  <div class="d-flex flex-center mb-3">
-                                    <h6 class="text-white light mb-0">224 <span
-                                        class="fw-normal text-300">connections</span></h6><span
-                                      class="fa-solid fa-circle text-700 mx-1"
-                                      data-fa-transform="shrink-10 up-2"></span>
-                                    <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span>
-                                    </h6>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="bg-white">
-                              <div class="p-3 border-bottom">
-                                <div class="d-flex justify-content-between">
-                                  <div class="d-flex"><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                                        class="fa-solid fa-phone"></span></button><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                                        class="fa-solid fa-message"></span></button><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
-                                        class="fa-solid fa-video"></span></button></div><button
-                                    class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
-                                    Email</button>
-                                </div>
-                              </div>
-                              <ul class="nav d-flex flex-column py-3 border-bottom">
-                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
-                                    <span class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
-                                      class="text-1000 flex-1">Assigned Projects</span><span
-                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
-                                    <span class="me-2 text-900" data-feather="pie-chart"></span><span
-                                      class="text-1000 flex-1">View activiy</span><span
-                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                              </ul>
-                            </div>
-                            <div class="p-3 d-flex justify-content-between"><a
-                                class="btn btn-link p-0 text-decoration-none" href="#!">Details </a><a
-                                class="btn btn-link p-0 text-decoration-none text-danger" href="#!">Unassign </a></div>
-                          </div><a class="dropdown-toggle dropdown-caret-none d-inline-block" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-                            <div class="avatar avatar-s  rounded-circle">
-                              <img class="rounded-circle " src="../assets/img/team/28.webp" alt="" />
-                            </div>
-                          </a>
-                          <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
-                            <div class="position-relative">
-                              <div class="bg-holder z-index--1"
-                                style="background-image:url(../assets/img/bg/bg-32.png);background-size: auto;"></div>
-                              <!--/.bg-holder-->
-                              <div class="p-3">
-                                <div class="text-end"><button class="btn p-0 me-2"><span
-                                      class="fa-solid fa-user-plus text-white light"></span></button><button
-                                    class="btn p-0"><span class="fa-solid fa-ellipsis text-white light"></span></button>
-                                </div>
-                                <div class="text-center">
-                                  <div
-                                    class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2">
-                                    <img class="rounded-circle border border-white" src="../assets/img/team/28.webp"
-                                      alt="" /></div>
-                                  <h6 class="text-white light">Ashley Garrett</h6>
-                                  <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
-                                  <div class="d-flex flex-center mb-3">
-                                    <h6 class="text-white light mb-0">224 <span
-                                        class="fw-normal text-300">connections</span></h6><span
-                                      class="fa-solid fa-circle text-700 mx-1"
-                                      data-fa-transform="shrink-10 up-2"></span>
-                                    <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span>
-                                    </h6>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="bg-white">
-                              <div class="p-3 border-bottom">
-                                <div class="d-flex justify-content-between">
-                                  <div class="d-flex"><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                                        class="fa-solid fa-phone"></span></button><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                                        class="fa-solid fa-message"></span></button><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
-                                        class="fa-solid fa-video"></span></button></div><button
-                                    class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
-                                    Email</button>
-                                </div>
-                              </div>
-                              <ul class="nav d-flex flex-column py-3 border-bottom">
-                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
-                                    <span class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
-                                      class="text-1000 flex-1">Assigned Projects</span><span
-                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
-                                    <span class="me-2 text-900" data-feather="pie-chart"></span><span
-                                      class="text-1000 flex-1">View activiy</span><span
-                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                              </ul>
-                            </div>
-                            <div class="p-3 d-flex justify-content-between"><a
-                                class="btn btn-link p-0 text-decoration-none" href="#!">Details </a><a
-                                class="btn btn-link p-0 text-decoration-none text-danger" href="#!">Unassign </a></div>
-                          </div><a class="dropdown-toggle dropdown-caret-none d-inline-block" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-                            <div class="avatar avatar-s">
-                              <div class="avatar-name rounded-circle"><span>R</span></div>
-                            </div>
-                          </a>
-                          <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
-                            <div class="position-relative">
-                              <div class="bg-holder z-index--1"
-                                style="background-image:url(../assets/img/bg/bg-32.png);background-size: auto;"></div>
-                              <!--/.bg-holder-->
-                              <div class="p-3">
-                                <div class="text-end"><button class="btn p-0 me-2"><span
-                                      class="fa-solid fa-user-plus text-white light"></span></button><button
-                                    class="btn p-0"><span class="fa-solid fa-ellipsis text-white light"></span></button>
-                                </div>
-                                <div class="text-center">
-                                  <div
-                                    class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2">
-                                    <div class="avatar-name rounded-circle"><span>R</span></div>
-                                  </div>
-                                  <h6 class="text-white light">Raymond Mims</h6>
-                                  <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
-                                  <div class="d-flex flex-center mb-3">
-                                    <h6 class="text-white light mb-0">224 <span
-                                        class="fw-normal text-300">connections</span></h6><span
-                                      class="fa-solid fa-circle text-700 mx-1"
-                                      data-fa-transform="shrink-10 up-2"></span>
-                                    <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span>
-                                    </h6>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="bg-white">
-                              <div class="p-3 border-bottom">
-                                <div class="d-flex justify-content-between">
-                                  <div class="d-flex"><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                                        class="fa-solid fa-phone"></span></button><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                                        class="fa-solid fa-message"></span></button><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
-                                        class="fa-solid fa-video"></span></button></div><button
-                                    class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
-                                    Email</button>
-                                </div>
-                              </div>
-                              <ul class="nav d-flex flex-column py-3 border-bottom">
-                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
-                                    <span class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
-                                      class="text-1000 flex-1">Assigned Projects</span><span
-                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
-                                    <span class="me-2 text-900" data-feather="pie-chart"></span><span
-                                      class="text-1000 flex-1">View activiy</span><span
-                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                              </ul>
-                            </div>
-                            <div class="p-3 d-flex justify-content-between"><a
-                                class="btn btn-link p-0 text-decoration-none" href="#!">Details </a><a
-                                class="btn btn-link p-0 text-decoration-none text-danger" href="#!">Unassign </a></div>
-                          </div>
-                        </div>
-                      </td>
-                      <td class="align-middle white-space-nowrap start ps-3">
-                        <p class="mb-0 fs--1 text-900">Jan 9, 2019</p>
-                      </td>
-                      <td class="align-middle white-space-nowrap deadline ps-3">
-                        <p class="mb-0 fs--1 text-900">Dec 9, 2022</p>
-                      </td>
-                      <td class="align-middle white-space-nowrap calculation ps-3"><button
-                          class="btn btn-phoenix-secondary square-icon-btn"><span class="fas fa-plus"></span></button>
-                      </td>
-                      <td class="align-middle white-space-nowrap ps-3 projectprogress">
-                        <p class="text-800 fs--2 mb-0">148 / 223</p>
-                        <div class="progress" style="height:3px;">
-                          <div class="progress-bar bg-success" style="width: 66.3677130044843%" aria-valuenow="25"
-                            aria-valuemin="0" aria-valuemax="100" role="progressbar"></div>
-                        </div>
-                      </td>
-                      <td class="align-middle white-space-nowrap ps-8 status">
-                        <div class="progress progress-stack mt-3" style="height:3px;">
-                          <div class="progress-bar bg-info" style="width:20%" aria-valuenow="25" aria-valuemin="0"
-                            aria-valuemax="100" role="progressbar"></div>
-                          <div class="progress-bar bg-danger" style="width:15%" aria-valuenow="25" aria-valuemin="0"
-                            aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" title="5% Damage"
-                            role="progressbar"></div>
-                          <div class="progress-bar bg-warning" style="width:45%" aria-valuenow="25" aria-valuemin="0"
-                            aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" title="45% Damage"
-                            role="progressbar"></div>
-                          <div class="progress-bar bg-success" style="width:30%" aria-valuenow="25" aria-valuemin="0"
-                            aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" title="15% Damage"
-                            role="progressbar"></div>
-                        </div>
-                      </td>
-                      <td class="align-middle text-end white-space-nowrap pe-0 action">
-                        <div class="font-sans-serif btn-reveal-trigger position-static"><button
-                            class="btn btn-sm dropdown-toggle dropdown-caret-none transition-none btn-reveal fs--2"
-                            type="button" data-bs-toggle="dropdown" data-boundary="window" aria-haspopup="true"
-                            aria-expanded="false" data-bs-reference="parent"><span
-                              class="fas fa-ellipsis-h fs--2"></span></button>
-                          <div class="dropdown-menu dropdown-menu-end py-2"><a class="dropdown-item"
-                              href="#!">View</a><a class="dropdown-item" href="#!">Export</a>
-                            <div class="dropdown-divider"></div><a class="dropdown-item text-danger"
-                              href="#!">Remove</a>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr class="position-static">
-                      <td class="align-middle time white-space-nowrap ps-0 project"><a class="fw-bold fs-0" href="#">The
-                          Chewing Gum Attack</a></td>
-                      <td class="align-middle white-space-nowrap assigness ps-3">
-                        <div class="avatar-group avatar-group-dense"><a
-                            class="dropdown-toggle dropdown-caret-none d-inline-block" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-                            <div class="avatar avatar-s  rounded-circle">
-                              <img class="rounded-circle " src="../assets/img/team/34.webp" alt="" />
-                            </div>
-                          </a>
-                          <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
-                            <div class="position-relative">
-                              <div class="bg-holder z-index--1"
-                                style="background-image:url(../assets/img/bg/bg-32.png);background-size: auto;"></div>
-                              <!--/.bg-holder-->
-                              <div class="p-3">
-                                <div class="text-end"><button class="btn p-0 me-2"><span
-                                      class="fa-solid fa-user-plus text-white light"></span></button><button
-                                    class="btn p-0"><span class="fa-solid fa-ellipsis text-white light"></span></button>
-                                </div>
-                                <div class="text-center">
-                                  <div
-                                    class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2">
-                                    <img class="rounded-circle border border-white" src="../assets/img/team/34.webp"
-                                      alt="" /></div>
-                                  <h6 class="text-white light">Jean Renoir</h6>
-                                  <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
-                                  <div class="d-flex flex-center mb-3">
-                                    <h6 class="text-white light mb-0">224 <span
-                                        class="fw-normal text-300">connections</span></h6><span
-                                      class="fa-solid fa-circle text-700 mx-1"
-                                      data-fa-transform="shrink-10 up-2"></span>
-                                    <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span>
-                                    </h6>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="bg-white">
-                              <div class="p-3 border-bottom">
-                                <div class="d-flex justify-content-between">
-                                  <div class="d-flex"><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                                        class="fa-solid fa-phone"></span></button><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                                        class="fa-solid fa-message"></span></button><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
-                                        class="fa-solid fa-video"></span></button></div><button
-                                    class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
-                                    Email</button>
-                                </div>
-                              </div>
-                              <ul class="nav d-flex flex-column py-3 border-bottom">
-                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
-                                    <span class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
-                                      class="text-1000 flex-1">Assigned Projects</span><span
-                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
-                                    <span class="me-2 text-900" data-feather="pie-chart"></span><span
-                                      class="text-1000 flex-1">View activiy</span><span
-                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                              </ul>
-                            </div>
-                            <div class="p-3 d-flex justify-content-between"><a
-                                class="btn btn-link p-0 text-decoration-none" href="#!">Details </a><a
-                                class="btn btn-link p-0 text-decoration-none text-danger" href="#!">Unassign </a></div>
-                          </div><a class="dropdown-toggle dropdown-caret-none d-inline-block" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-                            <div class="avatar avatar-s  rounded-circle">
-                              <img class="rounded-circle " src="../assets/img/team/59.webp" alt="" />
-                            </div>
-                          </a>
-                          <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
-                            <div class="position-relative">
-                              <div class="bg-holder z-index--1"
-                                style="background-image:url(../assets/img/bg/bg-32.png);background-size: auto;"></div>
-                              <!--/.bg-holder-->
-                              <div class="p-3">
-                                <div class="text-end"><button class="btn p-0 me-2"><span
-                                      class="fa-solid fa-user-plus text-white light"></span></button><button
-                                    class="btn p-0"><span class="fa-solid fa-ellipsis text-white light"></span></button>
-                                </div>
-                                <div class="text-center">
-                                  <div
-                                    class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2">
-                                    <img class="rounded-circle border border-white" src="../assets/img/team/59.webp"
-                                      alt="" /></div>
-                                  <h6 class="text-white light">Katerina Karenin</h6>
-                                  <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
-                                  <div class="d-flex flex-center mb-3">
-                                    <h6 class="text-white light mb-0">224 <span
-                                        class="fw-normal text-300">connections</span></h6><span
-                                      class="fa-solid fa-circle text-700 mx-1"
-                                      data-fa-transform="shrink-10 up-2"></span>
-                                    <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span>
-                                    </h6>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="bg-white">
-                              <div class="p-3 border-bottom">
-                                <div class="d-flex justify-content-between">
-                                  <div class="d-flex"><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                                        class="fa-solid fa-phone"></span></button><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                                        class="fa-solid fa-message"></span></button><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
-                                        class="fa-solid fa-video"></span></button></div><button
-                                    class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
-                                    Email</button>
-                                </div>
-                              </div>
-                              <ul class="nav d-flex flex-column py-3 border-bottom">
-                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
-                                    <span class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
-                                      class="text-1000 flex-1">Assigned Projects</span><span
-                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
-                                    <span class="me-2 text-900" data-feather="pie-chart"></span><span
-                                      class="text-1000 flex-1">View activiy</span><span
-                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                              </ul>
-                            </div>
-                            <div class="p-3 d-flex justify-content-between"><a
-                                class="btn btn-link p-0 text-decoration-none" href="#!">Details </a><a
-                                class="btn btn-link p-0 text-decoration-none text-danger" href="#!">Unassign </a></div>
-                          </div>
-                        </div>
-                      </td>
-                      <td class="align-middle white-space-nowrap start ps-3">
-                        <p class="mb-0 fs--1 text-900">Sep 4, 2019</p>
-                      </td>
-                      <td class="align-middle white-space-nowrap deadline ps-3">
-                        <p class="mb-0 fs--1 text-900">Dec 4, 2021</p>
-                      </td>
-                      <td class="align-middle white-space-nowrap calculation ps-3">
-                        <p class="fw-bold text-1100 fs--1 mb-0">$657k</p>
-                        <p class="fw-semi-bold fs--2 text-700 mb-0">Estimation</p>
-                      </td>
-                      <td class="align-middle white-space-nowrap ps-3 projectprogress">
-                        <p class="text-800 fs--2 mb-0">277 / 539</p>
-                        <div class="progress" style="height:3px;">
-                          <div class="progress-bar bg-success" style="width: 51.39146567717996%" aria-valuenow="25"
-                            aria-valuemin="0" aria-valuemax="100" role="progressbar"></div>
-                        </div>
-                      </td>
-                      <td class="align-middle white-space-nowrap ps-8 status">
-                        <div class="progress progress-stack mt-3" style="height:3px;">
-                          <div class="progress-bar bg-info" style="width:10%" aria-valuenow="25" aria-valuemin="0"
-                            aria-valuemax="100" role="progressbar"></div>
-                          <div class="progress-bar bg-danger" style="width:10%" aria-valuenow="25" aria-valuemin="0"
-                            aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" title="5% Damage"
-                            role="progressbar"></div>
-                          <div class="progress-bar bg-warning" style="width:35%" aria-valuenow="25" aria-valuemin="0"
-                            aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" title="45% Damage"
-                            role="progressbar"></div>
-                          <div class="progress-bar bg-success" style="width:45%" aria-valuenow="25" aria-valuemin="0"
-                            aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" title="15% Damage"
-                            role="progressbar"></div>
-                        </div>
-                      </td>
-                      <td class="align-middle text-end white-space-nowrap pe-0 action">
-                        <div class="font-sans-serif btn-reveal-trigger position-static"><button
-                            class="btn btn-sm dropdown-toggle dropdown-caret-none transition-none btn-reveal fs--2"
-                            type="button" data-bs-toggle="dropdown" data-boundary="window" aria-haspopup="true"
-                            aria-expanded="false" data-bs-reference="parent"><span
-                              class="fas fa-ellipsis-h fs--2"></span></button>
-                          <div class="dropdown-menu dropdown-menu-end py-2"><a class="dropdown-item"
-                              href="#!">View</a><a class="dropdown-item" href="#!">Export</a>
-                            <div class="dropdown-divider"></div><a class="dropdown-item text-danger"
-                              href="#!">Remove</a>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr class="position-static">
-                      <td class="align-middle time white-space-nowrap ps-0 project"><a class="fw-bold fs-0"
-                          href="#">Execution of Micky the foul mouse</a></td>
-                      <td class="align-middle white-space-nowrap assigness ps-3">
-                        <div class="avatar-group avatar-group-dense"><a
-                            class="dropdown-toggle dropdown-caret-none d-inline-block" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-                            <div class="avatar avatar-s  rounded-circle">
-                              <img class="rounded-circle " src="../assets/img/team/1.webp" alt="" />
-                            </div>
-                          </a>
-                          <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
-                            <div class="position-relative">
-                              <div class="bg-holder z-index--1"
-                                style="background-image:url(../assets/img/bg/bg-32.png);background-size: auto;"></div>
-                              <!--/.bg-holder-->
-                              <div class="p-3">
-                                <div class="text-end"><button class="btn p-0 me-2"><span
-                                      class="fa-solid fa-user-plus text-white light"></span></button><button
-                                    class="btn p-0"><span class="fa-solid fa-ellipsis text-white light"></span></button>
-                                </div>
-                                <div class="text-center">
-                                  <div
-                                    class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2">
-                                    <img class="rounded-circle border border-white" src="../assets/img/team/1.webp"
-                                      alt="" /></div>
-                                  <h6 class="text-white light">Luis Bunuel</h6>
-                                  <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
-                                  <div class="d-flex flex-center mb-3">
-                                    <h6 class="text-white light mb-0">224 <span
-                                        class="fw-normal text-300">connections</span></h6><span
-                                      class="fa-solid fa-circle text-700 mx-1"
-                                      data-fa-transform="shrink-10 up-2"></span>
-                                    <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span>
-                                    </h6>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="bg-white">
-                              <div class="p-3 border-bottom">
-                                <div class="d-flex justify-content-between">
-                                  <div class="d-flex"><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                                        class="fa-solid fa-phone"></span></button><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                                        class="fa-solid fa-message"></span></button><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
-                                        class="fa-solid fa-video"></span></button></div><button
-                                    class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
-                                    Email</button>
-                                </div>
-                              </div>
-                              <ul class="nav d-flex flex-column py-3 border-bottom">
-                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
-                                    <span class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
-                                      class="text-1000 flex-1">Assigned Projects</span><span
-                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
-                                    <span class="me-2 text-900" data-feather="pie-chart"></span><span
-                                      class="text-1000 flex-1">View activiy</span><span
-                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                              </ul>
-                            </div>
-                            <div class="p-3 d-flex justify-content-between"><a
-                                class="btn btn-link p-0 text-decoration-none" href="#!">Details </a><a
-                                class="btn btn-link p-0 text-decoration-none text-danger" href="#!">Unassign </a></div>
-                          </div><a class="dropdown-toggle dropdown-caret-none d-inline-block" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-                            <div class="avatar avatar-s  rounded-circle">
-                              <img class="rounded-circle avatar-placeholder" src="../assets/img/team/avatar.webp"
-                                alt="" />
-                            </div>
-                          </a>
-                          <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
-                            <div class="position-relative">
-                              <div class="bg-holder z-index--1"
-                                style="background-image:url(../assets/img/bg/bg-32.png);background-size: auto;"></div>
-                              <!--/.bg-holder-->
-                              <div class="p-3">
-                                <div class="text-end"><button class="btn p-0 me-2"><span
-                                      class="fa-solid fa-user-plus text-white light"></span></button><button
-                                    class="btn p-0"><span class="fa-solid fa-ellipsis text-white light"></span></button>
-                                </div>
-                                <div class="text-center">
-                                  <div
-                                    class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2">
-                                    <img class="rounded-circle border border-white" src="../assets/img/team/avatar.webp"
-                                      alt="" /></div>
-                                  <h6 class="text-white light">Kristine Cadena</h6>
-                                  <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
-                                  <div class="d-flex flex-center mb-3">
-                                    <h6 class="text-white light mb-0">224 <span
-                                        class="fw-normal text-300">connections</span></h6><span
-                                      class="fa-solid fa-circle text-700 mx-1"
-                                      data-fa-transform="shrink-10 up-2"></span>
-                                    <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span>
-                                    </h6>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="bg-white">
-                              <div class="p-3 border-bottom">
-                                <div class="d-flex justify-content-between">
-                                  <div class="d-flex"><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                                        class="fa-solid fa-phone"></span></button><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                                        class="fa-solid fa-message"></span></button><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
-                                        class="fa-solid fa-video"></span></button></div><button
-                                    class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
-                                    Email</button>
-                                </div>
-                              </div>
-                              <ul class="nav d-flex flex-column py-3 border-bottom">
-                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
-                                    <span class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
-                                      class="text-1000 flex-1">Assigned Projects</span><span
-                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
-                                    <span class="me-2 text-900" data-feather="pie-chart"></span><span
-                                      class="text-1000 flex-1">View activiy</span><span
-                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                              </ul>
-                            </div>
-                            <div class="p-3 d-flex justify-content-between"><a
-                                class="btn btn-link p-0 text-decoration-none" href="#!">Details </a><a
-                                class="btn btn-link p-0 text-decoration-none text-danger" href="#!">Unassign </a></div>
-                          </div><a class="dropdown-toggle dropdown-caret-none d-inline-block" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-                            <div class="avatar avatar-s  rounded-circle">
-                              <img class="rounded-circle " src="../assets/img/team/5.webp" alt="" />
-                            </div>
-                          </a>
-                          <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
-                            <div class="position-relative">
-                              <div class="bg-holder z-index--1"
-                                style="background-image:url(../assets/img/bg/bg-32.png);background-size: auto;"></div>
-                              <!--/.bg-holder-->
-                              <div class="p-3">
-                                <div class="text-end"><button class="btn p-0 me-2"><span
-                                      class="fa-solid fa-user-plus text-white light"></span></button><button
-                                    class="btn p-0"><span class="fa-solid fa-ellipsis text-white light"></span></button>
-                                </div>
-                                <div class="text-center">
-                                  <div
-                                    class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2">
-                                    <img class="rounded-circle border border-white" src="../assets/img/team/5.webp"
-                                      alt="" /></div>
-                                  <h6 class="text-white light">Ricky Antony</h6>
-                                  <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
-                                  <div class="d-flex flex-center mb-3">
-                                    <h6 class="text-white light mb-0">224 <span
-                                        class="fw-normal text-300">connections</span></h6><span
-                                      class="fa-solid fa-circle text-700 mx-1"
-                                      data-fa-transform="shrink-10 up-2"></span>
-                                    <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span>
-                                    </h6>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="bg-white">
-                              <div class="p-3 border-bottom">
-                                <div class="d-flex justify-content-between">
-                                  <div class="d-flex"><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                                        class="fa-solid fa-phone"></span></button><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                                        class="fa-solid fa-message"></span></button><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
-                                        class="fa-solid fa-video"></span></button></div><button
-                                    class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
-                                    Email</button>
-                                </div>
-                              </div>
-                              <ul class="nav d-flex flex-column py-3 border-bottom">
-                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
-                                    <span class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
-                                      class="text-1000 flex-1">Assigned Projects</span><span
-                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
-                                    <span class="me-2 text-900" data-feather="pie-chart"></span><span
-                                      class="text-1000 flex-1">View activiy</span><span
-                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                              </ul>
-                            </div>
-                            <div class="p-3 d-flex justify-content-between"><a
-                                class="btn btn-link p-0 text-decoration-none" href="#!">Details </a><a
-                                class="btn btn-link p-0 text-decoration-none text-danger" href="#!">Unassign </a></div>
-                          </div><a class="dropdown-toggle dropdown-caret-none d-inline-block" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-                            <div class="avatar avatar-s  rounded-circle">
-                              <img class="rounded-circle " src="../assets/img/team/11.webp" alt="" />
-                            </div>
-                          </a>
-                          <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
-                            <div class="position-relative">
-                              <div class="bg-holder z-index--1"
-                                style="background-image:url(../assets/img/bg/bg-32.png);background-size: auto;"></div>
-                              <!--/.bg-holder-->
-                              <div class="p-3">
-                                <div class="text-end"><button class="btn p-0 me-2"><span
-                                      class="fa-solid fa-user-plus text-white light"></span></button><button
-                                    class="btn p-0"><span class="fa-solid fa-ellipsis text-white light"></span></button>
-                                </div>
-                                <div class="text-center">
-                                  <div
-                                    class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2">
-                                    <img class="rounded-circle border border-white" src="../assets/img/team/11.webp"
-                                      alt="" /></div>
-                                  <h6 class="text-white light">Roy Anderson</h6>
-                                  <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
-                                  <div class="d-flex flex-center mb-3">
-                                    <h6 class="text-white light mb-0">224 <span
-                                        class="fw-normal text-300">connections</span></h6><span
-                                      class="fa-solid fa-circle text-700 mx-1"
-                                      data-fa-transform="shrink-10 up-2"></span>
-                                    <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span>
-                                    </h6>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="bg-white">
-                              <div class="p-3 border-bottom">
-                                <div class="d-flex justify-content-between">
-                                  <div class="d-flex"><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                                        class="fa-solid fa-phone"></span></button><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                                        class="fa-solid fa-message"></span></button><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
-                                        class="fa-solid fa-video"></span></button></div><button
-                                    class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
-                                    Email</button>
-                                </div>
-                              </div>
-                              <ul class="nav d-flex flex-column py-3 border-bottom">
-                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
-                                    <span class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
-                                      class="text-1000 flex-1">Assigned Projects</span><span
-                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
-                                    <span class="me-2 text-900" data-feather="pie-chart"></span><span
-                                      class="text-1000 flex-1">View activiy</span><span
-                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                              </ul>
-                            </div>
-                            <div class="p-3 d-flex justify-content-between"><a
-                                class="btn btn-link p-0 text-decoration-none" href="#!">Details </a><a
-                                class="btn btn-link p-0 text-decoration-none text-danger" href="#!">Unassign </a></div>
-                          </div>
-                        </div>
-                      </td>
-                      <td class="align-middle white-space-nowrap start ps-3">
-                        <p class="mb-0 fs--1 text-900">Nov 1, 2019</p>
-                      </td>
-                      <td class="align-middle white-space-nowrap deadline ps-3">
-                        <p class="mb-0 fs--1 text-900">Dec 1, 2024</p>
-                      </td>
-                      <td class="align-middle white-space-nowrap calculation ps-3"><button
-                          class="btn btn-phoenix-secondary square-icon-btn"><span class="fas fa-plus"></span></button>
-                      </td>
-                      <td class="align-middle white-space-nowrap ps-3 projectprogress">
-                        <p class="text-800 fs--2 mb-0">16 / 56</p>
-                        <div class="progress" style="height:3px;">
-                          <div class="progress-bar bg-success" style="width: 28.57142857142857%" aria-valuenow="25"
-                            aria-valuemin="0" aria-valuemax="100" role="progressbar"></div>
-                        </div>
-                      </td>
-                      <td class="align-middle white-space-nowrap ps-8 status">
-                        <div class="progress progress-stack mt-3" style="height:3px;">
-                          <div class="progress-bar bg-info" style="width:45%" aria-valuenow="25" aria-valuemin="0"
-                            aria-valuemax="100" role="progressbar"></div>
-                          <div class="progress-bar bg-danger" style="width:15%" aria-valuenow="25" aria-valuemin="0"
-                            aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" title="5% Damage"
-                            role="progressbar"></div>
-                          <div class="progress-bar bg-warning" style="width:20%" aria-valuenow="25" aria-valuemin="0"
-                            aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" title="45% Damage"
-                            role="progressbar"></div>
-                          <div class="progress-bar bg-success" style="width:20%" aria-valuenow="25" aria-valuemin="0"
-                            aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" title="15% Damage"
-                            role="progressbar"></div>
-                        </div>
-                      </td>
-                      <td class="align-middle text-end white-space-nowrap pe-0 action">
-                        <div class="font-sans-serif btn-reveal-trigger position-static"><button
-                            class="btn btn-sm dropdown-toggle dropdown-caret-none transition-none btn-reveal fs--2"
-                            type="button" data-bs-toggle="dropdown" data-boundary="window" aria-haspopup="true"
-                            aria-expanded="false" data-bs-reference="parent"><span
-                              class="fas fa-ellipsis-h fs--2"></span></button>
-                          <div class="dropdown-menu dropdown-menu-end py-2"><a class="dropdown-item"
-                              href="#!">View</a><a class="dropdown-item" href="#!">Export</a>
-                            <div class="dropdown-divider"></div><a class="dropdown-item text-danger"
-                              href="#!">Remove</a>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr class="position-static">
-                      <td class="align-middle time white-space-nowrap ps-0 project"><a class="fw-bold fs-0"
-                          href="#">Harnessing stupidity from Jerry</a></td>
-                      <td class="align-middle white-space-nowrap assigness ps-3">
-                        <div class="avatar-group avatar-group-dense"><a
-                            class="dropdown-toggle dropdown-caret-none d-inline-block" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-                            <div class="avatar avatar-s  rounded-circle">
-                              <img class="rounded-circle " src="../assets/img/team/21.webp" alt="" />
-                            </div>
-                          </a>
-                          <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
-                            <div class="position-relative">
-                              <div class="bg-holder z-index--1"
-                                style="background-image:url(../assets/img/bg/bg-32.png);background-size: auto;"></div>
-                              <!--/.bg-holder-->
-                              <div class="p-3">
-                                <div class="text-end"><button class="btn p-0 me-2"><span
-                                      class="fa-solid fa-user-plus text-white light"></span></button><button
-                                    class="btn p-0"><span class="fa-solid fa-ellipsis text-white light"></span></button>
-                                </div>
-                                <div class="text-center">
-                                  <div
-                                    class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2">
-                                    <img class="rounded-circle border border-white" src="../assets/img/team/21.webp"
-                                      alt="" /></div>
-                                  <h6 class="text-white light">Michael Jenkins</h6>
-                                  <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
-                                  <div class="d-flex flex-center mb-3">
-                                    <h6 class="text-white light mb-0">224 <span
-                                        class="fw-normal text-300">connections</span></h6><span
-                                      class="fa-solid fa-circle text-700 mx-1"
-                                      data-fa-transform="shrink-10 up-2"></span>
-                                    <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span>
-                                    </h6>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="bg-white">
-                              <div class="p-3 border-bottom">
-                                <div class="d-flex justify-content-between">
-                                  <div class="d-flex"><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                                        class="fa-solid fa-phone"></span></button><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                                        class="fa-solid fa-message"></span></button><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
-                                        class="fa-solid fa-video"></span></button></div><button
-                                    class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
-                                    Email</button>
-                                </div>
-                              </div>
-                              <ul class="nav d-flex flex-column py-3 border-bottom">
-                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
-                                    <span class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
-                                      class="text-1000 flex-1">Assigned Projects</span><span
-                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
-                                    <span class="me-2 text-900" data-feather="pie-chart"></span><span
-                                      class="text-1000 flex-1">View activiy</span><span
-                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                              </ul>
-                            </div>
-                            <div class="p-3 d-flex justify-content-between"><a
-                                class="btn btn-link p-0 text-decoration-none" href="#!">Details </a><a
-                                class="btn btn-link p-0 text-decoration-none text-danger" href="#!">Unassign </a></div>
-                          </div><a class="dropdown-toggle dropdown-caret-none d-inline-block" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-                            <div class="avatar avatar-s  rounded-circle">
-                              <img class="rounded-circle " src="../assets/img/team/23.webp" alt="" />
-                            </div>
-                          </a>
-                          <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
-                            <div class="position-relative">
-                              <div class="bg-holder z-index--1"
-                                style="background-image:url(../assets/img/bg/bg-32.png);background-size: auto;"></div>
-                              <!--/.bg-holder-->
-                              <div class="p-3">
-                                <div class="text-end"><button class="btn p-0 me-2"><span
-                                      class="fa-solid fa-user-plus text-white light"></span></button><button
-                                    class="btn p-0"><span class="fa-solid fa-ellipsis text-white light"></span></button>
-                                </div>
-                                <div class="text-center">
-                                  <div
-                                    class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2">
-                                    <img class="rounded-circle border border-white" src="../assets/img/team/23.webp"
-                                      alt="" /></div>
-                                  <h6 class="text-white light">Kristine Cadena</h6>
-                                  <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
-                                  <div class="d-flex flex-center mb-3">
-                                    <h6 class="text-white light mb-0">224 <span
-                                        class="fw-normal text-300">connections</span></h6><span
-                                      class="fa-solid fa-circle text-700 mx-1"
-                                      data-fa-transform="shrink-10 up-2"></span>
-                                    <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span>
-                                    </h6>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="bg-white">
-                              <div class="p-3 border-bottom">
-                                <div class="d-flex justify-content-between">
-                                  <div class="d-flex"><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                                        class="fa-solid fa-phone"></span></button><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                                        class="fa-solid fa-message"></span></button><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
-                                        class="fa-solid fa-video"></span></button></div><button
-                                    class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
-                                    Email</button>
-                                </div>
-                              </div>
-                              <ul class="nav d-flex flex-column py-3 border-bottom">
-                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
-                                    <span class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
-                                      class="text-1000 flex-1">Assigned Projects</span><span
-                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
-                                    <span class="me-2 text-900" data-feather="pie-chart"></span><span
-                                      class="text-1000 flex-1">View activiy</span><span
-                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                              </ul>
-                            </div>
-                            <div class="p-3 d-flex justify-content-between"><a
-                                class="btn btn-link p-0 text-decoration-none" href="#!">Details </a><a
-                                class="btn btn-link p-0 text-decoration-none text-danger" href="#!">Unassign </a></div>
-                          </div><a class="dropdown-toggle dropdown-caret-none d-inline-block" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-                            <div class="avatar avatar-s  rounded-circle">
-                              <img class="rounded-circle " src="../assets/img/team/25.webp" alt="" />
-                            </div>
-                          </a>
-                          <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
-                            <div class="position-relative">
-                              <div class="bg-holder z-index--1"
-                                style="background-image:url(../assets/img/bg/bg-32.png);background-size: auto;"></div>
-                              <!--/.bg-holder-->
-                              <div class="p-3">
-                                <div class="text-end"><button class="btn p-0 me-2"><span
-                                      class="fa-solid fa-user-plus text-white light"></span></button><button
-                                    class="btn p-0"><span class="fa-solid fa-ellipsis text-white light"></span></button>
-                                </div>
-                                <div class="text-center">
-                                  <div
-                                    class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2">
-                                    <img class="rounded-circle border border-white" src="../assets/img/team/25.webp"
-                                      alt="" /></div>
-                                  <h6 class="text-white light">Ricky Antony</h6>
-                                  <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
-                                  <div class="d-flex flex-center mb-3">
-                                    <h6 class="text-white light mb-0">224 <span
-                                        class="fw-normal text-300">connections</span></h6><span
-                                      class="fa-solid fa-circle text-700 mx-1"
-                                      data-fa-transform="shrink-10 up-2"></span>
-                                    <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span>
-                                    </h6>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="bg-white">
-                              <div class="p-3 border-bottom">
-                                <div class="d-flex justify-content-between">
-                                  <div class="d-flex"><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                                        class="fa-solid fa-phone"></span></button><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                                        class="fa-solid fa-message"></span></button><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
-                                        class="fa-solid fa-video"></span></button></div><button
-                                    class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
-                                    Email</button>
-                                </div>
-                              </div>
-                              <ul class="nav d-flex flex-column py-3 border-bottom">
-                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
-                                    <span class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
-                                      class="text-1000 flex-1">Assigned Projects</span><span
-                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
-                                    <span class="me-2 text-900" data-feather="pie-chart"></span><span
-                                      class="text-1000 flex-1">View activiy</span><span
-                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                              </ul>
-                            </div>
-                            <div class="p-3 d-flex justify-content-between"><a
-                                class="btn btn-link p-0 text-decoration-none" href="#!">Details </a><a
-                                class="btn btn-link p-0 text-decoration-none text-danger" href="#!">Unassign </a></div>
-                          </div>
-                        </div>
-                      </td>
-                      <td class="align-middle white-space-nowrap start ps-3">
-                        <p class="mb-0 fs--1 text-900">Dec 28, 2019</p>
-                      </td>
-                      <td class="align-middle white-space-nowrap deadline ps-3">
-                        <p class="mb-0 fs--1 text-900">Nov 28, 2021</p>
-                      </td>
-                      <td class="align-middle white-space-nowrap calculation ps-3"><button
-                          class="btn btn-phoenix-secondary square-icon-btn"><span class="fas fa-plus"></span></button>
-                      </td>
-                      <td class="align-middle white-space-nowrap ps-3 projectprogress">
-                        <p class="text-800 fs--2 mb-0">169 / 394</p>
-                        <div class="progress" style="height:3px;">
-                          <div class="progress-bar bg-success" style="width: 42.89340101522843%" aria-valuenow="25"
-                            aria-valuemin="0" aria-valuemax="100" role="progressbar"></div>
-                        </div>
-                      </td>
-                      <td class="align-middle white-space-nowrap ps-8 status">
-                        <div class="progress progress-stack mt-3" style="height:3px;">
-                          <div class="progress-bar bg-info" style="width:25%" aria-valuenow="25" aria-valuemin="0"
-                            aria-valuemax="100" role="progressbar"></div>
-                          <div class="progress-bar bg-danger" style="width:35%" aria-valuenow="25" aria-valuemin="0"
-                            aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" title="5% Damage"
-                            role="progressbar"></div>
-                          <div class="progress-bar bg-warning" style="width:20%" aria-valuenow="25" aria-valuemin="0"
-                            aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" title="45% Damage"
-                            role="progressbar"></div>
-                          <div class="progress-bar bg-success" style="width:15%" aria-valuenow="25" aria-valuemin="0"
-                            aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" title="15% Damage"
-                            role="progressbar"></div>
-                        </div>
-                      </td>
-                      <td class="align-middle text-end white-space-nowrap pe-0 action">
-                        <div class="font-sans-serif btn-reveal-trigger position-static"><button
-                            class="btn btn-sm dropdown-toggle dropdown-caret-none transition-none btn-reveal fs--2"
-                            type="button" data-bs-toggle="dropdown" data-boundary="window" aria-haspopup="true"
-                            aria-expanded="false" data-bs-reference="parent"><span
-                              class="fas fa-ellipsis-h fs--2"></span></button>
-                          <div class="dropdown-menu dropdown-menu-end py-2"><a class="dropdown-item"
-                              href="#!">View</a><a class="dropdown-item" href="#!">Export</a>
-                            <div class="dropdown-divider"></div><a class="dropdown-item text-danger"
-                              href="#!">Remove</a>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr class="position-static">
-                      <td class="align-middle time white-space-nowrap ps-0 project"><a class="fw-bold fs-0"
-                          href="#">Water resistant mosquito killer gun</a></td>
-                      <td class="align-middle white-space-nowrap assigness ps-3">
-                        <div class="avatar-group avatar-group-dense"><a
-                            class="dropdown-toggle dropdown-caret-none d-inline-block" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-                            <div class="avatar avatar-s  rounded-circle">
-                              <img class="rounded-circle " src="../assets/img/team/30.webp" alt="" />
-                            </div>
-                          </a>
-                          <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
-                            <div class="position-relative">
-                              <div class="bg-holder z-index--1"
-                                style="background-image:url(../assets/img/bg/bg-32.png);background-size: auto;"></div>
-                              <!--/.bg-holder-->
-                              <div class="p-3">
-                                <div class="text-end"><button class="btn p-0 me-2"><span
-                                      class="fa-solid fa-user-plus text-white light"></span></button><button
-                                    class="btn p-0"><span class="fa-solid fa-ellipsis text-white light"></span></button>
-                                </div>
-                                <div class="text-center">
-                                  <div
-                                    class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2">
-                                    <img class="rounded-circle border border-white" src="../assets/img/team/30.webp"
-                                      alt="" /></div>
-                                  <h6 class="text-white light">Stanly Drinkwater</h6>
-                                  <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
-                                  <div class="d-flex flex-center mb-3">
-                                    <h6 class="text-white light mb-0">224 <span
-                                        class="fw-normal text-300">connections</span></h6><span
-                                      class="fa-solid fa-circle text-700 mx-1"
-                                      data-fa-transform="shrink-10 up-2"></span>
-                                    <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span>
-                                    </h6>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="bg-white">
-                              <div class="p-3 border-bottom">
-                                <div class="d-flex justify-content-between">
-                                  <div class="d-flex"><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                                        class="fa-solid fa-phone"></span></button><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                                        class="fa-solid fa-message"></span></button><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
-                                        class="fa-solid fa-video"></span></button></div><button
-                                    class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
-                                    Email</button>
-                                </div>
-                              </div>
-                              <ul class="nav d-flex flex-column py-3 border-bottom">
-                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
-                                    <span class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
-                                      class="text-1000 flex-1">Assigned Projects</span><span
-                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
-                                    <span class="me-2 text-900" data-feather="pie-chart"></span><span
-                                      class="text-1000 flex-1">View activiy</span><span
-                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                              </ul>
-                            </div>
-                            <div class="p-3 d-flex justify-content-between"><a
-                                class="btn btn-link p-0 text-decoration-none" href="#!">Details </a><a
-                                class="btn btn-link p-0 text-decoration-none text-danger" href="#!">Unassign </a></div>
-                          </div><a class="dropdown-toggle dropdown-caret-none d-inline-block" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-                            <div class="avatar avatar-s  rounded-circle">
-                              <img class="rounded-circle avatar-placeholder" src="../assets/img/team/avatar.webp"
-                                alt="" />
-                            </div>
-                          </a>
-                          <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
-                            <div class="position-relative">
-                              <div class="bg-holder z-index--1"
-                                style="background-image:url(../assets/img/bg/bg-32.png);background-size: auto;"></div>
-                              <!--/.bg-holder-->
-                              <div class="p-3">
-                                <div class="text-end"><button class="btn p-0 me-2"><span
-                                      class="fa-solid fa-user-plus text-white light"></span></button><button
-                                    class="btn p-0"><span class="fa-solid fa-ellipsis text-white light"></span></button>
-                                </div>
-                                <div class="text-center">
-                                  <div
-                                    class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2">
-                                    <img class="rounded-circle border border-white" src="../assets/img/team/avatar.webp"
-                                      alt="" /></div>
-                                  <h6 class="text-white light">Kristine Cadena</h6>
-                                  <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
-                                  <div class="d-flex flex-center mb-3">
-                                    <h6 class="text-white light mb-0">224 <span
-                                        class="fw-normal text-300">connections</span></h6><span
-                                      class="fa-solid fa-circle text-700 mx-1"
-                                      data-fa-transform="shrink-10 up-2"></span>
-                                    <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span>
-                                    </h6>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="bg-white">
-                              <div class="p-3 border-bottom">
-                                <div class="d-flex justify-content-between">
-                                  <div class="d-flex"><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                                        class="fa-solid fa-phone"></span></button><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                                        class="fa-solid fa-message"></span></button><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
-                                        class="fa-solid fa-video"></span></button></div><button
-                                    class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
-                                    Email</button>
-                                </div>
-                              </div>
-                              <ul class="nav d-flex flex-column py-3 border-bottom">
-                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
-                                    <span class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
-                                      class="text-1000 flex-1">Assigned Projects</span><span
-                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
-                                    <span class="me-2 text-900" data-feather="pie-chart"></span><span
-                                      class="text-1000 flex-1">View activiy</span><span
-                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                              </ul>
-                            </div>
-                            <div class="p-3 d-flex justify-content-between"><a
-                                class="btn btn-link p-0 text-decoration-none" href="#!">Details </a><a
-                                class="btn btn-link p-0 text-decoration-none text-danger" href="#!">Unassign </a></div>
-                          </div><a class="dropdown-toggle dropdown-caret-none d-inline-block" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-                            <div class="avatar avatar-s  rounded-circle">
-                              <img class="rounded-circle " src="../assets/img/team/59.webp" alt="" />
-                            </div>
-                          </a>
-                          <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
-                            <div class="position-relative">
-                              <div class="bg-holder z-index--1"
-                                style="background-image:url(../assets/img/bg/bg-32.png);background-size: auto;"></div>
-                              <!--/.bg-holder-->
-                              <div class="p-3">
-                                <div class="text-end"><button class="btn p-0 me-2"><span
-                                      class="fa-solid fa-user-plus text-white light"></span></button><button
-                                    class="btn p-0"><span class="fa-solid fa-ellipsis text-white light"></span></button>
-                                </div>
-                                <div class="text-center">
-                                  <div
-                                    class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2">
-                                    <img class="rounded-circle border border-white" src="../assets/img/team/59.webp"
-                                      alt="" /></div>
-                                  <h6 class="text-white light">Katerina Karenin</h6>
-                                  <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
-                                  <div class="d-flex flex-center mb-3">
-                                    <h6 class="text-white light mb-0">224 <span
-                                        class="fw-normal text-300">connections</span></h6><span
-                                      class="fa-solid fa-circle text-700 mx-1"
-                                      data-fa-transform="shrink-10 up-2"></span>
-                                    <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span>
-                                    </h6>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="bg-white">
-                              <div class="p-3 border-bottom">
-                                <div class="d-flex justify-content-between">
-                                  <div class="d-flex"><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                                        class="fa-solid fa-phone"></span></button><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                                        class="fa-solid fa-message"></span></button><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
-                                        class="fa-solid fa-video"></span></button></div><button
-                                    class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
-                                    Email</button>
-                                </div>
-                              </div>
-                              <ul class="nav d-flex flex-column py-3 border-bottom">
-                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
-                                    <span class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
-                                      class="text-1000 flex-1">Assigned Projects</span><span
-                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
-                                    <span class="me-2 text-900" data-feather="pie-chart"></span><span
-                                      class="text-1000 flex-1">View activiy</span><span
-                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                              </ul>
-                            </div>
-                            <div class="p-3 d-flex justify-content-between"><a
-                                class="btn btn-link p-0 text-decoration-none" href="#!">Details </a><a
-                                class="btn btn-link p-0 text-decoration-none text-danger" href="#!">Unassign </a></div>
-                          </div><a class="dropdown-toggle dropdown-caret-none d-inline-block" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-                            <div class="avatar avatar-s  rounded-circle">
-                              <img class="rounded-circle " src="../assets/img/team/31.webp" alt="" />
-                            </div>
-                          </a>
-                          <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
-                            <div class="position-relative">
-                              <div class="bg-holder z-index--1"
-                                style="background-image:url(../assets/img/bg/bg-32.png);background-size: auto;"></div>
-                              <!--/.bg-holder-->
-                              <div class="p-3">
-                                <div class="text-end"><button class="btn p-0 me-2"><span
-                                      class="fa-solid fa-user-plus text-white light"></span></button><button
-                                    class="btn p-0"><span class="fa-solid fa-ellipsis text-white light"></span></button>
-                                </div>
-                                <div class="text-center">
-                                  <div
-                                    class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2">
-                                    <img class="rounded-circle border border-white" src="../assets/img/team/31.webp"
-                                      alt="" /></div>
-                                  <h6 class="text-white light">Martina scorcese</h6>
-                                  <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
-                                  <div class="d-flex flex-center mb-3">
-                                    <h6 class="text-white light mb-0">224 <span
-                                        class="fw-normal text-300">connections</span></h6><span
-                                      class="fa-solid fa-circle text-700 mx-1"
-                                      data-fa-transform="shrink-10 up-2"></span>
-                                    <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span>
-                                    </h6>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="bg-white">
-                              <div class="p-3 border-bottom">
-                                <div class="d-flex justify-content-between">
-                                  <div class="d-flex"><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                                        class="fa-solid fa-phone"></span></button><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                                        class="fa-solid fa-message"></span></button><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
-                                        class="fa-solid fa-video"></span></button></div><button
-                                    class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
-                                    Email</button>
-                                </div>
-                              </div>
-                              <ul class="nav d-flex flex-column py-3 border-bottom">
-                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
-                                    <span class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
-                                      class="text-1000 flex-1">Assigned Projects</span><span
-                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
-                                    <span class="me-2 text-900" data-feather="pie-chart"></span><span
-                                      class="text-1000 flex-1">View activiy</span><span
-                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                              </ul>
-                            </div>
-                            <div class="p-3 d-flex justify-content-between"><a
-                                class="btn btn-link p-0 text-decoration-none" href="#!">Details </a><a
-                                class="btn btn-link p-0 text-decoration-none text-danger" href="#!">Unassign </a></div>
-                          </div><a class="dropdown-toggle dropdown-caret-none d-inline-block" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-                            <div class="avatar avatar-s">
-                              <div class="avatar-name rounded-circle"><span>R</span></div>
-                            </div>
-                          </a>
-                          <div class="dropdown-menu avatar-dropdown-menu p-0 overflow-hidden" style="width: 320px;">
-                            <div class="position-relative">
-                              <div class="bg-holder z-index--1"
-                                style="background-image:url(../assets/img/bg/bg-32.png);background-size: auto;"></div>
-                              <!--/.bg-holder-->
-                              <div class="p-3">
-                                <div class="text-end"><button class="btn p-0 me-2"><span
-                                      class="fa-solid fa-user-plus text-white light"></span></button><button
-                                    class="btn p-0"><span class="fa-solid fa-ellipsis text-white light"></span></button>
-                                </div>
-                                <div class="text-center">
-                                  <div
-                                    class="avatar avatar-xl status-online position-relative me-2 me-sm-0 me-xl-2 mb-2">
-                                    <div class="avatar-name rounded-circle"><span>R</span></div>
-                                  </div>
-                                  <h6 class="text-white light">Roy Anderson</h6>
-                                  <p class="text-600 fw-semi-bold fs--2 mb-2">@tyrion222</p>
-                                  <div class="d-flex flex-center mb-3">
-                                    <h6 class="text-white light mb-0">224 <span
-                                        class="fw-normal text-300">connections</span></h6><span
-                                      class="fa-solid fa-circle text-700 mx-1"
-                                      data-fa-transform="shrink-10 up-2"></span>
-                                    <h6 class="text-white light mb-0">23 <span class="fw-normal text-300">mutual</span>
-                                    </h6>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="bg-white">
-                              <div class="p-3 border-bottom">
-                                <div class="d-flex justify-content-between">
-                                  <div class="d-flex"><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                                        class="fa-solid fa-phone"></span></button><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg me-2"><span
-                                        class="fa-solid fa-message"></span></button><button
-                                      class="btn btn-phoenix-secondary btn-icon btn-icon-lg"><span
-                                        class="fa-solid fa-video"></span></button></div><button
-                                    class="btn btn-phoenix-primary"><span class="fa-solid fa-envelope me-2"></span>Send
-                                    Email</button>
-                                </div>
-                              </div>
-                              <ul class="nav d-flex flex-column py-3 border-bottom">
-                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
-                                    <span class="me-2 text-900 d-inline-block" data-feather="clipboard"></span><span
-                                      class="text-1000 flex-1">Assigned Projects</span><span
-                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                                <li class="nav-item"><a class="nav-link px-3 d-flex flex-between-center" href="#!">
-                                    <span class="me-2 text-900" data-feather="pie-chart"></span><span
-                                      class="text-1000 flex-1">View activiy</span><span
-                                      class="fa-solid fa-chevron-right fs--3"></span></a></li>
-                              </ul>
-                            </div>
-                            <div class="p-3 d-flex justify-content-between"><a
-                                class="btn btn-link p-0 text-decoration-none" href="#!">Details </a><a
-                                class="btn btn-link p-0 text-decoration-none text-danger" href="#!">Unassign </a></div>
-                          </div>
-                        </div>
-                      </td>
-                      <td class="align-middle white-space-nowrap start ps-3">
-                        <p class="mb-0 fs--1 text-900">Feb 24, 2020</p>
-                      </td>
-                      <td class="align-middle white-space-nowrap deadline ps-3">
-                        <p class="mb-0 fs--1 text-900">Nov 24, 2021</p>
-                      </td>
-                      <td class="align-middle white-space-nowrap calculation ps-3">
-                        <p class="fw-bold text-1100 fs--1 mb-0">$55k</p>
-                        <p class="fw-semi-bold fs--2 text-700 mb-0">Budget</p>
-                      </td>
-                      <td class="align-middle white-space-nowrap ps-3 projectprogress">
-                        <p class="text-800 fs--2 mb-0">600 / 600</p>
-                        <div class="progress" style="height:3px;">
-                          <div class="progress-bar bg-success" style="width: 100%" aria-valuenow="25" aria-valuemin="0"
-                            aria-valuemax="100" role="progressbar"></div>
-                        </div>
-                      </td>
-                      <td class="align-middle white-space-nowrap ps-8 status">
-                        <div class="progress progress-stack mt-3" style="height:3px;">
-                          <div class="progress-bar bg-info" style="width:24%" aria-valuenow="25" aria-valuemin="0"
-                            aria-valuemax="100" role="progressbar"></div>
-                          <div class="progress-bar bg-danger" style="width:5%" aria-valuenow="25" aria-valuemin="0"
-                            aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" title="5% Damage"
-                            role="progressbar"></div>
-                          <div class="progress-bar bg-warning" style="width:35%" aria-valuenow="25" aria-valuemin="0"
-                            aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" title="45% Damage"
-                            role="progressbar"></div>
-                          <div class="progress-bar bg-success" style="width:35%" aria-valuenow="25" aria-valuemin="0"
-                            aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" title="15% Damage"
-                            role="progressbar"></div>
-                        </div>
-                      </td>
-                      <td class="align-middle text-end white-space-nowrap pe-0 action">
-                        <div class="font-sans-serif btn-reveal-trigger position-static"><button
-                            class="btn btn-sm dropdown-toggle dropdown-caret-none transition-none btn-reveal fs--2"
-                            type="button" data-bs-toggle="dropdown" data-boundary="window" aria-haspopup="true"
-                            aria-expanded="false" data-bs-reference="parent"><span
-                              class="fas fa-ellipsis-h fs--2"></span></button>
-                          <div class="dropdown-menu dropdown-menu-end py-2"><a class="dropdown-item"
-                              href="#!">View</a><a class="dropdown-item" href="#!">Export</a>
-                            <div class="dropdown-divider"></div><a class="dropdown-item text-danger"
-                              href="#!">Remove</a>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
+                  <tbody class="list" id="project-list-table-body">
+
+
+
+
                   </tbody>
                 </table>
-              </div>
-              <div class="row align-items-center justify-content-between py-2 pe-0 fs--1">
-                <div class="col-auto d-flex">
-                  <p class="mb-0 d-none d-sm-block me-3 fw-semi-bold text-900" data-list-info="data-list-info"></p><a
-                    class="fw-semi-bold" href="#!" data-list-view="*">View all<span class="fas fa-angle-right ms-1"
-                      data-fa-transform="down-1"></span></a><a class="fw-semi-bold d-none" href="#!"
-                    data-list-view="less">View Less<span class="fas fa-angle-right ms-1"
-                      data-fa-transform="down-1"></span></a>
+                <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel"
+                  aria-hidden="true">
+                  <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="editModalLabel">Edit Project</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <!-- Insert Form Here -->
+                        <div>
+                          <div class="col-xl-12">
+                            <form class="row g-3 mb-6" id="updateProjectForm">
+                              <!-- Project Title -->
+                              <div class="col-sm-6 col-md-8">
+                                <div class="form-floating">
+                                  <input class="form-control" id="floatingInputGrid" type="text"
+                                    placeholder="Project title" name="project_title">
+                                  <label for="floatingInputGrid">Project Title</label>
+                                </div>
+                              </div>
+
+                              <!-- Batch -->
+                              <div class="col-sm-6 col-md-4">
+                                <div class="form-floating">
+                                  <select class="form-select" id="floatingSelectBatch" aria-label="Batch" name="batch">
+                                    <!-- Options will be populated dynamically via JavaScript -->
+                                  </select>
+                                  <label for="floatingSelectBatch">Batch</label>
+                                </div>
+                              </div>
+
+
+                              <!-- Team -->
+                              <div class="col-sm-6 col-md-4">
+                                <div class="form-floating">
+                                  <select class="form-select" id="floatingSelectTeam" aria-label="Team" name="team">
+                                    <!-- Options will be populated dynamically via JavaScript -->
+                                  </select>
+                                  <label for="floatingSelectTeam">Team</label>
+                                </div>
+                              </div>
+
+
+                              <!-- Developers -->
+                              <div class="col-sm-6 col-md-4">
+                                <div class="form-floating">
+                                  <select class="form-select" id="floatingSelectDevelopers" aria-label="Developers"
+                                    name="assignies">
+                                    <!-- <option value="">Select a Developer</option> -->
+                                  </select>
+                                  <label for="floatingSelectDevelopers">Developers</label>
+                                </div>
+                              </div>
+
+                              <!-- Platform -->
+                              <div class="col-sm-6 col-md-4">
+                                <div class="form-floating">
+                                  <input class="form-control" id="floatingPlatform" type="text" placeholder="Platform"
+                                    name="platform">
+                                  <label for="floatingPlatform">Platform</label>
+                                </div>
+                              </div>
+
+                              <!-- Student -->
+                              <div class="col-sm-6 col-md-4">
+                                <div class="form-floating">
+                                  <select class="form-select" id="floatingSelectStudent" aria-label="Student"
+                                    name="student">
+                                    <!-- Options will be dynamically populated using JavaScript -->
+                                  </select>
+                                  <label for="floatingSelectStudent">Student</label>
+                                </div>
+                              </div>
+
+                              <!-- Start Date -->
+                              <div class="col-sm-6 col-md-4">
+                                <div class="flatpickr-input-container">
+                                  <div class="form-floating">
+                                    <input class="form-control datetimepicker flatpickr-input"
+                                      id="floatingInputStartDate" type="text" placeholder="Start date"
+                                      name="start_date">
+                                    <label class="ps-6" for="floatingInputStartDate">Start
+                                      Date</label>
+                                    <span class="uil uil-calendar-alt flatpickr-icon text-700"></span>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <!-- End Date -->
+                              <div class="col-sm-6 col-md-4">
+                                <div class="flatpickr-input-container">
+                                  <div class="form-floating">
+                                    <input class="form-control datetimepicker flatpickr-input" id="floatingInputEndDate"
+                                      type="text" placeholder="End date" name="deadline">
+                                    <label class="ps-6" for="floatingInputEndDate">End
+                                      Date</label>
+                                    <span class="uil uil-calendar-alt flatpickr-icon text-700"></span>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <!-- Description -->
+                              <div class="col-12 gy-6">
+                                <div class="form-floating">
+                                  <textarea class="form-control" id="floatingProjectOverview"
+                                    placeholder="Project Description" style="height: 100px"
+                                    name="project_description"></textarea>
+                                  <label for="floatingProjectOverview">Description</label>
+                                </div>
+                              </div>
+
+                              <div class="col-12 gy-6">
+                                <div class="row g-3 justify-content-end">
+                                  <div class="col-auto">
+                                    <button class="btn btn-secondary px-5" data-dismiss="modal">Cancel</button>
+                                  </div>
+                                  <div class="col-auto">
+                                    <button class="btn btn-primary px-5 px-sm-15" id="updateProjectForm"
+                                      type="submit">Update
+                                      Project</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="col-auto d-flex"><button class="page-link" data-list-pagination="prev"><span
-                      class="fas fa-chevron-left"></span></button>
-                  <ul class="mb-0 pagination"></ul><button class="page-link pe-0" data-list-pagination="next"><span
-                      class="fas fa-chevron-right"></span></button>
-                </div>
+
               </div>
+              <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+              <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+              <script>
+                $(document).ready(function () {
+                  // Setup CSRF token for AJAX requests
+                  $.ajaxSetup({
+                    headers: {
+                      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                  });
+
+                  // Fetch and display the project list
+                  $.ajax({
+                    type: "GET",
+                    url: "/project-list",
+                    dataType: "json",
+                    success: function (response) {
+                      console.log("AJAX response:", response);
+                      var tableBody = $('#project-list-table-body');
+                      tableBody.empty(); // Clear existing rows
+
+                      if (response.projects && response.projects.length) {
+                        response.projects.forEach(function (project) {
+                          var data = `
+                                <tr>
+                                <td class="align-middle time white-space-nowrap ps-0 project"><a class="fw-bold fs-0" href="{{route('project-details')}}">${project.project_title}</a></td>
+                                    
+                                    <td>
+                                        <div class="avatar-group avatar-group-dense">
+                                            <a class="dropdown-toggle dropdown-caret-none d-inline-block" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                                                <div class="avatar avatar-s rounded-circle">
+                                                    <img class="rounded-circle" src="deafult_profile.png" alt="">
+                                                </div>
+                                            </a>
+                                            ${project.assignies}
+                                        </div>
+                                    </td>
+                                    <td>${project.start_date}</td>
+                                    <td>${project.deadline}</td>
+                                    <td>${project.student}</td>
+                                    <td>${project.platform}</td>
+                                    <td>${project.batch}</td>
+                                    <td class="align-middle text-end white-space-nowrap pe-0 action">
+                                        <div class="font-sans-serif btn-reveal-trigger position-static">
+                                            <button class="btn btn-sm dropdown-toggle dropdown-caret-none transition-none btn-reveal fs--2" type="button" data-bs-toggle="dropdown" data-boundary="window" aria-haspopup="true" aria-expanded="false" data-bs-reference="parent">
+                                                <svg class="svg-inline--fa fa-ellipsis fs--2" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="ellipsis" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                                                    <path fill="currentColor" d="M120 256C120 286.9 94.93 312 64 312C33.07 312 8 286.9 8 256C8 225.1 33.07 200 64 200C94.93 200 120 225.1 120 256zM280 256C280 286.9 254.9 312 224 312C193.1 312 168 286.9 168 256C168 225.1 193.1 200 224 200C254.9 200 280 225.1 280 256zM328 256C328 225.1 353.1 200 384 200C414.9 200 440 225.1 440 256C440 286.9 414.9 312 384 312C353.1 312 328 286.9 328 256z"></path>
+                                                </svg>
+                                            </button>
+                                            <div class="dropdown-menu dropdown-menu-end py-2"> 
+                                                <a class="accept-btn dropdown-item" href="#!" data-id="${project.project_title}">Accept</a>
+                                                <a class="reject-btn dropdown-item" href="#!" data-id="${project.project_title}">Reject</a>
+                                                <div class="dropdown-divider"></div>
+                                                <a class="editbtn dropdown-item text-danger" href="#" data-bs-toggle="modal" data-bs-target="#editModal" data-id="${project.id}">Edit</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>`;
+                          tableBody.append(data);
+                        });
+                      }
+                    },
+                    error: function (xhr, status, error) {
+                      console.error("AJAX error:", xhr.responseText);
+                    }
+                  });
+
+                  // Handle click event on accept button
+                  $(document).on('click', '.accept-btn', function (e) {
+                    e.preventDefault();
+                    var project_title = $(this).data('id'); // Get project title from data attribute
+
+                    $.ajax({
+                      type: "POST",
+                      url: "{{ route('project_accept') }}", // Define the route for accepting the project
+                      data: {
+                        'project_title': project_title
+                      },
+                      dataType: "json",
+                      success: function (response) {
+                        if (response.success) {
+                          alert(response.message);
+                          location.reload(); // Optionally, reload the page or update the UI
+                        } else {
+                          alert('Error: ' + (response.message || 'Unable to accept project'));
+                        }
+                      },
+                      error: function (xhr, status, error) {
+                        alert('An error occurred. Please try again.');
+                        console.error(xhr.responseText);
+                      }
+                    });
+                  });
+
+                  // Handle click event on reject button
+                  $(document).on('click', '.reject-btn', function (e) {
+                    e.preventDefault();
+                    var projectTitle = $(this).data('id'); // Get the project title from data-id attribute
+
+                    $.ajax({
+                      url: '/reject-project',
+                      method: 'POST',
+                      data: {
+                        project_title: projectTitle
+                      },
+                      success: function (response) {
+                        alert('Project rejected successfully');
+                        location.reload(); // Optionally, reload the page or update the UI
+                      },
+                      error: function (xhr, status, error) {
+                        console.error(xhr.responseText);
+                        alert('Error: ' + xhr.responseText);
+                      }
+                    });
+                  });
+
+                  // Handle click event on edit button
+                  $(document).on('click', '.editbtn', function (e) {
+                    e.preventDefault();
+                    var id = $(this).data('id'); // Retrieve the value of data-id attribute
+
+                    // Fetch project data
+                    $.ajax({
+                      type: "GET",
+                      url: "/get-project/" + id,
+                      success: function (response) {
+                        if (response.status == 200) {
+                          var project = response.project;
+                          $('#floatingInputGrid').val(project.project_title);
+                          $('#floatingSelectBatch').val(project.batch);
+                          $('#floatingSelectTeam').val(project.team);
+                          $('#floatingSelectDevelopers').val(project.assignies);
+                          $('#floatingSelectPlatform').val(project.platform);
+                          $('#floatingSelectStudent').val(project.student);
+                          $('#floatingInputStartDate').val(project.start_date);
+                          $('#floatingInputEndDate').val(project.deadline);
+                          $('#floatingProjectOverview').val(project.project_description);
+
+                          // Fetch teams and populate the team dropdown
+                          $.ajax({
+                            type: "GET",
+                            url: "/get-teams",
+                            success: function (teamResponse) {
+                              if (teamResponse.status == 200) {
+                                var teams = teamResponse.teams;
+                                var teamDropdown = $('#floatingSelectTeam');
+                                teamDropdown.empty(); // Clear existing options
+
+                                teams.forEach(function (team) {
+                                  var option = $('<option></option>')
+                                    .attr('value', team.id)
+                                    .text(team.name);
+                                  teamDropdown.append(option);
+                                });
+
+                                teamDropdown.val(project.team); // Set the current team value
+                              } else {
+                                console.log("Error: " + teamResponse.message); // Log error message
+                              }
+                            },
+                            error: function (xhr, status, error) {
+                              console.error("AJAX Request Error:", error); // Log AJAX error
+                            }
+                          });
+
+                          // Fetch batches and populate the batch dropdown
+                          $.ajax({
+                            type: "GET",
+                            url: "/get-batches",
+                            success: function (batchResponse) {
+                              if (batchResponse.status == 200) {
+                                var batches = batchResponse.batches;
+                                var batchDropdown = $('#floatingSelectBatch');
+                                batchDropdown.empty(); // Clear existing options
+
+                                batches.forEach(function (batch) {
+                                  var option = $('<option></option>')
+                                    .attr('value', batch.batch_name)
+                                    .text(batch.batch_name); // Adjust this to the appropriate property in your batch object
+                                  batchDropdown.append(option);
+                                });
+
+                                batchDropdown.val(project.batch); // Set the current batch value
+                              } else {
+                                console.log("Error: " + batchResponse.message); // Log error message
+                              }
+                            },
+                            error: function (xhr, status, error) {
+                              console.error("AJAX Request Error:", error); // Log AJAX error
+                            }
+                          });
+
+                          // Fetch developers and populate the developers dropdown
+                          $.ajax({
+                            type: "GET",
+                            url: "/get-members",
+                            success: function (memberResponse) {
+                              if (memberResponse.status == 200) {
+                                var members = memberResponse.members;
+                                var membersDropdown = $('#floatingSelectDevelopers');
+                                membersDropdown.empty(); // Clear existing options
+
+                                members.forEach(function (member) {
+                                  var option = $('<option></option>')
+                                    .attr('value', member.user_name) // Change to member.user_name
+                                    .text(member.user_name);
+                                  membersDropdown.append(option);
+                                });
+
+                                console.log("Project Assignies:", project.assignies); // Log project assignies
+
+                                membersDropdown.val(project.assignies); // Set the current developers value
+                              } else {
+                                console.log("Error: " + memberResponse.message); // Log error message
+                              }
+                            },
+                            error: function (xhr, status, error) {
+                              console.error("AJAX Request Error:", error); // Log AJAX error
+                            }
+                          });
+
+                          // Fetch students and populate the student dropdown
+                          $.ajax({
+                            type: "GET",
+                            url: "/get-students",
+                            success: function (studentResponse) {
+                              if (studentResponse.status == 200) {
+                                var students = studentResponse.students;
+                                var studentDropdown = $('#floatingSelectStudent');
+                                studentDropdown.empty(); // Clear existing options
+
+                                students.forEach(function (student) {
+                                  var option = $('<option></option>')
+                                    .attr('value', student.name)
+                                    .text(student.name);
+                                  studentDropdown.append(option);
+                                });
+
+                                studentDropdown.val(project.student); // Set the current student value
+                              } else {
+                                console.log("Error: " + studentResponse.message); // Log error message
+                              }
+                            },
+                            error: function (xhr, status, error) {
+                              console.error("AJAX Request Error:", error); // Log AJAX error
+                            }
+                          });
+
+                          // Update project data
+                          $('#updateProjectForm').off('submit').on('submit', function (event) {
+                            event.preventDefault(); // Prevent default form submission
+
+                            // Collect form data
+                            var formData = {
+                              project_title: $('[name="project_title"]').val(),
+                              batch: $('[name="batch"]').val(),
+                              team: $('[name="team"]').val(),
+                              assignies: $('[name="assignies"]').val(),
+                              platform: $('[name="platform"]').val(),
+                              student: $('[name="student"]').val(),
+                              start_date: $('[name="start_date"]').val(),
+                              deadline: $('[name="deadline"]').val(),
+                              project_description: $('[name="project_description"]').val()
+                            };
+
+                            // Send AJAX request to update project
+                            $.ajax({
+                              type: 'PUT',
+                              url: '/update-project/' + id, // Use the fetched project ID
+                              data: JSON.stringify(formData), // Convert formData to JSON string
+                              contentType: 'application/json', // Set content type to JSON
+                              success: function (response) {
+                                if (response.status === 200) {
+                                  alert(response.message); // Show success message
+                                  location.reload(); // Optionally, reload the page or update the UI
+                                } else {
+                                  alert('Error: ' + response.message); // Show error message
+                                }
+                              },
+                              error: function (xhr, status, error) {
+                                if (xhr.status === 400 && xhr.responseJSON && xhr.responseJSON.errors) {
+                                  var errors = xhr.responseJSON.errors;
+                                  var errorMessage = 'Validation errors:\n';
+                                  for (var key in errors) {
+                                    if (errors.hasOwnProperty(key)) {
+                                      errorMessage += '- ' + errors[key][0] + '\n';
+                                    }
+                                  }
+                                  alert(errorMessage);
+                                } else if (xhr.status === 500 && xhr.responseJSON) {
+                                  alert('Error: ' + xhr.responseJSON.message); // Show server error message
+                                } else {
+                                  console.error('AJAX Request Error:', error); // Log other AJAX errors
+                                }
+                              }
+                            });
+                          });
+                        }
+                      },
+                      error: function (xhr, status, error) {
+                        console.error("AJAX Request Error:", error); // Log AJAX error
+                      }
+                    });
+                  });
+                });
+              </script>
             </div>
           </div>
         </div>
       </div>
-      <footer class="footer position-absolute">
-        <div class="row g-0 justify-content-between align-items-center h-100">
-          <div class="col-12 col-sm-auto text-center">
-            <p class="mb-0 mt-2 mt-sm-0 text-900">Thank you for creating with Phoenix<span
-                class="d-none d-sm-inline-block"></span><span class="d-none d-sm-inline-block mx-1">|</span><br
-                class="d-sm-none" />2023 &copy;<a class="mx-1" href="https://themewagon.com/">Themewagon</a></p>
-          </div>
-          <div class="col-12 col-sm-auto text-center">
-            <p class="mb-0 text-600">v1.13.0</p>
-          </div>
-        </div>
-      </footer>
+      
     </div>
     <div class="support-chat-container">
       <div class="container-fluid support-chat">
@@ -8521,20 +7368,7 @@
         href="https://themes.getbootstrap.com/product/phoenix-admin-dashboard-webapp-template/" target="_blank">Purchase
         template</a>
     </div>
-  </div><a class="card setting-toggle" href="#settings-offcanvas" data-bs-toggle="offcanvas">
-    <div class="card-body d-flex align-items-center px-2 py-1">
-      <div class="position-relative rounded-start" style="height:34px;width:28px">
-        <div class="settings-popover"><span class="ripple"><span
-              class="fa-spin position-absolute all-0 d-flex flex-center"><span
-                class="icon-spin position-absolute all-0 d-flex flex-center"><svg width="20" height="20"
-                  viewBox="0 0 20 20" fill="#ffffff" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M19.7369 12.3941L19.1989 12.1065C18.4459 11.7041 18.0843 10.8487 18.0843 9.99495C18.0843 9.14118 18.4459 8.28582 19.1989 7.88336L19.7369 7.59581C19.9474 7.47484 20.0316 7.23291 19.9474 7.03131C19.4842 5.57973 18.6843 4.28943 17.6738 3.20075C17.5053 3.03946 17.2527 2.99914 17.0422 3.12011L16.393 3.46714C15.6883 3.84379 14.8377 3.74529 14.1476 3.3427C14.0988 3.31422 14.0496 3.28621 14.0002 3.25868C13.2568 2.84453 12.7055 2.10629 12.7055 1.25525V0.70081C12.7055 0.499202 12.5371 0.297594 12.2845 0.257272C10.7266 -0.105622 9.16879 -0.0653007 7.69516 0.257272C7.44254 0.297594 7.31623 0.499202 7.31623 0.70081V1.23474C7.31623 2.09575 6.74999 2.8362 5.99824 3.25599C5.95774 3.27861 5.91747 3.30159 5.87744 3.32493C5.15643 3.74527 4.26453 3.85902 3.53534 3.45302L2.93743 3.12011C2.72691 2.99914 2.47429 3.03946 2.30587 3.20075C1.29538 4.28943 0.495411 5.57973 0.0322686 7.03131C-0.051939 7.23291 0.0322686 7.47484 0.242788 7.59581L0.784376 7.8853C1.54166 8.29007 1.92694 9.13627 1.92694 9.99495C1.92694 10.8536 1.54166 11.6998 0.784375 12.1046L0.242788 12.3941C0.0322686 12.515 -0.051939 12.757 0.0322686 12.9586C0.495411 14.4102 1.29538 15.7005 2.30587 16.7891C2.47429 16.9504 2.72691 16.9907 2.93743 16.8698L3.58669 16.5227C4.29133 16.1461 5.14131 16.2457 5.8331 16.6455C5.88713 16.6767 5.94159 16.7074 5.99648 16.7375C6.75162 17.1511 7.31623 17.8941 7.31623 18.7552V19.2891C7.31623 19.4425 7.41373 19.5959 7.55309 19.696C7.64066 19.7589 7.74815 19.7843 7.85406 19.8046C9.35884 20.0925 10.8609 20.0456 12.2845 19.7729C12.5371 19.6923 12.7055 19.4907 12.7055 19.2891V18.7346C12.7055 17.8836 13.2568 17.1454 14.0002 16.7312C14.0496 16.7037 14.0988 16.6757 14.1476 16.6472C14.8377 16.2446 15.6883 16.1461 16.393 16.5227L17.0422 16.8698C17.2527 16.9907 17.5053 16.9504 17.6738 16.7891C18.7264 15.7005 19.4842 14.4102 19.9895 12.9586C20.0316 12.757 19.9474 12.515 19.7369 12.3941ZM10.0109 13.2005C8.1162 13.2005 6.64257 11.7893 6.64257 9.97478C6.64257 8.20063 8.1162 6.74905 10.0109 6.74905C11.8634 6.74905 13.3792 8.20063 13.3792 9.97478C13.3792 11.7893 11.8634 13.2005 10.0109 13.2005Z"
-                    fill="#2A7BE4"></path>
-                </svg></span></span></span></div>
-      </div><small class="text-uppercase text-700 fw-bold py-2 pe-2 ps-1 rounded-end">customize</small>
-    </div>
-  </a>
+  </div>
 
   <!-- ===============================================-->
   <!--    JavaScripts-->

@@ -11,6 +11,9 @@ use App\Models\Member;
 use App\Models\Role;
 use App\Models\Batch;
 use Auth;
+use App\Models\User;
+use Illuminate\Support\Facades\Storage;
+
 
 class SuperadminController extends Controller
 {
@@ -28,8 +31,10 @@ class SuperadminController extends Controller
     }
 
 
-    public function show_dashboard(){
-        return view('superadmin.dashboard');
+    public function show_dashboard()
+    {
+        $projectCount = Project::count();
+        return view('superadmin.dashboard', compact('projectCount'));
     }
     public function project_list()
     {
@@ -45,9 +50,24 @@ class SuperadminController extends Controller
         }
     }
 
-    public function project_details()
+    public function project_details(Request $request)
     {
-        return view('superadmin.project-detail');
+        if ($request->ajax()) {
+            $projectId = $request->query('projectId');
+
+            // Fetch project details based on the projectId
+            $project = Project::find($projectId);
+
+            if ($project) {
+                return response()->json(['status' => 200, 'project' => $project]);
+            } else {
+                return response()->json(['status' => 404, 'message' => 'Project not found']);
+            }
+        }
+
+        // Render the view for non-AJAX requests
+        $details = Project::all();
+        return view('superadmin.project-detail', compact('details'));
     }
 
     public function project_store(Request $request)
@@ -70,19 +90,6 @@ class SuperadminController extends Controller
 
     public function accept(Request $request)
     {
-        // Validate the request data
-        $validator = Validator::make($request->all(), [
-            'project_title' => 'required|string|exists:projects,project_title',
-        ]);
-
-        if ($validator->fails()) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Validation failed',
-                'errors' => $validator->errors(),
-            ], 422);
-        }
-
         // Find the project by its title
         $project = Project::where('project_title', $request->project_title)->first();
 
@@ -105,10 +112,6 @@ class SuperadminController extends Controller
     }
     public function reject(Request $request)
     {
-        // Validate request
-        $request->validate([
-            'project_title' => 'required|exists:projects,project_title',
-        ]);
 
         // Find the project by title
         $project = Project::where('project_title', $request->project_title)->first();
@@ -125,22 +128,33 @@ class SuperadminController extends Controller
     }
 
 
-    public function getProject($id)
-    {
-        $project = Project::find($id);
 
-        if ($project) {
-            return response()->json([
-                'status' => 200,
-                'project' => $project
-            ]);
-        } else {
-            return response()->json([
-                'status' => 404,
-                'message' => 'Project not found'
-            ]);
-        }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
+
+    public function getProject($id)
+{
+    $project = Project::with('user')->find($id);
+
+    if ($project) {
+        // Access user's image if project is found
+        $userImage = $project->user->image;
+
+        return response()->json([
+            'status' => 200,
+            'project' => $project,
+            'profile_image' => $userImage, // Include user's image in the response
+        ]);
+    } else {
+        return response()->json([
+            'status' => 404,
+            'message' => 'Project not found'
+        ]);
+    }
+}
+
     public function getTeams()
     {
         $teams = Team::all();
@@ -152,8 +166,8 @@ class SuperadminController extends Controller
 
     public function show_team()
     {
-        $team=Team::all();
-        return view('superadmin.addteam',compact('team'));
+        $team = Team::all();
+        return view('superadmin.addteam', compact('team'));
     }
     public function store(Request $request)
     {
@@ -235,8 +249,8 @@ class SuperadminController extends Controller
 
     public function add_roles()
     {
-        $roles=Role::all();
-        return view('superadmin.addroles',compact('roles'));
+        $roles = Role::all();
+        return view('superadmin.addroles', compact('roles'));
     }
 
     public function addRole(Request $request)
@@ -267,8 +281,8 @@ class SuperadminController extends Controller
 
     public function show_batch()
     {
-        $batches=Batch::all();
-        return view('superadmin.addbatch',compact('batches'));
+        $batches = Batch::all();
+        return view('superadmin.addbatch', compact('batches'));
     }
     public function addBatch(Request $request)
     {
@@ -309,4 +323,70 @@ class SuperadminController extends Controller
             'batches' => $batches
         ]);
     }
+
+    //total no of projects count
+    public function getProjectCount()
+    {
+        $count = Project::count();
+        return response()->json(['count' => $count]);
+    }
+    //total no of memebers count
+    public function getMemberCount()
+    {
+        $memberCount = Member::count();
+        return response()->json(['memberCount' => $memberCount]);
+    }
+
+    public function updateStatus(Request $request)
+    {
+        $batchId = $request->input('batch_id');
+        $status = $request->input('status');
+
+        $batch = Batch::findOrFail($batchId);
+        $batch->batch_status = $status;
+        $batch->save();
+
+        return response()->json(['message' => 'Batch status updated successfully']);
+    }
+
+
+    //usee profile image 
+    public function updateProfile(Request $request)
+{
+    // Validate the incoming request
+    $request->validate([
+        'profile_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048' // max 2MB
+    ]);
+
+    // Get the authenticated user
+    $user = Auth::user();
+
+    // Handle the profile image upload
+    if ($request->hasFile('profile_image')) {
+        // Get the uploaded file instance
+        $image = $request->file('profile_image');
+
+        // Generate a unique file name for the image
+        $imageName = time() . '.' . $image->getClientOriginalExtension();
+
+        // Move the uploaded file to the public/images directory
+        $image->move(public_path('images'), $imageName);
+
+        // Delete previous image if it exists and is not the default profile image
+        if ($user->image && $user->image != 'images/default_profile.png') {
+            $previousImagePath = public_path($user->image);
+            if (file_exists($previousImagePath)) {
+                unlink($previousImagePath);
+            }
+        }
+
+        // Update user's profile image field in the database
+        $user->image = 'images/' . $imageName;
+        $user->save();
+    }
+
+    // Redirect back with success message
+    return back()->with('success', 'Profile image updated successfully.');
+}
+
 }

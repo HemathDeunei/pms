@@ -39,14 +39,11 @@
                 <div class="navbar-vertical-content">
                     <ul class="navbar-nav flex-column" id="navbarVerticalNav">
                         <!-- the home content in sie bar page here -->
-                        @include('home.sidebar_home')
                         <!--end of the home content in sie bar page here -->
                         <!-- the apps content in side bar page here -->
-                        @include('home.sidebar_apps')
+                        @include('member.sidebar_apps')
                         <!--end of the apps content in side bar page here -->
-                        @include('home.sidebar_page')
-                       @include('home.sidebar_modules')
-                       @include('home.sidebar_documentation')
+                       
                     </ul>
                 </div>
             </div>
@@ -56,6 +53,7 @@
                         class="uil uil-arrow-from-right fs-0"></span><span
                         class="navbar-vertical-footer-text ms-2">Collapsed View</span></button></div>
         </nav>
+        @include('member.navbar')
         <nav class="navbar navbar-top fixed-top navbar-expand" id="navbarDefault" style="display:none;">
             <div class="collapse navbar-collapse justify-content-between">
                 <div class="navbar-logo">

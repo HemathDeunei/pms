@@ -123,8 +123,15 @@
                         </li>
                         <li class="nav-item">
                             <!-- label-->
-                            <p class="navbar-vertical-label">Apps</p>
+                            <p class="navbar-vertical-label">TASK</p>
                             <hr class="navbar-vertical-line" /><!-- parent pages-->
+                            <div class="nav-item-wrapper"><a class="nav-link label-1" href="apps/calendar.html"
+                                    role="button" data-bs-toggle="" aria-expanded="false">
+                                    <div class="d-flex align-items-center"><span class="nav-link-icon"><span
+                                                data-feather="calendar"></span></span><span
+                                            class="nav-link-text-wrapper"><span
+                                                class="nav-link-text">My Task</span></span></div>
+                                </a></div>
                             <div class="nav-item-wrapper"><a class="nav-link dropdown-indicator label-1"
                                     href="#nv-e-commerce" role="button" data-bs-toggle="collapse" aria-expanded="false"
                                     aria-controls="nv-e-commerce">
@@ -570,7 +577,7 @@
                                     <div class="d-flex align-items-center"><span class="nav-link-icon"><span
                                                 data-feather="calendar"></span></span><span
                                             class="nav-link-text-wrapper"><span
-                                                class="nav-link-text">Calendar</span></span></div>
+                                                class="nav-link-text">My Task</span></span></div>
                                 </a></div>
                         </li>
                         <li class="nav-item">
@@ -2028,6 +2035,7 @@
                         class="uil uil-arrow-from-right fs-0"></span><span
                         class="navbar-vertical-footer-text ms-2">Collapsed View</span></button></div>
         </nav>
+        @include('student.navbar')
         <nav class="navbar navbar-top fixed-top navbar-expand" id="navbarDefault" style="display:none;">
             <div class="collapse navbar-collapse justify-content-between">
                 <div class="navbar-logo">

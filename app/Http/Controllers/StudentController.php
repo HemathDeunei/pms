@@ -6,18 +6,32 @@ use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\User;
 use Validator;
+use App\Models\Batch;
+use Auth;
 
 class StudentController extends Controller
 {
     public function show_student()
     {
         $student = Student::all();
-        // return view('admin.student', compact('student'));
+        return view('admin.student', compact('student'));
     }
     public function student_register()
     {
-        return view('student.student_register');
+        // Fetch all batches (assuming you want to check each batch status)
+        $batchStatus = Batch::all();
+        
+        // Check if any batch is 'open'
+        $isOpen = $batchStatus->contains('batch_status', 'open');
+
+        if ($isOpen) {
+            return view('student.student_register', compact('batchStatus'));
+        } else {
+            return response()->view('errors.404', [], 404);
+        }
     }
+
+    
 
     public function store_student(Request $request)
     {
@@ -182,5 +196,43 @@ public function edit($regno)
         return response()->json(['student' => $student]);
     }
 
+
+    public function profileupdate(Request $request)
+{
+    // Validate the incoming request
+    $request->validate([
+        'profile_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048' // max 2MB
+    ]);
+
+    // Get the authenticated user
+    $user = Auth::user();
+
+    // Handle the profile image upload
+    if ($request->hasFile('profile_image')) {
+        // Get the uploaded file instance
+        $image = $request->file('profile_image');
+
+        // Generate a unique file name for the image
+        $imageName = time() . '.' . $image->getClientOriginalExtension();
+
+        // Move the uploaded file to the public/images directory
+        $image->move(public_path('images'), $imageName);
+
+        // Delete previous image if it exists and is not the default profile image
+        if ($user->image && $user->image != 'images/default_profile.png') {
+            $previousImagePath = public_path($user->image);
+            if (file_exists($previousImagePath)) {
+                unlink($previousImagePath);
+            }
+        }
+
+        // Update user's profile image field in the database
+        $user->image = 'images/' . $imageName;
+        $user->save();
+    }
+
+    // Redirect back with success message
+    return back()->with('success', 'Profile image updated successfully.');
+}
 
 }

@@ -19,7 +19,7 @@ class MemberController extends Controller
     }
 
     public function member_list()
-    {  
+    {
         $members = Member::all();
         if (request()->expectsJson()) {
             return response()->json([
@@ -89,7 +89,7 @@ class MemberController extends Controller
         if ($member) {
             return response()->json([
                 'status' => 200,
-                'member' => $member,
+                'member' => $member,  
             ]);
         } else {
             return response()->json([
@@ -116,93 +116,95 @@ class MemberController extends Controller
     }
 
     public function updateMember(Request $request, $id)
-{
-    $validator = Validator::make($request->all(), [
-        'bio_id' => 'required|max:191',
-        'user_name' => 'required|max:191',
-        'password' => 'required|max:191',
-        'personal_email' => 'required|email|max:191',
-        'official_email' => 'required|email|max:191',
-        'employee_id' => 'required|max:191',
-        'experience' => 'required|max:191',
-        'linkedin' => 'required|max:191',
-        'portfolio' => 'required|max:191',
-        'mobile_number' => 'required|max:191',
-        'tech_stack' => 'required|max:191',
-        'designation' => 'required|max:191',
-        'date_of_joining' => 'required|date',
-        'team' => 'required|max:191',
-        'roles_name' => 'required|max:191', // Validate roles_name
-    ]);
-
-    if ($validator->fails()) {
-        return response()->json([
-            'status' => 400,
-            'errors' => $validator->messages()
+    {
+        $validator = Validator::make($request->all(), [
+            'bio_id' => 'required|max:191',
+            'user_name' => 'required|max:191',
+            'password' => 'required|max:191',
+            'personal_email' => 'required|email|max:191',
+            'official_email' => 'required|email|max:191',
+            'employee_id' => 'required|max:191',
+            'experience' => 'required|max:191',
+            'linkedin' => 'required|max:191',
+            'portfolio' => 'required|max:191',
+            'mobile_number' => 'required|max:191',
+            'tech_stack' => 'required|max:191',
+            'designation' => 'required|max:191',
+            'date_of_joining' => 'required|date',
+            'team' => 'required|max:191',
+            'roles_name' => 'required|max:191', // Validate roles_name
         ]);
-    } else {
-        $member = Member::find($id);
-        if ($member) {
-            // Update the member's properties
-            $member->bio_id = $request->input('bio_id');
-            $member->user_name = $request->input('user_name');
-            $member->password = $request->input('password');
-            $member->personal_email = $request->input('personal_email');
-            $member->official_email = $request->input('official_email');
-            $member->employee_id = $request->input('employee_id');
-            $member->experience = $request->input('experience');
-            $member->linkedin = $request->input('linkedin');
-            $member->portfolio = $request->input('portfolio');
-            $member->mobile_number = $request->input('mobile_number');
-            $member->tech_stack = $request->input('tech_stack');
-            $member->designation = $request->input('designation');
-            $member->date_of_joining = $request->input('date_of_joining');
-            $member->team = $request->input('team');
-            $member->roles_name = $request->input('roles_name'); // Update roles_name
-            $member->save(); // Save the updated member
 
+        if ($validator->fails()) {
             return response()->json([
-                'status' => 200,
-                'message' => 'Member Updated Successfully.'
+                'status' => 400,
+                'errors' => $validator->messages()
             ]);
         } else {
-            return response()->json([
-                'status' => 404,
-                'message' => 'No Member Found.'
-            ]);
+            $member = Member::find($id);
+            if ($member) {
+                // Update the member's properties
+                $member->bio_id = $request->input('bio_id');
+                $member->user_name = $request->input('user_name');
+                $member->password = $request->input('password');
+                $member->personal_email = $request->input('personal_email');
+                $member->official_email = $request->input('official_email');
+                $member->employee_id = $request->input('employee_id');
+                $member->experience = $request->input('experience');
+                $member->linkedin = $request->input('linkedin');
+                $member->portfolio = $request->input('portfolio');
+                $member->mobile_number = $request->input('mobile_number');
+                $member->tech_stack = $request->input('tech_stack');
+                $member->designation = $request->input('designation');
+                $member->date_of_joining = $request->input('date_of_joining');
+                $member->team = $request->input('team');
+                $member->roles_name = $request->input('roles_name'); // Update roles_name
+                $member->save(); // Save the updated member
+
+                return response()->json([
+                    'status' => 200,
+                    'message' => 'Member Updated Successfully.'
+                ]);
+            } else {
+                return response()->json([
+                    'status' => 404,
+                    'message' => 'No Member Found.'
+                ]);
+            }
         }
     }
-}
 
 
     public function accept(Request $request)
 {
-    // Validate request
-    $request->validate([
-        'personal_email' => 'required|email:users,email',
-        'user_type' => 'required|in:tl,member' // Validate user type
-    ]);
-
     // Find the member record by email
     $member = Member::where('personal_email', $request->personal_email)->first();
 
     if ($member) {
-        // Retrieve necessary data from member record
-        $password = $member->password;
-        $userName = $member->user_name;
-        $roleName = $member->roles_name; // Get roles from the member record
+        // Check if a user already exists for this member
+        $user = User::where('email', $member->personal_email)->first();
 
-        // Create new user with member's name, personal email, and password
-        $user = new User();
-        $user->name = $userName; // Set user's name from member's record
-        $user->email = $member->personal_email;
-        $user->password = bcrypt($password); // Encrypt the password
-        $user->usertype = $request->user_type; // Set user's type
-        $user->roles_name = $roleName; // Set user's role
-        $user->save();
+        if ($user) {
+            // If user already exists, update the user details
+            $user->name = $member->user_name; // Update user's name
+            $user->usertype = $request->user_type; // Update user's type
+            $user->roles_name = $member->roles_name; // Update user's role
+            $user->status = 'accepted'; // Update user's status
+            $user->save();
+        } else {
+            // If user does not exist, create a new user
+            $newUser = new User();
+            $newUser->name = $member->user_name;
+            $newUser->email = $member->personal_email;
+            $newUser->password = bcrypt($member->password);
+            $newUser->usertype = $request->user_type;
+            $newUser->roles_name = $member->roles_name;
+            $newUser->status = 'accepted'; // Set user's status
+            $newUser->save();
+        }
 
         // Update member status to "accepted"
-        $member->status = 'accepted'; // Update status to 'accepted'
+        $member->status = 'accepted';
         $member->save();
 
         // Customize the success message based on user type
@@ -213,13 +215,9 @@ class MemberController extends Controller
         return response()->json(['message' => 'Member not found'], 404);
     }
 }
+
     public function reject(Request $request)
     {
-        // Validate request
-        $request->validate([
-            'personal_email' => 'required|email|exists:members,personal_email',
-        ]);
-
         // Find the member record by email
         $member = Member::where('personal_email', $request->personal_email)->first();
         if ($member) {
@@ -241,6 +239,8 @@ class MemberController extends Controller
             return response()->json(['message' => 'Member not found'], 404);
         }
     }
+
     
-    
+
+
 }

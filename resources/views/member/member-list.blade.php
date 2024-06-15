@@ -97,14 +97,14 @@
         <div class="navbar-vertical-content">
           <ul class="navbar-nav flex-column" id="navbarVerticalNav">
             <!-- the home content in sie bar page here -->
-            @include('home.sidebar_home')
+            @include('member.sidebar_home')
             <!--end of the home content in sie bar page here -->
             <!-- the apps content in side bar page here -->
-            @include('home.sidebar_apps')
+            @include('member.sidebar_apps')
             <!--end of the apps content in side bar page here -->
-            @include('home.sidebar_page')
-            @include('home.sidebar_modules')
-            @include('home.sidebar_documentation')
+            @include('member.sidebar_page')
+            @include('member.sidebar_modules')
+            @include('member.sidebar_documentation')
           </ul>
         </div>
       </div>
@@ -113,6 +113,7 @@
             class="uil uil-left-arrow-to-left fs-0"></span><span class="uil uil-arrow-from-right fs-0"></span><span
             class="navbar-vertical-footer-text ms-2">Collapsed View</span></button></div>
     </nav>
+    @include('superadmin.navbar')
     <nav class="navbar navbar-top fixed-top navbar-expand" id="navbarDefault" style="display:none;">
       <div class="collapse navbar-collapse justify-content-between">
         <div class="navbar-logo">
@@ -594,23 +595,23 @@
             </div>
           </li>
           <li class="nav-item">
-                        <form method="post" action="{{ route('logout') }}">
-                            @csrf
-                            <!-- Add any additional form fields if needed -->
+            <form method="post" action="{{ route('logout') }}">
+              @csrf
+              <!-- Add any additional form fields if needed -->
 
-                            <!-- Check if the user is authenticated and display the user type -->
-                            @if (Auth::check())
-                                <button type="submit" class="btn btn-primary">
-                                    LOGOUT ({{ Auth::user()->usertype }})
-                                </button>
-                            @else
-                                <!-- Optionally, you can handle the case when no user is logged in -->
-                                <button type="submit" class="btn btn-primary" disabled>
-                                    LOGOUT
-                                </button>
-                            @endif
-                        </form>
-                    </li>
+              <!-- Check if the user is authenticated and display the user type -->
+              @if (Auth::check())
+          <button type="submit" class="btn btn-primary">
+          LOGOUT ({{ Auth::user()->usertype }})
+          </button>
+        @else
+        <!-- Optionally, you can handle the case when no user is logged in -->
+        <button type="submit" class="btn btn-primary" disabled>
+        LOGOUT
+        </button>
+      @endif
+            </form>
+          </li>
         </ul>
       </div>
     </nav>
@@ -6469,7 +6470,7 @@
                 $.ajax({
                   type: "GET",
                   url: "/member-list",
-                  dataType: "json",      
+                  dataType: "json",
                   success: function (response) {
                     console.log("AJAX response:", response);
                     var tableBody = $('#members-table-body');
@@ -6505,13 +6506,18 @@
                       });
                     }
                   },
-                  error: function (xhr, status, error) {  
+                  error: function (xhr, status, error) {
                     console.error("AJAX error:", xhr.responseText);
                   }
                 });
 
                 // Handle accept button click
                 $(document).on('click', '.accept-btn', function (event) {
+                  $.ajaxSetup({
+                    headers: {
+                      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                  });
                   event.preventDefault();
 
                   let personalEmail = $(this).data('personal_email');
@@ -6630,19 +6636,21 @@
                     data: formData,
                     success: function (response) {
                       if (response.status == 'success') {
-                        console.log("Member data updated successfully!");
+                        alert("Member data updated successfully!");
                         // Optionally, you can perform actions after successful update
+                        location.reload();
                       } else {
-                        console.log("Error: " + response.message);
+                        alert("Error: " + response.message);
                         // Optionally, handle errors or display error messages
                       }
                     },
                     error: function (xhr, status, error) {
-                      console.error("AJAX Request Error:", error);
+                      alert("AJAX Request Error: " + error);
                       // Optionally, handle AJAX errors
                     }
                   });
                 });
+
               });
             </script>
 

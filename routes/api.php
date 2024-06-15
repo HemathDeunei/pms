@@ -30,15 +30,18 @@ Route::get('/homepage',[LoginController::class,'login']);
 // Route::get('/homepage',[LoginController::class,'role_login']);
 
 //super Admin
-Route::get('/superadmin_home',[SuperadminController::class,'superadmin_home']);
+// Route::get('/dashboard', 'DashboardController@showDashboard')->middleware('auth');
+
+Route::get('/superadmin_home',[SuperadminController::class,'superadmin_home'])->middleware('auth');
 Route::get('/project-create',[SuperadminController::class,'project_create'])->name('project-create');
 Route::get('/project-list',[SuperadminController::class,'project_list'])->name('project-list');
+Route::get('/dashboard_show',[SuperadminController::class,'show_dashboard'])->name('show_dashboard');
 route::get('/project-details',[SuperadminController::class,'project_details'])->name('project-details');
 Route::post('/project_store',[SuperadminController::class,'project_store'])->name('project_store');
 Route::post('/projects_accept', [SuperadminController::class, 'accept'])->name('project_accept');
 Route::post('/reject-project', [SuperadminController::class, 'reject']);
 Route::get('/add-team', [SuperadminController::class, 'show_team'])->name('show_team');
-Route::get('/add-roles',[SuperadminController::class,'add_roles'])->name('add_roles');
+Route::get('/add-roles',[SuperadminController::class,'add_roles'])->name('show_roles');
 Route::get('get_team',[SuperadminController::class,'display_team']);
 Route::post('/store-team', [SuperadminController::class, 'store'])->name('store_team');
 Route::get('/get-project/{id}', [SuperadminController::class, 'getProject']);
@@ -51,13 +54,17 @@ Route::post('/add_roles', [SuperadminController::class, 'addRole'])->name('add_r
 Route::get('/get_roles', [SuperadminController::class, 'getroles'])->name('get_roles');
 Route::get('/show_batch',[SuperadminController::class,'show_batch'])->name('show_batch');
 Route::post('/add-batch', [SuperadminController::class, 'addBatch'])->name('add_batch');
+Route::post('/open-batch/{id}', [SuperadminController::class, 'open'])->name('open_batch')->middleware('auth');
+Route::post('/close-batch/{id}', [SuperadminController::class, 'close'])->name('close_batch')->middleware('auth');
+Route::post('/update-batch-status', [SuperadminController::class, 'updateStatus'])->name('update_batch_status');
+Route::get('/project_count', [SuperadminController::class, 'getProjectCount']);
+
+Route::get('/members/count',[SuperadminController::class,'getMemberCount']);
+Route::post('/update-profile',[SuperadminController::class,'updateProfile'])->name('update.profile');
 
 
 
-
-
-
-//developer page
+//member page
 Route::get('/member_register',[MemberController::class,'member_register'])->name('member_register');
 Route::post('/add-member',[MemberController::class,'add_member'])->name('add_member');
 Route::get('/member-list',[MemberController::class,'member_list'])->name('member-list');
@@ -80,7 +87,7 @@ Route::get('/student_list',[StudentController::class,'student_list'])->name('stu
 Route::get('/fetch_students',[StudentController::class,'student_list'])->name('fetch_students');
 Route::post('/accept_student', [StudentController::class, 'accept'])->name('accept_student');
 Route::post('/reject_student', [StudentController::class, 'reject'])->name('reject_student');
-
+Route::post('/update-profile',[StudentController::class,'profileupdate'])->name('update.profile');
 
 
 //project 
@@ -91,5 +98,5 @@ Route::post('/reject_student', [StudentController::class, 'reject'])->name('reje
 Route::get('/create-faculty', [FacultyController::class, 'create_faculty'])->name('add_faculty');
 Route::post('/add-faculty', [FacultyController::class, 'store_faculty'])->name('store_faculty');
 Route::get('/faculty-list', [FacultyController::class, 'index'])->name('faculty_list');
-Route::get('/get-faculty/{id}', [FacultyController::class, 'show'])->name('faculty_show');
+Route::get('/get-faculty/{id}', [FacultyController::class, 'edit'])->name('faculty_show');
 Route::post('/update-faculty/{id}', [FacultyController::class, 'update']);
