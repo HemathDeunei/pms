@@ -73,7 +73,9 @@ Route::post('/update-batch-status', [SuperadminController::class, 'updateStatus'
 Route::get('/project_count', [SuperadminController::class, 'getProjectCount']);
 
 Route::get('/members/count',[SuperadminController::class,'getMemberCount']);
-Route::post('/update-profile',[SuperadminController::class,'updateProfile'])->name('update.profile');
+Route::post('/update-profile',[SuperadminController::class,'updateProfile'])->name('update.profile');//for profile image update her
+Route::get('/project/{id}', [SuperadminController::class, 'project_details'])->name('project.details');//to get the particlar project detail with respect to id
+
 
 
 

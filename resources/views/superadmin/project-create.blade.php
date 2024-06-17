@@ -76,14 +76,14 @@
           <div class="navbar-vertical-content">
             <ul class="navbar-nav flex-column" id="navbarVerticalNav">
               <!-- the home content in sie bar page here -->
-              @include('home.sidebar_home')
+              @include('superadmin.sidebar_home')
               <!--end of the home content in sie bar page here -->
               <!-- the apps content in side bar page here -->
               @include('superadmin.sidebar_apps')
               <!--end of the apps content in side bar page here -->
-              @include('home.sidebar_page')
-              @include('home.sidebar_modules')
-              @include('home.sidebar_documentation')
+              @include('superadmin.sidebar_page')
+              @include('superadmin.sidebar_modules')
+              @include('superadmin.sidebar_documentation')
             </ul>
           </div>
         </div>

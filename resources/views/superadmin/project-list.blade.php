@@ -464,8 +464,7 @@
                                 <div class="card-body p-0">
                                     <div class="text-center pt-4 pb-3">
                                         <div class="avatar avatar-xl ">
-                                            <img class="rounded-circle " src=""
-                                                alt="" />
+                                            <img class="rounded-circle " src="" alt="" />
                                         </div>
                                         <h6 class="mt-2 text-black">Jerry Seinfield</h6>
                                     </div>
@@ -5679,7 +5678,7 @@
                         </div>
                     </div>
                     <ul class="navbar-nav navbar-nav-icons flex-row">
-                        
+
                         <li class="nav-item dropdown">
                             <a class="nav-link" id="navbarDropdownNindeDots" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-haspopup="true" data-bs-auto-close="outside"
@@ -5793,7 +5792,7 @@
                                 </div>
                             </div>
                         </li>
-                        
+
 
                     </ul>
                 </div>
@@ -7062,7 +7061,7 @@
                                         style="width:5%;">PLATFORM</th>
                                     <th class="sort align-middle text-end" scope="col" data-sort="statuses"
                                         style="width:10%;">BATCH/YEAR</th>
-                                        <th class="sort align-middle text-end" scope="col" data-sort="statuses"
+                                    <th class="sort align-middle text-end" scope="col" data-sort="statuses"
                                         style="width:10%;">STATUS</th>
                                     <th class="sort align-middle text-end" scope="col" style="width:10%;">ACTION</th>
                                 </tr>
@@ -7137,8 +7136,14 @@
                                                     <!-- Platform -->
                                                     <div class="col-sm-6 col-md-4">
                                                         <div class="form-floating">
-                                                            <input class="form-control" id="floatingPlatform"
-                                                                type="text" placeholder="Platform" name="platform">
+                                                            <select class="form-control" id="floatingPlatform"
+                                                                name="platform">
+                                                                <option>SELECT THE PLATFORM</option>
+                                                                <option value="web-laravel">Web - Laravel</option>
+                                                                <option value="web-node">Web - Node.js</option>
+                                                                <option value="mobile-android">Mobile - Android</option>
+                                                                <option value="mobile-ios">Mobile - iOS</option>
+                                                            </select>
                                                             <label for="floatingPlatform">Platform</label>
                                                         </div>
                                                     </div>
@@ -7240,28 +7245,22 @@
         tableBody.empty(); // Clear existing rows
 
         if (response.projects && response.projects.length) {
-            response.projects.forEach(function (project) {
-                var canEdit = project.project_status !== 'rejected'; // Check if project is not rejected
-
-                var editButton = canEdit ? `<a class="editbtn dropdown-item text-danger" href="#" data-bs-toggle="modal" data-bs-target="#editModal" data-id="${project.id}">Edit</a>` : '';
-                
-                // Only show action button if project_status is not 'Rejected'
-                var actionColumn = project.project_status !== 'rejected' ?
-                    `<td class="align-middle text-end white-space-nowrap pe-0 action">
-                        <div class="font-sans-serif btn-reveal-trigger position-static">
-                            <button class="btn btn-sm dropdown-toggle dropdown-caret-none transition-none btn-reveal fs--2" type="button" data-bs-toggle="dropdown" data-boundary="window" aria-haspopup="true" aria-expanded="false" data-bs-reference="parent">
-                                <svg class="svg-inline--fa fa-ellipsis fs--2" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="ellipsis" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
-                                    <path fill="currentColor" d="M120 256C120 286.9 94.93 312 64 312C33.07 312 8 286.9 8 256C8 225.1 33.07 200 64 200C94.93 200 120 225.1 120 256zM280 256C280 286.9 254.9 312 224 312C193.1 312 168 286.9 168 256C168 225.1 193.1 200 224 200C254.9 200 280 225.1 280 256zM328 256C328 225.1 353.1 200 384 200C414.9 200 440 225.1 440 256C440 286.9 414.9 312 384 312C353.1 312 328 286.9 328 256z"></path>
-                                </svg>
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-end py-2"> 
-                                <a class="accept-btn dropdown-item" href="#!" data-id="${project.project_title}">Accept</a>
-                                <a class="reject-btn dropdown-item" href="#!" data-id="${project.project_title}">Reject</a>
-                                <div class="dropdown-divider"></div>
-                                ${editButton}
-                            </div>
-                        </div>
-                    </td>` : '<td class="align-middle text-end white-space-nowrap pe-0"></td>';
+            response.projects.forEach(function (proamject) {
+                var actionButtons = '';
+                if (project.project_status === 'rejected') {
+                    // Only show 'Reject' button for rejected projects
+                    actionButtons = `
+                        <a class="accept-btn dropdown-item" href="#!" data-id="${project.project_title}">Accept</a>
+                    `;
+                } else {
+                    // Show 'Accept', 'Reject', and 'Edit' buttons for other project statuses
+                    actionButtons = `
+                        <a class="accept-btn dropdown-item" href="#!" data-id="${project.project_title}">Accept</a>
+                        <a class="reject-btn dropdown-item" href="#!" data-id="${project.project_title}">Reject</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="editbtn dropdown-item text-danger" href="#" data-bs-toggle="modal" data-bs-target="#editModal" data-id="${project.id}">Edit</a>
+                    `;
+                }
 
                 var data = `
                     <tr>
@@ -7286,7 +7285,18 @@
                         <td>${project.platform}</td>
                         <td>${project.batch}</td>
                         <td>${project.project_status}</td>
-                        ${actionColumn}
+                        <td class="align-middle text-end white-space-nowrap pe-0 action">
+                            <div class="font-sans-serif btn-reveal-trigger position-static">
+                                <button class="btn btn-sm dropdown-toggle dropdown-caret-none transition-none btn-reveal fs--2" type="button" data-bs-toggle="dropdown" data-boundary="window" aria-haspopup="true" aria-expanded="false" data-bs-reference="parent">
+                                    <svg class="svg-inline--fa fa-ellipsis fs--2" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="ellipsis" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                                        <path fill="currentColor" d="M120 256C120 286.9 94.93 312 64 312C33.07 312 8 286.9 8 256C8 225.1 33.07 200 64 200C94.93 200 120 225.1 120 256zM280 256C280 286.9 254.9 312 224 312C193.1 312 168 286.9 168 256C168 225.1 193.1 200 224 200C254.9 200 280 225.1 280 256zM328 256C328 225.1 353.1 200 384 200C414.9 200 440 225.1 440 256C440 286.9 414.9 312 384 312C353.1 312 328 286.9 328 256z"></path>
+                                    </svg>
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-end py-2">
+                                    ${actionButtons}
+                                </div>
+                            </div>
+                        </td>
                     </tr>`;
                 tableBody.append(data);
             });
@@ -7296,6 +7306,7 @@
         console.error("AJAX error:", xhr.responseText);
     }
 });
+
 
 
                             // Handle click event on accept button
@@ -7434,9 +7445,10 @@
                                                         membersDropdown.empty(); // Clear existing options
 
                                                         members.forEach(function (member) {
+                                                            var optionText = member.user_name + ' (' + member.team + ')'; // Concatenate user_name and team
                                                             var option = $('<option></option>')
-                                                                .attr('value', member.user_name) // Change to member.user_name
-                                                                .text(member.user_name);
+                                                                .attr('value', member.user_name)
+                                                                .text(optionText); // Set the concatenated text as option text
                                                             membersDropdown.append(option);
                                                         });
 
@@ -7451,6 +7463,7 @@
                                                     console.error("AJAX Request Error:", error); // Log AJAX error
                                                 }
                                             });
+
 
                                             // Fetch students and populate the student dropdown
                                             $.ajax({

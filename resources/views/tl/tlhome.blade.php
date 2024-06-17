@@ -50,6 +50,7 @@
                         class="uil uil-arrow-from-right fs-0"></span><span
                         class="navbar-vertical-footer-text ms-2">Collapsed View</span></button></div>
         </nav>
+        @include('tl.navbar')
         <nav class="navbar navbar-top fixed-top navbar-expand" id="navbarDefault" style="display:none;">
             <div class="collapse navbar-collapse justify-content-between">
                 <div class="navbar-logo">

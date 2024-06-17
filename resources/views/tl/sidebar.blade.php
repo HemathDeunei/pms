@@ -105,19 +105,95 @@ $userRole = auth()->user()->roles_name; // Get the user's role
 
     <!-- Display All Projects link for admin, team leader, faculty, and project manager -->
     <div class="nav-item-wrapper">
-        @if($userRole == 'admin' || $userRole == 'team-leader' || $userRole == 'faculty' || $userRole == 'project-manager')
-        <a class="nav-link label-1" href="{{ route('project-create') }}" role="button" data-bs-toggle="" aria-expanded="false">
-            <div class="d-flex align-items-center">
-                <span class="nav-link-icon">
-                    <span data-feather="archive"></span> <!-- Archive icon -->
-                </span>
-                <span class="nav-link-text-wrapper">
-                    <span class="nav-link-text">All Projects</span> <!-- Link text -->
-                </span>
-            </div>
-        </a>
-        @endif
-    </div>
+    @if($userRole == 'admin')
+    <a class="nav-link label-1" href="{{ route('project-create') }}" role="button" data-bs-toggle="" aria-expanded="false">
+        <div class="d-flex align-items-center">
+            <span class="nav-link-icon">
+                <span data-feather="archive"></span> <!-- Archive icon -->
+            </span>
+            <span class="nav-link-text-wrapper">
+                <span class="nav-link-text">All Projects</span> <!-- Link text -->
+            </span>
+        </div>
+    </a>
+    @endif
+</div>
+
+<div class="nav-item-wrapper">
+    @if($userRole == 'team-leader')
+    <a class="nav-link label-1" href="{{ route('project-create') }}" role="button" data-bs-toggle="" aria-expanded="false">
+        <div class="d-flex align-items-center">
+            <span class="nav-link-icon">
+                <span data-feather="archive"></span> <!-- Archive icon -->
+            </span>
+            <span class="nav-link-text-wrapper">
+                <span class="nav-link-text">All Projects</span> <!-- Link text -->
+            </span>
+        </div>
+    </a>
+    @endif
+</div>
+
+<div class="nav-item-wrapper">
+    @if($userRole == 'faculty')
+    <a class="nav-link label-1" href="{{ route('project-create') }}" role="button" data-bs-toggle="" aria-expanded="false">
+        <div class="d-flex align-items-center">
+            <span class="nav-link-icon">
+                <span data-feather="archive"></span> <!-- Archive icon -->
+            </span>
+            <span class="nav-link-text-wrapper">
+                <span class="nav-link-text">Faculty page</span> <!-- Link text -->
+            </span>
+        </div>
+    </a>
+    @endif
+</div>
+<!-- 
+<div class="nav-item-wrapper">
+    @if($userRole == 'project-manager')
+    <a class="nav-link label-1" href="{{ route('project-create') }}" role="button" data-bs-toggle="" aria-expanded="false">
+        <div class="d-flex align-items-center">
+            <span class="nav-link-icon">
+                <span data-feather="archive"></span> 
+            </span>
+            <span class="nav-link-text-wrapper">
+                <span class="nav-link-text">All Projects</span> 
+            </span>
+        </div>
+    </a>
+    @endif
+</div> -->
+
+<div class="nav-item-wrapper">
+    @if($userRole == 'reviewer')
+    <a class="nav-link label-1" href="{{ route('project-create') }}" role="button" data-bs-toggle="" aria-expanded="false">
+        <div class="d-flex align-items-center">
+            <span class="nav-link-icon">
+                <span data-feather="archive"></span> <!-- Archive icon -->
+            </span>
+            <span class="nav-link-text-wrapper">
+                <span class="nav-link-text">Reviewer Page</span> <!-- Link text -->
+            </span>
+        </div>
+    </a>
+    @endif
+</div>
+
+<div class="nav-item-wrapper">
+    @if($userRole == 'developer')
+    <a class="nav-link label-1" href="{{ route('project-create') }}" role="button" data-bs-toggle="" aria-expanded="false">
+        <div class="d-flex align-items-center">
+            <span class="nav-link-icon">
+                <span data-feather="archive"></span> <!-- Archive icon -->
+            </span>
+            <span class="nav-link-text-wrapper">
+                <span class="nav-link-text">All Projects</span> <!-- Link text -->
+            </span>
+        </div>
+    </a>
+    @endif
+</div>
+
 
     <!-- Display Team link for admin and team leader -->
     <div class="nav-item-wrapper">
@@ -161,6 +237,16 @@ $userRole = auth()->user()->roles_name; // Get the user's role
                 </span>
                 <span class="nav-link-text-wrapper">
                     <span class="nav-link-text">Reviewer Page</span> <!-- Link text -->
+                </span>
+            </div>
+        </a>
+        <a class="nav-link label-1" href="{{ route('reviewer-page') }}" role="button" data-bs-toggle="" aria-expanded="false">
+            <div class="d-flex align-items-center">
+                <span class="nav-link-icon">
+                    <span data-feather="eye"></span> <!-- Eye icon -->
+                </span>
+                <span class="nav-link-text-wrapper">
+                    <span class="nav-link-text">View</span> <!-- Link text -->
                 </span>
             </div>
         </a>

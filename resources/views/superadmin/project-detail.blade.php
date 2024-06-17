@@ -75,14 +75,14 @@
           <div class="navbar-vertical-content">
             <ul class="navbar-nav flex-column" id="navbarVerticalNav">
               <!-- the home content in sie bar page here -->
-              @include('home.sidebar_home')
+              @include('superadmin.sidebar_home')
               <!--end of the home content in sie bar page here -->
               <!-- the apps content in side bar page here -->
               @include('superadmin.sidebar_apps')
               <!--end of the apps content in side bar page here -->
-              @include('home.sidebar_page')
-              @include('home.sidebar_modules')
-              @include('home.sidebar_documentation')
+              @include('superadmin.sidebar_page')
+              @include('superadmin.sidebar_modules')
+              @include('superadmin.sidebar_documentation')
             </ul>
           </div>
         </div>
@@ -5815,14 +5815,7 @@
                     </div>
                   </div>
                 </div>
-                <div>
-                  <div class="d-flex align-items-center"><span
-                      class="fa-solid fa-list-check me-2 text-700 fs--1"></span>
-                    <h5 class="text-1100 mb-0 me-2">91<span class="text-900 fw-normal ms-2">tasks</span></h5><a
-                      class="fw-bold fs--1 mt-1" href="#!">See tasks <span
-                        class="fa-solid fa-chevron-right me-2 fs--2"></span></a>
-                  </div>
-                </div>
+                
               </div>
               <div class="col-12 col-lg-3">
                 <div class="mb-5">

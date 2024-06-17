@@ -11,7 +11,7 @@ use App\Models\Member;
 use App\Models\Role;
 use App\Models\Batch;
 use Auth;
-use App\Models\User;
+// use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -129,23 +129,19 @@ class SuperadminController extends Controller
 
 
 
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
+    // public function user()
+    // {
+    //     return $this->belongsTo(User::class);
+    // }
 
     public function getProject($id)
 {
-    $project = Project::with('user')->find($id);
+    $project = Project::find($id);
 
     if ($project) {
-        // Access user's image if project is found
-        $userImage = $project->user->image;
-
         return response()->json([
             'status' => 200,
-            'project' => $project,
-            'profile_image' => $userImage, // Include user's image in the response
+            'project' =>$project,
         ]);
     } else {
         return response()->json([
